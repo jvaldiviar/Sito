@@ -22,6 +22,37 @@
       </div>
 
 
+
+    </div>
+
+
+
+    <!-- COLONNA TESTO -->
+    <div class="sic-flashmeter-copy">
+
+      <span class="sic-flashmeter-eyebrow">
+        GLI STRUMENTI PER CONNETTERSI
+      </span>
+
+      <h2>
+        Dai valore all’energia che condividi
+      </h2>
+
+      <p class="sic-flashmeter-text">
+        Collegati alla rete, rendi l’energia visibile
+        e valorizza quella condivisa direttamente nella tua bolletta
+        con Comunità Solare Luce.
+      </p>
+
+      <a
+        href="#acquista-smart-meter"
+        class="sic-flashmeter-button"
+      >
+        Acquista lo Smart Meter
+      </a>
+
+    </div>
+
       <!-- 3 STRUMENTI SECONDARI -->
       <div class="sic-flashmeter-mini-grid">
 
@@ -79,35 +110,6 @@
 
       </div>
 
-    </div>
-
-
-
-    <!-- COLONNA TESTO -->
-    <div class="sic-flashmeter-copy">
-
-      <span class="sic-flashmeter-eyebrow">
-        GLI STRUMENTI PER CONNETTERSI
-      </span>
-
-      <h2>
-        Dai valore all’energia che condividi
-      </h2>
-
-      <p class="sic-flashmeter-text">
-        Collegati alla rete, rendi l’energia visibile
-        e valorizza quella condivisa direttamente nella tua bolletta
-        con Comunità Solare Luce.
-      </p>
-
-      <a
-        href="#acquista-smart-meter"
-        class="sic-flashmeter-button"
-      >
-        Acquista lo Smart Meter
-      </a>
-
-    </div>
 
   </div>
 
@@ -638,5 +640,35 @@
     transition: none;
   }
 
+}
+/* Connie and copy share the first row; tools span the row below. */
+.sic-flashmeter-inner {
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  column-gap: clamp(28px, 5vw, 78px);
+  row-gap: 42px;
+}
+.sic-flashmeter-visual { min-width: 0; }
+.sic-flashmeter-image { max-width: 100%; }
+.sic-flashmeter-inner > .sic-flashmeter-mini-grid {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  gap: 32px;
+}
+.sic-flashmeter-mini-image { height: 230px; }
+.sic-flashmeter-mini-tag {
+  margin-top: 18px;
+  padding: 9px 16px;
+  font-size: 12px;
+}
+@media (max-width: 760px) {
+  .sic-flashmeter-inner > .sic-flashmeter-mini-grid { gap: 18px; }
+  .sic-flashmeter-mini-image { height: 160px; }
+  .sic-flashmeter-mini-tag { font-size: 10px; padding: 8px 12px; }
+}
+@media (max-width: 480px) {
+  .sic-flashmeter-inner > .sic-flashmeter-mini-grid { gap: 26px; }
+  .sic-flashmeter-mini-image { height: 210px; }
 }
 </style>
