@@ -5,28 +5,6 @@
 
   <div class="sic-flashmeter-inner">
 
-    <!-- COLONNA VISUAL -->
-    <div class="sic-flashmeter-visual">
-
-      <!-- IMMAGINE PRINCIPALE -->
-      <div class="sic-flashmeter-main">
-
-        <div class="sic-flashmeter-circle"></div>
-
-        <img
-          src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/prova-strumenti-1-Bxxeg2L8VA4KaVdm.png"
-          alt="Strumenti Comunità Solare"
-          class="sic-flashmeter-image"
-        >
-
-      </div>
-
-
-
-    </div>
-
-
-
     <!-- COLONNA TESTO -->
     <div class="sic-flashmeter-copy">
 
@@ -670,5 +648,19 @@
 @media (max-width: 480px) {
   .sic-flashmeter-inner > .sic-flashmeter-mini-grid { gap: 26px; }
   .sic-flashmeter-mini-image { height: 210px; }
+}
+/* Centered introduction above the three tools. */
+.sic-flashmeter-inner > .sic-flashmeter-copy {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: 900px;
+  padding-top: 0;
+  text-align: center;
+}
+.sic-flashmeter-copy .sic-flashmeter-text {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
