@@ -1,0 +1,642 @@
+<section
+  class="sic-flashmeter"
+  aria-label="Strumenti per connettersi e condividere energia"
+>
+
+  <div class="sic-flashmeter-inner">
+
+    <!-- COLONNA VISUAL -->
+    <div class="sic-flashmeter-visual">
+
+      <!-- IMMAGINE PRINCIPALE -->
+      <div class="sic-flashmeter-main">
+
+        <div class="sic-flashmeter-circle"></div>
+
+        <img
+          src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/prova-strumenti-1-Bxxeg2L8VA4KaVdm.png"
+          alt="Strumenti Comunità Solare"
+          class="sic-flashmeter-image"
+        >
+
+      </div>
+
+
+      <!-- 3 STRUMENTI SECONDARI -->
+      <div class="sic-flashmeter-mini-grid">
+
+
+        <!-- CONNEXTUS -->
+        <article class="sic-flashmeter-mini-card">
+
+          <div class="sic-flashmeter-mini-image">
+            <img
+              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/45-7ZENHV9lbSwXY9z2.png"
+              alt="App Connextus"
+            >
+          </div>
+
+          <span class="sic-flashmeter-mini-tag">
+            Connextus
+          </span>
+
+        </article>
+
+
+        <!-- PIATTAFORMA -->
+        <article class="sic-flashmeter-mini-card">
+
+          <div class="sic-flashmeter-mini-image">
+            <img
+              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/44-kVm4TaKADrtDWGBp.png"
+              alt="Piattaforma Comunità Solare"
+            >
+          </div>
+
+          <span class="sic-flashmeter-mini-tag">
+            Piattaforma
+          </span>
+
+        </article>
+
+
+        <!-- SMART METER -->
+        <article class="sic-flashmeter-mini-card">
+
+          <div class="sic-flashmeter-mini-image">
+            <img
+              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/prova-strumenti-2-bJ3j5MtgqfuV27pP.png"
+              alt="Smart Meter"
+            >
+          </div>
+
+          <span class="sic-flashmeter-mini-tag">
+            Smart Meter
+          </span>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- COLONNA TESTO -->
+    <div class="sic-flashmeter-copy">
+
+      <span class="sic-flashmeter-eyebrow">
+        GLI STRUMENTI PER CONNETTERSI
+      </span>
+
+      <h2>
+        Dai valore all’energia che condividi
+      </h2>
+
+      <p class="sic-flashmeter-text">
+        Collegati alla rete, rendi l’energia visibile
+        e valorizza quella condivisa direttamente nella tua bolletta
+        con Comunità Solare Luce.
+      </p>
+
+      <a
+        href="#acquista-smart-meter"
+        class="sic-flashmeter-button"
+      >
+        Acquista lo Smart Meter
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.sic-flashmeter,
+.sic-flashmeter * {
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif !important;
+}
+
+.sic-flashmeter {
+  --sic-blue: #3d86c6;
+  --sic-blue-dark: #2f6fa8;
+  --sic-blue-soft: #edf6fc;
+  --sic-text: #3f454b;
+  --sic-grey: #697780;
+
+  width: 100%;
+  margin: 0;
+
+  padding: 62px 5% 68px;
+
+  background: #ffffff;
+}
+
+
+/* ==================================================
+   STRUTTURA PRINCIPALE
+   ================================================== */
+
+.sic-flashmeter-inner {
+  display: grid;
+
+  grid-template-columns:
+    minmax(560px, 1.02fr)
+    minmax(430px, 0.98fr);
+
+  align-items: center;
+
+  gap: clamp(52px, 5vw, 78px);
+
+  width: 100%;
+  max-width: 1240px;
+
+  margin: 0 auto;
+}
+
+
+/* ==================================================
+   COLONNA VISUAL
+   ================================================== */
+
+.sic-flashmeter-visual {
+  width: 100%;
+}
+
+
+/* ==================================================
+   IMMAGINE PRINCIPALE
+   ================================================== */
+
+.sic-flashmeter-main {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+  min-height: 390px;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+
+/* ==================================================
+   CERCHIO BLU
+   ================================================== */
+
+.sic-flashmeter-circle {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 215px;
+  height: 215px;
+
+  border-radius: 50%;
+
+  background: #3d86c6;
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 1;
+}
+
+
+/* ==================================================
+   IMMAGINE PRINCIPALE
+   ================================================== */
+
+.sic-flashmeter-image {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+
+  width: 530px;
+  max-width: none;
+
+  height: 390px;
+
+  object-fit: contain;
+  object-position: center;
+
+  filter:
+    drop-shadow(
+      0 16px 22px rgba(20, 49, 71, 0.15)
+    );
+}
+
+
+/* ==================================================
+   TRE STRUMENTI SOTTO
+   ================================================== */
+
+.sic-flashmeter-mini-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 28px;
+
+  width: 100%;
+  max-width: 700px;
+
+  margin: 26px auto 0;
+}
+
+
+/* ==================================================
+   SINGOLO STRUMENTO
+   ================================================== */
+
+.sic-flashmeter-mini-card {
+  display: flex;
+
+  min-width: 0;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+}
+
+
+/* ==================================================
+   IMMAGINI STRUMENTI
+   ================================================== */
+
+.sic-flashmeter-mini-image {
+  display: flex;
+
+  width: 100%;
+  height: 145px;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.sic-flashmeter-mini-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* ==================================================
+   TAG SOTTO LE IMMAGINI
+   ================================================== */
+
+.sic-flashmeter-mini-tag {
+  display: inline-flex;
+
+  margin-top: 12px;
+
+  padding: 7px 12px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background:
+    var(--sic-blue-soft);
+
+  color:
+    var(--sic-blue);
+
+  font-size: 9px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 0.75px;
+
+  text-transform: uppercase;
+}
+
+
+/* ==================================================
+   TESTO A DESTRA
+   ================================================== */
+
+.sic-flashmeter-copy {
+  width: 100%;
+  max-width: 510px;
+
+  justify-self: start;
+  align-self: center;
+
+  padding-top: 26px;
+}
+
+
+/* ==================================================
+   TAG SOPRA IL TITOLO
+   ================================================== */
+
+.sic-flashmeter-eyebrow {
+  display: block;
+
+  margin-bottom: 24px;
+
+  color:
+    var(--sic-blue);
+
+  font-size: 14px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* ==================================================
+   TITOLO PIÙ FORTE
+   ================================================== */
+
+.sic-flashmeter-copy h2 {
+  margin: 0;
+
+  color:
+    var(--sic-text);
+
+  font-size:
+    clamp(36px, 3.3vw, 46px);
+
+  line-height: 1.07;
+
+  font-weight: 700;
+
+  letter-spacing: 0;
+}
+
+
+/* ==================================================
+   TESTO
+   ================================================== */
+
+.sic-flashmeter-text {
+  max-width: 480px;
+
+  margin:
+    24px 0 0;
+
+  color:
+    var(--sic-grey);
+
+  font-size: 16px;
+  line-height: 1.62;
+
+  font-weight: 400;
+}
+
+
+/* ==================================================
+   BOTTONE
+   ================================================== */
+
+.sic-flashmeter-button {
+  display: inline-flex;
+
+  min-height: 45px;
+
+  margin-top: 26px;
+
+  padding:
+    13px 23px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background:
+    var(--sic-blue);
+
+  color: #ffffff;
+
+  font-size: 13px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 7px 18px rgba(61, 134, 198, 0.16);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sic-flashmeter-button:hover {
+  background:
+    var(--sic-blue-dark);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 1050px) {
+
+  .sic-flashmeter {
+    padding:
+      56px 28px 62px;
+  }
+
+  .sic-flashmeter-inner {
+    grid-template-columns:
+      minmax(470px, 1fr)
+      minmax(360px, 1fr);
+
+    gap: 42px;
+  }
+
+  .sic-flashmeter-main {
+    min-height: 350px;
+  }
+
+  .sic-flashmeter-circle {
+    width: 195px;
+    height: 195px;
+  }
+
+  .sic-flashmeter-image {
+    width: 475px;
+    height: 350px;
+  }
+
+  .sic-flashmeter-mini-grid {
+    max-width: 610px;
+
+    gap: 21px;
+
+    margin-top: 22px;
+  }
+
+  .sic-flashmeter-mini-image {
+    height: 125px;
+  }
+
+  .sic-flashmeter-copy {
+    max-width: 440px;
+
+    padding-top: 18px;
+  }
+
+  .sic-flashmeter-eyebrow {
+    margin-bottom: 21px;
+
+    font-size: 13px;
+  }
+
+  .sic-flashmeter-copy h2 {
+    font-size: 38px;
+  }
+
+  .sic-flashmeter-text {
+    font-size: 15px;
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 760px) {
+
+  .sic-flashmeter {
+    padding:
+      48px 16px 54px;
+  }
+
+  .sic-flashmeter-inner {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 36px;
+  }
+
+  .sic-flashmeter-main {
+    min-height: 320px;
+
+    justify-content: center;
+  }
+
+  .sic-flashmeter-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sic-flashmeter-image {
+    width: min(470px, 105vw);
+    height: 320px;
+  }
+
+  .sic-flashmeter-mini-grid {
+    max-width: 100%;
+
+    gap: 17px;
+
+    margin-top: 20px;
+  }
+
+  .sic-flashmeter-mini-image {
+    height: 112px;
+  }
+
+  .sic-flashmeter-mini-tag {
+    margin-top: 9px;
+
+    padding:
+      6px 10px;
+
+    font-size: 8px;
+  }
+
+  .sic-flashmeter-copy {
+    max-width: 540px;
+
+    padding-top: 0;
+  }
+
+  .sic-flashmeter-eyebrow {
+    margin-bottom: 19px;
+
+    font-size: 12px;
+  }
+
+  .sic-flashmeter-copy h2 {
+    font-size: 33px;
+  }
+
+  .sic-flashmeter-text {
+    font-size: 14px;
+  }
+
+}
+
+
+/* ==================================================
+   TELEFONI PICCOLI
+   ================================================== */
+
+@media (max-width: 480px) {
+
+  .sic-flashmeter-mini-grid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .sic-flashmeter-mini-image {
+    height: 135px;
+  }
+
+}
+
+
+/* ==================================================
+   RIDUZIONE ANIMAZIONI
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-flashmeter-button {
+    transition: none;
+  }
+
+}
+</style>
