@@ -1,0 +1,619 @@
+
+<!-- =========================================================
+     COMUNITÀ SOLARE - SCEGLI IL TUO PERCORSO
+
+     ULTIMA MODIFICA:
+     - Titolo principale bianco #FFFFFF
+     - Sottotitolo bianco #FFFFFF
+
+     INVARIATI:
+     - Descrizioni delle card su due righe desktop
+     - Testi delle card grigio #3F444A
+     - Eyebrow eliminato
+     - Pulsanti Inizia per ogni percorso
+     - Struttura e dimensioni delle tre card
+     - Immagini per privati, imprese e Comuni
+     - Effetto hover
+========================================================= -->
+
+<section class="sic-pathways" aria-label="Scegli il tuo percorso">
+
+  <div class="sic-pathways-inner">
+
+    <!-- TITOLO E SOTTOTITOLO -->
+
+    <div class="sic-pathways-copy">
+
+      <h2>
+        Prendi parte alla rivoluzione energetica
+      </h2>
+
+      <p>
+        Scegli il percorso che descrive meglio il tuo profilo
+      </p>
+
+    </div>
+
+
+    <!-- TRE CARD -->
+
+    <div class="sic-pathways-cards">
+
+
+      <!-- PRIVATO -->
+
+      <article class="sic-pathways-card sic-card-private">
+
+        <div class="sic-card-top">
+
+          <img class="sic-card-image" src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/sunlit-italian-home-with-rooftop-solar-1-1XTYu9FMK06eYdLD.png" alt="Casa italiana con pannelli solari sul tetto" loading="lazy">
+          <div class="sic-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M10 31 32 14l22 17"></path><path d="M15 28v23h34V28"></path><path d="M26 51V37h12v14"></path><path d="M43 18v-5h6v10"></path></svg>
+          </div>
+
+        </div>
+
+        <div class="sic-card-body">
+
+          <div class="sic-card-content">
+
+            <h3>Sei un privato?</h3>
+
+            <p>
+              Cosulenze e soluzioni per efficientare e gestire al
+              meglio l'energia della tua casa.
+            </p>
+
+          </div>
+
+          <div class="sic-card-button-space">
+            <!-- Sostituire con il link alla pagina privati. -->
+            <a class="sic-card-button" href="#link-privati" aria-label="Inizia il percorso per privati">Inizia</a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- IMPRESA -->
+
+      <article class="sic-pathways-card sic-card-business">
+
+        <div class="sic-card-top">
+
+          <img class="sic-card-image" src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/modern-italian-enterprise-with-rooftop-solar-3-G6AGU9xEAX3O3Aiy.png" alt="Impresa italiana con pannelli solari sul tetto" loading="lazy">
+          <div class="sic-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M10 52V27h18v25"></path><path d="M28 52V18h17v34"></path><path d="M45 52V34h9v18"></path><path d="M10 52h44"></path><path d="M16 34h6"></path><path d="M16 41h6"></path><path d="M34 26h5"></path><path d="M34 34h5"></path><path d="M34 42h5"></path></svg>
+          </div>
+
+        </div>
+
+        <div class="sic-card-body">
+
+          <div class="sic-card-content">
+
+            <h3>Sei un'impresa?</h3>
+
+            <p>
+              Trasforma la transizione energetica
+              in un'opportunità per la tua azienda.
+            </p>
+
+          </div>
+
+          <div class="sic-card-button-space">
+            <!-- Sostituire con il link alla pagina imprese. -->
+            <a class="sic-card-button" href="#link-imprese" aria-label="Inizia il percorso per imprese">Inizia</a>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- COMUNE -->
+
+      <article class="sic-pathways-card sic-card-public">
+
+        <div class="sic-card-top">
+
+          <img class="sic-card-image" src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/sustainable-italian-civic-square-in-sunlight-2-CnDiXgTfaLfMyu6R.png" alt="Piazza di un Comune italiano sostenibile" loading="lazy">
+          <div class="sic-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M8 25 32 12l24 13"></path><path d="M12 26h40"></path><path d="M16 27v21"></path><path d="M27 27v21"></path><path d="M37 27v21"></path><path d="M48 27v21"></path><path d="M12 48h40"></path><path d="M8 53h48"></path></svg>
+          </div>
+
+        </div>
+
+        <div class="sic-card-body">
+
+          <div class="sic-card-content">
+
+            <h3>Sei un Comune?</h3>
+
+            <p>
+              Guida la tua comunità al meglio 
+              nella transizione energetica.
+            </p>
+
+          </div>
+
+          <div class="sic-card-button-space">
+            <!-- Sostituire con il link alla pagina comuni. -->
+            <a class="sic-card-button" href="#link-comuni" aria-label="Inizia il percorso per Comuni">Inizia</a>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+/* ==================================================
+   IMPOSTAZIONI GENERALI
+================================================== */
+
+.sic-pathways,
+.sic-pathways * {
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif !important;
+}
+
+.sic-pathways {
+  --sic-text: #3F444A;
+
+  width: 100%;
+  margin: 0;
+
+  padding: 58px 5% 66px;
+  background: transparent;
+}
+
+
+/* ==================================================
+   CONTENITORE
+================================================== */
+
+.sic-pathways-inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+
+/* ==================================================
+   TITOLO E SOTTOTITOLO
+================================================== */
+
+.sic-pathways-copy {
+  width: 100%;
+  max-width: 950px;
+
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+
+/* TITOLO PRINCIPALE - BIANCO */
+
+.sic-pathways-copy h2 {
+  margin: 0;
+
+  color: #000000;
+
+  font-size: clamp(34px, 3.3vw, 46px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+
+
+/* SOTTOTITOLO - BIANCO */
+
+.sic-pathways-copy p {
+  margin: 16px 0 0;
+
+  color: #565656;
+
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+
+/* ==================================================
+   GRIGLIA TRE CARD
+================================================== */
+
+.sic-pathways-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+  width: 100%;
+}
+
+
+/* ==================================================
+   CARD GENERALE
+================================================== */
+
+.sic-pathways-card {
+  position: relative;
+
+  display: flex;
+  min-height: 342px;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 0;
+  border-radius: 22px;
+  background: #FFFFFF;
+
+  box-shadow:
+    0 16px 34px rgba(39, 75, 98, 0.11),
+    0 5px 14px rgba(39, 75, 98, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.sic-pathways-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 22px 44px rgba(39, 75, 98, 0.15),
+    0 8px 18px rgba(39, 75, 98, 0.08);
+}
+
+
+/* ==================================================
+   PARTE SUPERIORE COLORATA
+================================================== */
+
+.sic-card-top {
+  display: flex;
+  min-height: 145px;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+
+/* ==================================================
+   ICONE
+================================================== */
+
+.sic-card-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.sic-card-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.6);
+}
+
+
+/* ==================================================
+   PRIVATO
+================================================== */
+
+.sic-card-private {
+  color: #D77A25;
+}
+
+.sic-card-private .sic-card-top {
+  background: #F7D4B8;
+}
+
+
+/* ==================================================
+   IMPRESA
+================================================== */
+
+.sic-card-business {
+  color: #2F7FF0;
+}
+
+.sic-card-business .sic-card-top {
+  background: #CFE0FA;
+}
+
+
+/* ==================================================
+   COMUNE
+================================================== */
+
+.sic-card-public {
+  color: #087A25;
+}
+
+.sic-card-public .sic-card-top {
+  background: #CFE6D4;
+}
+
+
+/* ==================================================
+   PARTE INFERIORE DELLE CARD
+================================================== */
+
+.sic-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding: 22px 24px 24px;
+
+  background: #FFFFFF;
+  text-align: center;
+}
+
+
+/* ==================================================
+   CONTENUTO CARD
+================================================== */
+
+.sic-card-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* TITOLI CARD - GRIGIO */
+
+.sic-card-content h3 {
+  margin: 0;
+
+  color: #565656;
+
+  font-size: 22px;
+  line-height: 1.16;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+
+/* ==================================================
+   DESCRIZIONI DELLE CARD - GRIGIO
+================================================== */
+
+.sic-card-content p {
+  width: 100%;
+  max-width: 330px;
+
+  margin: 11px auto 0;
+
+  color: var(--sic-text);
+
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+
+/* ==================================================
+   PULSANTI INIZIA
+================================================== */
+
+.sic-card-button-space {
+  width: 100%;
+  min-height: 50px;
+
+  margin-top: auto;
+  padding-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sic-card-private { --sic-button-color: #EBBA90; }
+.sic-card-business { --sic-button-color: #5997F2; }
+.sic-card-public { --sic-button-color: #82AF7C; }
+
+.sic-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  width: 130px;
+  max-width: 100%;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--sic-button-color);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: filter 0.2s ease;
+}
+
+.sic-card-button:hover { filter: brightness(0.95); }
+.sic-card-button:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .sic-pathways {
+    padding: 52px 28px 60px;
+  }
+
+  .sic-pathways-copy {
+    margin-bottom: 32px;
+  }
+
+  .sic-pathways-copy h2 {
+    font-size: 38px;
+    white-space: normal;
+  }
+
+  .sic-pathways-cards {
+    gap: 16px;
+  }
+
+  .sic-pathways-card {
+    min-height: 325px;
+  }
+
+  .sic-card-top {
+    min-height: 130px;
+  }
+
+
+
+  .sic-card-body {
+    padding: 21px 17px 22px;
+  }
+
+  .sic-card-content h3 {
+    font-size: 19px;
+  }
+
+  .sic-card-content p {
+    font-size: 14px;
+  }
+
+  .sic-card-button-space {
+    min-height: 45px;
+  }
+}
+
+
+/* ==================================================
+   SMARTPHONE
+================================================== */
+
+@media (max-width: 700px) {
+
+  .sic-pathways {
+    padding: 46px 16px 54px;
+  }
+
+  .sic-pathways-copy {
+    margin-bottom: 28px;
+  }
+
+  .sic-pathways-copy h2 {
+    font-size: 32px;
+    white-space: normal;
+  }
+
+  .sic-pathways-copy p {
+    font-size: 16px;
+  }
+
+  .sic-pathways-cards {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sic-pathways-card {
+    min-height: 0;
+  }
+
+  .sic-card-top {
+    min-height: 135px;
+  }
+
+
+
+  .sic-card-body {
+    padding: 22px 22px 23px;
+  }
+
+  .sic-card-content h3 {
+    font-size: 20px;
+  }
+
+  .sic-card-content p {
+    max-width: 330px;
+    font-size: 14px;
+  }
+
+  .sic-card-button-space {
+    min-height: 45px;
+  }
+}
+
+
+/* ==================================================
+   RIDUZIONE ANIMAZIONI
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-pathways-card {
+    transition: none;
+  }
+
+}
+
+/* White icon badges over the card images. */
+.sic-card-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.sic-card-icon svg {
+  display: block;
+  width: 56px;
+  height: 56px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (max-width: 900px) {
+  .sic-card-icon { width: 88px; height: 88px; flex-basis: 88px; }
+  .sic-card-icon svg { width: 50px; height: 50px; }
+}
+@media (max-width: 700px) {
+  .sic-card-icon { width: 92px; height: 92px; flex-basis: 92px; }
+  .sic-card-icon svg { width: 52px; height: 52px; }
+}
+</style>
