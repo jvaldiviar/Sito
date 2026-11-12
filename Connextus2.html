@@ -1,0 +1,402 @@
+
+<!-- =========================================================
+     SEZIONE APP CONNEXTUS
+
+     UNICA MODIFICA:
+     - Immagine ragazza ulteriormente ridotta
+
+     TUTTO IL RESTO INVARIATO
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.csl-flash-social,
+.csl-flash-social * {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ==================================================
+   SEZIONE
+================================================== */
+
+.csl-flash-social {
+  width: 100%;
+  margin: 0;
+
+  /*
+   * SPAZIO SUPERIORE:
+   * consente alla testa e alle icone social
+   * di sporgere sopra il box senza essere tagliate.
+   */
+  padding: 100px 20px 25px;
+
+  overflow: visible;
+}
+
+.csl-flash-social__box {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 25px 34px;
+
+  background: #f7f8fa;
+  border-radius: 28px;
+  overflow: visible;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+/* ==================================================
+   CONTENUTO TESTUALE
+================================================== */
+
+.csl-flash-social__content {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 630px);
+}
+
+.csl-flash-social__title {
+  margin: 0 0 4px;
+
+  color: #3d86c6;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+}
+
+.csl-flash-social__subtitle {
+  margin: 0 0 16px;
+
+  color: #f5b52b;
+  font-size: clamp(27px, 2.8vw, 43px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.csl-flash-social__text {
+  max-width: 565px;
+  margin: 0 0 8px;
+
+  color: #3f454c;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ==================================================
+   SPAZIO RISERVATO ALLE ICONE SOCIAL
+================================================== */
+
+.csl-flash-social__socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 0;
+  margin-top: 0;
+}
+
+/* ==================================================
+   IMMAGINI APP STORE E GOOGLE PLAY
+================================================== */
+
+.csl-flash-social__stores {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+
+  margin-top: 6px;
+}
+
+.csl-flash-social__store {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 155px;
+  min-height: 48px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.csl-flash-social__store:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.csl-flash-social__store:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csl-flash-social__store {
+    transition: none;
+  }
+
+  .csl-flash-social__store:hover {
+    transform: none;
+  }
+}
+
+.csl-flash-social__store-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+.csl-flash-social__store-image[src=""],
+.csl-flash-social__store-image:not([src]) {
+  display: none;
+}
+
+/* ==================================================
+   IMMAGINE DELLA RAGAZZA
+
+   RIDOTTA:
+   - DESKTOP: 270px
+   - TABLET: 27vw
+   - MOBILE: massimo 240px
+
+   POSIZIONE E IMMAGINE INVARIATE
+================================================== */
+
+.csl-flash-social__image-wrap {
+  position: absolute;
+
+  right: 8px;
+  bottom: 0;
+
+  /* DIMENSIONE ULTERIORMENTE RIDOTTA */
+  width: 270px;
+
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.csl-flash-social__image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1024px) {
+
+  .csl-flash-social {
+    padding: 125px 18px 22px;
+  }
+
+  .csl-flash-social__box {
+    padding: 25px 28px;
+  }
+
+  .csl-flash-social__content {
+    width: min(100%, 530px);
+  }
+
+  .csl-flash-social__title {
+    font-size: 45px;
+  }
+
+  .csl-flash-social__subtitle {
+    font-size: 35px;
+  }
+
+  .csl-flash-social__text {
+    max-width: 450px;
+    font-size: 14px;
+  }
+
+  .csl-flash-social__image-wrap {
+    right: 0;
+    bottom: 0;
+
+    /* DIMENSIONE TABLET RIDOTTA */
+    width: 27vw;
+  }
+
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 767px) {
+
+  .csl-flash-social {
+    padding: 25px 16px 20px;
+  }
+
+  .csl-flash-social__box {
+    flex-direction: column;
+    padding: 25px 22px 0;
+    border-radius: 22px;
+    gap: 0;
+  }
+
+  .csl-flash-social__content {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+
+  .csl-flash-social__title {
+    margin-bottom: 4px;
+    font-size: 34px;
+    letter-spacing: -1px;
+  }
+
+  .csl-flash-social__subtitle {
+    margin-bottom: 14px;
+    font-size: 27px;
+    letter-spacing: -0.8px;
+  }
+
+  .csl-flash-social__text {
+    max-width: 100%;
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .csl-flash-social__socials {
+    justify-content: center;
+    min-height: 0;
+    margin-bottom: 0;
+  }
+
+  /* IMMAGINI STORE SU MOBILE */
+
+  .csl-flash-social__stores {
+    justify-content: center;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .csl-flash-social__store {
+    width: min(38vw, 155px);
+    min-height: 44px;
+  }
+
+  .csl-flash-social__store-image {
+    max-height: 48px;
+  }
+
+  .csl-flash-social__image-wrap {
+    position: relative;
+    right: auto;
+    bottom: auto;
+
+    /* DIMENSIONE MOBILE RIDOTTA */
+    width: min(88vw, 240px);
+
+    margin: 8px auto 0;
+  }
+
+}
+</style>
+
+
+<section class="csl-flash-social">
+
+  <div class="csl-flash-social__box">
+
+    <!-- ======================================
+         CONTENUTO TESTUALE
+    ======================================= -->
+
+    <div class="csl-flash-social__content">
+
+      <h2 class="csl-flash-social__title">
+        La tua guida semplice
+      </h2>
+
+      <div class="csl-flash-social__subtitle">
+        alla transizione energetica!
+      </div>
+
+      <p class="csl-flash-social__text">
+        Scarica l'app sul tuo smartphone e porta l'energia sempre con te.
+      </p>
+
+      <!-- ======================================
+           SPAZIO RISERVATO ALLE ICONE SOCIAL
+      ======================================= -->
+
+      <div class="csl-flash-social__socials">
+
+        <!-- INSERISCI QUI LE TUE ICONE SOCIAL -->
+
+      </div>
+
+      <!-- ======================================
+           IMMAGINI APP STORE E PLAY STORE
+      ======================================= -->
+
+      <div class="csl-flash-social__stores">
+
+        <!-- APP STORE: sostituisci # con il link all'app -->
+
+        <a class="csl-flash-social__store" href="#" aria-label="Scarica su App Store">
+          <img
+            class="csl-flash-social__store-image"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/app-store-BW6fpCUjDJKkiyZ3.png"
+            alt="App Store"
+            loading="lazy"
+          >
+        </a>
+
+        <!-- GOOGLE PLAY: sostituisci # con il link all'app -->
+
+        <a class="csl-flash-social__store" href="#" aria-label="Scarica su Google Play">
+          <img
+            class="csl-flash-social__store-image"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/play-store-KKzbjxGW1KrDYBnK.png"
+            alt="Google Play"
+            loading="lazy"
+          >
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- ======================================
+         IMMAGINE ORIGINALE DELLA RAGAZZA
+    ======================================= -->
+
+    <div class="csl-flash-social__image-wrap">
+
+      <img
+        class="csl-flash-social__image"
+        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/donna-con-tablet-connextus-su-sfondo-azzurro-dItYa5jlwSGBshIc.png"
+        alt="Ragazza con tablet Connextus"
+      >
+
+    </div>
+
+  </div>
+
+</section>

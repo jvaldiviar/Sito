@@ -1,0 +1,1425 @@
+
+<!-- =========================================================
+     MARSTEK - FAQ VENUS-E / SATURN + DOCUMENTI
+
+     STRUTTURA:
+     - Due colonne: FAQ a sinistra, documenti a destra
+     - Selettore VENUS-E blu / SATURN giallo
+     - 5 FAQ visibili + 3 aggiuntive per prodotto
+     - Un accordion aperto alla volta
+     - Mostra di più / Mostra meno
+     - Documenti a destra
+     - Font Montserrat
+     - Responsive
+
+     DOCUMENTI:
+     - Allegato A: link originale mantenuto
+     - Dichiarazione VENUS-E: PDF contenente
+       la dichiarazione di conformità
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ==================================================
+   GENERALE
+================================================== */
+
+.sic-battery-faq-docs,
+.sic-battery-faq-docs * {
+  box-sizing: border-box;
+}
+
+.sic-battery-faq-docs {
+  --battery-text: #3F454C;
+  --battery-blue: #3D86C6;
+  --battery-yellow: #F5B52B;
+  --battery-line: #D8E0E7;
+  --battery-muted: #68737B;
+
+  --battery-accent: var(--battery-blue);
+
+  width: 100%;
+  padding: 25px 20px 40px;
+
+  background: transparent;
+  color: var(--battery-text);
+
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-battery-faq-docs[data-active-battery="saturn"] {
+  --battery-accent: #DCA01A;
+}
+
+.sic-battery-faq-docs__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   DUE COLONNE - STRUTTURA ORIGINALE
+================================================== */
+
+.sic-battery-faq-docs__grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 65px;
+  align-items: start;
+}
+
+.sic-battery-faq-docs__column {
+  min-width: 0;
+}
+
+/* ==================================================
+   TITOLI
+================================================== */
+
+.sic-battery-faq-docs__title {
+  margin: 0 0 20px;
+
+  color: var(--battery-text);
+
+  font-size: clamp(24px, 2.4vw, 28px);
+  font-weight: 500;
+
+  line-height: 1.3;
+  letter-spacing: -.5px;
+}
+
+/* ==================================================
+   SELETTORE BATTERIE
+================================================== */
+
+.sic-battery-faq-docs__selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.sic-battery-faq-docs__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+  min-height: 41px;
+
+  padding: 10px 18px;
+
+  background: #FFFFFF;
+  border: 1px solid #E1E7EC;
+  border-radius: 11px;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--battery-text);
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
+}
+
+.sic-battery-faq-docs__tab-dot {
+  display: inline-block;
+  flex: 0 0 8px;
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.sic-battery-faq-docs__tab--venus
+.sic-battery-faq-docs__tab-dot {
+  background: var(--battery-blue);
+}
+
+.sic-battery-faq-docs__tab--saturn
+.sic-battery-faq-docs__tab-dot {
+  background: var(--battery-yellow);
+}
+
+.sic-battery-faq-docs__tab--venus[aria-selected="true"] {
+  color: var(--battery-blue);
+  background: #F0F7FD;
+  border-color: #BCDDF4;
+}
+
+.sic-battery-faq-docs__tab--saturn[aria-selected="true"] {
+  color: #A77908;
+  background: #FFF9E8;
+  border-color: #F5DEA1;
+}
+
+.sic-battery-faq-docs__tab:hover {
+  border-color: currentColor;
+}
+
+/* ==================================================
+   FAQ
+================================================== */
+
+.sic-battery-faq-docs__faq-list {
+  border-top: 1px solid var(--battery-line);
+}
+
+.sic-battery-faq-docs__faq {
+  border-bottom: 1px solid var(--battery-line);
+}
+
+.sic-battery-faq-docs__faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  min-height: 62px;
+  padding: 16px 2px 16px 0;
+
+  color: var(--battery-text);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  list-style: none;
+  cursor: pointer;
+
+  transition: color .2s ease;
+}
+
+.sic-battery-faq-docs__faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.sic-battery-faq-docs__faq summary::marker {
+  content: "";
+}
+
+.sic-battery-faq-docs__faq summary:hover,
+.sic-battery-faq-docs__faq[open] summary {
+  color: var(--battery-accent);
+}
+
+/* ==================================================
+   SIMBOLO + / -
+================================================== */
+
+.sic-battery-faq-docs__plus {
+  position: relative;
+
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+
+  color: currentColor;
+}
+
+.sic-battery-faq-docs__plus::before,
+.sic-battery-faq-docs__plus::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  background: currentColor;
+  border-radius: 2px;
+
+  transform: translate(-50%, -50%);
+}
+
+.sic-battery-faq-docs__plus::before {
+  width: 12px;
+  height: 1.5px;
+}
+
+.sic-battery-faq-docs__plus::after {
+  width: 1.5px;
+  height: 12px;
+}
+
+.sic-battery-faq-docs__faq[open]
+.sic-battery-faq-docs__plus::after {
+  display: none;
+}
+
+/* ==================================================
+   RISPOSTE
+================================================== */
+
+.sic-battery-faq-docs__answer {
+  padding: 0 28px 20px 0;
+
+  color: var(--battery-muted);
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.sic-battery-faq-docs__answer p {
+  margin: 0 0 11px;
+}
+
+.sic-battery-faq-docs__answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================================================
+   FAQ NASCOSTE E PANNELLI
+================================================== */
+
+.sic-battery-faq-docs [hidden] {
+  display: none !important;
+}
+
+/* ==================================================
+   MOSTRA DI PIÙ / MOSTRA MENO
+================================================== */
+
+.sic-battery-faq-docs__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  width: fit-content;
+  min-width: 145px;
+  min-height: 37px;
+
+  margin: 17px auto 0;
+  padding: 9px 17px;
+
+  border: 1px solid #D4E5F3;
+  border-radius: 9px;
+
+  background: #FFFFFF;
+  color: var(--battery-accent);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.sic-battery-faq-docs__toggle:hover {
+  background: #F4F9FD;
+  border-color: var(--battery-accent);
+}
+
+.sic-battery-faq-docs[data-active-battery="saturn"]
+.sic-battery-faq-docs__toggle {
+  border-color: #F1DFAD;
+}
+
+.sic-battery-faq-docs[data-active-battery="saturn"]
+.sic-battery-faq-docs__toggle:hover {
+  background: #FFF9E8;
+}
+
+.sic-battery-faq-docs__toggle-arrow {
+  display: block;
+
+  width: 16px;
+  height: 16px;
+
+  transition: transform .25s ease;
+}
+
+.sic-battery-faq-docs__toggle[aria-expanded="true"]
+.sic-battery-faq-docs__toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* ==================================================
+   DOCUMENTI - STRUTTURA ORIGINALE
+================================================== */
+
+.sic-battery-faq-docs__documents {
+  border-top: 1px solid var(--battery-line);
+}
+
+.sic-battery-faq-docs__document {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  min-height: 62px;
+  padding: 16px 2px 16px 0;
+
+  border-bottom: 1px solid var(--battery-line);
+
+  color: var(--battery-text);
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  text-decoration: none;
+
+  transition: color .2s ease;
+}
+
+.sic-battery-faq-docs__document:hover {
+  color: var(--battery-blue);
+}
+
+.sic-battery-faq-docs__download {
+  display: block;
+
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+
+  color: currentColor;
+}
+
+/* ==================================================
+   ACCESSIBILITÀ
+================================================== */
+
+.sic-battery-faq-docs summary:focus-visible,
+.sic-battery-faq-docs a:focus-visible,
+.sic-battery-faq-docs button:focus-visible {
+  outline: 2px solid var(--battery-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 950px) {
+
+  .sic-battery-faq-docs {
+    padding: 22px 18px 35px;
+  }
+
+  .sic-battery-faq-docs__grid {
+    gap: 32px;
+  }
+
+  .sic-battery-faq-docs__title {
+    font-size: 25px;
+  }
+
+  .sic-battery-faq-docs__faq summary,
+  .sic-battery-faq-docs__document {
+    font-size: 13px;
+  }
+
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+  .sic-battery-faq-docs {
+    padding: 18px 16px 30px;
+  }
+
+  .sic-battery-faq-docs__grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .sic-battery-faq-docs__title {
+    margin-bottom: 16px;
+    font-size: 24px;
+  }
+
+  .sic-battery-faq-docs__selector {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .sic-battery-faq-docs__tab {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .sic-battery-faq-docs__faq summary,
+  .sic-battery-faq-docs__document {
+    min-height: 57px;
+    padding: 15px 0;
+    font-size: 13px;
+  }
+
+  .sic-battery-faq-docs__answer {
+    padding-right: 12px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-battery-faq-docs__faq summary,
+  .sic-battery-faq-docs__document,
+  .sic-battery-faq-docs__toggle,
+  .sic-battery-faq-docs__toggle-arrow,
+  .sic-battery-faq-docs__tab {
+    transition: none;
+  }
+
+}
+</style>
+
+
+<!-- =========================================================
+     HTML
+========================================================= -->
+
+<section
+  class="sic-battery-faq-docs"
+  id="marstek-faq"
+  data-active-battery="venus"
+>
+
+  <div class="sic-battery-faq-docs__container">
+
+    <div class="sic-battery-faq-docs__grid">
+
+
+      <!-- ======================================
+           COLONNA SINISTRA - FAQ
+      ======================================= -->
+
+      <div class="sic-battery-faq-docs__column">
+
+        <h2 class="sic-battery-faq-docs__title">
+          Domande frequenti
+        </h2>
+
+
+        <!-- ======================================
+             SELETTORE BATTERIE
+        ======================================= -->
+
+        <div
+          class="sic-battery-faq-docs__selector"
+          role="tablist"
+          aria-label="Seleziona la batteria"
+        >
+
+          <button
+            type="button"
+            class="sic-battery-faq-docs__tab sic-battery-faq-docs__tab--venus"
+            data-battery-tab="venus"
+            role="tab"
+            id="faq-tab-venus"
+            aria-controls="faq-panel-venus"
+            aria-selected="true"
+          >
+            <span class="sic-battery-faq-docs__tab-dot"></span>
+            FAQ VENUS-E
+          </button>
+
+          <button
+            type="button"
+            class="sic-battery-faq-docs__tab sic-battery-faq-docs__tab--saturn"
+            data-battery-tab="saturn"
+            role="tab"
+            id="faq-tab-saturn"
+            aria-controls="faq-panel-saturn"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            <span class="sic-battery-faq-docs__tab-dot"></span>
+            FAQ SATURN
+          </button>
+
+        </div>
+
+
+        <!-- ======================================
+             FAQ VENUS-E GEN 3.0
+        ======================================= -->
+
+        <div
+          class="sic-battery-faq-docs__panel"
+          data-battery-panel="venus"
+          id="faq-panel-venus"
+          role="tabpanel"
+          aria-labelledby="faq-tab-venus"
+        >
+
+          <div class="sic-battery-faq-docs__faq-list">
+
+
+            <!-- FAQ VENUS 1 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>Come funziona la batteria VENUS-E?</span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  MARSTEK VENUS-E Gen 3.0 è un sistema
+                  di accumulo collegato sul lato AC
+                  dell'impianto domestico. Può immagazzinare
+                  energia e renderla disponibile quando
+                  serve, contribuendo a ridurre il prelievo
+                  dalla rete elettrica.
+                </p>
+                <p>
+                  Il funzionamento può essere gestito
+                  attraverso l'app MARSTEK, secondo
+                  le modalità e i limiti previsti
+                  dall'installazione.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ VENUS 2 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  Posso utilizzare VENUS-E anche senza
+                  pannelli fotovoltaici?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  Sì. VENUS-E può essere caricata
+                  dalla rete elettrica, anche senza
+                  pannelli fotovoltaici.
+                </p>
+                <p>
+                  È possibile programmare la ricarica
+                  nelle fasce orarie desiderate
+                  e utilizzare successivamente
+                  l'energia accumulata.
+                  Il vantaggio economico dipende
+                  dal contratto di fornitura,
+                  dai prezzi dell'energia
+                  e dalle perdite di conversione.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ VENUS 3 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  VENUS-E è compatibile con un impianto
+                  fotovoltaico già installato?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  VENUS-E è progettata per l'accumulo
+                  sul lato AC e può essere abbinata
+                  a impianti fotovoltaici esistenti,
+                  senza necessariamente sostituire
+                  l'inverter fotovoltaico.
+                </p>
+                <p>
+                  Un contatore intelligente compatibile
+                  permette di rilevare i flussi energetici
+                  e gestire la ricarica in presenza
+                  di energia in eccesso.
+                  La compatibilità e la connessione
+                  devono essere verificate
+                  per l'impianto specifico.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ VENUS 4 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  A cosa serve lo Smart Meter MARSTEK CT002?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  Il CT002 misura i flussi di energia
+                  dell'abitazione e comunica alla
+                  batteria le informazioni necessarie
+                  per adattare automaticamente
+                  la potenza di carica e scarica.
+                </p>
+                <p>
+                  In questo modo VENUS-E può gestire
+                  meglio l'autoconsumo, limitando
+                  il prelievo e l'immissione
+                  di energia secondo le impostazioni
+                  disponibili.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ VENUS 5 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  Posso utilizzare VENUS-E in caso
+                  di blackout?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  VENUS-E dispone di una funzione
+                  di alimentazione di emergenza
+                  tramite l'uscita di backup dedicata,
+                  secondo le specifiche del modello.
+                </p>
+                <p>
+                  L'alimentazione di emergenza
+                  non significa che tutte le prese
+                  dell'abitazione continuino
+                  automaticamente a funzionare.
+                  Occorre utilizzare l'uscita dedicata
+                  e rispettare le condizioni
+                  di collegamento indicate dal produttore.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ VENUS AGGIUNTIVE -->
+
+            <div
+              class="sic-battery-faq-docs__extra-faqs"
+              hidden
+            >
+
+
+              <!-- FAQ VENUS 6 -->
+
+              <details class="sic-battery-faq-docs__faq">
+                <summary>
+                  <span>
+                    Quanto può immagazzinare
+                    una VENUS-E Gen 3.0?
+                  </span>
+                  <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+                </summary>
+                <div class="sic-battery-faq-docs__answer">
+                  <p>
+                    La capacità nominale della
+                    VENUS-E Gen 3.0 è di 5,12 kWh.
+                  </p>
+                  <p>
+                    L'energia effettivamente utilizzabile
+                    dipende dalla profondità di scarica
+                    impostata, dalle condizioni di utilizzo
+                    e dalle perdite di conversione.
+                  </p>
+                </div>
+              </details>
+
+
+              <!-- FAQ VENUS 7 -->
+
+              <details class="sic-battery-faq-docs__faq">
+                <summary>
+                  <span>
+                    Come posso programmare la ricarica
+                    e la scarica della batteria?
+                  </span>
+                  <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+                </summary>
+                <div class="sic-battery-faq-docs__answer">
+                  <p>
+                    Attraverso l'app MARSTEK puoi
+                    consultare lo stato della batteria
+                    e utilizzare le modalità di gestione
+                    disponibili, incluse le impostazioni
+                    di programmazione oraria.
+                  </p>
+                  <p>
+                    Le funzioni esatte possono variare
+                    in base alla versione dell'app
+                    e del firmware installato.
+                  </p>
+                </div>
+              </details>
+
+
+              <!-- FAQ VENUS 8 -->
+
+              <details class="sic-battery-faq-docs__faq">
+                <summary>
+                  <span>
+                    Posso installare VENUS-E autonomamente?
+                  </span>
+                  <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+                </summary>
+                <div class="sic-battery-faq-docs__answer">
+                  <p>
+                    Le modalità di installazione dipendono
+                    dalla configurazione elettrica scelta,
+                    dalla potenza di esercizio
+                    e dalla normativa applicabile.
+                  </p>
+                  <p>
+                    Per collegamenti dedicati,
+                    integrazione nell'impianto,
+                    backup e verifiche di conformità
+                    è necessario rivolgersi a
+                    un professionista abilitato.
+                    Segui sempre il manuale
+                    del modello VENUS-E Gen 3.0.
+                  </p>
+                </div>
+              </details>
+
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="sic-battery-faq-docs__toggle"
+            aria-expanded="false"
+            data-faq-toggle
+          >
+            <span data-faq-toggle-text>Mostra di più</span>
+            <svg
+              class="sic-battery-faq-docs__toggle-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+        </div>
+
+
+        <!-- ======================================
+             FAQ SATURN B2500-D
+        ======================================= -->
+
+        <div
+          class="sic-battery-faq-docs__panel"
+          data-battery-panel="saturn"
+          id="faq-panel-saturn"
+          role="tabpanel"
+          aria-labelledby="faq-tab-saturn"
+          hidden
+        >
+
+          <div class="sic-battery-faq-docs__faq-list">
+
+
+            <!-- FAQ SATURN 1 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  Come funziona la batteria SATURN B2500-D?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  SATURN B2500-D è una batteria
+                  progettata per accumulare l'energia
+                  prodotta dai pannelli fotovoltaici,
+                  in particolare nei sistemi
+                  fotovoltaici da balcone compatibili.
+                </p>
+                <p>
+                  Durante il giorno immagazzina
+                  l'energia disponibile e,
+                  quando necessario, la invia
+                  al microinverter collegato
+                  per alimentare i consumi domestici.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ SATURN 2 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  SATURN B2500-D può funzionare
+                  senza pannelli solari?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  SATURN B2500-D è progettata
+                  principalmente per la ricarica
+                  tramite pannelli fotovoltaici.
+                </p>
+                <p>
+                  A differenza di VENUS-E,
+                  non è pensata per essere
+                  utilizzata come sistema di accumulo
+                  AC ricaricabile direttamente
+                  da una normale presa domestica.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ SATURN 3 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  Qual è la capacità della batteria
+                  e si può espandere?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  SATURN B2500-D dispone di una
+                  capacità nominale di 2,24 kWh.
+                </p>
+                <p>
+                  Il sistema può essere espanso
+                  secondo le configurazioni e gli
+                  accessori supportati dal produttore.
+                  Prima di aggiungere altre unità
+                  è importante verificare la
+                  compatibilità della specifica
+                  versione della batteria.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ SATURN 4 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  Posso collegare SATURN
+                  a qualsiasi microinverter?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  SATURN B2500-D utilizza collegamenti
+                  fotovoltaici DC tramite connettori MC4.
+                  È necessario verificare che
+                  il microinverter sia compatibile
+                  con i valori di tensione,
+                  corrente e potenza in uscita.
+                </p>
+                <p>
+                  Non tutti i microinverter sono
+                  automaticamente compatibili:
+                  consulta sempre il manuale
+                  e le specifiche tecniche
+                  dei dispositivi utilizzati.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ SATURN 5 -->
+
+            <details class="sic-battery-faq-docs__faq">
+              <summary>
+                <span>
+                  Come posso monitorare la batteria
+                  SATURN B2500-D?
+                </span>
+                <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+              </summary>
+              <div class="sic-battery-faq-docs__answer">
+                <p>
+                  Attraverso l'app MARSTEK puoi
+                  consultare le informazioni
+                  disponibili sulla batteria,
+                  come lo stato di carica
+                  e i flussi energetici rilevati.
+                </p>
+                <p>
+                  Le funzionalità di regolazione
+                  automatica dipendono dalla
+                  configurazione e dalla presenza
+                  di un contatore intelligente
+                  compatibile.
+                </p>
+              </div>
+            </details>
+
+
+            <!-- FAQ SATURN AGGIUNTIVE -->
+
+            <div
+              class="sic-battery-faq-docs__extra-faqs"
+              hidden
+            >
+
+
+              <!-- FAQ SATURN 6 -->
+
+              <details class="sic-battery-faq-docs__faq">
+                <summary>
+                  <span>
+                    A cosa serve uno Smart Meter
+                    con SATURN?
+                  </span>
+                  <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+                </summary>
+                <div class="sic-battery-faq-docs__answer">
+                  <p>
+                    Un contatore intelligente
+                    compatibile consente di rilevare
+                    i consumi dell'abitazione
+                    e di adattare l'erogazione
+                    della batteria alla domanda
+                    energetica, nelle modalità
+                    supportate dal sistema.
+                  </p>
+                  <p>
+                    È importante verificare
+                    il modello del contatore
+                    e la compatibilità con
+                    il firmware della B2500-D.
+                  </p>
+                </div>
+              </details>
+
+
+              <!-- FAQ SATURN 7 -->
+
+              <details class="sic-battery-faq-docs__faq">
+                <summary>
+                  <span>
+                    Posso installare SATURN all'esterno?
+                  </span>
+                  <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+                </summary>
+                <div class="sic-battery-faq-docs__answer">
+                  <p>
+                    SATURN B2500-D presenta
+                    un grado di protezione IP65.
+                    È comunque necessario
+                    rispettare le condizioni
+                    ambientali e di installazione
+                    previste dal produttore.
+                  </p>
+                  <p>
+                    Evita condizioni di temperatura
+                    estreme e proteggi correttamente
+                    collegamenti e connettori.
+                    Per la ricarica, consulta
+                    i limiti di temperatura
+                    indicati nel manuale.
+                  </p>
+                </div>
+              </details>
+
+
+              <!-- FAQ SATURN 8 -->
+
+              <details class="sic-battery-faq-docs__faq">
+                <summary>
+                  <span>
+                    Come posso prolungare
+                    la durata della batteria?
+                  </span>
+                  <span class="sic-battery-faq-docs__plus" aria-hidden="true"></span>
+                </summary>
+                <div class="sic-battery-faq-docs__answer">
+                  <p>
+                    SATURN utilizza celle LiFePO4,
+                    progettate per una lunga
+                    durata operativa.
+                  </p>
+                  <p>
+                    Per preservarne le prestazioni
+                    è consigliabile rispettare
+                    le temperature di utilizzo,
+                    evitare esposizioni prolungate
+                    a condizioni estreme
+                    e seguire le indicazioni
+                    di manutenzione e stoccaggio
+                    riportate nel manuale.
+                  </p>
+                </div>
+              </details>
+
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="sic-battery-faq-docs__toggle"
+            aria-expanded="false"
+            data-faq-toggle
+          >
+            <span data-faq-toggle-text>Mostra di più</span>
+            <svg
+              class="sic-battery-faq-docs__toggle-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ======================================
+           COLONNA DESTRA - DOCUMENTI
+      ======================================= -->
+
+      <div class="sic-battery-faq-docs__column">
+
+        <h2 class="sic-battery-faq-docs__title">
+          Documenti
+        </h2>
+
+        <div class="sic-battery-faq-docs__documents">
+
+
+          <!-- ======================================
+               DOCUMENTO 1 - ALLEGATO A
+               LINK ORIGINALE MANTENUTO
+          ======================================= -->
+
+          <a
+            class="sic-battery-faq-docs__document"
+            href="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/abbonamenti_servizi_cittadini_comunita_solare_ci-5dH6Ik6BYI0qklDf.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>
+              Allegato A – Servizi Comunità Solare
+            </span>
+
+            <svg
+              class="sic-battery-faq-docs__download"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12"/>
+              <path d="m7 10 5 5 5-5"/>
+              <path d="M5 17v4h14v-4"/>
+            </svg>
+          </a>
+
+
+          <!-- ======================================
+               DOCUMENTO 2 - CONFORMITÀ VENUS-E
+
+               Il PDF include la dichiarazione
+               di conformità CEI 0-21.
+
+               Quando disponibile, sostituisci
+               con il PDF del certificato separato.
+          ======================================= -->
+
+          <a
+            class="sic-battery-faq-docs__document"
+            href="https://www.greensun-germany.com/mediafiles/Datenblatt/Speicher/Marstek/Venus%203.0/VENUS%20E%203.0%20Benutzerhandbuch.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>
+              Dichiarazione di conformità VENUS-E
+              (nel manuale)
+            </span>
+
+            <svg
+              class="sic-battery-faq-docs__download"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12"/>
+              <path d="m7 10 5 5 5-5"/>
+              <path d="M5 17v4h14v-4"/>
+            </svg>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     - CAMBIO BATTERIA
+     - MOSTRA DI PIÙ / MENO
+     - UNA FAQ APERTA PER VOLTA
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll(".sic-battery-faq-docs")
+    .forEach(function (section) {
+
+      var tabs = Array.from(
+        section.querySelectorAll("[data-battery-tab]")
+      );
+
+      var panels = Array.from(
+        section.querySelectorAll("[data-battery-panel]")
+      );
+
+      /* ======================================
+         SELEZIONE BATTERIA
+      ======================================= */
+
+      function selectBattery(battery) {
+
+        section.setAttribute(
+          "data-active-battery",
+          battery
+        );
+
+        tabs.forEach(function (tab) {
+
+          var selected =
+            tab.getAttribute("data-battery-tab") === battery;
+
+          tab.setAttribute(
+            "aria-selected",
+            String(selected)
+          );
+
+          tab.tabIndex = selected ? 0 : -1;
+
+        });
+
+        panels.forEach(function (panel) {
+
+          var selected =
+            panel.getAttribute("data-battery-panel") === battery;
+
+          panel.hidden = !selected;
+
+          /* Chiude eventuali FAQ aperte
+             quando si cambia prodotto */
+
+          if (!selected) {
+            panel.querySelectorAll("details")
+              .forEach(function (item) {
+                item.open = false;
+              });
+          }
+
+        });
+
+      }
+
+      tabs.forEach(function (tab, index) {
+
+        tab.addEventListener("click", function () {
+
+          selectBattery(
+            tab.getAttribute("data-battery-tab")
+          );
+
+        });
+
+        /* Navigazione accessibile da tastiera */
+
+        tab.addEventListener("keydown", function (event) {
+
+          if (
+            event.key !== "ArrowLeft" &&
+            event.key !== "ArrowRight"
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+
+          var direction =
+            event.key === "ArrowRight" ? 1 : -1;
+
+          var nextIndex =
+            (index + direction + tabs.length) % tabs.length;
+
+          tabs[nextIndex].focus();
+
+          selectBattery(
+            tabs[nextIndex].getAttribute("data-battery-tab")
+          );
+
+        });
+
+      });
+
+
+      /* ======================================
+         MOSTRA DI PIÙ / MOSTRA MENO
+      ======================================= */
+
+      panels.forEach(function (panel) {
+
+        var toggle = panel.querySelector(
+          "[data-faq-toggle]"
+        );
+
+        var toggleText = panel.querySelector(
+          "[data-faq-toggle-text]"
+        );
+
+        var extraFaqs = panel.querySelector(
+          ".sic-battery-faq-docs__extra-faqs"
+        );
+
+        if (!toggle || !toggleText || !extraFaqs) {
+          return;
+        }
+
+        toggle.addEventListener("click", function () {
+
+          var expanded =
+            toggle.getAttribute("aria-expanded") === "true";
+
+          if (expanded) {
+
+            extraFaqs.querySelectorAll("details")
+              .forEach(function (item) {
+                item.open = false;
+              });
+
+            extraFaqs.hidden = true;
+
+            toggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            toggleText.textContent = "Mostra di più";
+
+          } else {
+
+            extraFaqs.hidden = false;
+
+            toggle.setAttribute(
+              "aria-expanded",
+              "true"
+            );
+
+            toggleText.textContent = "Mostra meno";
+
+          }
+
+        });
+
+      });
+
+
+      /* ======================================
+         UNA FAQ APERTA ALLA VOLTA
+      ======================================= */
+
+      panels.forEach(function (panel) {
+
+        var faqItems = panel.querySelectorAll(
+          ".sic-battery-faq-docs__faq"
+        );
+
+        faqItems.forEach(function (item) {
+
+          item.addEventListener("toggle", function () {
+
+            if (!item.open) return;
+
+            faqItems.forEach(function (other) {
+
+              if (other !== item) {
+                other.open = false;
+              }
+
+            });
+
+          });
+
+        });
+
+      });
+
+
+      /* ======================================
+         STATO INIZIALE
+      ======================================= */
+
+      selectBattery("venus");
+
+    });
+
+})();
+</script>

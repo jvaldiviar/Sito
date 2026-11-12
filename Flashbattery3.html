@@ -1,0 +1,1537 @@
+
+<!-- =========================================================
+     MARSTEK B2500-D - MODALITÀ DI ACQUISTO
+
+     CORREZIONE:
+     - Grassetti interni ai paragrafi sulla stessa riga
+     - Titoli dei passaggi separati dalle descrizioni
+     - Nessun a capo forzato dentro le frasi
+     - Tutto il resto invariato
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.sic-b2500-offer,
+.sic-b2500-offer * {
+  box-sizing: border-box;
+}
+
+.sic-b2500-offer {
+  --so-blue: #3D86C6;
+  --so-dark-blue: #1E5F82;
+  --so-blue-light: #F1F8FC;
+  --so-yellow: #F5B52B;
+  --so-dark: #3F454C;
+  --so-muted: #78838C;
+  --so-border: #E2E5E8;
+
+  width: 100%;
+  padding: 30px 14px 38px;
+  background: transparent;
+  color: var(--so-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-b2500-offer__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   INTESTAZIONE
+================================================== */
+
+.sic-b2500-offer__heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.sic-b2500-offer__eyebrow {
+  margin-bottom: 10px;
+  color: var(--so-blue);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .7px;
+}
+
+.sic-b2500-offer__title {
+  margin: 0;
+  color: var(--so-dark);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.5px;
+}
+
+/* ==================================================
+   DUE CARD
+================================================== */
+
+.sic-b2500-offer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 27px;
+  align-items: start;
+}
+
+.sic-b2500-offer__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 25px 26px 24px;
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.sic-b2500-offer__card--plus {
+  border: 2px solid var(--so-blue);
+  transform: scale(1.025);
+  transform-origin: center center;
+}
+
+.sic-b2500-offer__card--base {
+  border: 1.5px solid #C9DDEB;
+}
+
+.sic-b2500-offer__tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  padding: 7px 17px;
+  border-radius: 20px;
+  background: var(--so-blue);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+
+/* ==================================================
+   TITOLO E PREZZO
+================================================== */
+
+.sic-b2500-offer__card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.sic-b2500-offer__card-info {
+  min-width: 0;
+}
+
+.sic-b2500-offer__card-title {
+  margin: 0 0 10px;
+  color: var(--so-dark);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.sic-b2500-offer__description {
+  margin: 0;
+  color: #69747D;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.sic-b2500-offer__price {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.sic-b2500-offer__price strong {
+  display: block;
+  color: var(--so-blue);
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.sic-b2500-offer__price span {
+  display: block;
+  margin-top: 7px;
+  color: var(--so-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   TABELLE COSTI
+================================================== */
+
+.sic-b2500-offer__costs {
+  margin-top: 27px;
+  padding: 7px 15px;
+  background: var(--so-blue-light);
+  border-radius: 9px;
+}
+
+.sic-b2500-offer__card--base
+.sic-b2500-offer__costs {
+  background: #F8FAFC;
+}
+
+.sic-b2500-offer__cost-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.sic-b2500-offer__cost-row +
+.sic-b2500-offer__cost-row {
+  border-top: 1px solid #DCEAF3;
+}
+
+.sic-b2500-offer__cost-row span {
+  color: var(--so-dark);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.sic-b2500-offer__cost-row strong {
+  flex-shrink: 0;
+  color: var(--so-dark);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.sic-b2500-offer__cost-row--excluded span,
+.sic-b2500-offer__cost-row--excluded strong {
+  color: #A1AAB2;
+  text-decoration: line-through;
+  text-decoration-color: #A1AAB2;
+  text-decoration-thickness: 1px;
+}
+
+.sic-b2500-offer__cost-row--excluded strong {
+  font-weight: 400;
+}
+
+/* ==================================================
+   PUNTI INCLUSI / ESCLUSI
+================================================== */
+
+.sic-b2500-offer__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin: 27px 0;
+}
+
+.sic-b2500-offer__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sic-b2500-offer__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sic-b2500-offer__mark--yes {
+  color: var(--so-blue);
+}
+
+.sic-b2500-offer__mark--no {
+  color: #A5ADB4;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.sic-b2500-offer__highlight > div {
+  min-width: 0;
+}
+
+.sic-b2500-offer__highlight strong {
+  display: block;
+  margin: 0 0 4px;
+  color: var(--so-dark);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.sic-b2500-offer__highlight p {
+  margin: 0;
+  color: #6E7880;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* ==================================================
+   TENDINE
+================================================== */
+
+.sic-b2500-offer__details {
+  margin-top: 4px;
+  border-top: 1px solid var(--so-border);
+  border-bottom: 1px solid var(--so-border);
+}
+
+.sic-b2500-offer__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 51px;
+  padding: 14px 3px;
+  color: var(--so-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .3px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sic-b2500-offer__summary::-webkit-details-marker {
+  display: none;
+}
+
+.sic-b2500-offer__summary::marker {
+  content: "";
+}
+
+.sic-b2500-offer__summary:hover,
+.sic-b2500-offer__details[open] .sic-b2500-offer__summary {
+  color: var(--so-blue);
+}
+
+.sic-b2500-offer__plus {
+  position: relative;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.sic-b2500-offer__plus::before,
+.sic-b2500-offer__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.sic-b2500-offer__plus::before {
+  width: 12px;
+  height: 1.6px;
+}
+
+.sic-b2500-offer__plus::after {
+  width: 1.6px;
+  height: 12px;
+}
+
+.sic-b2500-offer__details[open] .sic-b2500-offer__plus::after {
+  display: none;
+}
+
+/* ==================================================
+   TESTI INTERNI TENDINE
+================================================== */
+
+.sic-b2500-offer__details-body {
+  padding: 14px 4px 21px;
+  color: #68737B;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.sic-b2500-offer__details-body > p {
+  margin: 0 0 15px;
+  line-height: 1.7;
+}
+
+.sic-b2500-offer__details-body > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================================================
+   PASSAGGI NUMERATI
+================================================== */
+
+.sic-b2500-offer__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 19px;
+}
+
+.sic-b2500-offer__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  color: var(--so-blue);
+  background: var(--so-blue-light);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sic-b2500-offer__step > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Titolo del passaggio su una riga separata */
+
+.sic-b2500-offer__step > div > strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--so-dark);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   CORREZIONE PRINCIPALE
+
+   I grassetti dentro i paragrafi restano
+   nella stessa frase: display inline.
+   Non vengono più mandati a capo
+   automaticamente dalla regola dei titoli.
+================================================== */
+
+.sic-b2500-offer__step p strong {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+}
+
+.sic-b2500-offer__step p {
+  margin: 0;
+  color: #68737B;
+  font-size: 12px;
+  line-height: 1.7;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* PARAGRAFI INFORMATIVI */
+
+.sic-b2500-offer__details-body > p > strong {
+  color: var(--so-dark);
+  font-weight: 600;
+}
+
+.sic-b2500-offer__details a {
+  color: var(--so-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sic-b2500-offer__details a:hover {
+  color: var(--so-dark-blue);
+}
+
+/* ==================================================
+   PARTE FINALE CARD
+================================================== */
+
+.sic-b2500-offer__bottom {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.sic-b2500-offer__ready {
+  margin: 0 0 15px;
+  color: #68737B;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.sic-b2500-offer__ready strong {
+  display: block;
+  color: var(--so-dark);
+  font-weight: 600;
+}
+
+.sic-b2500-offer__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 45px;
+  padding: 13px 17px;
+  border-radius: 9px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sic-b2500-offer__button--blue {
+  color: #FFFFFF;
+  background: var(--so-blue);
+  border: 1.5px solid var(--so-blue);
+}
+
+.sic-b2500-offer__button--outline {
+  color: var(--so-blue);
+  background: #FFFFFF;
+  border: 1.5px solid var(--so-blue);
+}
+
+.sic-b2500-offer__button:hover {
+  opacity: .9;
+}
+
+/* ==================================================
+   NOTE FINALI
+================================================== */
+
+.sic-b2500-offer__extra-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1000px;
+  margin-top: 27px;
+  padding: 0 4px;
+}
+
+.sic-b2500-offer__note {
+  margin: 0 0 5px;
+  color: #858F98;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.sic-b2500-offer__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sic-b2500-offer__info-icon {
+  flex: 0 0 20px;
+  color: var(--so-blue);
+}
+
+.sic-b2500-offer__info-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sic-b2500-offer__info-item p {
+  margin: 0;
+  color: var(--so-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.sic-b2500-offer__info-item strong {
+  font-weight: 500;
+}
+
+.sic-b2500-offer [hidden] {
+  display: none !important;
+}
+
+.sic-b2500-offer a:focus-visible,
+.sic-b2500-offer summary:focus-visible {
+  outline: 2px solid var(--so-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+  .sic-b2500-offer__description {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sic-b2500-offer__grid {
+    gap: 21px;
+  }
+
+  .sic-b2500-offer__card {
+    padding: 21px 19px;
+  }
+
+  .sic-b2500-offer__card-title {
+    font-size: 20px;
+  }
+
+  .sic-b2500-offer__price strong {
+    font-size: 29px;
+  }
+
+  .sic-b2500-offer__card--plus {
+    transform: scale(1.018);
+  }
+}
+
+@media (max-width: 767px) {
+  .sic-b2500-offer {
+    padding: 27px 13px 34px;
+  }
+
+  .sic-b2500-offer__heading {
+    margin-bottom: 34px;
+  }
+
+  .sic-b2500-offer__title {
+    font-size: 26px;
+  }
+
+  .sic-b2500-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sic-b2500-offer__card {
+    padding: 23px 19px;
+  }
+
+  .sic-b2500-offer__card--plus {
+    transform: scale(1.008);
+  }
+
+  .sic-b2500-offer__description {
+    white-space: normal;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .sic-b2500-offer__card-head {
+    flex-wrap: wrap;
+  }
+
+  .sic-b2500-offer__price {
+    text-align: left;
+  }
+}
+
+/* Match FlashPlan purchase cards, retaining battery blue accents. */
+
+500;600;700&display=swap');
+.sic-b2500-offer,
+.sic-b2500-offer * {
+  box-sizing: border-box;
+}
+.sic-b2500-offer {
+  --sic-yellow: #3D86C6;
+  --sic-yellow-soft: #F1F8FC;
+  --sic-yellow-pale: #C9DDEB;
+  --sic-blue: #3D86C6;
+  --sic-text: #3F454C;
+  --sic-muted: #78838C;
+  --sic-border: #E2E5E8;
+  width: 100%;
+  padding: 30px 14px 38px;
+  background: transparent;
+  color: var(--sic-text);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.sic-b2500-offer__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sic-b2500-offer__heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+.sic-b2500-offer__eyebrow {
+  margin-bottom: 10px;
+  color: var(--sic-blue);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+}
+.sic-b2500-offer__title {
+  margin: 0;
+  color: var(--sic-text);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+.sic-b2500-offer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 27px;
+  align-items: start;
+}
+.sic-b2500-offer__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 25px 26px 24px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  align-self: start;
+  height: auto;
+}
+.sic-b2500-offer__card--plus {
+  z-index: 2;
+  border: 2px solid var(--sic-yellow);
+  transform: none;
+  transform-origin: center center;
+  box-shadow: none;
+}
+.sic-b2500-offer__tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  padding: 7px 17px;
+  color: #FFFFFF;
+  background: var(--sic-yellow);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  z-index: 3;
+}
+.sic-b2500-offer__card--base {
+  z-index: 1;
+  border: 1.5px solid var(--sic-yellow-pale);
+  background: #FFFFFF;
+  transform: scale(1);
+}
+.sic-b2500-offer__card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.sic-b2500-offer__card-info {
+  min-width: 0;
+}
+.sic-b2500-offer__card-title {
+  margin: 0 0 10px;
+  color: var(--sic-text);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.sic-b2500-offer__description {
+  margin: 0;
+  color: #69747D;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.sic-b2500-offer__price {
+  flex-shrink: 0;
+  text-align: right;
+}
+.sic-b2500-offer__price strong {
+  display: block;
+  color: var(--sic-yellow);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.sic-b2500-offer__price span {
+  display: block;
+  margin-top: 7px;
+  color: var(--sic-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sic-b2500-offer__costs {
+  margin-top: 27px;
+  padding: 7px 15px;
+  background: var(--sic-yellow-soft);
+  border-radius: 9px;
+}
+.sic-b2500-offer__card--base
+.sic-b2500-offer__costs {
+  background: #F7FAFC;
+}
+.sic-b2500-offer__cost-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+}
+.sic-b2500-offer__cost-row +
+.sic-b2500-offer__cost-row {
+  border-top: 1px solid #DCEAF4;
+}
+.sic-b2500-offer__cost-row span {
+  color: var(--sic-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.sic-b2500-offer__cost-row strong {
+  flex-shrink: 0;
+  color: var(--sic-text);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+.sic-b2500-offer__cost-row--excluded span,
+.sic-b2500-offer__cost-row--excluded strong {
+  color: #9BA4AC;
+  text-decoration: line-through;
+  text-decoration-color: #AAB2B9;
+}
+.sic-b2500-offer__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 29px 0;
+}
+.sic-b2500-offer__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.sic-b2500-offer__mark {
+  flex: 0 0 20px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.sic-b2500-offer__mark--yes {
+  color: var(--sic-yellow);
+}
+.sic-b2500-offer__mark--no {
+  color: #9EA7AE;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1;
+}
+.sic-b2500-offer__highlight > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sic-b2500-offer__highlight strong {
+  color: var(--sic-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.sic-b2500-offer__highlight div span {
+  color: #6E7880;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-b2500-offer__details {
+  margin-top: 4px;
+  border-top: 1px solid var(--sic-border);
+  border-bottom: 1px solid var(--sic-border);
+}
+.sic-b2500-offer__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 51px;
+  padding: 14px 3px;
+  color: var(--sic-text);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  list-style: none;
+}
+.sic-b2500-offer__summary::-webkit-details-marker {
+  display: none;
+}
+.sic-b2500-offer__summary::marker {
+  content: "";
+}
+.sic-b2500-offer__summary:hover,
+.sic-b2500-offer__details[open]
+.sic-b2500-offer__summary {
+  color: var(--sic-yellow);
+}
+.sic-b2500-offer__plus {
+  position: relative;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+.sic-b2500-offer__plus::before,
+.sic-b2500-offer__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+.sic-b2500-offer__plus::before {
+  width: 12px;
+  height: 1.6px;
+}
+.sic-b2500-offer__plus::after {
+  width: 1.6px;
+  height: 12px;
+}
+.sic-b2500-offer__details[open]
+.sic-b2500-offer__plus::after {
+  display: none;
+}
+.sic-b2500-offer__details-body {
+  padding: 10px 4px 20px;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.sic-b2500-offer__details-body > p {
+  margin: 0 0 14px;
+}
+.sic-b2500-offer__details-body > p:last-child {
+  margin-bottom: 0;
+}
+.sic-b2500-offer__details-intro {
+  margin-bottom: 19px !important;
+}
+.sic-b2500-offer__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.sic-b2500-offer__step:last-child {
+  margin-bottom: 0;
+}
+.sic-b2500-offer__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  color: var(--sic-yellow);
+  background: var(--sic-yellow-soft);
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+}
+.sic-b2500-offer__step > div {
+  min-width: 0;
+}
+.sic-b2500-offer__step strong {
+  display: block;
+  color: var(--sic-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.sic-b2500-offer__step p {
+  margin: 5px 0 0;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-b2500-offer__bottom {
+  margin-top: auto;
+  padding-top: 24px;
+}
+.sic-b2500-offer__ready {
+  margin: 0 0 15px;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-b2500-offer__ready strong {
+  display: block;
+  color: var(--sic-text);
+  font-weight: 600;
+}
+.sic-b2500-offer__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 45px;
+  padding: 13px 17px;
+  gap: 10px;
+  border-radius: 9px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sic-b2500-offer__button--blue {
+  color: #FFFFFF;
+  background: var(--sic-yellow);
+  border: 1.5px solid var(--sic-yellow);
+}
+.sic-b2500-offer__button--blue:hover {
+  background: var(--sic-yellow);
+  border-color: var(--sic-yellow);
+  color: #FFFFFF;
+}
+.sic-b2500-offer__button--outline {
+  color: var(--sic-yellow);
+  background: #FFFFFF;
+  border: 1.5px solid var(--sic-yellow);
+}
+.sic-b2500-offer__button--outline:hover {
+  color: var(--sic-yellow);
+  background: var(--sic-yellow-soft);
+}
+.sic-b2500-offer__extra-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 900px;
+  margin-top: 23px;
+  padding: 0 4px;
+}
+.sic-b2500-offer__vat-note {
+  margin: 0;
+  color: #8A9298;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-b2500-offer__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.sic-b2500-offer__info-icon {
+  flex: 0 0 20px;
+  color: var(--sic-yellow);
+}
+.sic-b2500-offer__info-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.sic-b2500-offer__info-item p {
+  margin: 0;
+  color: var(--sic-muted);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-b2500-offer__info-item p strong {
+  color: var(--sic-muted);
+  font-weight: 400;
+}
+.sic-b2500-offer__final-note {
+  margin: 4px 0 0;
+  color: #8A9298;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sic-b2500-offer [hidden] {
+  display: none !important;
+}
+@media (max-width: 1000px) {
+  .sic-b2500-offer__grid {
+    gap: 21px;
+  }
+  .sic-b2500-offer__card {
+    padding: 21px 19px;
+  }
+  .sic-b2500-offer__card-title {
+    font-size: 20px;
+  }
+  .sic-b2500-offer__price strong {
+    font-size: 30px;
+  }
+  .sic-b2500-offer__card--plus {
+    transform: none;
+  }
+}
+@media (max-width: 767px) {
+  .sic-b2500-offer {
+    padding: 27px 13px 34px;
+  }
+  .sic-b2500-offer__heading {
+    margin-bottom: 34px;
+  }
+  .sic-b2500-offer__title {
+    font-size: 26px;
+  }
+  .sic-b2500-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .sic-b2500-offer__card {
+    padding: 23px 19px;
+  }
+  .sic-b2500-offer__card--plus {
+    transform: none;
+  }
+}
+@media (max-width: 390px) {
+  .sic-b2500-offer__card-head {
+    flex-wrap: wrap;
+  }
+  .sic-b2500-offer__price {
+    text-align: left;
+  }
+}
+.sic-b2500-offer a:focus-visible,
+.sic-b2500-offer summary:focus-visible {
+  outline: 2px solid var(--sic-yellow);
+  outline-offset: 3px;
+}
+.sic-b2500-offer__grid { align-items: stretch; row-gap: 0; }
+.sic-b2500-offer__card {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-self: stretch;
+}
+.sic-b2500-offer__card--base { border-width: 2px; }
+.sic-b2500-offer__costs {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+.sic-b2500-offer__highlights {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+@media (max-width: 767px) {
+  .sic-b2500-offer__grid { row-gap: 30px; }
+  .sic-b2500-offer__card { grid-row: auto; grid-template-rows: auto; }
+}
+.sic-b2500-offer__details-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 12px;
+  color: var(--sic-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.sic-b2500-offer__details-link[href] { cursor: pointer; }
+.sic-b2500-offer__details-link[aria-disabled="true"] { cursor: default; }
+
+.sic-b2500-offer__card--plus,
+.sic-b2500-offer__card--base { transform: none; }
+.sic-b2500-offer__note { font-size: 13px; line-height: 1.6; }
+
+</style>
+
+
+<section class="sic-b2500-offer" id="b2500-offerte">
+
+  <div class="sic-b2500-offer__container">
+
+    <!-- INTESTAZIONE -->
+
+    <header class="sic-b2500-offer__heading">
+
+      <div class="sic-b2500-offer__eyebrow">
+        MODALITÀ DI ACQUISTO
+      </div>
+
+      <h2 class="sic-b2500-offer__title">
+        Con o senza abbonamento?
+      </h2>
+
+    </header>
+
+
+    <div class="sic-b2500-offer__grid">
+
+
+      <!-- ==================================================
+           CARD 1 - CON ABBONAMENTO
+      ================================================== -->
+
+      <article class="sic-b2500-offer__card sic-b2500-offer__card--plus">
+
+        <div class="sic-b2500-offer__tag">
+          CON ABBONAMENTO
+        </div>
+
+        <div class="sic-b2500-offer__card-head">
+
+          <div class="sic-b2500-offer__card-info">
+
+            <h3 class="sic-b2500-offer__card-title">
+              Batteria Solare
+            </h3>
+
+            <p class="sic-b2500-offer__description">
+              Batteria 2,24 kWh con servizi Comunità Solare.
+            </p>
+
+          </div>
+
+          <div class="sic-b2500-offer__price">
+            <strong>838 €</strong>
+            <span>Costo iniziale</span>
+          </div>
+
+        </div>
+
+
+        <!-- COSTI -->
+
+        <div class="sic-b2500-offer__costs">
+
+          <div class="sic-b2500-offer__cost-row">
+            <span>Batteria MARSTEK B2500-D</span>
+            <strong>649 €</strong>
+          </div>
+
+          <div class="sic-b2500-offer__cost-row">
+            <span>Smart Meter Chain2 attivo</span>
+            <strong>139 €</strong>
+          </div>
+
+          <div class="sic-b2500-offer__cost-row">
+            <span>Abbonamento Comunità Solare</span>
+            <strong>50 €/anno*</strong>
+          </div>
+
+        </div>
+
+
+        <!-- SERVIZI INCLUSI -->
+
+        <div class="sic-b2500-offer__highlights">
+
+          <div class="sic-b2500-offer__highlight">
+
+            <span class="sic-b2500-offer__mark sic-b2500-offer__mark--yes">
+              ✓
+            </span>
+
+            <div>
+              <strong>Assistenza inclusa</strong>
+              
+            </div>
+
+          </div>
+
+          <div class="sic-b2500-offer__highlight">
+
+            <span class="sic-b2500-offer__mark sic-b2500-offer__mark--yes">
+              ✓
+            </span>
+
+            <div>
+              <strong>Ecosistema Comunità Solare</strong>
+              
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             TENDINA CON ABBONAMENTO
+        ================================================== -->
+
+        
+
+
+        <!-- PREORDINE -->
+
+        <div class="sic-b2500-offer__bottom">
+          <a
+            class="sic-b2500-offer__details-link"
+            data-b2500-order="dettagliPdf"
+            role="link"
+            aria-disabled="true"
+            title="PDF in preparazione"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Vai ai dettagli</a>
+
+
+          
+
+          <a
+            href="#"
+            class="sic-b2500-offer__button sic-b2500-offer__button--blue"
+            data-b2500-order="solare"
+            hidden
+          >
+            Procedi al preordine
+            <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ==================================================
+           CARD 2 - SENZA ABBONAMENTO
+      ================================================== -->
+
+      <article class="sic-b2500-offer__card sic-b2500-offer__card--base">
+
+        <div class="sic-b2500-offer__card-head">
+
+          <div class="sic-b2500-offer__card-info">
+
+            <h3 class="sic-b2500-offer__card-title">
+              Batteria Standard
+            </h3>
+
+            <p class="sic-b2500-offer__description">
+              Batteria 2,24 kWh senza abbonamento.
+            </p>
+
+          </div>
+
+          <div class="sic-b2500-offer__price">
+            <strong>849 €</strong>
+            <span>Prezzo batteria</span>
+          </div>
+
+        </div>
+
+
+        <!-- COSTI -->
+
+        <div class="sic-b2500-offer__costs">
+
+          <div class="sic-b2500-offer__cost-row sic-b2500-offer__cost-row--excluded">
+            <span>Batteria MARSTEK B2500 agevolato</span>
+            <strong>649 €</strong>
+          </div>
+
+          <div class="sic-b2500-offer__cost-row sic-b2500-offer__cost-row--excluded">
+            <span>Smart Meter Chain2 attivo</span>
+            <strong>139 €</strong>
+          </div>
+
+          <div class="sic-b2500-offer__cost-row sic-b2500-offer__cost-row--excluded">
+            <span>Abbonamento Comunità Solare</span>
+            <strong>50 €/anno*</strong>
+          </div>
+
+        </div>
+
+
+        <!-- SERVIZI NON INCLUSI -->
+
+        <div class="sic-b2500-offer__highlights">
+
+          <div class="sic-b2500-offer__highlight">
+
+            <span class="sic-b2500-offer__mark sic-b2500-offer__mark--no">
+              ×
+            </span>
+
+            <div>
+              <strong>Assistenza non inclusa</strong>
+              
+            </div>
+
+          </div>
+
+          <div class="sic-b2500-offer__highlight">
+
+            <span class="sic-b2500-offer__mark sic-b2500-offer__mark--no">
+              ×
+            </span>
+
+            <div>
+              <strong>Servizi Comunità Solare non inclusi</strong>
+              
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             TENDINA SENZA ABBONAMENTO
+        ================================================== -->
+
+        
+
+
+        <!-- PREORDINE -->
+
+        <div class="sic-b2500-offer__bottom">
+          <a
+            class="sic-b2500-offer__details-link"
+            data-b2500-order="dettagliPdf"
+            role="link"
+            aria-disabled="true"
+            title="PDF in preparazione"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Vai ai dettagli</a>
+
+
+          
+
+          <a
+            href="#"
+            class="sic-b2500-offer__button sic-b2500-offer__button--outline"
+            data-b2500-order="standard"
+            hidden
+          >
+            Preordina la batteria
+            <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- ==================================================
+         NOTE FINALI
+    ================================================== -->
+
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     LINK PREORDINE + TENDINE ESCLUSIVE
+========================================================= -->
+
+<script>
+(function () {
+
+  var links = {
+
+    // PREORDINE CON ABBONAMENTO
+    solare: "",
+
+    // PREORDINE SENZA ABBONAMENTO
+    standard: "",
+
+    // Inserisci il collegamento al PDF quando disponibile
+    dettagliPdf: ""
+
+  };
+
+  document.querySelectorAll(".sic-b2500-offer")
+    .forEach(function (section) {
+
+      /* LINK PREORDINE */
+
+      Object.keys(links).forEach(function (key) {
+
+        var url = links[key];
+
+        if (!url || !url.trim()) return;
+
+        section.querySelectorAll(
+          '[data-b2500-order="' + key + '"]'
+        ).forEach(function (element) {
+
+          element.setAttribute("href", url);
+          element.hidden = false;
+          element.removeAttribute("aria-disabled");
+          element.removeAttribute("title");
+
+        });
+
+      });
+
+      /* UNA SOLA TENDINA APERTA ALLA VOLTA */
+
+      var tendine = Array.from(
+        section.querySelectorAll(".sic-b2500-offer__details")
+      );
+
+      tendine.forEach(function (tendina) {
+
+        tendina.addEventListener("toggle", function () {
+
+          if (!tendina.open) return;
+
+          tendine.forEach(function (altraTendina) {
+
+            if (altraTendina !== tendina) {
+              altraTendina.open = false;
+            }
+
+          });
+
+        });
+
+      });
+
+    });
+
+})();
+</script>

@@ -1,0 +1,834 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+/* ==================================================
+   CONTENITORE GENERALE
+================================================== */
+
+.smart-install,
+.smart-install *,
+.smart-install-footer,
+.smart-install-footer * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.smart-install {
+    width: min(1250px, 96%);
+    margin: 0 auto;
+
+    padding: 32px 28px 24px;
+
+    background: #ffffff;
+
+    border: 2px solid #3d86c6;
+}
+
+
+/* ==================================================
+   TITOLO PRINCIPALE
+================================================== */
+
+.smart-install__title {
+    margin: 0 0 28px;
+
+    color: #3d86c6;
+
+    font-size: 21.5px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   GRIGLIA
+   4 BOX SU DESKTOP
+================================================== */
+
+.smart-install__grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+/* ==================================================
+   SINGOLA CARD
+================================================== */
+
+.smart-install-step {
+    width: 100%;
+
+    background: #f5f7f8;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   PARTE CHIUSA DEL BOX
+   COMPATTA IN ALTEZZA
+================================================== */
+
+.smart-install-step__toggle {
+    width: 100%;
+    height: 225px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px 20px 14px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+/* ==================================================
+   AREA IMMAGINE
+================================================== */
+
+.smart-install-step__visual {
+    width: 100%;
+    height: 145px;
+
+    flex: 0 0 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================================================
+   IMMAGINI
+   STESSA DIMENSIONE PER TUTTE
+================================================== */
+
+.smart-install-step__image {
+    display: block;
+
+    width: 125px;
+    height: 125px;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* ==================================================
+   FASCIA TITOLO
+================================================== */
+
+.smart-install-step__heading {
+    width: 100%;
+    height: 52px;
+
+    flex: 0 0 52px;
+
+    display: grid;
+
+    grid-template-columns: 24px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: auto;
+}
+
+
+/* ==================================================
+   SIMBOLO +
+================================================== */
+
+.smart-install-step__plus {
+    position: relative;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    align-self: center;
+}
+
+.smart-install-step__plus::before,
+.smart-install-step__plus::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    background: #3f444a;
+
+    transform: translate(-50%, -50%);
+
+    transition: transform .25s ease;
+}
+
+.smart-install-step__plus::before {
+    width: 18px;
+    height: 2px;
+}
+
+.smart-install-step__plus::after {
+    width: 2px;
+    height: 18px;
+}
+
+
+/* ==================================================
+   QUANDO IL BOX È APERTO
+   IL + DIVENTA −
+================================================== */
+
+.smart-install-step.is-open
+.smart-install-step__plus::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+}
+
+
+/* ==================================================
+   TITOLI DEI BOX
+   14 PX
+================================================== */
+
+.smart-install-step__title {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 40px;
+
+    color: #3f444a;
+
+    font-size: 15.5px;
+    line-height: 1.35;
+
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   CONTENUTO ESPANDIBILE
+================================================== */
+
+.smart-install-step__content {
+    display: none;
+
+    padding: 2px 20px 20px 54px;
+}
+
+.smart-install-step.is-open
+.smart-install-step__content {
+    display: block;
+}
+
+.smart-install-step__content p {
+    margin: 0;
+
+    color: #667782;
+
+    font-size: 15.5px;
+    line-height: 1.55;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   PARTE SOTTO AL QUADRANTE BLU
+================================================== */
+
+.smart-install-footer {
+    width: min(1250px, 96%);
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+   ATTENZIONE
+================================================== */
+
+.smart-install__notice {
+    margin-top: 28px;
+
+    color: #667782;
+
+    font-size: 15.5px;
+    line-height: 1.55;
+
+    font-weight: 400;
+
+    text-align: center;
+}
+
+.smart-install__notice strong {
+    color: #3f444a;
+
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   LINEA SOTTO
+================================================== */
+
+.smart-install__divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 28px;
+
+    background: #b8bec2;
+}
+
+
+/* ==================================================
+   TABLET
+   2 BOX PER RIGA
+================================================== */
+
+@media (max-width: 900px) {
+
+    .smart-install {
+        width: 96%;
+
+        padding: 28px 20px 22px;
+    }
+
+
+    .smart-install-footer {
+        width: 96%;
+    }
+
+
+    .smart-install__title {
+        margin-bottom: 24px;
+
+        font-size: 21.5px;
+    }
+
+
+    .smart-install__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .smart-install-step__toggle {
+        height: 215px;
+
+        padding: 14px 18px 13px;
+    }
+
+
+    .smart-install-step__visual {
+        height: 135px;
+
+        flex-basis: 135px;
+    }
+
+
+    .smart-install-step__image {
+        width: 115px;
+        height: 115px;
+    }
+
+
+    .smart-install-step__heading {
+        height: 52px;
+
+        flex-basis: 52px;
+
+        grid-template-columns: 23px minmax(0, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .smart-install-step__title {
+        min-height: 40px;
+
+        font-size: 15.5px;
+    }
+
+
+    .smart-install-step__content {
+        padding: 2px 18px 19px 50px;
+    }
+
+
+    .smart-install-step__content p {
+        font-size: 15.5px;
+    }
+
+
+    .smart-install__notice {
+        margin-top: 24px;
+
+        font-size: 15.5px;
+    }
+
+
+    .smart-install__divider {
+        margin-top: 24px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+   1 BOX PER RIGA
+================================================== */
+
+@media (max-width: 650px) {
+
+    .smart-install {
+        width: 94%;
+
+        padding: 25px 15px 20px;
+
+        border-width: 1.5px;
+    }
+
+
+    .smart-install-footer {
+        width: 94%;
+    }
+
+
+    .smart-install__title {
+        margin-bottom: 22px;
+
+        font-size: 21.5px;
+    }
+
+
+    .smart-install__grid {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .smart-install-step {
+        border-radius: 15px;
+    }
+
+
+    .smart-install-step__toggle {
+        height: 205px;
+
+        padding: 13px 20px 12px;
+    }
+
+
+    .smart-install-step__visual {
+        height: 125px;
+
+        flex-basis: 125px;
+    }
+
+
+    .smart-install-step__image {
+        width: 110px;
+        height: 110px;
+    }
+
+
+    .smart-install-step__heading {
+        height: 52px;
+
+        flex-basis: 52px;
+
+        grid-template-columns: 24px minmax(0, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .smart-install-step__title {
+        min-height: 40px;
+
+        font-size: 15.5px;
+    }
+
+
+    .smart-install-step__content {
+        padding: 2px 20px 18px 54px;
+    }
+
+
+    .smart-install-step__content p {
+        font-size: 15.5px;
+    }
+
+
+    .smart-install__notice {
+        margin-top: 20px;
+
+        font-size: 15.5px;
+
+        text-align: left;
+    }
+
+
+    .smart-install__divider {
+        margin-top: 20px;
+    }
+
+}
+
+</style>
+
+
+
+<!-- ==================================================
+     QUADRANTE BLU
+================================================== -->
+
+<section class="smart-install">
+
+
+    <!-- ==================================================
+         TITOLO
+    ================================================== -->
+
+    <h2 class="smart-install__title">
+        Una volta acquistato, dovrai installarmi. Ecco come fare:
+    </h2>
+
+
+
+    <!-- ==================================================
+         4 PASSAGGI
+    ================================================== -->
+
+    <div class="smart-install__grid">
+
+
+        <!-- ==================================================
+             STEP 4
+        ================================================== -->
+
+        <article class="smart-install-step">
+
+            <button
+                class="smart-install-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-install-step__visual">
+
+                    <img
+                        class="smart-install-step__image"
+                        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/30-POGMuQ1nGWyMWG0u.png"
+                        alt="Associa il dispositivo"
+                    >
+
+                </div>
+
+
+                <div class="smart-install-step__heading">
+
+                    <span class="smart-install-step__plus"></span>
+
+                    <h3 class="smart-install-step__title">
+                        4. Associa il dispositivo
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-install-step__content">
+
+                <p>
+                    Apri l’App ALFA Tech e segui la procedura
+                    guidata per associare il dispositivo al tuo account.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             STEP 5
+        ================================================== -->
+
+        <article class="smart-install-step">
+
+            <button
+                class="smart-install-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-install-step__visual">
+
+                    <img
+                        class="smart-install-step__image"
+                        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/34-TVqmncRoSkF6P3rS.png"
+                        alt="Collega ALFA alla presa di corrente"
+                    >
+
+                </div>
+
+
+                <div class="smart-install-step__heading">
+
+                    <span class="smart-install-step__plus"></span>
+
+                    <h3 class="smart-install-step__title">
+                        5. Collega ALFA alla presa di corrente
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-install-step__content">
+
+                <p>
+                    Collega il dispositivo ALFA a una presa
+                    di corrente dell’abitazione.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             STEP 6
+        ================================================== -->
+
+        <article class="smart-install-step">
+
+            <button
+                class="smart-install-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-install-step__visual">
+
+                    <img
+                        class="smart-install-step__image"
+                        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/31-BK8uYbVDf3ve7eiX.png"
+                        alt="Associa ALFA alla rete WiFi"
+                    >
+
+                </div>
+
+
+                <div class="smart-install-step__heading">
+
+                    <span class="smart-install-step__plus"></span>
+
+                    <h3 class="smart-install-step__title">
+                        6. Associami alla rete WiFi
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-install-step__content">
+
+                <p>
+                    Segui le indicazioni dell’App ALFA Tech
+                    per collegare il dispositivo alla rete WiFi.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             STEP 7
+        ================================================== -->
+
+        <article class="smart-install-step">
+
+            <button
+                class="smart-install-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-install-step__visual">
+
+                    <img
+                        class="smart-install-step__image"
+                        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/35-FVGtj1b0BZ9U2wff.png"
+                        alt="Installazione completata"
+                    >
+
+                </div>
+
+
+                <div class="smart-install-step__heading">
+
+                    <span class="smart-install-step__plus"></span>
+
+                    <h3 class="smart-install-step__title">
+                        7. Installazione completata!
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-install-step__content">
+
+                <p>
+                    L’installazione è completata.
+                    ALFA è pronto per iniziare a comunicare
+                    con il contatore.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     FUORI DAL QUADRANTE BLU
+================================================== -->
+
+<div class="smart-install-footer">
+
+
+    <!-- ==================================================
+         ATTENZIONE
+    ================================================== -->
+
+    <div class="smart-install__notice">
+
+        <strong>Attenzione:</strong>
+        ricordati di acconsentire l’utilizzo del GPS/Localizzazione
+        dal tuo cellulare per l’app
+
+    </div>
+
+
+
+    <!-- ==================================================
+         LINEA
+    ================================================== -->
+
+    <div class="smart-install__divider"></div>
+
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   APERTURA DEI 4 PASSAGGI
+   UNA SOLA CARD APERTA ALLA VOLTA
+================================================== */
+
+document
+    .querySelectorAll('.smart-install-step__toggle')
+    .forEach(function(toggle) {
+
+        toggle.addEventListener('click', function() {
+
+            const currentStep =
+                this.closest('.smart-install-step');
+
+            const isAlreadyOpen =
+                currentStep.classList.contains('is-open');
+
+
+            /* CHIUDE TUTTI I BOX */
+
+            document
+                .querySelectorAll('.smart-install-step')
+                .forEach(function(step) {
+
+                    step.classList.remove('is-open');
+
+                    const button =
+                        step.querySelector(
+                            '.smart-install-step__toggle'
+                        );
+
+                    if (button) {
+
+                        button.setAttribute(
+                            'aria-expanded',
+                            'false'
+                        );
+
+                    }
+
+                });
+
+
+            /* APRE SOLO IL BOX CLICCATO */
+
+            if (!isAlreadyOpen) {
+
+                currentStep.classList.add('is-open');
+
+                this.setAttribute(
+                    'aria-expanded',
+                    'true'
+                );
+
+            }
+
+        });
+
+    });
+
+</script>

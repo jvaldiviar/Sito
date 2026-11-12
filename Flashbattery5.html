@@ -1,0 +1,1481 @@
+
+<!-- =========================================================
+     MARSTEK VENUS-E 5,12 kWh - GALLERIA FUNZIONALITÀ
+
+     STESSA STRUTTURA DELLA B2500-D
+
+     SEZIONE 1: COME FUNZIONA E COMPATIBILITÀ
+     1. Installazione Plug & Play
+     2. Compatibilità fotovoltaica
+     3. Tecnologia e durata (orizzontale)
+
+     SEZIONE 2: INSTALLAZIONE E CAPACITÀ
+     4. Potenza AC fino a 2.500 W
+     5. Backup fino a 2.500 W
+     6. Resistenza e silenziosità (orizzontale)
+
+     SEZIONE 3: GESTIONE INTELLIGENTE
+     7. Autoconsumo e meter
+     8. App e intelligenza artificiale
+
+     INVARIATI RISPETTO ALLA PRIMA BATTERIA:
+     - 3 box principali con icone
+     - Struttura interna 3 + 3 + 2
+     - Font Montserrat
+     - Colori Comunità Solare
+     - Apertura di una sola sezione alla volta
+     - Tutti i box chiusi inizialmente
+     - Layout responsive
+
+     IMMAGINI:
+     Cerca FOTO 1 ... FOTO 8.
+     Inserisci i tuoi link Hostinger dentro src="".
+
+     Le classi sono dedicate alla VENUS-E e
+     non interferiscono con la galleria B2500-D.
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ==================================================
+   GENERALE
+================================================== */
+
+.sic-venus-gallery,
+.sic-venus-gallery * {
+  box-sizing: border-box;
+}
+
+.sic-venus-gallery {
+  --sg-blue: #3D86C6;
+  --sg-dark: #3F444A;
+  --sg-muted: #68737B;
+  --sg-border: #E2E8ED;
+  --sg-light: #F7FAFC;
+
+  width: 100%;
+  padding: 35px 20px 45px;
+  background: #FFFFFF;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-venus-gallery__container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   TITOLO
+================================================== */
+
+.sic-venus-gallery__heading {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.sic-venus-gallery__title {
+  margin: 0;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(18px, 1.8vw, 21px);
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 1;
+  letter-spacing: 0;
+}
+
+/* ==================================================
+   TRE BOX PRINCIPALI
+================================================== */
+
+.sic-venus-gallery__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.sic-venus-gallery__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 145px;
+  padding: 20px 15px 17px;
+
+  border: 1px solid var(--sg-border);
+  border-radius: 15px;
+
+  background: #FFFFFF;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  cursor: pointer;
+
+  transition:
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.sic-venus-gallery__tab:hover {
+  border-color: #A5CBE7;
+  background: #F9FCFE;
+}
+
+.sic-venus-gallery__tab.is-active {
+  border-color: var(--sg-blue);
+  background: #F3F8FC;
+  box-shadow: 0 3px 14px rgba(61,134,198,.07);
+}
+
+/* ==================================================
+   ICONE
+================================================== */
+
+.sic-venus-gallery__icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #EDF6FC;
+}
+
+.sic-venus-gallery__tab.is-active
+.sic-venus-gallery__icon-circle {
+  background: #E1EFF9;
+}
+
+.sic-venus-gallery__tab-icon {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: var(--sg-blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sic-venus-gallery__tab-title {
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.sic-venus-gallery__chevron {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: var(--sg-blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .3s ease;
+}
+
+.sic-venus-gallery__tab.is-active
+.sic-venus-gallery__chevron {
+  transform: rotate(180deg);
+}
+
+/* ==================================================
+   CONTENUTI ESPANDIBILI
+================================================== */
+
+.sic-venus-gallery__panel {
+  padding: 25px 0 5px;
+  animation: sic-venus-reveal .35s ease both;
+}
+
+.sic-venus-gallery__panel[hidden] {
+  display: none !important;
+}
+
+@keyframes sic-venus-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sic-venus-gallery__panel-heading {
+  margin-bottom: 19px;
+}
+
+.sic-venus-gallery__panel-title {
+  margin: 0;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ==================================================
+   GALLERIA INTERNA
+================================================== */
+
+.sic-venus-gallery__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sic-venus-gallery__card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--sg-border);
+  border-radius: 14px;
+  background: #FFFFFF;
+}
+
+/* ==================================================
+   IMMAGINI
+================================================== */
+
+.sic-venus-gallery__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--sg-light);
+  overflow: hidden;
+}
+
+.sic-venus-gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+  transform: scale(1.01);
+}
+
+/* ADATTAMENTI SINGOLE IMMAGINI */
+
+.sic-venus-gallery__image--cover {
+  object-fit: cover;
+}
+
+.sic-venus-gallery__image--contain {
+  object-fit: contain;
+  background: #FFFFFF;
+  transform: none;
+}
+
+.sic-venus-gallery__image--zoom-sm {
+  transform: scale(1.06);
+}
+
+.sic-venus-gallery__image--zoom-md {
+  transform: scale(1.12);
+}
+
+.sic-venus-gallery__image--zoom-lg {
+  transform: scale(1.18);
+}
+
+.sic-venus-gallery__image--top {
+  object-position: center top;
+}
+
+.sic-venus-gallery__image--bottom {
+  object-position: center bottom;
+}
+
+.sic-venus-gallery__image:not([src]),
+.sic-venus-gallery__image[src=""] {
+  display: none;
+}
+
+/* ==================================================
+   SEGNAPOSTO IMMAGINI
+================================================== */
+
+.sic-venus-gallery__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px;
+  color: #86A8C2;
+  text-align: center;
+}
+
+.sic-venus-gallery__placeholder svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.sic-venus-gallery__placeholder span {
+  max-width: 250px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.sic-venus-gallery__image-wrap.has-image
+.sic-venus-gallery__placeholder {
+  display: none;
+}
+
+/* ==================================================
+   TESTI DELLE SCHEDE
+================================================== */
+
+.sic-venus-gallery__card-body {
+  padding: 16px 19px 19px;
+}
+
+.sic-venus-gallery__card-title {
+  margin: 0 0 8px;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.sic-venus-gallery__card-text {
+  margin: 0;
+  color: var(--sg-muted);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+/* ==================================================
+   TERZA SCHEDA ORIZZONTALE
+================================================== */
+
+.sic-venus-gallery__card--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.sic-venus-gallery__card--wide
+.sic-venus-gallery__image-wrap {
+  height: 100%;
+  min-height: 225px;
+  aspect-ratio: auto;
+}
+
+.sic-venus-gallery__card--wide
+.sic-venus-gallery__card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px 29px;
+}
+
+.sic-venus-gallery button:focus-visible {
+  outline: 2px solid var(--sg-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .sic-venus-gallery {
+    padding: 30px 18px 38px;
+  }
+
+  .sic-venus-gallery__tabs {
+    gap: 10px;
+  }
+
+  .sic-venus-gallery__tab {
+    min-height: 140px;
+    padding: 17px 9px;
+  }
+
+  .sic-venus-gallery__tab-title {
+    font-size: 14px;
+  }
+
+  .sic-venus-gallery__cards {
+    gap: 13px;
+  }
+
+  .sic-venus-gallery__card-body {
+    padding: 14px 15px 17px;
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+  .sic-venus-gallery {
+    padding: 25px 15px 32px;
+  }
+
+  .sic-venus-gallery__heading {
+    margin-bottom: 20px;
+  }
+
+  .sic-venus-gallery__title {
+    font-size: 18px;
+  }
+
+  .sic-venus-gallery__tabs {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .sic-venus-gallery__tab {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 72px;
+    padding: 13px 17px;
+    gap: 14px;
+  }
+
+  .sic-venus-gallery__icon-circle {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+  }
+
+  .sic-venus-gallery__tab-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sic-venus-gallery__tab-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .sic-venus-gallery__chevron {
+    flex-shrink: 0;
+  }
+
+  .sic-venus-gallery__panel {
+    padding-top: 22px;
+  }
+
+  .sic-venus-gallery__panel-title {
+    font-size: 19px;
+  }
+
+  .sic-venus-gallery__cards {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .sic-venus-gallery__card--wide {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .sic-venus-gallery__card--wide
+  .sic-venus-gallery__image-wrap {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .sic-venus-gallery__card--wide
+  .sic-venus-gallery__card-body {
+    padding: 16px 19px 19px;
+  }
+}
+
+/* ==================================================
+   RIDUZIONE ANIMAZIONI
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-venus-gallery__panel {
+    animation: none;
+  }
+
+  .sic-venus-gallery__tab,
+  .sic-venus-gallery__chevron {
+    transition: none;
+  }
+}
+</style>
+
+
+<!-- =========================================================
+     HTML
+========================================================= -->
+
+<section
+  class="sic-venus-gallery"
+  id="venus-e-funzionalita"
+  data-venus-gallery
+>
+
+  <div class="sic-venus-gallery__container">
+
+    <!-- TITOLO PRINCIPALE -->
+
+    <div class="sic-venus-gallery__heading">
+      <h2 class="sic-venus-gallery__title">
+        Scopri tutte le funzionalità
+      </h2>
+    </div>
+
+
+    <!-- ==================================================
+         TRE BOX PRINCIPALI
+    ================================================== -->
+
+    <div class="sic-venus-gallery__tabs">
+
+      <!-- ======================================
+           BOX 1 - ROTELLINA
+      ======================================= -->
+
+      <button
+        type="button"
+        class="sic-venus-gallery__tab"
+        data-venus-gallery-tab="1"
+        aria-expanded="false"
+        aria-controls="sic-venus-gallery-panel-1"
+      >
+
+        <span class="sic-venus-gallery__icon-circle">
+
+          <svg
+            class="sic-venus-gallery__tab-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2.75
+                 13.7 2.75
+                 14.1 5.1
+                 16.15 5.95
+                 18.1 4.55
+                 20.45 6.9
+                 19.05 8.85
+                 19.9 10.9
+                 22.25 11.3
+                 22.25 12.7
+                 19.9 13.1
+                 19.05 15.15
+                 20.45 17.1
+                 18.1 19.45
+                 16.15 18.05
+                 14.1 18.9
+                 13.7 21.25
+                 10.3 21.25
+                 9.9 18.9
+                 7.85 18.05
+                 5.9 19.45
+                 3.55 17.1
+                 4.95 15.15
+                 4.1 13.1
+                 1.75 12.7
+                 1.75 11.3
+                 4.1 10.9
+                 4.95 8.85
+                 3.55 6.9
+                 5.9 4.55
+                 7.85 5.95
+                 9.9 5.1
+                 10.3 2.75Z"
+            />
+            <circle cx="12" cy="12" r="3.2"/>
+          </svg>
+
+        </span>
+
+        <span class="sic-venus-gallery__tab-title">
+          Come funziona e compatibilità
+        </span>
+
+        <svg
+          class="sic-venus-gallery__chevron"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </button>
+
+
+      <!-- ======================================
+           BOX 2 - BATTERIA
+      ======================================= -->
+
+      <button
+        type="button"
+        class="sic-venus-gallery__tab"
+        data-venus-gallery-tab="2"
+        aria-expanded="false"
+        aria-controls="sic-venus-gallery-panel-2"
+      >
+
+        <span class="sic-venus-gallery__icon-circle">
+
+          <svg
+            class="sic-venus-gallery__tab-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect
+              x="2"
+              y="7"
+              width="18"
+              height="10"
+              rx="2"
+            />
+            <path d="M22 11v2"/>
+            <path d="M6 11v2"/>
+            <path d="M10 11v2"/>
+            <path d="M14 11v2"/>
+          </svg>
+
+        </span>
+
+        <span class="sic-venus-gallery__tab-title">
+          Installazione e capacità
+        </span>
+
+        <svg
+          class="sic-venus-gallery__chevron"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </button>
+
+
+      <!-- ======================================
+           BOX 3 - SMARTPHONE
+      ======================================= -->
+
+      <button
+        type="button"
+        class="sic-venus-gallery__tab"
+        data-venus-gallery-tab="3"
+        aria-expanded="false"
+        aria-controls="sic-venus-gallery-panel-3"
+      >
+
+        <span class="sic-venus-gallery__icon-circle">
+
+          <svg
+            class="sic-venus-gallery__tab-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect
+              x="6"
+              y="2"
+              width="12"
+              height="20"
+              rx="2.5"
+            />
+            <path d="M10 5h4"/>
+            <path d="M11.8 18.5h.4"/>
+          </svg>
+
+        </span>
+
+        <span class="sic-venus-gallery__tab-title">
+          Gestione intelligente
+        </span>
+
+        <svg
+          class="sic-venus-gallery__chevron"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         PANNELLI ESPANDIBILI
+    ================================================== -->
+
+    <div class="sic-venus-gallery__panels">
+
+
+      <!-- ==================================================
+           SEZIONE 1
+           COME FUNZIONA E COMPATIBILITÀ
+
+           2 schede affiancate + 1 orizzontale
+      ================================================== -->
+
+      <div
+        class="sic-venus-gallery__panel"
+        id="sic-venus-gallery-panel-1"
+        data-venus-gallery-panel="1"
+        hidden
+      >
+
+        <div class="sic-venus-gallery__panel-heading">
+
+          <h3 class="sic-venus-gallery__panel-title">
+            Come funziona e compatibilità
+          </h3>
+
+        </div>
+
+
+        <div class="sic-venus-gallery__cards">
+
+
+          <!-- ======================================
+               FOTO 1
+               INSTALLAZIONE PLUG & PLAY
+
+               Immagine:
+               Batteria collegata alla presa AC
+          ======================================= -->
+
+          <article class="sic-venus-gallery__card">
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/terrazza-moderna-con-batteria-smart-marstek-whcv27OOlzL34uCb.png"
+                alt="Installazione della batteria MARSTEK VENUS-E"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 1 — Installazione Plug & Play
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Installazione Plug & Play, semplice e veloce
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                Grazie alla tecnologia AC-Coupling,
+                VENUS-E Gen 3.0 può collegarsi sul lato AC
+                dell'impianto domestico. Una soluzione
+                pensata per semplificare l'installazione
+                e iniziare ad accumulare energia,
+                nel rispetto dei requisiti elettrici previsti.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- ======================================
+               FOTO 2
+               COMPATIBILITÀ FOTOVOLTAICA
+
+               Immagine:
+               Casa con pannelli fotovoltaici
+          ======================================= -->
+
+          <article class="sic-venus-gallery__card">
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/casa-moderna-con-batteria-solare-compatta-uwsSZ8gOSeuUV43W.png"
+                alt="Compatibilità della batteria con impianti fotovoltaici esistenti"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 2 — Compatibilità fotovoltaica
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Compatibile con gli impianti fotovoltaici esistenti
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                La batteria è progettata per integrarsi
+                con gli impianti fotovoltaici già presenti,
+                senza dover necessariamente sostituire
+                l'inverter. L'accumulo sul lato AC
+                permette di utilizzare meglio l'energia
+                prodotta durante il giorno.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- ======================================
+               FOTO 3 - SCHEDA ORIZZONTALE
+               TECNOLOGIA E DURATA
+
+               Immagine:
+               Batteria con celle interne / garanzia
+          ======================================= -->
+
+          <article
+            class="sic-venus-gallery__card sic-venus-gallery__card--wide"
+          >
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/batteria-futuristica-con-celle-luminose-QgGkxIAMXBh5kUys.png"
+                alt="Tecnologia LiFePO4 e durata della batteria VENUS-E"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 3 — Tecnologia e durata
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Tecnologia pensata per durare nel tempo
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                VENUS-E utilizza celle al litio ferro
+                fosfato (LiFePO₄) da 5,12 kWh,
+                progettate per garantire stabilità
+                e affidabilità nel tempo.
+                Marstek dichiara oltre 6.000 cicli
+                di carica e scarica e una garanzia
+                di 10 anni, secondo le condizioni
+                previste dal produttore.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           SEZIONE 2
+           INSTALLAZIONE E CAPACITÀ
+
+           2 schede affiancate + 1 orizzontale
+      ================================================== -->
+
+      <div
+        class="sic-venus-gallery__panel"
+        id="sic-venus-gallery-panel-2"
+        data-venus-gallery-panel="2"
+        hidden
+      >
+
+        <div class="sic-venus-gallery__panel-heading">
+
+          <h3 class="sic-venus-gallery__panel-title">
+            Installazione e capacità
+          </h3>
+
+        </div>
+
+
+        <div class="sic-venus-gallery__cards">
+
+
+          <!-- ======================================
+               FOTO 4
+               POTENZA AC
+
+               Immagine:
+               Collegamento AC e flusso energetico
+          ======================================= -->
+
+          <article class="sic-venus-gallery__card">
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/dispositivo-energetico-con-fascio-blu-fluente-FLgjGyq4cBMczDxn.png"
+                alt="Potenza AC in ingresso e uscita della batteria VENUS-E"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 4 — Potenza AC fino a 2.500 W
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Potenza AC in ingresso e uscita fino a 2.500 W
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                VENUS-E supporta una potenza AC
+                fino a 2.500 W nelle configurazioni
+                previste dal produttore.
+                La potenza di uscita verso la rete
+                è configurabile da 800 W fino a 2.500 W,
+                secondo le condizioni di installazione
+                e le autorizzazioni applicabili.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- ======================================
+               FOTO 5
+               BACKUP
+
+               Immagine:
+               Cucina alimentata durante blackout
+          ======================================= -->
+
+          <article class="sic-venus-gallery__card">
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/cucina-moderna-con-batteria-al-neon-haMvPCZLKdT1KQxv.png"
+                alt="Alimentazione di backup durante un'interruzione di corrente"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 5 — Backup domestico
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Alimentazione di backup fino a 2.500 W
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                L'uscita di backup dedicata
+                può fornire fino a 2.500 W
+                durante un'interruzione della rete.
+                Permette di mantenere alimentati
+                dispositivi essenziali, come
+                illuminazione, router o frigorifero,
+                attraverso i collegamenti previsti.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- ======================================
+               FOTO 6 - SCHEDA ORIZZONTALE
+               RESISTENZA E SILENZIOSITÀ
+
+               Immagine:
+               Batteria in condizioni di neve e pioggia
+          ======================================= -->
+
+          <article
+            class="sic-venus-gallery__card sic-venus-gallery__card--wide"
+          >
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/dispositivo-marstek-tra-neve-e-pioggia-IjhKQySAmncQaAna.png"
+                alt="Resistenza a freddo pioggia e polvere della batteria VENUS-E"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 6 — Resistenza e silenziosità
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Resistente alle intemperie e silenziosa
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                Grazie al grado di protezione IP65,
+                VENUS-E è progettata per resistere
+                a polvere e getti d'acqua.
+                Il sistema può operare fino a −20 °C,
+                secondo le condizioni previste.
+                Il raffreddamento a convezione naturale
+                contribuisce inoltre a un funzionamento
+                silenzioso.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           SEZIONE 3
+           GESTIONE INTELLIGENTE
+
+           2 schede affiancate
+      ================================================== -->
+
+      <div
+        class="sic-venus-gallery__panel"
+        id="sic-venus-gallery-panel-3"
+        data-venus-gallery-panel="3"
+        hidden
+      >
+
+        <div class="sic-venus-gallery__panel-heading">
+
+          <h3 class="sic-venus-gallery__panel-title">
+            Gestione intelligente
+          </h3>
+
+        </div>
+
+
+        <div class="sic-venus-gallery__cards">
+
+
+          <!-- ======================================
+               FOTO 7
+               AUTOCONSUMO E METER
+
+               Immagine:
+               Casa con meter e distribuzione consumi
+          ======================================= -->
+
+          <article class="sic-venus-gallery__card">
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/casa-intelligente-con-energia-solare-UCggw5iaJiulwZwB.png"
+                alt="Gestione intelligente dell'autoconsumo tramite meter"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 7 — Autoconsumo e meter
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Energia gestita in modo intelligente
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                Attraverso un meter compatibile,
+                come MARSTEK CT002 o determinati
+                modelli Shelly, la batteria rileva
+                i consumi domestici e regola
+                la carica e la scarica in tempo reale.
+                La funzione Anti Feed-in permette
+                di ridurre le immissioni indesiderate
+                in rete e ottimizzare l'autoconsumo.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- ======================================
+               FOTO 8
+               APP E INTELLIGENZA ARTIFICIALE
+
+               Immagine:
+               Smartphone con app MARSTEK
+               e ottimizzazione AI
+          ======================================= -->
+
+          <article class="sic-venus-gallery__card">
+
+            <div class="sic-venus-gallery__image-wrap">
+
+              <img
+                class="sic-venus-gallery__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/infografica-modalita-energetiche-intelligenti-NdbCq3Qtpjgpv8Hw.png"
+                alt="Monitoraggio della batteria e ottimizzazione AI tramite app MARSTEK"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-gallery__placeholder">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+
+                <span>
+                  Foto 8 — App e intelligenza artificiale
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="sic-venus-gallery__card-body">
+
+              <h4 class="sic-venus-gallery__card-title">
+                Monitoraggio tramite app e intelligenza artificiale
+              </h4>
+
+              <p class="sic-venus-gallery__card-text">
+                Con l'app MARSTEK puoi monitorare
+                l'energia e scegliere tra le modalità
+                di autoconsumo, gestione manuale
+                e ottimizzazione AI.
+                La batteria può pianificare la ricarica
+                in funzione dei consumi e delle tariffe
+                dinamiche supportate.
+                Le connessioni Wi-Fi, Bluetooth e LAN
+                facilitano il controllo del sistema.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+
+     - Tre sezioni espandibili
+     - Una sola aperta alla volta
+     - Tutte chiuse inizialmente
+     - Gestione automatica delle immagini
+     - Nessuna interferenza con la galleria B2500-D
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll('[data-venus-gallery]')
+    .forEach(function (section) {
+
+      if (section.dataset.initialized === 'true') {
+        return;
+      }
+
+      section.dataset.initialized = 'true';
+
+
+      /* ==================================================
+         TENDINE
+      ================================================== */
+
+      const tabs = Array.from(
+        section.querySelectorAll(
+          '[data-venus-gallery-tab]'
+        )
+      );
+
+      const panels = Array.from(
+        section.querySelectorAll(
+          '[data-venus-gallery-panel]'
+        )
+      );
+
+      let activePanel = null;
+
+
+      /* ==================================================
+         APERTURA E CHIUSURA
+      ================================================== */
+
+      function setActive(id) {
+
+        activePanel =
+          activePanel === id ? null : id;
+
+        tabs.forEach(function (tab) {
+
+          const active =
+            tab.dataset.venusGalleryTab === activePanel;
+
+          tab.classList.toggle(
+            'is-active',
+            active
+          );
+
+          tab.setAttribute(
+            'aria-expanded',
+            String(active)
+          );
+
+        });
+
+        panels.forEach(function (panel) {
+
+          const active =
+            panel.dataset.venusGalleryPanel === activePanel;
+
+          panel.hidden = !active;
+
+        });
+
+      }
+
+
+      /* ==================================================
+         EVENTI DEI TRE BOX
+      ================================================== */
+
+      tabs.forEach(function (tab) {
+
+        tab.addEventListener(
+          'click',
+          function () {
+
+            setActive(
+              tab.dataset.venusGalleryTab
+            );
+
+          }
+        );
+
+      });
+
+
+      /* ==================================================
+         CONTROLLO IMMAGINI
+      ================================================== */
+
+      section.querySelectorAll(
+        '.sic-venus-gallery__image'
+      ).forEach(function (img) {
+
+        const wrapper = img.closest(
+          '.sic-venus-gallery__image-wrap'
+        );
+
+        if (!wrapper) return;
+
+
+        function updateImage() {
+
+          const src = img.getAttribute('src');
+
+          const valid =
+            Boolean(src && src.trim()) &&
+            img.complete &&
+            img.naturalWidth > 0;
+
+          wrapper.classList.toggle(
+            'has-image',
+            valid
+          );
+
+        }
+
+        img.addEventListener(
+          'load',
+          updateImage
+        );
+
+        img.addEventListener(
+          'error',
+          updateImage
+        );
+
+        updateImage();
+
+      });
+
+
+      /* ==================================================
+         STATO INIZIALE
+
+         TUTTI E TRE I BOX CHIUSI
+      ================================================== */
+
+      tabs.forEach(function (tab) {
+
+        tab.classList.remove('is-active');
+
+        tab.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+      });
+
+      panels.forEach(function (panel) {
+
+        panel.hidden = true;
+
+      });
+
+    });
+
+})();
+</script>

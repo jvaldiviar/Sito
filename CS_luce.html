@@ -1,0 +1,543 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.csl-offer-card,
+.csl-offer-card * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ==================================================
+   BOX PRINCIPALE
+================================================== */
+
+.csl-offer-card {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 29% 71%;
+
+    min-height: 340px;
+
+    background: #f5f7f8;
+
+    border: 1px solid #e1e7eb;
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   COLONNA CONNIE
+================================================== */
+
+.csl-offer-card__visual {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px 10px 22px 25px;
+}
+
+
+.csl-offer-card__image {
+    display: block;
+
+    width: 100%;
+    max-width: 255px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   CONTENUTO DESTRA
+================================================== */
+
+.csl-offer-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 27px 4.5% 20px 2%;
+}
+
+
+/* ==================================================
+   TITOLO
+================================================== */
+
+.csl-offer-card__title {
+    margin: 0 0 7px;
+
+    color: #3f444a;
+
+    font-size: clamp(24.5px, calc(2.1vw + 1.5px), 32.5px);
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* ==================================================
+   BREVE DESCRIZIONE OFFERTA
+================================================== */
+
+.csl-offer-card__description {
+    max-width: 650px;
+
+    margin: 0 0 17px;
+
+    color: #566771;
+
+    font-size: 15px;
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   TABELLA OFFERTA
+================================================== */
+
+.csl-offer-card__details {
+    width: 100%;
+}
+
+
+/* SINGOLA RIGA */
+
+.csl-offer-card__row {
+    display: grid;
+    grid-template-columns: 44% 56%;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    border-bottom: 1px solid #d8e0e5;
+}
+
+
+/* ETICHETTA SINISTRA */
+
+.csl-offer-card__label {
+    padding-right: 20px;
+
+    color: #66747c;
+
+    font-size: 15.5px;
+    line-height: 1.3;
+
+    font-weight: 400;
+}
+
+
+/* VALORE DESTRA */
+
+.csl-offer-card__value {
+    color: #4b555b;
+
+    font-size: 15.5px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* ==================================================
+   RIGA ABBONAMENTO
+================================================== */
+
+.csl-offer-card__row--subscription .csl-offer-card__label,
+.csl-offer-card__row--subscription .csl-offer-card__value {
+    color: #3d86c6;
+}
+
+
+.csl-offer-card__row--subscription .csl-offer-card__value {
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   NOTE TECNICHE SU UNA RIGA
+================================================== */
+
+.csl-offer-card__notes {
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 5px 10px;
+
+    color: #77838a;
+
+    font-size: 13.5px;
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+.csl-offer-card__notes-divider {
+    color: #aab3b8;
+}
+
+
+/* ==================================================
+   SPAZIO RISERVATO AI BOTTONI
+================================================== */
+
+.csl-offer-card__actions-space {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 10px;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .csl-offer-card {
+        width: 94%;
+
+        grid-template-columns: 32% 68%;
+
+        min-height: 330px;
+    }
+
+
+    .csl-offer-card__visual {
+        padding: 20px 8px 20px 18px;
+    }
+
+
+    .csl-offer-card__image {
+        max-width: 220px;
+    }
+
+
+    .csl-offer-card__content {
+        padding: 25px 5% 18px 2%;
+    }
+
+
+    .csl-offer-card__title {
+        font-size: 26.5px;
+    }
+
+
+    .csl-offer-card__description {
+        margin-bottom: 15px;
+
+        font-size: 14.5px;
+    }
+
+
+    .csl-offer-card__label,
+    .csl-offer-card__value {
+        font-size: 15px;
+    }
+
+
+    .csl-offer-card__notes {
+        font-size: 13px;
+
+        gap: 4px 8px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .csl-offer-card {
+        width: 92%;
+
+        display: flex;
+        flex-direction: column;
+
+        min-height: auto;
+
+        border-radius: 15px;
+    }
+
+
+    /* CONTENUTO */
+
+    .csl-offer-card__content {
+        order: 1;
+
+        padding: 25px 20px 10px;
+    }
+
+
+    .csl-offer-card__title {
+        margin-bottom: 7px;
+
+        font-size: 24.5px;
+        line-height: 1.15;
+
+        text-align: center;
+    }
+
+
+    .csl-offer-card__description {
+        max-width: 400px;
+
+        margin: 0 auto 17px;
+
+        font-size: 14px;
+        line-height: 1.45;
+
+        text-align: center;
+    }
+
+
+    /* TABELLA */
+
+    .csl-offer-card__row {
+        grid-template-columns: 1fr;
+
+        gap: 4px;
+
+        min-height: auto;
+
+        padding: 11px 0;
+    }
+
+
+    .csl-offer-card__label {
+        padding: 0;
+
+        font-size: 14px;
+    }
+
+
+    .csl-offer-card__value {
+        font-size: 15px;
+
+        text-align: left;
+    }
+
+
+    /* NOTE */
+
+    .csl-offer-card__notes {
+        margin-top: 12px;
+
+        justify-content: flex-start;
+
+        gap: 4px 7px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+
+    /* CONNIE */
+
+    .csl-offer-card__visual {
+        order: 2;
+
+        padding: 5px 20px 18px;
+    }
+
+
+    .csl-offer-card__image {
+        width: 58%;
+        max-width: 195px;
+    }
+
+
+    /* SPAZIO BOTTONI */
+
+    .csl-offer-card__actions-space {
+        min-height: 38px;
+
+        margin-top: 8px;
+    }
+
+}
+
+</style>
+
+
+<div class="csl-offer-card">
+
+
+    <!-- ==================================================
+         CONNIE
+         INSERISCI QUI L'URL DELL'IMMAGINE
+    ================================================== -->
+
+    <div class="csl-offer-card__visual">
+
+        <img
+            class="csl-offer-card__image"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/connie-luce-solare-mLRZpBYde1gnaoY2.png"
+            alt=""
+        >
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CONTENUTO OFFERTA
+    ================================================== -->
+
+    <div class="csl-offer-card__content">
+
+
+        <!-- TITOLO -->
+
+        <h2 class="csl-offer-card__title">
+            OFFERTA COMUNITÀ SOLARE LUCE
+        </h2>
+
+
+        <!-- DESCRIZIONE -->
+
+        <p class="csl-offer-card__description">
+            L'offerta a prezzo variabile orario per consumare
+            quando l'energia costa meno.
+        </p>
+
+
+
+        <!-- ==================================================
+             DATI OFFERTA
+        ================================================== -->
+
+        <div class="csl-offer-card__details">
+
+
+            <!-- TIPOLOGIA -->
+
+            <div class="csl-offer-card__row">
+
+                <div class="csl-offer-card__label">
+                    Tipologia offerta
+                </div>
+
+                <div class="csl-offer-card__value">
+                    Variabile oraria
+                </div>
+
+            </div>
+
+
+            <!-- PREZZO -->
+
+            <div class="csl-offer-card__row">
+
+                <div class="csl-offer-card__label">
+                    Prezzo energia
+                </div>
+
+                <div class="csl-offer-card__value">
+                    *PUN Index GME + 0,018 €/kWh
+                </div>
+
+            </div>
+
+
+            <!-- COMMERCIALIZZAZIONE -->
+
+            <div class="csl-offer-card__row">
+
+                <div class="csl-offer-card__label">
+                    Commercializzazione
+                </div>
+
+                <div class="csl-offer-card__value">
+                    6,50 €/mese
+                </div>
+
+            </div>
+
+
+            <!-- ABBONAMENTO -->
+
+            <div class="csl-offer-card__row csl-offer-card__row--subscription">
+
+                <div class="csl-offer-card__label">
+                    **Abbonamento annuale Base
+                </div>
+
+                <div class="csl-offer-card__value">
+                    18 € / IVA inclusa
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             NOTE TECNICHE
+             TUTTE SULLA STESSA RIGA
+        ================================================== -->
+
+        <div class="csl-offer-card__notes">
+
+            <span>
+                *con addebito su conto corrente
+            </span>
+
+            <span class="csl-offer-card__notes-divider">
+                •
+            </span>
+
+            <span>
+                **servizi inclusi secondo il pacchetto scelto
+            </span>
+
+            <span class="csl-offer-card__notes-divider">
+                •
+            </span>
+
+            <span>
+                IVA e imposte escluse. Perdite incluse.
+            </span>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             SPAZIO LIBERO PER I BOTTONI
+        ================================================== -->
+
+        <div class="csl-offer-card__actions-space"></div>
+
+
+    </div>
+
+</div>

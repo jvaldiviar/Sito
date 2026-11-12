@@ -1,0 +1,261 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+.csl-platform-section,
+.csl-platform-section * {
+    box-sizing: border-box;
+}
+
+.csl-platform-section {
+    width: 100%;
+    margin: 0;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+.csl-platform-hero {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 43% 57%;
+
+    align-items: stretch;
+
+    min-height: 500px;
+
+    overflow: hidden;
+}
+
+.csl-platform-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 60px 6% 60px 8%;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.csl-platform-hero__title {
+    max-width: 560px;
+
+    margin: 0 0 26px;
+
+    color: #3f444a;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: clamp(35px, 3.3vw, 50px);
+    line-height: 1.1;
+
+    font-weight: 600;
+
+    letter-spacing: -1.3px;
+}
+
+.csl-platform-hero__button {
+    align-self: flex-start;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
+
+    padding: 18px 36px;
+
+    color: #ffffff;
+    background: #3d86c6;
+
+    border-radius: 999px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 18px;
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: 0.2px;
+
+    text-decoration: none;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.csl-platform-hero__button:hover {
+    transform: translateY(-2px);
+
+    background: #3278b6;
+
+    box-shadow:
+        0 7px 18px rgba(61, 134, 198, .20);
+}
+
+.csl-platform-hero__visual {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 30px 0 30px 25px;
+
+    overflow: hidden;
+}
+
+.csl-platform-hero__image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 440px;
+
+    object-fit: cover;
+    object-position: center;
+
+    clip-path: polygon(
+        7% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+
+@media (max-width: 950px) {
+
+    .csl-platform-hero {
+        grid-template-columns: 46% 54%;
+
+        min-height: 450px;
+    }
+
+    .csl-platform-hero__content {
+        padding: 50px 6%;
+    }
+
+    .csl-platform-hero__title {
+        margin-bottom: 22px;
+
+        font-size: 36px;
+    }
+
+    .csl-platform-hero__button {
+        margin-top: 26px;
+    }
+
+    .csl-platform-hero__visual {
+        min-height: 450px;
+
+        padding:
+            25px 0
+            25px 18px;
+    }
+
+    .csl-platform-hero__image {
+        max-height: 400px;
+
+        clip-path: polygon(
+            6% 0,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .csl-platform-hero {
+        display: flex;
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+    .csl-platform-hero__content {
+        width: 100%;
+
+        padding: 38px 7% 32px;
+    }
+
+    .csl-platform-hero__title {
+        max-width: none;
+
+        margin-bottom: 20px;
+
+        font-size: 31px;
+
+        letter-spacing: -0.7px;
+    }
+
+    .csl-platform-hero__button {
+        margin-top: 25px;
+
+        padding: 16px 30px;
+
+        font-size: 16px;
+    }
+
+    .csl-platform-hero__visual {
+        min-height: auto;
+
+        padding: 15px 0 0;
+    }
+
+    .csl-platform-hero__image {
+        max-height: none;
+
+        object-fit: contain;
+
+        clip-path: none;
+    }
+
+}
+
+</style>
+
+<section class="csl-platform-section">
+
+    <div class="csl-platform-hero">
+
+        <div class="csl-platform-hero__content">
+
+            <h2 class="csl-platform-hero__title">
+                L’unica piattaforma di condivisione dell’energia in tempo reale in Italia
+            </h2>
+
+            <a
+                class="csl-platform-hero__button"
+                href="#"
+            >
+                ACCEDI
+            </a>
+
+        </div>
+
+        <div class="csl-platform-hero__visual">
+
+            <img
+                class="csl-platform-hero__image"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/piattaforma-di-autoconsumo-collettivo-6aguMBKPW6m590gD.png"
+                alt="Piattaforma di autoconsumo collettivo Comunità Solare"
+            >
+
+        </div>
+
+    </div>
+
+</section>

@@ -13,25 +13,18 @@
       </span>
 
       <h2>
-        Dai valore all’energia che condividi
+        Diventa padrone della tua energia
       </h2>
 
       <p class="sic-flashmeter-text">
-        Collegati alla rete, rendi l’energia visibile
-        e valorizza quella condivisa direttamente nella tua bolletta
+        Collegati alla piattaforma, controlla e rendi visibile l’energia
+        e valorizza l'energia condivisa direttamente in bolletta
         con Comunità Solare Luce.
       </p>
 
-      <a
-        href="#acquista-smart-meter"
-        class="sic-flashmeter-button"
-      >
-        Acquista lo Smart Meter
-      </a>
-
     </div>
 
-      <!-- 3 STRUMENTI SECONDARI -->
+      <!-- STRUMENTI -->
       <div class="sic-flashmeter-mini-grid">
 
 
@@ -45,9 +38,7 @@
             >
           </div>
 
-          <span class="sic-flashmeter-mini-tag">
-            Connextus
-          </span>
+          <a href="#connextus" class="sic-flashmeter-button sic-flashmeter-tool-button"><span>Scopri Connextus</span></a>
 
         </article>
 
@@ -57,14 +48,12 @@
 
           <div class="sic-flashmeter-mini-image">
             <img
-              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/44-kVm4TaKADrtDWGBp.png"
+              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/44-XMwhYj2wdPfvpoEE.png"
               alt="Piattaforma Comunità Solare"
             >
           </div>
 
-          <span class="sic-flashmeter-mini-tag">
-            Piattaforma
-          </span>
+          <a href="#piattaforma" class="sic-flashmeter-button sic-flashmeter-tool-button"><span>Esplora la piattaforma</span></a>
 
         </article>
 
@@ -79,10 +68,20 @@
             >
           </div>
 
-          <span class="sic-flashmeter-mini-tag">
-            Smart Meter
-          </span>
+          <a href="#acquista-smart-meter" class="sic-flashmeter-button sic-flashmeter-tool-button"><span>Acquista lo Smart Meter</span></a>
 
+        </article>
+
+        <!-- COMUNITÀ SOLARE LUCE -->
+        <article class="sic-flashmeter-mini-card">
+          <div class="sic-flashmeter-mini-image">
+            <img
+              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/comunita-solare-luce-CQTwVajmn5Abw1dc.png"
+              alt="Comunità Solare Luce"
+              loading="lazy"
+            >
+          </div>
+          <a href="#comunita-solare-luce" class="sic-flashmeter-button sic-flashmeter-tool-button"><span>Scopri Comunità Solare Luce</span></a>
         </article>
 
 
@@ -226,7 +225,7 @@
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    repeat(4, minmax(0, 1fr));
 
   gap: 28px;
 
@@ -663,4 +662,41 @@
   margin-left: auto;
   margin-right: auto;
 }
+.sic-flashmeter-tool-button {
+  width: auto;
+  max-width: 100%;
+  min-height: 46px;
+  margin-top: 18px;
+  padding: 13px 24px;
+  background: var(--sic-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(61, 134, 198, 0.16);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+.sic-flashmeter-tool-button:hover {
+  background: var(--sic-blue-dark);
+  transform: none;
+}
+.sic-flashmeter-tool-button:focus-visible {
+  outline: 3px solid var(--sic-blue-dark);
+  outline-offset: 4px;
+}
+.sic-flashmeter-tool-button { gap: 9px; }
+.sic-flashmeter-button-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+/* Four tools on desktop, two on tablet, one on small phones. */
+@media (min-width: 481px) and (max-width: 1050px) {
+  .sic-flashmeter-inner > .sic-flashmeter-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.sic-flashmeter-mini-card > .sic-flashmeter-tool-button { margin-top: auto; }
+.sic-flashmeter-mini-card { gap: 18px; }
 </style>

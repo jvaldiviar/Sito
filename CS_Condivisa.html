@@ -1,0 +1,729 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.csl-shared-offer,
+.csl-shared-offer * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ==================================================
+   BOX PRINCIPALE
+================================================== */
+
+.csl-shared-offer {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 29% 71%;
+
+    background: #f5f7f8;
+
+    border: 1px solid #e1e7eb;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.csl-shared-offer:hover {
+    box-shadow: 0 10px 28px rgba(38, 61, 74, 0.10);
+}
+
+
+/* ==================================================
+   COLONNA CONNIE
+================================================== */
+
+.csl-shared-offer__visual {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px 10px 22px 25px;
+}
+
+
+.csl-shared-offer__image {
+    display: block;
+
+    width: 100%;
+    max-width: 255px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   CONTENUTO DESTRA
+================================================== */
+
+.csl-shared-offer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 27px 4.5% 10px 2%;
+}
+
+
+/* ==================================================
+   TITOLO
+================================================== */
+
+.csl-shared-offer__title {
+    margin: 0 0 7px;
+
+    color: #3f444a;
+
+    font-size: clamp(24.5px, calc(2.1vw + 1.5px), 32.5px);
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* ==================================================
+   DESCRIZIONE
+================================================== */
+
+.csl-shared-offer__description {
+    max-width: 650px;
+
+    margin: 0 0 17px;
+
+    color: #566771;
+
+    font-size: 15px;
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   TABELLA OFFERTA
+================================================== */
+
+.csl-shared-offer__details {
+    width: 100%;
+}
+
+
+.csl-shared-offer__row {
+    display: grid;
+    grid-template-columns: 44% 56%;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    border-bottom: 1px solid #d8e0e5;
+}
+
+
+/* ETICHETTA */
+
+.csl-shared-offer__label {
+    padding-right: 20px;
+
+    color: #66747c;
+
+    font-size: 15.5px;
+    line-height: 1.3;
+
+    font-weight: 400;
+}
+
+
+/* VALORE */
+
+.csl-shared-offer__value {
+    color: #4b555b;
+
+    font-size: 15.5px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* ==================================================
+   BONUS ENERGIA CONDIVISA
+================================================== */
+
+.csl-shared-offer__row--bonus .csl-shared-offer__label,
+.csl-shared-offer__row--bonus .csl-shared-offer__value {
+    color: #3d86c6;
+}
+
+
+.csl-shared-offer__row--bonus .csl-shared-offer__value {
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   ABBONAMENTO
+================================================== */
+
+.csl-shared-offer__row--subscription .csl-shared-offer__label,
+.csl-shared-offer__row--subscription .csl-shared-offer__value {
+    color: #3d86c6;
+}
+
+
+.csl-shared-offer__row--subscription .csl-shared-offer__value {
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   NOTE TECNICHE
+================================================== */
+
+.csl-shared-offer__notes {
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 5px 10px;
+
+    color: #77838a;
+
+    font-size: 13.5px;
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+.csl-shared-offer__notes-divider {
+    color: #aab3b8;
+}
+
+
+/* ==================================================
+   REQUISITI ATTIVAZIONE
+================================================== */
+
+.csl-shared-offer__requirements {
+    width: 100%;
+
+    margin-top: 17px;
+    padding: 14px 18px;
+
+    background: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+/* TITOLO REQUISITI */
+
+.csl-shared-offer__requirements-title {
+    margin: 0 0 10px;
+
+    color: #3d86c6;
+
+    font-size: 14.5px;
+    line-height: 1.35;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* ELENCO REQUISITI */
+
+.csl-shared-offer__requirements-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 8px 30px;
+}
+
+
+.csl-shared-offer__requirement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    color: #566771;
+
+    font-size: 14px;
+    line-height: 1.35;
+
+    font-weight: 400;
+}
+
+
+/* CHECK */
+
+.csl-shared-offer__check {
+    display: inline-block;
+
+    flex: 0 0 auto;
+
+    color: #3d86c6;
+
+    font-size: 16.5px;
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   SPAZIO RISERVATO AI BOTTONI
+================================================== */
+
+.csl-shared-offer__actions-space {
+    width: 100%;
+
+    min-height: 55px;
+
+    margin-top: 12px;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .csl-shared-offer {
+        width: 94%;
+
+        grid-template-columns: 32% 68%;
+    }
+
+
+    .csl-shared-offer__visual {
+        padding: 20px 8px 20px 18px;
+    }
+
+
+    .csl-shared-offer__image {
+        max-width: 220px;
+    }
+
+
+    .csl-shared-offer__content {
+        padding: 25px 5% 10px 2%;
+    }
+
+
+    .csl-shared-offer__title {
+        font-size: 26.5px;
+    }
+
+
+    .csl-shared-offer__description {
+        margin-bottom: 15px;
+
+        font-size: 14.5px;
+    }
+
+
+    .csl-shared-offer__label,
+    .csl-shared-offer__value {
+        font-size: 15px;
+    }
+
+
+    .csl-shared-offer__notes {
+        font-size: 13px;
+
+        gap: 4px 8px;
+    }
+
+
+    .csl-shared-offer__requirements-list {
+        gap: 8px 20px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .csl-shared-offer {
+        width: 92%;
+
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 15px;
+    }
+
+
+    /* CONTENUTO */
+
+    .csl-shared-offer__content {
+        order: 1;
+
+        padding: 25px 20px 6px;
+    }
+
+
+    .csl-shared-offer__title {
+        margin-bottom: 7px;
+
+        font-size: 24.5px;
+        line-height: 1.15;
+
+        text-align: center;
+    }
+
+
+    .csl-shared-offer__description {
+        max-width: 400px;
+
+        margin: 0 auto 17px;
+
+        font-size: 14px;
+        line-height: 1.45;
+
+        text-align: center;
+    }
+
+
+    /* TABELLA */
+
+    .csl-shared-offer__row {
+        grid-template-columns: 1fr;
+
+        gap: 4px;
+
+        min-height: auto;
+
+        padding: 11px 0;
+    }
+
+
+    .csl-shared-offer__label {
+        padding: 0;
+
+        font-size: 14px;
+    }
+
+
+    .csl-shared-offer__value {
+        font-size: 15px;
+
+        text-align: left;
+    }
+
+
+    /* NOTE */
+
+    .csl-shared-offer__notes {
+        margin-top: 12px;
+
+        justify-content: flex-start;
+
+        gap: 4px 7px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+
+    /* REQUISITI */
+
+    .csl-shared-offer__requirements {
+        margin-top: 15px;
+
+        padding: 13px 14px;
+
+        text-align: center;
+    }
+
+
+    .csl-shared-offer__requirements-title {
+        margin-bottom: 10px;
+
+        font-size: 13.5px;
+
+        text-align: center;
+    }
+
+
+    .csl-shared-offer__requirements-list {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .csl-shared-offer__requirement {
+        font-size: 13px;
+
+        text-align: center;
+    }
+
+
+    .csl-shared-offer__check {
+        font-size: 15.5px;
+    }
+
+
+    /* CONNIE */
+
+    .csl-shared-offer__visual {
+        order: 2;
+
+        padding: 5px 20px 18px;
+    }
+
+
+    .csl-shared-offer__image {
+        width: 58%;
+        max-width: 195px;
+    }
+
+
+    /* SPAZIO BOTTONI */
+
+    .csl-shared-offer__actions-space {
+        min-height: 35px;
+
+        margin-top: 10px;
+    }
+
+}
+
+</style>
+
+
+<div class="csl-shared-offer">
+
+
+    <!-- ==================================================
+         CONNIE
+    ================================================== -->
+
+    <div class="csl-shared-offer__visual">
+
+        <img
+            class="csl-shared-offer__image"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/connie-luce-condivisa-IOqaLxCvBIvD986D.png"
+            alt=""
+        >
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CONTENUTO OFFERTA
+    ================================================== -->
+
+    <div class="csl-shared-offer__content">
+
+
+        <!-- TITOLO -->
+
+        <h2 class="csl-shared-offer__title">
+            OFFERTA LUCE CONDIVISA 24M
+        </h2>
+
+
+        <!-- DESCRIZIONE -->
+
+        <p class="csl-shared-offer__description">
+            L'offerta per valorizzare l'energia condivisa direttamente in bolletta.
+        </p>
+
+
+
+        <!-- ==================================================
+             DATI OFFERTA
+        ================================================== -->
+
+        <div class="csl-shared-offer__details">
+
+
+            <div class="csl-shared-offer__row">
+
+                <div class="csl-shared-offer__label">
+                    Tipologia offerta
+                </div>
+
+                <div class="csl-shared-offer__value">
+                    Variabile oraria
+                </div>
+
+            </div>
+
+
+            <div class="csl-shared-offer__row">
+
+                <div class="csl-shared-offer__label">
+                    Prezzo energia
+                </div>
+
+                <div class="csl-shared-offer__value">
+                    *PUN Index GME + 0,018 €/kWh
+                </div>
+
+            </div>
+
+
+            <div class="csl-shared-offer__row">
+
+                <div class="csl-shared-offer__label">
+                    Commercializzazione
+                </div>
+
+                <div class="csl-shared-offer__value">
+                    6,50 €/mese
+                </div>
+
+            </div>
+
+
+            <div class="csl-shared-offer__row csl-shared-offer__row--bonus">
+
+                <div class="csl-shared-offer__label">
+                    Bonus Energia Condivisa
+                </div>
+
+                <div class="csl-shared-offer__value">
+                    - 0,018 €/kWh condiviso
+                </div>
+
+            </div>
+
+
+            <div class="csl-shared-offer__row csl-shared-offer__row--subscription">
+
+                <div class="csl-shared-offer__label">
+                    **Abbonamento annuale Smart
+                </div>
+
+                <div class="csl-shared-offer__value">
+                    30 € / IVA inclusa
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             NOTE TECNICHE
+        ================================================== -->
+
+        <div class="csl-shared-offer__notes">
+
+            <span>
+                *con addebito su conto corrente
+            </span>
+
+            <span class="csl-shared-offer__notes-divider">
+                •
+            </span>
+
+            <span>
+                **servizi inclusi secondo il pacchetto scelto
+            </span>
+
+            <span class="csl-shared-offer__notes-divider">
+                •
+            </span>
+
+            <span>
+                IVA e imposte escluse. Perdite incluse.
+            </span>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             REQUISITI ATTIVAZIONE
+        ================================================== -->
+
+        <div class="csl-shared-offer__requirements">
+
+            <p class="csl-shared-offer__requirements-title">
+                Per attivare l'offerta Luce Condivisa è necessario avere:
+            </p>
+
+
+            <div class="csl-shared-offer__requirements-list">
+
+
+                <div class="csl-shared-offer__requirement">
+
+                    <span class="csl-shared-offer__check">
+                        ✓
+                    </span>
+
+                    <span>
+                        Smart Meter attivo
+                    </span>
+
+                </div>
+
+
+                <div class="csl-shared-offer__requirement">
+
+                    <span class="csl-shared-offer__check">
+                        ✓
+                    </span>
+
+                    <span>
+                        Una Comunità Solare attiva con cui condividere energia
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             SPAZIO RISERVATO AI BOTTONI
+        ================================================== -->
+
+        <div class="csl-shared-offer__actions-space"></div>
+
+
+    </div>
+
+</div>

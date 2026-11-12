@@ -1,0 +1,951 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+/* ==================================================
+   CONTENITORE ESTERNO
+================================================== */
+
+.smart-steps,
+.smart-steps * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.smart-steps {
+    width: min(1250px, 96%);
+    margin: 0 auto;
+
+    padding: 32px 28px 20px;
+
+    background: #ffffff;
+
+    border: 2px solid #3d86c6;
+}
+
+
+/* ==================================================
+   TITOLO PRINCIPALE
+================================================== */
+
+.smart-steps__title {
+    margin: 0 0 28px;
+
+    color: #3d86c6;
+
+    font-size: 21.5px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   GRIGLIA
+   TORNA ALLA LARGHEZZA PRECEDENTE
+================================================== */
+
+.smart-steps__grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+/* ==================================================
+   SINGOLA CARD
+================================================== */
+
+.smart-step {
+    width: 100%;
+
+    background: #f5f7f8;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   PARTE CHIUSA DEL BOX
+   PIÙ BASSA E COMPATTA
+================================================== */
+
+.smart-step__toggle {
+    width: 100%;
+    height: 225px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px 25px 14px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+/* ==================================================
+   IMMAGINE
+   PIÙ PICCOLA
+================================================== */
+
+.smart-step__visual {
+    width: 100%;
+    height: 145px;
+
+    flex: 0 0 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smart-step__image {
+    display: block;
+
+    max-width: 125px;
+    max-height: 130px;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   FASCIA TITOLO
+   IDENTICA PER TUTTI I BOX
+================================================== */
+
+.smart-step__heading {
+    width: 100%;
+    height: 52px;
+
+    flex: 0 0 52px;
+
+    display: grid;
+
+    grid-template-columns: 25px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-top: auto;
+}
+
+
+/* ==================================================
+   SIMBOLO +
+================================================== */
+
+.smart-step__plus {
+    position: relative;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    align-self: center;
+}
+
+.smart-step__plus::before,
+.smart-step__plus::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    background: #3f444a;
+
+    transform: translate(-50%, -50%);
+
+    transition: transform .25s ease;
+}
+
+.smart-step__plus::before {
+    width: 18px;
+    height: 2px;
+}
+
+.smart-step__plus::after {
+    width: 2px;
+    height: 18px;
+}
+
+
+/* + DIVENTA − */
+
+.smart-step.is-open .smart-step__plus::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+}
+
+
+/* ==================================================
+   TITOLI DEI 3 BOX
+   14 PX
+================================================== */
+
+.smart-step__title {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 40px;
+
+    color: #3f444a;
+
+    font-size: 15.5px;
+    line-height: 1.35;
+
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   CONTENUTO ESPANDIBILE
+================================================== */
+
+.smart-step__content {
+    display: none;
+
+    padding: 2px 25px 20px 61px;
+}
+
+.smart-step.is-open .smart-step__content {
+    display: block;
+}
+
+.smart-step__content p {
+    margin: 0;
+
+    color: #667782;
+
+    font-size: 15.5px;
+    line-height: 1.55;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   ATTENZIONE
+================================================== */
+
+.smart-steps__notice {
+    margin-top: 25px;
+
+    color: #667782;
+
+    font-size: 15.5px;
+    line-height: 1.55;
+
+    font-weight: 400;
+}
+
+.smart-steps__notice strong {
+    color: #4b555b;
+
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   SEZIONE POD
+================================================== */
+
+.smart-pod {
+    margin-top: 8px;
+}
+
+
+/* ==================================================
+   POD - AREA CLICCABILE
+================================================== */
+
+.smart-pod__toggle {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 25px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+/* ==================================================
+   POD - SIMBOLO +
+================================================== */
+
+.smart-pod__plus {
+    position: relative;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+}
+
+.smart-pod__plus::before,
+.smart-pod__plus::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    background: #3f444a;
+
+    transform: translate(-50%, -50%);
+
+    transition: transform .25s ease;
+}
+
+.smart-pod__plus::before {
+    width: 18px;
+    height: 2px;
+}
+
+.smart-pod__plus::after {
+    width: 2px;
+    height: 18px;
+}
+
+.smart-pod.is-open .smart-pod__plus::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+}
+
+
+/* ==================================================
+   POD - TITOLO
+================================================== */
+
+.smart-pod__title {
+    color: #3f444a;
+
+    font-size: 15.5px;
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   POD - CONTENUTO
+================================================== */
+
+.smart-pod__content {
+    display: none;
+
+    max-width: 1000px;
+
+    padding: 0 0 16px 37px;
+
+    color: #667782;
+
+    font-size: 15.5px;
+    line-height: 1.6;
+
+    font-weight: 400;
+}
+
+.smart-pod.is-open .smart-pod__content {
+    display: block;
+}
+
+.smart-pod__content p {
+    margin: 0 0 10px;
+
+    font-size: 15.5px;
+}
+
+.smart-pod__content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .smart-steps {
+        width: 96%;
+
+        padding: 28px 20px 20px;
+    }
+
+
+    .smart-steps__title {
+        margin-bottom: 24px;
+    }
+
+
+    .smart-steps__grid {
+        width: 100%;
+
+        gap: 16px;
+
+        align-items: start;
+    }
+
+
+    /* BOX PIÙ COMPATTI */
+
+    .smart-step__toggle {
+        height: 215px;
+
+        padding: 14px 18px 13px;
+    }
+
+
+    /* IMMAGINE */
+
+    .smart-step__visual {
+        height: 135px;
+
+        flex-basis: 135px;
+    }
+
+    .smart-step__image {
+        max-width: 115px;
+        max-height: 120px;
+    }
+
+
+    /* FASCIA TITOLO */
+
+    .smart-step__heading {
+        height: 52px;
+
+        flex-basis: 52px;
+
+        grid-template-columns: 23px minmax(0, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .smart-step__title {
+        min-height: 40px;
+
+        font-size: 15.5px;
+    }
+
+
+    .smart-step__content {
+        padding: 2px 18px 19px 50px;
+    }
+
+    .smart-step__content p {
+        font-size: 15.5px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .smart-steps {
+        width: 94%;
+
+        padding: 25px 15px 17px;
+
+        border-width: 1.5px;
+    }
+
+
+    /* TITOLO PRINCIPALE */
+
+    .smart-steps__title {
+        margin-bottom: 22px;
+
+        font-size: 21.5px;
+    }
+
+
+    /* UNA CARD PER RIGA */
+
+    .smart-steps__grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+        align-items: start;
+    }
+
+
+    .smart-step {
+        border-radius: 15px;
+    }
+
+
+    /* BOX PIÙ BASSI */
+
+    .smart-step__toggle {
+        height: 205px;
+
+        padding: 13px 20px 12px;
+    }
+
+
+    /* IMMAGINE */
+
+    .smart-step__visual {
+        height: 125px;
+
+        flex-basis: 125px;
+    }
+
+    .smart-step__image {
+        max-width: 110px;
+        max-height: 115px;
+    }
+
+
+    /* FASCIA TITOLO */
+
+    .smart-step__heading {
+        height: 52px;
+
+        flex-basis: 52px;
+
+        grid-template-columns: 24px minmax(0, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .smart-step__title {
+        min-height: 40px;
+
+        font-size: 15.5px;
+    }
+
+
+    /* CONTENUTO APERTO */
+
+    .smart-step__content {
+        padding: 2px 20px 18px 54px;
+    }
+
+    .smart-step__content p {
+        font-size: 15.5px;
+    }
+
+
+    /* ATTENZIONE */
+
+    .smart-steps__notice {
+        margin-top: 20px;
+
+        font-size: 15.5px;
+    }
+
+
+    /* POD */
+
+    .smart-pod {
+        margin-top: 6px;
+    }
+
+    .smart-pod__toggle {
+        padding: 11px 0;
+    }
+
+    .smart-pod__title {
+        font-size: 15.5px;
+    }
+
+    .smart-pod__content {
+        padding-left: 32px;
+
+        font-size: 15.5px;
+    }
+
+    .smart-pod__content p {
+        font-size: 15.5px;
+    }
+
+}
+
+</style>
+
+
+<section class="smart-steps">
+
+
+    <!-- ==================================================
+         TITOLO PRINCIPALE
+    ================================================== -->
+
+    <h2 class="smart-steps__title">
+        Prima di comprarmi, devi seguire questi semplici passaggi:
+    </h2>
+
+
+
+    <!-- ==================================================
+         3 PASSAGGI
+    ================================================== -->
+
+    <div class="smart-steps__grid">
+
+
+        <!-- ==================================================
+             STEP 1
+        ================================================== -->
+
+        <article class="smart-step">
+
+            <button
+                class="smart-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-step__visual">
+
+                    <img
+                        class="smart-step__image"
+                      src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/32-w0nUqztwakuzFXek.png"
+                        alt="Verifica il tuo contatore"
+                    >
+
+                </div>
+
+
+                <div class="smart-step__heading">
+
+                    <span class="smart-step__plus"></span>
+
+                    <h3 class="smart-step__title">
+                        1. Verifica il tuo contatore
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-step__content">
+
+                <p>
+                    Deve essere la versione 2.0 Open Meter con Chain 2 attiva,
+                    e non il modello precedente, altrimenti ALFA non potrà
+                    leggere i dati.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             STEP 2
+        ================================================== -->
+
+        <article class="smart-step">
+
+            <button
+                class="smart-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-step__visual">
+
+                    <img
+                        class="smart-step__image"
+                        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/30-POGMuQ1nGWyMWG0u.png"
+                        alt="Scarica l'App ALFA Tech"
+                    >
+
+                </div>
+
+
+                <div class="smart-step__heading">
+
+                    <span class="smart-step__plus"></span>
+
+                    <h3 class="smart-step__title">
+                        2. Scarica l’App ALFA Tech
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-step__content">
+
+                <p>
+                    Scarica gratuitamente e preventivamente l’App,
+                    disponibile sia su Play Store che App Store.
+                    Registrati e inserisci il codice POD del contatore.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             STEP 3
+        ================================================== -->
+
+        <article class="smart-step">
+
+            <button
+                class="smart-step__toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <div class="smart-step__visual">
+
+                    <img
+                        class="smart-step__image"
+                        src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/33-EYj0UDP0WRLKT2tC.png"
+                        alt="Aspetta la verifica del contatore"
+                    >
+
+                </div>
+
+
+                <div class="smart-step__heading">
+
+                    <span class="smart-step__plus"></span>
+
+                    <h3 class="smart-step__title">
+                        3. Aspetta la verifica del contatore
+                    </h3>
+
+                </div>
+
+            </button>
+
+
+            <div class="smart-step__content">
+
+                <p>
+                    Una notifica e una email ti avviseranno che la verifica
+                    è andata a buon fine, che il tuo contatore è compatibile
+                    e che puoi procedere con l’acquisto!
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ATTENZIONE
+    ================================================== -->
+
+    <div class="smart-steps__notice">
+
+        <strong>Attenzione:</strong>
+        ricordati di acconsentire l’utilizzo del GPS/Localizzazione
+        dal tuo cellulare per l’app
+
+    </div>
+
+
+
+    <!-- ==================================================
+         POD
+    ================================================== -->
+
+    <div class="smart-pod">
+
+        <button
+            class="smart-pod__toggle"
+            type="button"
+            aria-expanded="false"
+        >
+
+            <span class="smart-pod__plus"></span>
+
+            <span class="smart-pod__title">
+                Non conosci o non trovi il codice POD?
+                (anche per il contatore di produzione dell’impianto fotovoltaico)
+            </span>
+
+        </button>
+
+
+        <div class="smart-pod__content">
+
+            <p>
+                Il POD è il codice identificativo del contatore dell’energia
+                elettrica. Lo puoi trovare nello spazio dedicato in bolletta,
+                generalmente nella prima pagina oppure, in alcuni casi,
+                sul contatore.
+            </p>
+
+            <p>
+                Qualora fosse impossibile recuperare una bolletta della luce,
+                per conoscere il proprio codice POD è necessario inviare al
+                distributore locale una richiesta indicando dati personali,
+                indirizzo esatto dell’utenza e matricola del contatore.
+            </p>
+
+            <p>
+                <strong>
+                    Per il contatore di produzione dell’impianto fotovoltaico:
+                </strong>
+
+                inserisci il POD come suggerito dall’app. Generalmente il POD
+                di produzione è formato dal codice ITP0AE, nel caso di
+                e-distribuzione, seguito dalle stesse cifre numeriche del POD
+                principale o di scambio.
+            </p>
+
+            <p>
+                Il codice POD è presente anche sulla documentazione con il GSE.
+                In alternativa, contatta il distributore.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<script>
+
+/* ==================================================
+   APERTURA DEI 3 PASSAGGI
+   UNA SOLA CARD APERTA ALLA VOLTA
+================================================== */
+
+document.querySelectorAll('.smart-step__toggle').forEach(function(toggle) {
+
+    toggle.addEventListener('click', function() {
+
+        const currentStep =
+            this.closest('.smart-step');
+
+        const isAlreadyOpen =
+            currentStep.classList.contains('is-open');
+
+
+        /* CHIUDE TUTTE LE CARD */
+
+        document.querySelectorAll('.smart-step').forEach(function(step) {
+
+            step.classList.remove('is-open');
+
+            const button =
+                step.querySelector('.smart-step__toggle');
+
+            if (button) {
+
+                button.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+            }
+
+        });
+
+
+        /* APRE SOLO QUELLA CLICCATA */
+
+        if (!isAlreadyOpen) {
+
+            currentStep.classList.add('is-open');
+
+            this.setAttribute(
+                'aria-expanded',
+                'true'
+            );
+
+        }
+
+    });
+
+});
+
+
+
+/* ==================================================
+   APERTURA POD
+================================================== */
+
+const podToggle =
+    document.querySelector('.smart-pod__toggle');
+
+if (podToggle) {
+
+    podToggle.addEventListener('click', function() {
+
+        const pod =
+            this.closest('.smart-pod');
+
+        const isOpen =
+            pod.classList.toggle('is-open');
+
+        this.setAttribute(
+            'aria-expanded',
+            isOpen ? 'true' : 'false'
+        );
+
+    });
+
+}
+
+</script>

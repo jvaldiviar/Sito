@@ -1,0 +1,1284 @@
+
+<!-- =========================================================
+     MARSTEK B2500-D - GALLERIA FUNZIONALITÀ
+
+     UNICA MODIFICA:
+     Seconda immagine del primo box:
+     - Nuovo URL mantenuto
+     - Zoom aumentato da 0.92 a 1.06
+     - object-fit: contain per preservare l'inquadratura
+
+     TUTTO IL RESTO INVARIATO
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ==================================================
+   GENERALE
+================================================== */
+
+.sic-b2500-gallery,
+.sic-b2500-gallery * {
+  box-sizing: border-box;
+}
+
+.sic-b2500-gallery {
+  --sg-blue: #3D86C6;
+  --sg-dark: #3F444A;
+  --sg-muted: #68737B;
+  --sg-border: #E2E8ED;
+  --sg-light: #F7FAFC;
+
+  width: 100%;
+  padding: 35px 20px 45px;
+  background: #FFFFFF;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-b2500-gallery__container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   TITOLO
+================================================== */
+
+.sic-b2500-gallery__heading {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.sic-b2500-gallery__title {
+  margin: 0;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(18px, 1.8vw, 21px);
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 1;
+  letter-spacing: 0;
+}
+
+/* ==================================================
+   TRE BOX PRINCIPALI
+================================================== */
+
+.sic-b2500-gallery__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.sic-b2500-gallery__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 145px;
+  padding: 20px 15px 17px;
+
+  border: 1px solid var(--sg-border);
+  border-radius: 15px;
+
+  background: #FFFFFF;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  cursor: pointer;
+
+  transition:
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.sic-b2500-gallery__tab:hover {
+  border-color: #A5CBE7;
+  background: #F9FCFE;
+}
+
+.sic-b2500-gallery__tab.is-active {
+  border-color: var(--sg-blue);
+  background: #F3F8FC;
+  box-shadow: 0 3px 14px rgba(61,134,198,.07);
+}
+
+/* ==================================================
+   ICONE
+================================================== */
+
+.sic-b2500-gallery__icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #EDF6FC;
+}
+
+.sic-b2500-gallery__tab.is-active
+.sic-b2500-gallery__icon-circle {
+  background: #E1EFF9;
+}
+
+.sic-b2500-gallery__tab-icon {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: var(--sg-blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sic-b2500-gallery__tab-title {
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.sic-b2500-gallery__chevron {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: var(--sg-blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .3s ease;
+}
+
+.sic-b2500-gallery__tab.is-active
+.sic-b2500-gallery__chevron {
+  transform: rotate(180deg);
+}
+
+/* ==================================================
+   CONTENUTI ESPANDIBILI
+================================================== */
+
+.sic-b2500-gallery__panel {
+  padding: 25px 0 5px;
+  animation: sic-b2500-reveal .35s ease both;
+}
+
+.sic-b2500-gallery__panel[hidden] {
+  display: none !important;
+}
+
+@keyframes sic-b2500-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sic-b2500-gallery__panel-heading {
+  margin-bottom: 19px;
+}
+
+.sic-b2500-gallery__panel-title {
+  margin: 0;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ==================================================
+   GALLERIA INTERNA
+================================================== */
+
+.sic-b2500-gallery__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sic-b2500-gallery__card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--sg-border);
+  border-radius: 14px;
+  background: #FFFFFF;
+}
+
+/* ==================================================
+   IMMAGINI
+================================================== */
+
+.sic-b2500-gallery__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--sg-light);
+  overflow: hidden;
+}
+
+.sic-b2500-gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+  transform: scale(1.01);
+}
+
+/* Adattamenti per singole immagini */
+
+.sic-b2500-gallery__image--cover {
+  object-fit: cover;
+}
+
+.sic-b2500-gallery__image--contain {
+  object-fit: contain;
+  background: #FFFFFF;
+}
+
+.sic-b2500-gallery__image--zoom-sm {
+  transform: scale(1.06);
+}
+
+.sic-b2500-gallery__image--zoom-md {
+  transform: scale(1.12);
+}
+
+.sic-b2500-gallery__image--zoom-lg {
+  transform: scale(1.18);
+}
+
+.sic-b2500-gallery__image--top {
+  object-position: center top;
+}
+
+.sic-b2500-gallery__image--bottom {
+  object-position: center bottom;
+}
+
+.sic-b2500-gallery__image--left {
+  object-position: left center;
+}
+
+.sic-b2500-gallery__image--right {
+  object-position: right center;
+}
+
+/* ==================================================
+   UNICA MODIFICA - FOTO 2 DEL PRIMO BOX
+
+   Ingrandimento leggero mantenendo
+   la proporzione dell'immagine originale.
+================================================== */
+
+.sic-b2500-gallery__image--safe {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.06);
+  background: #F7FAFC;
+}
+
+.sic-b2500-gallery__image:not([src]),
+.sic-b2500-gallery__image[src=""] {
+  display: none;
+}
+
+/* ==================================================
+   SEGNAPOSTO IMMAGINI
+================================================== */
+
+.sic-b2500-gallery__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px;
+  color: #86A8C2;
+  text-align: center;
+}
+
+.sic-b2500-gallery__placeholder svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.sic-b2500-gallery__placeholder span {
+  max-width: 250px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.sic-b2500-gallery__image-wrap.has-image
+.sic-b2500-gallery__placeholder {
+  display: none;
+}
+
+/* ==================================================
+   TESTI DELLE SCHEDE
+================================================== */
+
+.sic-b2500-gallery__card-body {
+  padding: 16px 19px 19px;
+}
+
+.sic-b2500-gallery__card-title {
+  margin: 0 0 8px;
+  color: var(--sg-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.sic-b2500-gallery__card-text {
+  margin: 0;
+  color: var(--sg-muted);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+/* ==================================================
+   TERZA SCHEDA ORIZZONTALE
+================================================== */
+
+.sic-b2500-gallery__card--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.sic-b2500-gallery__card--wide
+.sic-b2500-gallery__image-wrap {
+  height: 100%;
+  min-height: 225px;
+  aspect-ratio: auto;
+}
+
+.sic-b2500-gallery__card--wide
+.sic-b2500-gallery__card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px 29px;
+}
+
+.sic-b2500-gallery button:focus-visible {
+  outline: 2px solid var(--sg-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .sic-b2500-gallery {
+    padding: 30px 18px 38px;
+  }
+
+  .sic-b2500-gallery__tabs {
+    gap: 10px;
+  }
+
+  .sic-b2500-gallery__tab {
+    min-height: 140px;
+    padding: 17px 9px;
+  }
+
+  .sic-b2500-gallery__tab-title {
+    font-size: 14px;
+  }
+
+  .sic-b2500-gallery__cards {
+    gap: 13px;
+  }
+
+  .sic-b2500-gallery__card-body {
+    padding: 14px 15px 17px;
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+  .sic-b2500-gallery {
+    padding: 25px 15px 32px;
+  }
+
+  .sic-b2500-gallery__heading {
+    margin-bottom: 20px;
+  }
+
+  .sic-b2500-gallery__title {
+    font-size: 18px;
+  }
+
+  .sic-b2500-gallery__tabs {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .sic-b2500-gallery__tab {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 72px;
+    padding: 13px 17px;
+    gap: 14px;
+  }
+
+  .sic-b2500-gallery__icon-circle {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+  }
+
+  .sic-b2500-gallery__tab-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sic-b2500-gallery__tab-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .sic-b2500-gallery__chevron {
+    flex-shrink: 0;
+  }
+
+  .sic-b2500-gallery__panel {
+    padding-top: 22px;
+  }
+
+  .sic-b2500-gallery__panel-title {
+    font-size: 19px;
+  }
+
+  .sic-b2500-gallery__cards {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .sic-b2500-gallery__card--wide {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .sic-b2500-gallery__card--wide
+  .sic-b2500-gallery__image-wrap {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .sic-b2500-gallery__card--wide
+  .sic-b2500-gallery__card-body {
+    padding: 16px 19px 19px;
+  }
+}
+
+/* ==================================================
+   RIDUZIONE ANIMAZIONI
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-b2500-gallery__panel {
+    animation: none;
+  }
+
+  .sic-b2500-gallery__tab,
+  .sic-b2500-gallery__chevron {
+    transition: none;
+  }
+}
+</style>
+
+
+<!-- =========================================================
+     HTML
+========================================================= -->
+
+<section
+  class="sic-b2500-gallery"
+  id="b2500-funzionalita"
+  data-b2500-gallery
+>
+
+  <div class="sic-b2500-gallery__container">
+
+    <!-- TITOLO PRINCIPALE -->
+
+    <div class="sic-b2500-gallery__heading">
+
+      <h2 class="sic-b2500-gallery__title">
+        Scopri tutte le funzionalità
+      </h2>
+
+    </div>
+
+
+    <!-- ==================================================
+         TRE BOX PRINCIPALI
+    ================================================== -->
+
+    <div class="sic-b2500-gallery__tabs">
+
+      <!-- ======================================
+           BOX 1 - ROTELLINA
+      ======================================= -->
+
+      <button
+        type="button"
+        class="sic-b2500-gallery__tab"
+        data-gallery-tab="1"
+        aria-expanded="false"
+        aria-controls="sic-b2500-panel-1"
+      >
+
+        <span class="sic-b2500-gallery__icon-circle">
+
+          <svg
+            class="sic-b2500-gallery__tab-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2.75
+                 13.7 2.75
+                 14.1 5.1
+                 16.15 5.95
+                 18.1 4.55
+                 20.45 6.9
+                 19.05 8.85
+                 19.9 10.9
+                 22.25 11.3
+                 22.25 12.7
+                 19.9 13.1
+                 19.05 15.15
+                 20.45 17.1
+                 18.1 19.45
+                 16.15 18.05
+                 14.1 18.9
+                 13.7 21.25
+                 10.3 21.25
+                 9.9 18.9
+                 7.85 18.05
+                 5.9 19.45
+                 3.55 17.1
+                 4.95 15.15
+                 4.1 13.1
+                 1.75 12.7
+                 1.75 11.3
+                 4.1 10.9
+                 4.95 8.85
+                 3.55 6.9
+                 5.9 4.55
+                 7.85 5.95
+                 9.9 5.1
+                 10.3 2.75Z"
+            />
+            <circle cx="12" cy="12" r="3.2"/>
+          </svg>
+
+        </span>
+
+        <span class="sic-b2500-gallery__tab-title">
+          Come funziona e compatibilità
+        </span>
+
+        <svg
+          class="sic-b2500-gallery__chevron"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </button>
+
+
+      <!-- ======================================
+           BOX 2 - BATTERIA
+      ======================================= -->
+
+      <button
+        type="button"
+        class="sic-b2500-gallery__tab"
+        data-gallery-tab="2"
+        aria-expanded="false"
+        aria-controls="sic-b2500-panel-2"
+      >
+
+        <span class="sic-b2500-gallery__icon-circle">
+
+          <svg
+            class="sic-b2500-gallery__tab-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect x="2" y="7" width="18" height="10" rx="2"/>
+            <path d="M22 11v2"/>
+            <path d="M6 11v2"/>
+            <path d="M10 11v2"/>
+            <path d="M14 11v2"/>
+          </svg>
+
+        </span>
+
+        <span class="sic-b2500-gallery__tab-title">
+          Installazione e capacità
+        </span>
+
+        <svg
+          class="sic-b2500-gallery__chevron"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </button>
+
+
+      <!-- ======================================
+           BOX 3 - SMARTPHONE
+      ======================================= -->
+
+      <button
+        type="button"
+        class="sic-b2500-gallery__tab"
+        data-gallery-tab="3"
+        aria-expanded="false"
+        aria-controls="sic-b2500-panel-3"
+      >
+
+        <span class="sic-b2500-gallery__icon-circle">
+
+          <svg
+            class="sic-b2500-gallery__tab-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect x="6" y="2" width="12" height="20" rx="2.5"/>
+            <path d="M10 5h4"/>
+            <path d="M11.8 18.5h.4"/>
+          </svg>
+
+        </span>
+
+        <span class="sic-b2500-gallery__tab-title">
+          Gestione intelligente
+        </span>
+
+        <svg
+          class="sic-b2500-gallery__chevron"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         PANNELLI ESPANDIBILI
+    ================================================== -->
+
+    <div class="sic-b2500-gallery__panels">
+
+
+      <!-- ======================================
+           SEZIONE 1
+           COME FUNZIONA E COMPATIBILITÀ
+      ======================================= -->
+
+      <div
+        class="sic-b2500-gallery__panel"
+        id="sic-b2500-panel-1"
+        data-gallery-panel="1"
+        hidden
+      >
+
+        <div class="sic-b2500-gallery__panel-heading">
+
+          <h3 class="sic-b2500-gallery__panel-title">
+            Come funziona e compatibilità
+          </h3>
+
+        </div>
+
+
+        <div class="sic-b2500-gallery__cards">
+
+          <!-- FOTO 1 - ENERGIA GIORNO E NOTTE -->
+
+          <article class="sic-b2500-gallery__card">
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-sm"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/confronto-solare-giorno-e-notte-6iJipWMj8pPjCknE.png"
+                alt="Funzionamento della batteria di giorno e notte"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>come funziona.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Energia di giorno e di notte, 24 ore su 24, 7 giorni su 7
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                Durante il giorno, l'energia prodotta dai pannelli
+                alimenta i consumi domestici e ricarica
+                la batteria. Di sera, l'energia immagazzinata
+                viene immessa nella rete domestica tramite il microinverter e alimenta in modo intelligente i dispositivi domestici.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               FOTO 2 - COMPATIBILITÀ MICROINVERTER
+
+               NUOVO URL GIÀ INSERITO
+               ZOOM AUMENTATO A 1.06
+          ================================================== -->
+
+          <article class="sic-b2500-gallery__card">
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--safe"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/99-compatibile1-mVqP4cfmBfl9ISKZ.png"
+                alt="Compatibilità con i microinverter"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>come funziona 2.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Compatibilità con il 99% dei microinverter
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                Grazie ai collegamenti MC4 e alle opzioni
+                di configurazione, B2500 può integrarsi
+                con numerosi pannelli e microinverter presenti sul mercato. 
+                La compatibilità va verificata per
+                il modello utilizzato.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FOTO 3 - GARANZIA E DURATA -->
+
+          <article
+            class="sic-b2500-gallery__card sic-b2500-gallery__card--wide"
+          >
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-sm"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/10-anni-di-garanzie-XBA3Bj40nH1ef04d.png"
+                alt="Celle LiFePO4 e garanzia della batteria"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>come funziona 3.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Tecnologia pensata per durare nel tempo
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                La batteria utilizza celle al litio
+                ferro fosfato (LiFePO₄). Marstek indica
+                oltre 6.000 cicli di carica e una garanzia
+                di 10 anni, secondo le condizioni
+                previste dal produttore.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ======================================
+           SEZIONE 2
+           INSTALLAZIONE E CAPACITÀ
+      ======================================= -->
+
+      <div
+        class="sic-b2500-gallery__panel"
+        id="sic-b2500-panel-2"
+        data-gallery-panel="2"
+        hidden
+      >
+
+        <div class="sic-b2500-gallery__panel-heading">
+
+          <h3 class="sic-b2500-gallery__panel-title">
+            Installazione e capacità
+          </h3>
+
+        </div>
+
+
+        <div class="sic-b2500-gallery__cards">
+
+          <!-- FOTO 4 - DOPPIO MPPT -->
+
+          <article class="sic-b2500-gallery__card">
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-sm"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/flusso-batteria-Te3Arj8bi8jAhImy.png"
+                alt="Doppio ingresso MPPT"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>installazione e capacità 2.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Ingresso doppio MPPT da 1600 W e uscita CC da 800 W
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                Il sistema è dotato di due ingressi
+                MPPT, con un robusto ingresso fotovoltaico
+                complessivo dichiarato di 1.600 W
+                e un'uscita in corrente continua
+                fino a 800 W.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FOTO 5 - CAPACITÀ ESPANDIBILE -->
+
+          <article class="sic-b2500-gallery__card">
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-sm"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/serie-batterie-Uw47X94zVd31NlH1.png"
+                alt="Capacità espandibile"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>installazione e capacità 3.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Espansione flessibile della capacità e dell'apporto fotovoltaico
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                È possibile configurare più unità
+                compatibili per aumentare la capacità
+                complessiva del sistema. Ad esempio, per un microinverter on-grid da 800 W con 2 MPPT, è possibile collegare fino a quattro unità, ottenendo una capacità di 8,96 kEh e una potenza fotovoltaica di 4800 W. 
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FOTO 6 - INSTALLAZIONE IN 15 MINUTI -->
+
+          <article
+            class="sic-b2500-gallery__card sic-b2500-gallery__card--wide"
+          >
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-md"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/cavi-batteria-tH4mMUhRVgp8w5Ge.png"
+                alt="Installazione MARSTEK B2500-D con collegamenti MC4"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>installazione e capacità.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Installazione in 15 minuti
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                Il sistema B2500-D è progettato
+                per un'installazione semplice e veloce.
+                La configurazione può essere completata
+                in circa 15 minuti, secondo le indicazioni
+                del produttore.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ======================================
+           SEZIONE 3
+           GESTIONE INTELLIGENTE
+      ======================================= -->
+
+      <div
+        class="sic-b2500-gallery__panel"
+        id="sic-b2500-panel-3"
+        data-gallery-panel="3"
+        hidden
+      >
+
+        <div class="sic-b2500-gallery__panel-heading">
+
+          <h3 class="sic-b2500-gallery__panel-title">
+            Gestione intelligente
+          </h3>
+
+        </div>
+
+
+        <div class="sic-b2500-gallery__cards">
+
+          <!-- FOTO 7 - SMART METER -->
+
+          <article class="sic-b2500-gallery__card">
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-sm"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/figura-casa-6JaH5kenoFArulSg.png"
+                alt="Distribuzione intelligente tramite smart meter"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>gestione intelligente.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Energia gestita in modo intelligente tramite il contatore intelligente
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                Il contatore intelligente Marstek monitora il consumo elettrico totale di un'abitazione e trasmette questi dati a un dispositivo come il B2500. Utilizzando i dati raccolti dal contatore, il B2500 è in grado di eseguire analisi in tempo reale per determinare quanta energia dovrebbe essere immessa nella rete domestica, consentendo un'allocazione energetica efficiente e riducendo gli sprechi.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FOTO 8 - APP MARSTEK -->
+
+          <article class="sic-b2500-gallery__card">
+
+            <div class="sic-b2500-gallery__image-wrap">
+
+              <img
+                class="sic-b2500-gallery__image sic-b2500-gallery__image--zoom-sm"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/sistema-di-accumulo-intelligente-marstek-FH5t1tytdrDnTDFA.png"
+                alt="Monitoraggio tramite app Marstek"
+                loading="lazy"
+              >
+
+              <div class="sic-b2500-gallery__placeholder">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>gestione intelligente 2.png</span>
+              </div>
+
+            </div>
+
+            <div class="sic-b2500-gallery__card-body">
+
+              <h4 class="sic-b2500-gallery__card-title">
+                Monitoraggio tramite app
+              </h4>
+
+              <p class="sic-b2500-gallery__card-text">
+                Grazie al monitoraggio in tempo reale, ti tiene informato sui tuoi consumi e sulla produzione energetica. L'app calcola in modo intelligente anche il tuo risparmio energetico, offrendoti un quadro chiaro dei benefici. Non si tratta solo di utilizzare l'energia, ma di comprenderla e ottimizzarla per un futuro più verde. 
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll('[data-b2500-gallery]')
+    .forEach(function (section) {
+
+      if (section.dataset.initialized === 'true') {
+        return;
+      }
+
+      section.dataset.initialized = 'true';
+
+      const tabs = Array.from(
+        section.querySelectorAll('[data-gallery-tab]')
+      );
+
+      const panels = Array.from(
+        section.querySelectorAll('[data-gallery-panel]')
+      );
+
+      let activePanel = null;
+
+      /* ==================================================
+         APERTURA E CHIUSURA SEZIONI
+      ================================================== */
+
+      function setActive(id) {
+
+        activePanel = activePanel === id ? null : id;
+
+        tabs.forEach(function (tab) {
+
+          const active =
+            tab.dataset.galleryTab === activePanel;
+
+          tab.classList.toggle('is-active', active);
+
+          tab.setAttribute(
+            'aria-expanded',
+            String(active)
+          );
+
+        });
+
+        panels.forEach(function (panel) {
+
+          const active =
+            panel.dataset.galleryPanel === activePanel;
+
+          panel.hidden = !active;
+
+        });
+
+      }
+
+      tabs.forEach(function (tab) {
+
+        tab.addEventListener('click', function () {
+          setActive(tab.dataset.galleryTab);
+        });
+
+      });
+
+
+      /* ==================================================
+         CONTROLLO IMMAGINI
+      ================================================== */
+
+      section.querySelectorAll('.sic-b2500-gallery__image')
+        .forEach(function (img) {
+
+          const wrapper = img.closest(
+            '.sic-b2500-gallery__image-wrap'
+          );
+
+          if (!wrapper) return;
+
+          function updateImage() {
+
+            const src = img.getAttribute('src');
+
+            const valid =
+              Boolean(src && src.trim()) &&
+              img.complete &&
+              img.naturalWidth > 0;
+
+            wrapper.classList.toggle(
+              'has-image',
+              valid
+            );
+
+          }
+
+          img.addEventListener('load', updateImage);
+          img.addEventListener('error', updateImage);
+
+          updateImage();
+
+        });
+
+
+      /* ==================================================
+         STATO INIZIALE
+         Tutti i box chiusi
+      ================================================== */
+
+      tabs.forEach(function (tab) {
+
+        tab.classList.remove('is-active');
+
+        tab.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = true;
+      });
+
+    });
+
+})();
+</script>

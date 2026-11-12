@@ -1,0 +1,1051 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* =====================================
+   ARCHIVIO CERTIS E CERPAS
+===================================== */
+
+.cso-archivio,
+.cso-archivio * {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cso-archivio {
+  --blu: #3D86C6;
+  --giallo: #F5B52B;
+  --grigio: #3F454C;
+
+  width: 100%;
+  padding: 42px 10px 48px;
+  background: #ffffff;
+  color: var(--grigio);
+}
+
+.cso-archivio__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =====================================
+   TITOLO E SOTTOTITOLO
+===================================== */
+
+.cso-archivio__heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.cso-archivio__title {
+  margin: 0 0 10px;
+  color: var(--grigio);
+  font-size: clamp(25px, 3.4vw, 38px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1.3px;
+}
+
+.cso-archivio__subtitle {
+  margin: 0;
+  color: var(--grigio);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+}
+
+/* =====================================
+   GRIGLIA
+===================================== */
+
+.cso-archivio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+/* =====================================
+   SCHEDA COMPATTA
+===================================== */
+
+.cso-archivio__card {
+  position: relative;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 15px;
+  border: 1px solid #DCE5EC;
+  border-radius: 12px;
+  background: #ffffff;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.cso-archivio__card:hover {
+  border-color: var(--blu);
+  box-shadow: 0 4px 15px rgba(35,70,100,.06);
+}
+
+.cso-archivio__card.is-open {
+  z-index: 10;
+}
+
+/* =====================================
+   PARTE SUPERIORE: LOGO + INFO
+===================================== */
+
+.cso-archivio__card-top {
+  display: grid;
+  grid-template-columns: 85px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+/* LOGO GRANDE A SINISTRA */
+
+.cso-archivio__logo {
+  width: 85px;
+  height: 85px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+  background: #FAFCFE;
+  overflow: hidden;
+}
+
+.cso-archivio__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cso-archivio__logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  border: 1px dashed #C5D4E1;
+  border-radius: 9px;
+
+  color: #98A6B2;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* INFORMAZIONI A DESTRA */
+
+.cso-archivio__main-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.cso-archivio__type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--grigio);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cso-archivio__dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.cso-archivio__dot--certis {
+  background: var(--blu);
+}
+
+/* PALLINO CERPAS VERDE */
+
+.cso-archivio__dot--cerpas {
+  background: #339766;
+}
+
+/* NOME */
+
+.cso-archivio__name {
+  margin: 0;
+  color: var(--grigio);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* DATA */
+
+.cso-archivio__detail {
+  margin: 0;
+  color: var(--grigio);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.cso-archivio__detail-label {
+  font-weight: 600;
+}
+
+/* =====================================
+   STATO OPERATIVITÀ
+===================================== */
+
+.cso-archivio__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--grigio);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.cso-archivio__status-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #A5ADB6;
+}
+
+/* PALLINO VERDE PER STATO ATTIVA */
+
+.cso-archivio__status--active
+.cso-archivio__status-dot {
+  background: #339766;
+}
+
+.cso-archivio__status--pending
+.cso-archivio__status-dot {
+  background: var(--giallo);
+}
+
+/* =====================================
+   DOCUMENTI
+===================================== */
+
+.cso-archivio__documents {
+  position: relative;
+  padding-top: 9px;
+  border-top: 1px solid #EDF0F2;
+}
+
+.cso-archivio__documents-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  color: var(--blu);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cso-archivio__documents-toggle svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform .2s ease;
+}
+
+.cso-archivio__documents-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* PANNELLO DOCUMENTI SOVRAPPOSTO */
+
+.cso-archivio__documents-list {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 7px);
+  left: -8px;
+  right: -8px;
+
+  padding: 12px;
+  border: 1px solid #DCE5EC;
+  border-radius: 10px;
+  background: #ffffff;
+
+  box-shadow: 0 9px 22px rgba(35,70,100,.12);
+}
+
+.cso-archivio__documents-list[hidden] {
+  display: none;
+}
+
+.cso-archivio__document-link,
+.cso-archivio__document-unavailable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 8px 0;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.cso-archivio__document-link {
+  color: var(--blu);
+}
+
+.cso-archivio__document-link:hover {
+  text-decoration: underline;
+}
+
+.cso-archivio__document-unavailable {
+  color: #82909B;
+  cursor: default;
+}
+
+.cso-archivio__document-link svg,
+.cso-archivio__document-unavailable svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.cso-archivio__document-unavailable svg {
+  opacity: .45;
+}
+
+.cso-archivio__document-unavailable +
+.cso-archivio__document-unavailable,
+.cso-archivio__document-link +
+.cso-archivio__document-link {
+  border-top: 1px solid #EDF0F2;
+}
+
+.cso-archivio__empty {
+  margin: 0;
+  color: #82909B;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =====================================
+   EMAIL
+===================================== */
+
+.cso-archivio__contact {
+  padding-top: 9px;
+  border-top: 1px solid #EDF0F2;
+}
+
+.cso-archivio__contact a,
+.cso-archivio__contact-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  max-width: 100%;
+  color: var(--blu);
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cso-archivio__contact a:hover {
+  text-decoration: underline;
+}
+
+.cso-archivio__contact svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.cso-archivio__email-text {
+  overflow-wrap: anywhere;
+}
+
+.cso-archivio__contact-placeholder {
+  color: #82909B;
+}
+
+/* =====================================
+   MOSTRA ALTRE
+===================================== */
+
+.cso-archivio__more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.cso-archivio__more {
+  padding: 10px 23px;
+  border: 1.5px solid var(--blu);
+  border-radius: 30px;
+  background: #ffffff;
+
+  color: var(--blu);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.cso-archivio__more:hover {
+  background: #E7F3FC;
+}
+
+.cso-archivio__more[hidden] {
+  display: none;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 850px) {
+
+  .cso-archivio__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 580px) {
+
+  .cso-archivio {
+    padding: 35px 12px 45px;
+  }
+
+  .cso-archivio__title {
+    font-size: 27px;
+  }
+
+  .cso-archivio__subtitle {
+    font-size: 14px;
+  }
+
+  .cso-archivio__grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .cso-archivio__card {
+    padding: 14px;
+  }
+
+  .cso-archivio__card-top {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .cso-archivio__logo {
+    width: 80px;
+    height: 80px;
+  }
+
+}
+
+/* Compact directory: one community per row, with original logos. */
+.cso-archivio__filters { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; font-size: 13px; }
+.cso-archivio__filters select { max-width: 100%; padding: 9px 32px 9px 12px; border: 1px solid #DCE5EC; border-radius: 8px; background: #fff; color: var(--grigio); font-size: 13px; }
+.cso-archivio__filters select:focus-visible { outline: 2px solid var(--blu); outline-offset: 3px; }
+#cso-conteggio { margin-left: auto; color: #667782; font-size: 12px; }
+.cso-archivio__grid { grid-template-columns: minmax(0, 1fr); gap: 0; border-top: 1px solid #DCE5EC; }
+.cso-archivio__card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, .65fr) 130px; align-items: center; gap: 18px; padding: 12px 4px; border: 0; border-bottom: 1px solid #DCE5EC; border-radius: 0; }
+.cso-archivio__card:hover { background: #FAFCFE; box-shadow: none; }
+.cso-archivio__card-top { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; }
+.cso-archivio__logo { width: 64px; height: 64px; background: #fff; }
+.cso-archivio__main-info { gap: 3px; }
+.cso-archivio__name { font-size: 14px; font-weight: 600; }
+.cso-archivio__detail { font-size: 11px; color: #667782; }
+.cso-archivio__contact { grid-column: 2; grid-row: 1; margin: 0; border: 0; padding: 0; font-size: 12px; }
+.cso-archivio__documents { grid-column: 3; grid-row: 1; padding: 0; border: 0; min-width: 0; }
+.cso-archivio__documents-toggle { font-size: 12px; }
+.cso-archivio__documents-list { left: auto; right: 0; width: 230px; max-width: calc(100vw - 48px); }
+@media (max-width: 750px) {
+  .cso-archivio__card { grid-template-columns: minmax(0, 1fr) 110px; gap: 8px 12px; }
+  .cso-archivio__card-top { grid-column: 1 / -1; }
+  .cso-archivio__contact { grid-column: 1; grid-row: 2; }
+  .cso-archivio__documents { grid-column: 2; grid-row: 2; }
+}
+
+/* Documents remain visible directly in each community row. */
+.cso-archivio__documents-list {
+  position: static;
+  width: auto;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.cso-archivio__document-link,
+.cso-archivio__document-unavailable {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15px;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+  padding: 6px 0;
+  line-height: 1.4;
+}
+.cso-archivio__documents-list > * + * { border-top: 0; }
+</style>
+
+<section class="cso-archivio" id="documenti-comunita">
+
+  <div class="cso-archivio__container">
+
+    <!-- TITOLO -->
+
+    <div class="cso-archivio__heading">
+
+      <h2 class="cso-archivio__title">
+        Comunità Energetiche di diritto pubblico
+      </h2>
+
+      <p class="cso-archivio__subtitle">
+        Statuti, atti costitutivi e altri documenti ufficiali delle comunità
+      </p>
+
+    </div>
+
+    <div class="cso-archivio__filters">
+      <label for="cso-regione">Regione</label>
+      <select id="cso-regione" aria-controls="cso-archivio-grid">
+        <option value="">Tutte le regioni</option>
+      </select>
+      <span id="cso-conteggio" role="status"></span>
+    </div>
+
+    <!-- ELENCO -->
+
+    <div
+      class="cso-archivio__grid"
+      id="cso-archivio-grid"
+    ></div>
+
+    <!-- MOSTRA ALTRE -->
+
+    <div class="cso-archivio__more-wrap">
+
+      <button
+        class="cso-archivio__more"
+        id="cso-archivio-more"
+        type="button"
+      >
+        Mostra altre comunità ↓
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(function () {
+
+  /* =====================================
+     ELENCO COMUNITÀ
+
+     DA COMPLETARE:
+     data, logo, email, documenti
+
+     regione: regione della comunità
+  ===================================== */
+
+  const comunita = [
+
+    {
+      citta: "Fisciano",
+      nome: "CERTIS Fisciano",
+      tipo: "CERTIS",
+      data: "14 maggio 2025",
+      regione: "Campania",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-fisciano-per-formato-png-3000-x-3000-px-nvD2C1SliENcnV4S.png",
+      email: "fisciano@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Marche",
+      nome: "CERTIS Marche",
+      tipo: "CERTIS",
+      data: "17 novembre 2025",
+      regione: "Marche",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-marche-per-formato-png-3000-x-3000-px-I8xvySTybvdXVizC.png",
+      email: "marche@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Medicina",
+      nome: "CERTIS Medicina",
+      tipo: "CERTIS",
+      data: "14 gennaio 2025",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-medicina-per-formato-png-3000-x-3000-px-1-08i7Iz4SZsJrNAPF.png",
+      email: "medicina@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Montegridolfo",
+      nome: "CERPAS Montegridolfo",
+      tipo: "CERPAS",
+      data: "25 settembre 2024",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-cer-montegridolfo-per-formato-png-3000-x-3000-px-1-qH5V9TKXHc4hKryy.png",
+      email: "info@solarinfocommunity.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Reno Galliera",
+      nome: "CERTIS Reno Galliera",
+      tipo: "CERTIS",
+      data: "30 ottobre 2025",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/_logo-certis-reno-galliera-per-formato-png-3000-x-3000-px-TmLJYcxA8AkaWDID.png",
+      email: "renogalliera@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "San Leo",
+      nome: "CERTIS San Leo",
+      tipo: "CERTIS",
+      data: "21 giugno 2026",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-san-leo-per-formato-png-3000-x-3000-px-ueZLwAqZjbAyqJ08.png",
+      email: "sanleo@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Terre Padovane",
+      nome: "CERTIS Terre Padovane",
+      tipo: "CERTIS",
+      data: "29 ottobre 2025",
+      regione: "Veneto",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-terre-padovane-per-formato-png-3000-x-3000-px-rWdf3QuOgF3YnrmQ.png",
+      email: "terrepadovane@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Terre Parmensi",
+      nome: "CERTIS Terre Parmensi",
+      tipo: "CERTIS",
+      data: "18 novembre 2025",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-terre-parmensi-per-formato-png-3000-x-3000-px-b4NDjoHF3f7Sh8IT.png",
+      email: "terreparmensi@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Val d'Agri",
+      nome: "CERTIS Val d'Agri",
+      tipo: "CERTIS",
+      data: "23 ottobre 2025",
+      regione: "Basilicata",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-val-d-agri-per-formato-png-3000-x-3000-px-Dt2xUXTnMmS112bF.png",
+      email: "valdagri@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Valle Riviera del Conca",
+      nome: "CERTIS Valle Riviera del Conca",
+      tipo: "CERTIS",
+      data: "8 ottobre 2025",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/logo-certis-valle-e-riviera-del-conca-per-formato-png-3000-x-3000-px-i8zngDk2EwTBwufo.png",
+      email: "vallerivieradelconca@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    },
+
+    {
+      citta: "Valmarecchia",
+      nome: "CERTIS Marecchia",
+      tipo: "CERTIS",
+      data: "4 novembre 2025",
+      regione: "Emilia-Romagna",
+      logo: "https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/copia-di-logo-certis-marecchia-per-formato-png-3000-x-3000-px-0a998auwPZrlTxOh.png",
+      email: "marecchia@certissic.it",
+      documenti: [
+        { nome: "Statuto", url: "" },
+        { nome: "Atto costitutivo", url: "" }
+      ]
+    }
+
+  ];
+
+  const section = document.getElementById(
+    "documenti-comunita"
+  );
+
+  if (!section || section.dataset.initialized) {
+    return;
+  }
+
+  section.dataset.initialized = "true";
+
+  const grid = section.querySelector(
+    "#cso-archivio-grid"
+  );
+
+  const moreButton = section.querySelector(
+    "#cso-archivio-more"
+  );
+
+  const regionSelect = section.querySelector("#cso-regione");
+  const count = section.querySelector("#cso-conteggio");
+  [...new Set(comunita.map(item => item.regione))]
+    .sort((a, b) => a.localeCompare(b, "it"))
+    .forEach(regione => {
+      const option = document.createElement("option");
+      option.value = regione;
+      option.textContent = regione;
+      regionSelect.appendChild(option);
+    });
+  regionSelect.addEventListener("change", () => { expanded = false; render(); });
+
+  const INITIAL_COUNT = 4;
+
+  let expanded = false;
+
+  /* SICUREZZA HTML */
+
+  function escapeHTML(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function safeURL(value) {
+    try {
+      const url = new URL(
+        value,
+        window.location.href
+      );
+
+      if (
+        url.protocol === "https:" ||
+        url.protocol === "http:"
+      ) {
+        return escapeHTML(url.href);
+      }
+    } catch (error) {}
+
+    return "";
+  }
+
+  /* ICONE SVG */
+
+  const iconMail = `
+    <svg viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true">
+      <rect x="3" y="5"
+        width="18" height="14" rx="2"/>
+      <path d="m3 7 9 6 9-6"/>
+    </svg>
+  `;
+
+  const iconDownload = `
+    <svg viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true">
+      <path d="M12 3v12"/>
+      <path d="m7 10 5 5 5-5"/>
+      <path d="M4 17v4h16v-4"/>
+    </svg>
+  `;
+
+  /* =====================================
+     CREA SCHEDA
+  ===================================== */
+
+  function createCard(item) {
+
+    const card = document.createElement("article");
+    card.className = "cso-archivio__card";
+
+    const typeClass =
+      item.tipo === "CERTIS"
+        ? "cso-archivio__dot--certis"
+        : "cso-archivio__dot--cerpas";
+
+    const logoURL = item.logo
+      ? safeURL(item.logo)
+      : "";
+
+    const logoHTML = logoURL
+      ? `<img
+           src="${logoURL}"
+           alt="Logo ${escapeHTML(item.nome)}"
+         >`
+      : `<span class="cso-archivio__logo-placeholder">
+           LOGO
+         </span>`;
+
+    const dataHTML = item.data
+      ? escapeHTML(item.data)
+      : "Da inserire";
+
+    /* DOCUMENTI:
+       STATUTO E ATTO COSTITUTIVO
+       SEMPRE VISIBILI NEL PANNELLO */
+
+    let documentsHTML = "";
+
+    const documenti = Array.isArray(item.documenti)
+      ? item.documenti
+      : [];
+
+    documenti.forEach(doc => {
+
+      const docURL = doc.url
+        ? safeURL(doc.url)
+        : "";
+
+      if (docURL) {
+
+        documentsHTML += `
+          <a
+            class="cso-archivio__document-link"
+            href="${docURL}"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>${escapeHTML(doc.nome)}</span>
+            ${iconDownload}
+          </a>
+        `;
+
+      } else {
+
+        documentsHTML += `
+          <div
+            class="cso-archivio__document-unavailable"
+            title="Documento non ancora disponibile"
+          >
+            <span>${escapeHTML(doc.nome)}</span>
+            ${iconDownload}
+          </div>
+        `;
+
+      }
+
+    });
+
+    /* EMAIL */
+
+    const email = String(
+      item.email || ""
+    ).trim();
+
+    const validEmail =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    const contactHTML = validEmail
+      ? `
+        <a href="mailto:${escapeHTML(email)}">
+          ${iconMail}
+          <span class="cso-archivio__email-text">
+            ${escapeHTML(email)}
+          </span>
+        </a>
+      `
+      : `
+        <span class="cso-archivio__contact-placeholder">
+          ${iconMail}
+          <span class="cso-archivio__email-text">
+            Email da inserire
+          </span>
+        </span>
+      `;
+
+    /* HTML SCHEDA */
+
+    card.innerHTML = `
+
+      <!-- LOGO + INFORMAZIONI -->
+
+      <div class="cso-archivio__card-top">
+
+        <div class="cso-archivio__logo">
+          ${logoHTML}
+        </div>
+
+        <div class="cso-archivio__main-info">
+
+          <span class="cso-archivio__type">
+            <span
+              class="cso-archivio__dot ${typeClass}">
+            </span>
+            ${escapeHTML(item.tipo)}
+          </span>
+
+          <h3 class="cso-archivio__name">
+            ${escapeHTML(item.nome)}
+          </h3>
+
+          <p class="cso-archivio__detail">
+            <span class="cso-archivio__detail-label">
+              Costituzione:
+            </span>
+            ${dataHTML} · ${escapeHTML(item.regione)}
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- DOCUMENTI -->
+
+      <div class="cso-archivio__documents">
+
+        <div class="cso-archivio__documents-list">
+          ${documentsHTML}
+        </div>
+
+      </div>
+
+      <!-- EMAIL -->
+
+      <div class="cso-archivio__contact">
+        ${contactHTML}
+      </div>
+
+    `;
+
+    return card;
+  }
+
+  /* =====================================
+     ORDINE ALFABETICO
+  ===================================== */
+
+  comunita.sort((a, b) =>
+    a.citta.localeCompare(
+      b.citta,
+      "it",
+      { sensitivity: "base" }
+    )
+  );
+
+  /* =====================================
+     MOSTRA ALTRE / MOSTRA MENO
+  ===================================== */
+
+  function render() {
+
+    const filtered = comunita.filter(item => !regionSelect.value || item.regione === regionSelect.value);
+    const visible = expanded ? filtered : filtered.slice(0, INITIAL_COUNT);
+    count.textContent = filtered.length + " comunità";
+
+    grid.replaceChildren();
+
+    visible.forEach(item => {
+      grid.appendChild(
+        createCard(item)
+      );
+    });
+
+    moreButton.hidden =
+      filtered.length <= INITIAL_COUNT;
+
+    moreButton.textContent = expanded
+      ? "Mostra meno ↑"
+      : "Mostra altre comunità ↓";
+
+  }
+
+  moreButton.addEventListener(
+    "click",
+    function () {
+
+      expanded = !expanded;
+      render();
+
+    }
+  );
+
+  render();
+
+})();
+</script>

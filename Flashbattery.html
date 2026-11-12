@@ -1,0 +1,1856 @@
+
+<!-- =========================================================
+     MARSTEK B2500-D - SCHEDA PRODOTTO COMPLETA
+
+     MODIFICHE:
+     - 5 URL delle fotografie già inseriti direttamente
+     - Le immagini non dipendono più da JavaScript
+     - Una sola immagine nella tendina "Schemi"
+
+     PER CAMBIARE LE FOTO:
+     Cerca "FOTO 1", "FOTO 2", ecc.
+     e sostituisci l'indirizzo dentro src="..."
+
+     PER INSERIRE LO SCHEMA:
+     Cerca "IMMAGINE SCHEMA" e compila src=""
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   GENERALE
+========================================================= */
+
+.sic-battery-sheet,
+.sic-battery-sheet * {
+  box-sizing: border-box;
+}
+
+.sic-battery-sheet {
+  --bat-blue: #3D86C6;
+  --bat-dark: #3F454C;
+  --bat-muted: #78838C;
+
+  width: 100%;
+  padding: 23px 12px 34px;
+  background: transparent;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-battery-sheet__container {
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   DUE COLONNE
+========================================================= */
+
+.sic-battery-sheet__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  align-items: start;
+}
+
+.sic-battery-sheet__gallery,
+.sic-battery-sheet__content {
+  min-width: 0;
+}
+
+/* =========================================================
+   CAROSELLO
+========================================================= */
+
+.sic-battery-sheet__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 3px solid #1E4C77;
+  border-radius: 13px;
+}
+
+.sic-battery-sheet__slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+}
+
+.sic-battery-sheet__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+
+.sic-battery-sheet__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sic-battery-sheet__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #FFFFFF;
+}
+
+/* =========================================================
+   FRECCE CAROSELLO
+========================================================= */
+
+.sic-battery-sheet__arrow {
+  position: absolute;
+  top: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+  padding: 0;
+
+  color: var(--bat-blue);
+  background: rgba(255,255,255,.96);
+
+  border: 1px solid #D7E4EF;
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.sic-battery-sheet__arrow:hover {
+  background: #F0F7FD;
+}
+
+.sic-battery-sheet__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sic-battery-sheet__arrow--prev {
+  left: 9px;
+}
+
+.sic-battery-sheet__arrow--next {
+  right: 9px;
+}
+
+/* =========================================================
+   COLONNA DESTRA
+========================================================= */
+
+.sic-battery-sheet__content {
+  display: flex;
+  flex-direction: column;
+
+  padding: 29px 29px 27px;
+
+  background: #FFFFFF;
+  border-radius: 18px;
+}
+
+/* TITOLO */
+
+.sic-battery-sheet__title {
+  margin: 0 0 13px;
+
+  color: var(--bat-dark);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.8px;
+}
+
+.sic-battery-sheet__title span {
+  font-weight: 500;
+}
+
+/* DESCRIZIONE */
+
+.sic-battery-sheet__intro {
+  margin: 0;
+
+  color: var(--bat-dark);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -.25px;
+}
+
+/* =========================================================
+   DETTAGLI PRODOTTO
+========================================================= */
+
+.sic-battery-sheet__spec-area {
+  width: 100%;
+  margin-top: 26px;
+  margin-bottom: 25px;
+}
+
+.sic-battery-sheet__spec-heading {
+  margin: 0 0 10px;
+
+  color: var(--bat-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.sic-battery-sheet__spec-list {
+  margin: 0;
+  padding-left: 18px;
+
+  color: var(--bat-dark);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+
+  list-style: disc;
+}
+
+.sic-battery-sheet__spec-list li {
+  margin: 0 0 7px;
+  padding-left: 2px;
+}
+
+.sic-battery-sheet__spec-list li::marker {
+  color: var(--bat-blue);
+  font-size: 13px;
+}
+
+.sic-battery-sheet__spec-list strong {
+  font-weight: 500;
+}
+
+.sic-battery-sheet__brand {
+  margin: 11px 0 0;
+
+  color: var(--bat-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   DUE TENDINE
+========================================================= */
+
+.sic-battery-sheet__accordions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  align-items: start;
+  gap: 13px;
+  width: 100%;
+}
+
+.sic-battery-sheet__accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  min-height: 52px;
+  width: 100%;
+  padding: 13px;
+
+  color: var(--bat-dark);
+  background: #FFFFFF;
+
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.sic-battery-sheet__accordion-trigger:hover,
+.sic-battery-sheet__accordion-trigger[aria-expanded="true"] {
+  color: var(--bat-blue);
+  border-color: #B7D7F0;
+}
+
+/* SIMBOLO + / - */
+
+.sic-battery-sheet__plus {
+  position: relative;
+  display: block;
+
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.sic-battery-sheet__plus::before,
+.sic-battery-sheet__plus::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  background: currentColor;
+  border-radius: 2px;
+
+  transform: translate(-50%, -50%);
+}
+
+.sic-battery-sheet__plus::before {
+  width: 11px;
+  height: 1.6px;
+}
+
+.sic-battery-sheet__plus::after {
+  width: 1.6px;
+  height: 11px;
+}
+
+.sic-battery-sheet__accordion-trigger[aria-expanded="true"]
+.sic-battery-sheet__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* =========================================================
+   AREA ESPANDIBILE
+========================================================= */
+
+.sic-battery-sheet__expand-area {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+
+  gap: 38px;
+  width: 100%;
+  margin-top: 9px;
+}
+
+.sic-battery-sheet__expand-column {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.sic-battery-sheet__expand-area[hidden],
+.sic-battery-sheet__expand-panel[hidden] {
+  display: none !important;
+}
+
+.sic-battery-sheet__expand-panel {
+  width: 100%;
+  padding: 20px 22px 22px;
+
+  color: var(--bat-dark);
+  background: #FFFFFF;
+
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 24px rgba(32,66,95,.06);
+}
+
+/* =========================================================
+   SPECIFICHE TECNICHE
+========================================================= */
+
+.sic-battery-sheet__technical-group {
+  margin-bottom: 22px;
+}
+
+.sic-battery-sheet__technical-group:last-child {
+  margin-bottom: 0;
+}
+
+.sic-battery-sheet__technical-title {
+  margin: 0 0 11px;
+
+  color: var(--bat-dark);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sic-battery-sheet__technical-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.sic-battery-sheet__technical-table tr {
+  border-bottom: 1px solid #EAF0F4;
+}
+
+.sic-battery-sheet__technical-table tr:last-child {
+  border-bottom: none;
+}
+
+.sic-battery-sheet__technical-table th {
+  width: 45%;
+  padding: 7px 10px 7px 0;
+
+  color: #68737B;
+  font-weight: 500;
+  text-align: left;
+  vertical-align: top;
+}
+
+.sic-battery-sheet__technical-table td {
+  padding: 7px 0;
+
+  color: var(--bat-dark);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SCHEMI - UNA SOLA IMMAGINE
+========================================================= */
+
+.sic-battery-sheet__schemes-intro {
+  margin: 0 0 15px;
+
+  color: var(--bat-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.sic-battery-sheet__scheme-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  background: #F4F8FB;
+  border: 1px solid #E5EBF1;
+  border-radius: 9px;
+
+  overflow: hidden;
+}
+
+.sic-battery-sheet__scheme-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  background: #FFFFFF;
+}
+
+.sic-battery-sheet__scheme-image img:not([src]),
+.sic-battery-sheet__scheme-image img[src=""] {
+  display: none;
+}
+
+.sic-battery-sheet__scheme-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+
+  color: #87A7BE;
+  font-size: 13px;
+  text-align: center;
+}
+
+.sic-battery-sheet__scheme-image:has(img[src]:not([src=""]))
+.sic-battery-sheet__scheme-placeholder {
+  display: none;
+}
+
+.sic-battery-sheet__scheme-caption {
+  margin: 8px 0 0;
+
+  color: var(--bat-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   ACCESSIBILITÀ
+========================================================= */
+
+.sic-battery-sheet button:focus-visible,
+.sic-battery-sheet__carousel:focus-visible {
+  outline: 2px solid var(--bat-blue);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .sic-battery-sheet__layout,
+  .sic-battery-sheet__expand-area {
+    gap: 27px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 55%);
+  }
+
+  .sic-battery-sheet__content {
+    padding: 23px 20px;
+  }
+
+  .sic-battery-sheet__title {
+    font-size: 27px;
+  }
+
+  .sic-battery-sheet__accordions {
+    gap: 10px;
+  }
+
+  .sic-battery-sheet__accordion-trigger {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .sic-battery-sheet {
+    padding: 20px 12px 32px;
+  }
+
+  .sic-battery-sheet__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .sic-battery-sheet__gallery {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .sic-battery-sheet__content {
+    padding: 20px 0 0;
+    border-radius: 0;
+  }
+
+  .sic-battery-sheet__title {
+    font-size: 27px;
+  }
+
+  .sic-battery-sheet__intro {
+    font-size: 16px;
+  }
+
+  .sic-battery-sheet__spec-area {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .sic-battery-sheet__accordions {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .sic-battery-sheet__expand-area {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sic-battery-sheet__expand-column {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 390px) {
+
+  .sic-battery-sheet__accordions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sic-battery-sheet__accordion-trigger {
+    font-size: 15px;
+  }
+
+  .sic-battery-sheet__expand-panel {
+    padding: 17px 16px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sic-battery-sheet__slide {
+    transition: none;
+  }
+}
+
+/* Shared presentation matches FlashPlan. */
+
+500;600;700&display=swap');
+.sic-battery-sheet,
+.sic-battery-sheet * {
+  box-sizing: border-box;
+}
+.sic-battery-sheet {
+  --bat-blue: #3D86C6;
+  --bat-dark: #3F454C;
+  --bat-line: #DCE4EA;
+  width: 100%;
+  padding: 0 12px 34px;
+  color: var(--bat-dark);
+  background: transparent;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.sic-battery-sheet__container {
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+.sic-battery-sheet__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  align-items: start;
+}
+.sic-battery-sheet__gallery,
+.sic-battery-sheet__content {
+  min-width: 0;
+}
+.sic-battery-sheet__gallery {
+  width: 100%;
+  max-width: none;
+}
+.sic-battery-sheet__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 3px solid #1E4C77;
+  border-radius: 13px;
+}
+.sic-battery-sheet__slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+}
+.sic-battery-sheet__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+.sic-battery-sheet__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.sic-battery-sheet__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #FFFFFF;
+}
+.sic-battery-sheet__arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: rgba(255,255,255,0.96);
+  color: var(--bat-blue);
+  border: 1px solid #D7E4EF;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 3;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.sic-battery-sheet__arrow:hover {
+  background: #F0F7FD;
+  border-color: var(--bat-blue);
+}
+.sic-battery-sheet__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+.sic-battery-sheet__arrow--prev {
+  left: 9px;
+}
+.sic-battery-sheet__arrow--next {
+  right: 9px;
+}
+.sic-battery-sheet__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 29px 27px;
+  background: #FFFFFF;
+  border-radius: 18px;
+}
+.sic-battery-sheet__heading-group {
+  width: 100%;
+}
+.sic-battery-sheet__title {
+  margin: 0 0 13px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(29px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+.sic-battery-sheet__title span {
+  color: var(--bat-dark);
+  font-weight: 500;
+}
+.sic-battery-sheet__intro {
+  margin: 0;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.25px;
+}
+.sic-battery-sheet__spec-area {
+  width: 100%;
+  margin-top: 26px;
+  margin-bottom: 25px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sic-battery-sheet__spec-heading {
+  margin: 0 0 10px;
+  color: #78838C;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-battery-sheet__spec-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.15px;
+  list-style: disc;
+}
+.sic-battery-sheet__spec-list li {
+  margin: 0 0 6px;
+  padding-left: 2px;
+}
+.sic-battery-sheet__spec-list li:last-child {
+  margin-bottom: 0;
+}
+.sic-battery-sheet__spec-list li::marker {
+  color: var(--bat-blue);
+  font-size: 13px;
+}
+.sic-battery-sheet__spec-list strong {
+  color: var(--bat-dark);
+  font-weight: 500;
+}
+.sic-battery-sheet__brand {
+  margin: 11px 0 0;
+  color: #78838C;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+}
+.sic-battery-sheet__note {
+  margin: 4px 0 0;
+  color: #78838C;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+}
+.sic-battery-sheet__accordions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 13px;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+.sic-battery-sheet__accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 52px;
+  width: 100%;
+  padding: 13px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+.sic-battery-sheet__accordion-trigger:hover,
+.sic-battery-sheet__accordion-trigger[aria-expanded="true"] {
+  color: var(--bat-blue);
+  border-color: #B7D7F0;
+}
+.sic-battery-sheet__accordion-trigger[aria-expanded="true"] {
+  box-shadow: 0 3px 12px rgba(61,134,198,0.045);
+}
+.sic-battery-sheet__plus {
+  position: relative;
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+.sic-battery-sheet__plus::before,
+.sic-battery-sheet__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+.sic-battery-sheet__plus::before {
+  width: 11px;
+  height: 1.6px;
+}
+.sic-battery-sheet__plus::after {
+  width: 1.6px;
+  height: 11px;
+}
+.sic-battery-sheet__accordion-trigger[aria-expanded="true"]
+.sic-battery-sheet__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.sic-battery-sheet__expand-area {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  width: 100%;
+  margin-top: 9px;
+}
+.sic-battery-sheet__expand-column {
+  grid-column: 2;
+  min-width: 0;
+}
+.sic-battery-sheet__expand-area[hidden],
+.sic-battery-sheet__expand-panel[hidden] {
+  display: none !important;
+}
+.sic-battery-sheet__expand-panel {
+  width: 100%;
+  height: auto;
+  padding: 20px 22px 22px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(32,66,95,0.06);
+  overflow: visible;
+}
+.sic-battery-sheet__feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sic-battery-sheet__feature-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.sic-battery-sheet__feature-list li::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--bat-blue);
+  font-weight: 600;
+}
+.sic-battery-sheet__feature-list em {
+  display: block;
+  margin-top: 4px;
+  color: #65717A;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.65;
+}
+.sic-battery-sheet__kit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.sic-battery-sheet__kit-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.sic-battery-sheet__quantity {
+  flex: 0 0 20px;
+  color: var(--bat-blue);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.sic-battery-sheet__arrow:focus-visible,
+.sic-battery-sheet__accordion-trigger:focus-visible {
+  outline: 2px solid var(--bat-blue);
+  outline-offset: 3px;
+}
+@media (max-width: 1024px) {
+  .sic-battery-sheet__container {
+    max-width: 100%;
+  }
+  .sic-battery-sheet__layout,
+  .sic-battery-sheet__expand-area {
+    gap: 27px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 55%);
+  }
+  .sic-battery-sheet__gallery {
+    max-width: none;
+  }
+  .sic-battery-sheet__title {
+    font-size: 29px;
+  }
+  .sic-battery-sheet__accordions {
+    column-gap: 10px;
+  }
+  .sic-battery-sheet__accordion-trigger {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  .sic-battery-sheet__content {
+    padding: 0 20px 23px;
+  }
+}
+@media (max-width: 767px) {
+  .sic-battery-sheet {
+    padding: 0 12px 32px;
+  }
+  .sic-battery-sheet__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .sic-battery-sheet__gallery {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .sic-battery-sheet__content {
+    min-height: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+  .sic-battery-sheet__title {
+    font-size: 29px;
+  }
+  .sic-battery-sheet__intro {
+    font-size: 16px;
+  }
+  .sic-battery-sheet__spec-area {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .sic-battery-sheet__spec-list {
+    font-size: 15px;
+  }
+  .sic-battery-sheet__accordions {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+  }
+  .sic-battery-sheet__accordion-trigger {
+    font-size: 13px;
+  }
+  .sic-battery-sheet__expand-area {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .sic-battery-sheet__expand-column {
+    grid-column: 1;
+  }
+}
+@media (max-width: 390px) {
+  .sic-battery-sheet__accordions {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+  .sic-battery-sheet__accordion-trigger {
+    font-size: 15px;
+  }
+  .sic-battery-sheet__expand-panel {
+    padding: 17px 16px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sic-battery-sheet__slide,
+  .sic-battery-sheet__arrow,
+  .sic-battery-sheet__plus::after {
+    transition: none;
+  }
+}
+.sic-battery-sheet__accordion-item { min-width: 0; }
+.sic-battery-sheet__accordion-item > .sic-battery-sheet__expand-panel {
+  margin-top: 9px;
+  padding: 16px;
+}
+
+</style>
+
+
+<!-- =========================================================
+     HTML - SCHEDA PRODOTTO
+========================================================= -->
+
+<section class="sic-battery-sheet" id="batteria-b2500">
+
+  <div class="sic-battery-sheet__container">
+
+    <div class="sic-battery-sheet__layout">
+
+      <!-- =========================================
+           SINISTRA: CAROSELLO 5 FOTO
+      ========================================== -->
+
+      <div class="sic-battery-sheet__gallery">
+
+        <div
+          class="sic-battery-sheet__carousel"
+          aria-label="Galleria MARSTEK B2500-D"
+          aria-roledescription="carosello"
+          tabindex="0"
+        >
+
+          <div class="sic-battery-sheet__slides">
+
+            <!-- =================================
+                 FOTO 1 - URL MODIFICABILE
+            ================================== -->
+
+            <div class="sic-battery-sheet__slide is-active">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/saturn-1-bzUOJN8Vxh8SjFAj.png"
+                alt="MARSTEK B2500-D - prima vista"
+                loading="eager"
+              >
+
+            </div>
+
+
+            <!-- =================================
+                 FOTO 2 - URL MODIFICABILE
+            ================================== -->
+
+            <div class="sic-battery-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/saturn-2-A5UJEbLif9K1bqai.png"
+                alt="MARSTEK B2500-D - seconda vista"
+                loading="lazy"
+              >
+
+            </div>
+
+
+            <!-- =================================
+                 FOTO 3 - URL MODIFICABILE
+            ================================== -->
+
+            <div class="sic-battery-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/saturn-3-LQEGIXic4LnuQV1o.png"
+                alt="MARSTEK B2500-D - terza vista"
+                loading="lazy"
+              >
+
+            </div>
+
+
+            <!-- =================================
+                 FOTO 4 - URL MODIFICABILE
+            ================================== -->
+
+            <div class="sic-battery-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/saturn-4-oHilkMzZT1SkseVF.png"
+                alt="MARSTEK B2500-D - quarta vista"
+                loading="lazy"
+              >
+
+            </div>
+
+
+            <!-- =================================
+                 FOTO 5 - URL MODIFICABILE
+            ================================== -->
+
+            <div class="sic-battery-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/saturn-5-50DhVploDZBw7iNM.png"
+                alt="MARSTEK B2500-D - quinta vista"
+                loading="lazy"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- FRECCIA PRECEDENTE -->
+
+          <button
+            type="button"
+            class="sic-battery-sheet__arrow sic-battery-sheet__arrow--prev"
+            aria-label="Immagine precedente"
+          >
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="m14 18-6-6 6-6"/>
+            </svg>
+          </button>
+
+
+          <!-- FRECCIA SUCCESSIVA -->
+
+          <button
+            type="button"
+            class="sic-battery-sheet__arrow sic-battery-sheet__arrow--next"
+            aria-label="Immagine successiva"
+          >
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="m10 18 6-6-6-6"/>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================================
+           DESTRA: INFORMAZIONI PRODOTTO
+      ========================================== -->
+
+      <div class="sic-battery-sheet__content">
+
+        <!-- TITOLO E DESCRIZIONE -->
+
+        <div class="sic-battery-sheet__heading-group">
+
+          <h2 class="sic-battery-sheet__title">
+            MARSTEK <span>B2500-D</span>
+          </h2>
+
+          <p class="sic-battery-sheet__intro">
+            Batteria di accumulo da 2,24 kWh per impianti
+            fotovoltaici da balcone. Sfrutta al meglio
+            l'energia che produci, anche dopo il tramonto.
+          </p>
+
+        </div>
+
+
+        <!-- DETTAGLI PRODOTTO -->
+
+        <div class="sic-battery-sheet__spec-area">
+
+          <h3 class="sic-battery-sheet__spec-heading">
+            Dettagli prodotto
+          </h3>
+
+          <ul class="sic-battery-sheet__spec-list">
+
+            <li>
+              <strong>Installazione:</strong>
+              semplice e veloce, in circa 15 minuti.
+            </li>
+
+            <li>
+              <strong>Capacità:</strong>
+              2.240 Wh, espandibile con più unità.
+            </li>
+
+            <li>
+              <strong>Dimensioni/Peso:</strong>
+              309 × 175 × 350 mm; circa 20 kg.
+            </li>
+
+            <li>
+              <strong>Ingresso e uscita:</strong>
+              fino a 1.600 W in ingresso e 800 W in uscita.
+            </li>
+
+            <li>
+              <strong>Gestione intelligente:</strong>
+              tramite smart meter compatibile.
+            </li>
+
+            <li>
+              <strong>Monitoraggio:</strong>
+              app Marstek, Bluetooth e Wi-Fi.
+            </li>
+
+            <li>
+              <strong>Protezione e durata:</strong>
+              IP65, oltre 6.000 cicli e 10 anni di garanzia.
+            </li>
+
+          </ul>
+
+          <p class="sic-battery-sheet__brand">
+            Marca: MARSTEK
+          </p>
+
+        </div>
+
+
+        <!-- TENDINE -->
+
+        <div class="sic-battery-sheet__accordions">
+
+          <div class="sic-battery-sheet__accordion-item">
+<button
+            type="button"
+            class="sic-battery-sheet__accordion-trigger"
+            data-battery-panel-button="specs"
+            aria-expanded="false"
+            aria-controls="sic-battery-panel-specs"
+          >
+            <span>Specifiche</span>
+            <span
+              class="sic-battery-sheet__plus"
+              aria-hidden="true"
+            ></span>
+          </button>
+<div
+          class="sic-battery-sheet__expand-panel"
+          id="sic-battery-panel-specs"
+          data-battery-panel="specs"
+          hidden
+        >
+
+          <!-- GENERALE -->
+
+          <div class="sic-battery-sheet__technical-group">
+
+            <h4 class="sic-battery-sheet__technical-title">
+              Generale
+            </h4>
+
+            <table class="sic-battery-sheet__technical-table">
+              <tbody>
+
+                <tr>
+                  <th>Modello</th>
+                  <td>MARSTEK B2500-D</td>
+                </tr>
+
+                <tr>
+                  <th>Capacità</th>
+                  <td>2240 Wh</td>
+                </tr>
+
+                <tr>
+                  <th>Chimica delle celle</th>
+                  <td>LiFePO₄</td>
+                </tr>
+
+                <tr>
+                  <th>Ciclo di vita</th>
+                  <td>Oltre 6000 cicli fino all'80% della capacità</td>
+                </tr>
+
+                <tr>
+                  <th>Temperatura di conservazione</th>
+                  <td>Da -10°C a 55°C</td>
+                </tr>
+
+                <tr>
+                  <th>Temperatura di esercizio</th>
+                  <td>Da -10°C a 50°C</td>
+                </tr>
+
+                <tr>
+                  <th>Materiale</th>
+                  <td>ABS + PC + metallo</td>
+                </tr>
+
+                <tr>
+                  <th>Peso</th>
+                  <td>20 ± 0,5 kg</td>
+                </tr>
+
+                <tr>
+                  <th>Dimensioni</th>
+                  <td>309 × 175 × 350 mm</td>
+                </tr>
+
+                <tr>
+                  <th>Sistema di gestione batteria</th>
+                  <td>OVP, UVP, OCP, SCP, OTP, UTP, ecc.</td>
+                </tr>
+
+                <tr>
+                  <th>Connettività wireless</th>
+                  <td>Bluetooth 5.2 + Wi-Fi 2,4 GHz</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+          <!-- INGRESSO FOTOVOLTAICO -->
+
+          <div class="sic-battery-sheet__technical-group">
+
+            <h4 class="sic-battery-sheet__technical-title">
+              Ingresso fotovoltaico MC4 × 2
+            </h4>
+
+            <table class="sic-battery-sheet__technical-table">
+              <tbody>
+
+                <tr>
+                  <th>Potenza</th>
+                  <td>800 W × 2 max.</td>
+                </tr>
+
+                <tr>
+                  <th>Intervallo di tensione</th>
+                  <td>12–59 V</td>
+                </tr>
+
+                <tr>
+                  <th>Corrente massima in ingresso</th>
+                  <td>13,5 A × 2</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+          <!-- USCITA -->
+
+          <div class="sic-battery-sheet__technical-group">
+
+            <h4 class="sic-battery-sheet__technical-title">
+              Uscita MC4 × 2
+            </h4>
+
+            <table class="sic-battery-sheet__technical-table">
+              <tbody>
+
+                <tr>
+                  <th>Potenza</th>
+                  <td>400 W × 2 max.</td>
+                </tr>
+
+                <tr>
+                  <th>Intervallo di tensione</th>
+                  <td>16–40 V</td>
+                </tr>
+
+                <tr>
+                  <th>Corrente massima in uscita</th>
+                  <td>15 A max.</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+          <!-- DATI AGGIUNTIVI -->
+
+          <div class="sic-battery-sheet__technical-group">
+
+            <h4 class="sic-battery-sheet__technical-title">
+              Dati aggiuntivi
+            </h4>
+
+            <table class="sic-battery-sheet__technical-table">
+              <tbody>
+
+                <tr>
+                  <th>Grado di protezione</th>
+                  <td>IP65</td>
+                </tr>
+
+                <tr>
+                  <th>Standard dichiarati</th>
+                  <td>
+                    EN IEC 62109-1/-2,
+                    EN IEC 61000-6-1/3,
+                    IEC 62619:2022,
+                    WEEE, RoHS, REACH
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+</div>
+
+
+          <div class="sic-battery-sheet__accordion-item">
+<button
+            type="button"
+            class="sic-battery-sheet__accordion-trigger"
+            data-battery-panel-button="schemes"
+            aria-expanded="false"
+            aria-controls="sic-battery-panel-schemes"
+          >
+            <span>Schemi</span>
+            <span
+              class="sic-battery-sheet__plus"
+              aria-hidden="true"
+            ></span>
+          </button>
+<div
+          class="sic-battery-sheet__expand-panel"
+          id="sic-battery-panel-schemes"
+          data-battery-panel="schemes"
+          hidden
+        >
+
+          <p class="sic-battery-sheet__schemes-intro">
+            Schema di collegamento e configurazione B2500-D.
+          </p>
+
+
+          <!-- ======================================
+               IMMAGINE SCHEMA
+
+               INSERISCI QUI L'URL DELLO SCHEMA
+               NEL CAMPO src=""
+          ======================================= -->
+
+          <div class="sic-battery-sheet__scheme-image">
+
+            <img
+              src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/schema-unifilare-b2500-d-gEF6QTglWhOElvNI.png"
+              alt="Schema di collegamento MARSTEK B2500-D"
+              loading="lazy"
+            >
+
+            <div class="sic-battery-sheet__scheme-placeholder">
+              Inserisci qui l'URL dello schema
+            </div>
+
+          </div>
+
+
+          <p class="sic-battery-sheet__scheme-caption">
+            Collegamento con pannelli e microinverter compatibili.
+          </p>
+
+        </div>
+</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CONTENUTI DELLE TENDINE
+    ========================================================== -->
+
+    
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+
+     SOLO:
+     - Navigazione del carosello
+     - Apertura e chiusura delle tendine
+
+     LE IMMAGINI NON DIPENDONO DA JAVASCRIPT.
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll('.sic-battery-sheet')
+    .forEach(function (section) {
+
+      if (section.dataset.initialized === 'true') {
+        return;
+      }
+
+      section.dataset.initialized = 'true';
+
+      /* =========================================
+         CAROSELLO
+      ========================================== */
+
+      const carousel = section.querySelector(
+        '.sic-battery-sheet__carousel'
+      );
+
+      const slides = Array.from(
+        section.querySelectorAll(
+          '.sic-battery-sheet__slide'
+        )
+      );
+
+      const prev = section.querySelector(
+        '.sic-battery-sheet__arrow--prev'
+      );
+
+      const next = section.querySelector(
+        '.sic-battery-sheet__arrow--next'
+      );
+
+      let currentIndex = 0;
+
+      function showSlide(index) {
+
+        if (!slides.length) return;
+
+        currentIndex = (
+          index + slides.length
+        ) % slides.length;
+
+        slides.forEach(function (slide, i) {
+
+          const active = i === currentIndex;
+
+          slide.classList.toggle(
+            'is-active',
+            active
+          );
+
+          slide.setAttribute(
+            'aria-hidden',
+            String(!active)
+          );
+
+        });
+
+      }
+
+      if (prev) {
+
+        prev.addEventListener(
+          'click',
+          function () {
+            showSlide(currentIndex - 1);
+          }
+        );
+
+      }
+
+      if (next) {
+
+        next.addEventListener(
+          'click',
+          function () {
+            showSlide(currentIndex + 1);
+          }
+        );
+
+      }
+
+      if (carousel) {
+
+        carousel.addEventListener(
+          'keydown',
+          function (event) {
+
+            if (event.key === 'ArrowLeft') {
+
+              event.preventDefault();
+              showSlide(currentIndex - 1);
+
+            }
+
+            if (event.key === 'ArrowRight') {
+
+              event.preventDefault();
+              showSlide(currentIndex + 1);
+
+            }
+
+          }
+        );
+
+      }
+
+
+      /* =========================================
+         TENDINE
+      ========================================== */
+
+      const buttons = Array.from(
+        section.querySelectorAll(
+          '[data-battery-panel-button]'
+        )
+      );
+
+
+
+      const panels = Array.from(
+        section.querySelectorAll(
+          '[data-battery-panel]'
+        )
+      );
+
+      function closePanels() {
+
+        buttons.forEach(function (button) {
+
+          button.setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+        });
+
+        panels.forEach(function (panel) {
+          panel.hidden = true;
+        });
+
+
+
+      }
+
+      buttons.forEach(function (button) {
+
+        button.addEventListener(
+          'click',
+          function () {
+
+            const target = button.getAttribute(
+              'data-battery-panel-button'
+            );
+
+            const wasOpen =
+              button.getAttribute('aria-expanded') === 'true';
+
+            closePanels();
+
+            if (wasOpen) return;
+
+            const selected = panels.find(
+              function (panel) {
+
+                return panel.getAttribute(
+                  'data-battery-panel'
+                ) === target;
+
+              }
+            );
+
+            if (!selected) {
+              return;
+            }
+
+            selected.hidden = false;
+
+            button.setAttribute(
+              'aria-expanded',
+              'true'
+            );
+
+          }
+        );
+
+      });
+
+      closePanels();
+      showSlide(0);
+
+    });
+
+})();
+</script>
+
+<style>
+.sic-battery-sheet__zoom-trigger {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  cursor: zoom-in;
+}
+.sic-battery-sheet__zoom-trigger:focus-visible { outline: 3px solid #3D86C6; outline-offset: -3px; }
+.sic-battery-zoom {
+  width: min(1200px, 94vw);
+  max-width: 94vw;
+  max-height: 94vh;
+  max-height: 94dvh;
+  padding: 50px 16px 16px;
+  border: 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 20px 80px #0005;
+}
+.sic-battery-zoom::backdrop { background: #14252fcc; }
+.sic-battery-zoom img { display: block; width: 100%; max-height: calc(94dvh - 70px); object-fit: contain; }
+.sic-battery-zoom__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #D4E5F3;
+  border-radius: 50%;
+  background: #fff;
+  color: #1E4C77;
+  font-size: 28px;
+  cursor: pointer;
+}
+</style>
+<script>
+(function () {
+  const images = document.querySelectorAll('.sic-battery-sheet__scheme-image img[src]:not([src=""])');
+  if (!images.length) return;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'sic-battery-zoom';
+  dialog.setAttribute('aria-label', 'Schema di collegamento ingrandito');
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'sic-battery-zoom__close';
+  close.setAttribute('aria-label', 'Chiudi immagine');
+  close.textContent = '×';
+  const enlarged = document.createElement('img');
+  dialog.append(close, enlarged);
+  document.body.appendChild(dialog);
+
+  let previousOverflow;
+  close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = previousOverflow;
+  });
+
+  images.forEach(image => {
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'sic-battery-sheet__zoom-trigger';
+    trigger.setAttribute('aria-label', 'Ingrandisci ' + image.alt);
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    image.replaceWith(trigger);
+    trigger.appendChild(image);
+    const placeholder = trigger.parentElement.querySelector('.sic-battery-sheet__scheme-placeholder');
+    if (placeholder) placeholder.remove();
+    trigger.addEventListener('click', () => {
+      enlarged.src = image.currentSrc || image.src;
+      enlarged.alt = image.alt;
+      previousOverflow = document.documentElement.style.overflow;
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+    });
+  });
+})();
+</script>

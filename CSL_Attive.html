@@ -1,0 +1,630 @@
+
+<!-- =========================================================
+     COMUNITÀ SOLARE - ELENCO COMUNITÀ
+
+     Elenchi delle comunità suddivisi per categoria.
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.cs-elenco,
+.cs-elenco * {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cs-elenco {
+  color: #3f454c;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+/* TESTO INTRODUTTIVO */
+
+.cs-elenco-intro {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  color: #3f454c;
+  margin: 0 0 20px;
+}
+
+.cs-elenco-evidenza {
+  font-weight: 500;
+}
+
+/* TRE PULSANTI */
+
+.cs-categorie {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cs-categoria {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 150px;
+  padding: 12px 18px;
+  background: #fff;
+  border: 1px solid #e2e6e9;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3f454c;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cs-categoria:hover {
+  background: #f8fafb;
+  border-color: var(--categoria-colore);
+}
+
+.cs-categoria.attiva {
+  border-color: var(--categoria-colore);
+  background: var(--categoria-sfondo);
+}
+
+.cs-pallino {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--categoria-colore);
+  flex-shrink: 0;
+}
+
+.cs-freccia {
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-left: 3px;
+  margin-top: -4px;
+  transition: transform 0.25s ease;
+}
+
+.cs-categoria.attiva .cs-freccia {
+  transform: rotate(225deg);
+  margin-top: 4px;
+}
+
+/* LINEA SOTTILE DI SEPARAZIONE */
+
+.cs-separatore {
+  width: 100%;
+  height: 1px;
+  margin: 25px auto 0;
+  background: #e2e6e9;
+}
+
+/* PANNELLO A SCOMPARSA */
+
+.cs-pannello {
+  display: none;
+  padding-top: 24px;
+}
+
+.cs-pannello.aperto {
+  display: block;
+  padding-bottom: 100px;
+  animation: cs-apertura 0.25s ease;
+}
+
+@keyframes cs-apertura {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* INTESTAZIONE ELENCO */
+
+.cs-filtro-regione {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.cs-filtro-regione select {
+  width: 100%;
+  max-width: 280px;
+  padding: 10px 14px;
+  border: 1px solid #e2e6e9;
+  border-radius: 10px;
+  background: #fff;
+  color: #3f454c;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.cs-filtro-regione select:focus-visible {
+  outline: 2px solid #3D86C6;
+  outline-offset: 2px;
+}
+
+.cs-risultati {
+  padding-top: 20px;
+}
+
+.cs-risultati-intestazione {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.cs-risultati-titolo {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cs-risultati-conteggio {
+  font-size: 11px;
+  font-weight: 600;
+  color: #667782;
+  background: #f3f5f6;
+  border-radius: 30px;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+/* ELENCO NOMI E PROVINCE */
+
+.cs-lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 25px;
+}
+
+.cs-lista-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.cs-lista-nome {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  min-width: 0;
+}
+
+.cs-lista-dettagli {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cs-lista-provincia,
+.cs-lista-anno {
+  font-size: 11px;
+  color: #84919a;
+  white-space: nowrap;
+}
+
+.cs-lista-provincia {
+  font-weight: 500;
+}
+
+.cs-lista-vuota {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  color: #667782;
+  text-align: center;
+  padding: 25px 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .cs-lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-elenco-intro {
+    font-size: 14px;
+  }
+
+  .cs-categorie {
+    gap: 7px;
+  }
+
+  .cs-categoria {
+    min-width: 0;
+    flex: 1 1 30%;
+    padding: 11px 6px;
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .cs-pallino {
+    width: 7px;
+    height: 7px;
+  }
+
+  .cs-freccia {
+    width: 6px;
+    height: 6px;
+    margin-left: 1px;
+  }
+
+  .cs-lista {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-risultati-titolo {
+    font-size: 15px;
+  }
+
+  .cs-separatore {
+    margin-top: 22px;
+  }
+}
+</style>
+
+<section class="cs-elenco" id="elenco-comunita">
+
+  <!-- TESTO INTRODUTTIVO -->
+
+  <p class="cs-elenco-intro">
+    Scopri le Comunità Solari ed Energetiche.<br>
+    <span class="cs-elenco-evidenza">
+      Ora tocca a te, unisciti alla rivoluzione energetica!
+    </span>
+  </p>
+
+  <!-- TRE PULSANTI -->
+
+  <div class="cs-categorie">
+
+    <button
+      type="button"
+      class="cs-categoria"
+      data-tipo="CSL"
+      aria-expanded="false"
+      aria-controls="cs-pannello"
+      style="
+        --categoria-colore: #F5B52B;
+        --categoria-sfondo: #fffaf0;
+      "
+    >
+      <span class="cs-pallino"></span>
+      COMUNITÀ SOLARI
+      <span class="cs-freccia"></span>
+    </button>
+
+    <button
+      type="button"
+      class="cs-categoria"
+      data-tipo="CERTIS"
+      aria-expanded="false"
+      aria-controls="cs-pannello"
+      style="
+        --categoria-colore: #3D86C6;
+        --categoria-sfondo: #f1f8fe;
+      "
+    >
+      <span class="cs-pallino"></span>
+      CERTIS
+      <span class="cs-freccia"></span>
+    </button>
+
+    <button
+      type="button"
+      class="cs-categoria"
+      data-tipo="CERPAS"
+      aria-expanded="false"
+      aria-controls="cs-pannello"
+      style="
+        --categoria-colore: #43A56C;
+        --categoria-sfondo: #f1faf4;
+      "
+    >
+      <span class="cs-pallino"></span>
+      CERPAS
+      <span class="cs-freccia"></span>
+    </button>
+
+  </div>
+
+  <!-- LINEA DI SEPARAZIONE -->
+
+  <div class="cs-separatore" aria-hidden="true"></div>
+
+  <!-- ELENCO NASCOSTO INIZIALMENTE -->
+
+  <div class="cs-pannello" id="cs-pannello" hidden>
+
+    <div class="cs-filtro-regione">
+      <label for="cs-regione">Filtra per regione</label>
+      <select id="cs-regione" aria-controls="cs-lista">
+        <option value="">Tutte le regioni</option>
+      </select>
+    </div>
+
+    <div class="cs-risultati" aria-live="polite">
+
+      <div class="cs-risultati-intestazione">
+
+        <h3
+          class="cs-risultati-titolo"
+          id="cs-titolo-risultati"
+        ></h3>
+
+        <span
+          class="cs-risultati-conteggio"
+          id="cs-conteggio"
+        ></span>
+
+      </div>
+
+      <div class="cs-lista" id="cs-lista"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(function () {
+
+  /* =====================================
+     ELENCO COMUNITÀ
+
+     Per aggiornare i dati:
+     nome: nome della comunità
+     provincia: sigla della provincia
+     tipo: CSL, CERTIS o CERPAS
+     stato: "attiva" o "costruzione"
+     anno: numero oppure null
+
+     Gli stati sono provvisori,
+     in attesa di verifica.
+  ===================================== */
+
+  const comunita = [
+
+    /* COMUNITÀ SOLARI */
+
+    { nome: "Val d’Agri", provincia: "PZ", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Fisciano", provincia: "SA", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Bologna", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Castel Guelfo", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Casalecchio di Reno", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Castel Maggiore", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Castel San Pietro Terme", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Crevalcore", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Imola", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Medicina", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Molinella", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Ozzano dell’Emilia", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Pianoro", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Sasso Marconi", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Zola Predosa", provincia: "BO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Argenta", provincia: "FE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Portomaggiore", provincia: "FE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Terre del Reno", provincia: "FE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Vigarano Mainarda", provincia: "FE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Cesena", provincia: "FC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Forlì", provincia: "FC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Forlimpopoli", provincia: "FC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Fiorano Modenese", provincia: "MO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Mirandola", provincia: "MO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Nonantola", provincia: "MO", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Fidenza", provincia: "PR", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Alta Val Tidone", provincia: "PC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Cadeo", provincia: "PC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Caorso", provincia: "PC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Castel Bolognese", provincia: "RA", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Lugo", provincia: "RA", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Ravenna", provincia: "RA", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Casalgrande", provincia: "RE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Cavriago", provincia: "RE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Reggio Emilia", provincia: "RE", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Rimini", provincia: "RN", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Villasanta", provincia: "MB", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Falconara Marittima", provincia: "AN", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Montegiorgio", provincia: "FM", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Civitanova Marche", provincia: "MC", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Pesaro", provincia: "PU", tipo: "CSL", stato: "attiva", anno: null },
+    { nome: "Ponte nelle Alpi", provincia: "BL", tipo: "CSL", stato: "attiva", anno: null },
+
+    /* CERTIS */
+
+    { nome: "Val d'Agri", provincia: "PZ", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Fisciano", provincia: "SA", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Medicina", provincia: "BO", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Reno Galliera", provincia: "BO", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Terre Parmensi", provincia: "PR", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "San Leo", provincia: "RN", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Valle Riviera del Conca", provincia: "RN", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Valmarecchia", provincia: "RN", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Marche", provincia: "Marche", tipo: "CERTIS", stato: "attiva", anno: null },
+    { nome: "Terre Padovane", provincia: "PD", tipo: "CERTIS", stato: "attiva", anno: null },
+
+    /* CERPAS */
+
+    { nome: "Montegridolfo", provincia: "RN", tipo: "CERPAS", stato: "attiva", anno: null }
+
+  ];
+
+  const regioniProvince = {
+    PZ: "Basilicata",
+    SA: "Campania",
+    BO: "Emilia-Romagna", FE: "Emilia-Romagna", FC: "Emilia-Romagna",
+    MO: "Emilia-Romagna", PR: "Emilia-Romagna", PC: "Emilia-Romagna",
+    RA: "Emilia-Romagna", RE: "Emilia-Romagna", RN: "Emilia-Romagna",
+    MB: "Lombardia",
+    AN: "Marche", FM: "Marche", MC: "Marche", PU: "Marche", Marche: "Marche",
+    BL: "Veneto", PD: "Veneto"
+  };
+
+  function regioneComunita(item) {
+    return item.regione || regioniProvince[item.provincia];
+  }
+
+  /* =====================================
+     FUNZIONAMENTO AUTOMATICO
+  ===================================== */
+
+  const sezione = document.getElementById("elenco-comunita");
+  if (!sezione) return;
+
+  const categorie = sezione.querySelectorAll(".cs-categoria");
+  const pannello = sezione.querySelector("#cs-pannello");
+  const lista = sezione.querySelector("#cs-lista");
+  const titolo = sezione.querySelector("#cs-titolo-risultati");
+  const conteggio = sezione.querySelector("#cs-conteggio");
+  const filtroRegione = sezione.querySelector("#cs-regione");
+
+  let tipoSelezionato = null;
+
+  const nomi = {
+    CSL: "Comunità Solari",
+    CERTIS: "CERTIS",
+    CERPAS: "CERPAS"
+  };
+
+  function aggiornaRegioni() {
+    const regioni = [...new Set(comunita
+      .filter(item => item.tipo === tipoSelezionato)
+      .map(regioneComunita)
+      .filter(Boolean))].sort((a, b) => a.localeCompare(b, "it"));
+
+    filtroRegione.replaceChildren();
+    const tutte = document.createElement("option");
+    tutte.value = "";
+    tutte.textContent = "Tutte le regioni";
+    filtroRegione.appendChild(tutte);
+    regioni.forEach(regione => {
+      const opzione = document.createElement("option");
+      opzione.value = regione;
+      opzione.textContent = regione;
+      filtroRegione.appendChild(opzione);
+    });
+    filtroRegione.value = "";
+  }
+
+  filtroRegione.addEventListener("change", aggiornaElenco);
+
+  function aggiornaElenco() {
+
+    const risultati = comunita
+      .filter(item =>
+        item.tipo === tipoSelezionato &&
+        (!filtroRegione.value || regioneComunita(item) === filtroRegione.value)
+      )
+      .sort((a, b) => a.nome.localeCompare(b.nome, "it"));
+
+    titolo.textContent = nomi[tipoSelezionato];
+    conteggio.textContent = risultati.length + " comunità";
+
+    lista.replaceChildren();
+
+    if (!risultati.length) {
+      const vuoto = document.createElement("div");
+      vuoto.className = "cs-lista-vuota";
+      vuoto.textContent =
+        "Nessuna comunità presente in questa categoria.";
+      lista.appendChild(vuoto);
+      return;
+    }
+
+    risultati.forEach(item => {
+
+      const riga = document.createElement("div");
+      riga.className = "cs-lista-item";
+
+      const nome = document.createElement("span");
+      nome.className = "cs-lista-nome";
+      nome.textContent = item.nome;
+      riga.appendChild(nome);
+
+      const dettagli = document.createElement("div");
+      dettagli.className = "cs-lista-dettagli";
+
+      if (item.provincia) {
+        const provincia = document.createElement("span");
+        provincia.className = "cs-lista-provincia";
+        provincia.textContent = item.provincia;
+        dettagli.appendChild(provincia);
+      }
+
+      if (item.anno !== null && item.anno !== "") {
+        const anno = document.createElement("span");
+        anno.className = "cs-lista-anno";
+        anno.textContent = item.anno;
+        dettagli.appendChild(anno);
+      }
+
+      riga.appendChild(dettagli);
+      lista.appendChild(riga);
+
+    });
+  }
+
+  function aggiornaPulsanti() {
+
+    categorie.forEach(btn => {
+      const attiva = btn.dataset.tipo === tipoSelezionato;
+      btn.classList.toggle("attiva", attiva);
+      btn.setAttribute("aria-expanded", String(attiva));
+    });
+
+  }
+
+  categorie.forEach(btn => {
+
+    btn.addEventListener("click", function () {
+
+      if (tipoSelezionato === this.dataset.tipo) {
+
+        tipoSelezionato = null;
+        pannello.classList.remove("aperto");
+        pannello.hidden = true;
+
+      } else {
+
+        tipoSelezionato = this.dataset.tipo;
+        aggiornaRegioni();
+        pannello.hidden = false;
+        pannello.classList.add("aperto");
+
+        aggiornaElenco();
+      }
+
+      aggiornaPulsanti();
+
+    });
+
+  });
+
+})();
+</script>

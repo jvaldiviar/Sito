@@ -1,0 +1,842 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+/* ==================================================
+   CONTENITORE
+================================================== */
+
+.csl-pnp,
+.csl-pnp * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.csl-pnp {
+    width: min(880px, 92%);
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+   GRIGLIA
+================================================== */
+
+.csl-pnp__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.csl-pnp-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+
+    background: #f5f7f8;
+
+    border: 1px solid #e1e7eb;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition: box-shadow .3s ease;
+}
+
+.csl-pnp-card:hover {
+    box-shadow: 0 10px 28px rgba(38, 61, 74, .10);
+}
+
+
+/* ==================================================
+   IMMAGINE
+================================================== */
+
+.csl-pnp-card__visual {
+    height: 195px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 20px 0;
+}
+
+.csl-pnp-card__image {
+    display: block;
+
+    width: 100%;
+    max-width: 235px;
+    max-height: 180px;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   CONTENUTO
+================================================== */
+
+.csl-pnp-card__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 48px 25px 15px;
+}
+
+
+/* ==================================================
+   TITOLO E DESCRIZIONE
+================================================== */
+
+.csl-pnp-card__title {
+    margin: 0 0 8px;
+
+    color: #3f444a;
+
+    font-size: 22.5px;
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -.3px;
+
+    text-transform: uppercase;
+}
+
+.csl-pnp-card__description {
+    min-height: 54px;
+
+    margin: 0 0 14px;
+
+    color: #667782;
+
+    font-size: 14px;
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   RIGHE CON SEPARATORI
+================================================== */
+
+.csl-pnp-card__details {
+    width: 100%;
+
+    border-top: 1px solid #d8e0e5;
+}
+
+.csl-pnp-card__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 48px;
+
+    border-bottom: 1px solid #d8e0e5;
+}
+
+.csl-pnp-card__label {
+    color: #66747c;
+
+    font-size: 14.5px;
+    line-height: 1.3;
+
+    font-weight: 400;
+}
+
+.csl-pnp-card__value {
+    color: #4b555b;
+
+    font-size: 14.5px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* LUCE CONDIVISA */
+
+.csl-pnp-card__row--energy .csl-pnp-card__value {
+    color: #3d86c6;
+}
+
+
+/* ABBONAMENTO */
+
+.csl-pnp-card__row--subscription .csl-pnp-card__label,
+.csl-pnp-card__row--subscription .csl-pnp-card__value {
+    color: #3d86c6;
+}
+
+
+/* ==================================================
+   NOTA ASTERISCO
+================================================== */
+
+.csl-pnp-card__notes {
+    min-height: 34px;
+
+    margin-top: 9px;
+
+    color: #77838a;
+
+    font-size: 13px;
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   AREA PRODOTTO
+================================================== */
+
+.csl-pnp-card__product-area {
+    margin-top: 11px;
+}
+
+
+/* ==================================================
+   BOX BIANCO PREZZO
+================================================== */
+
+.csl-pnp-card__product {
+    padding: 12px 15px 11px;
+
+    background: #ffffff;
+
+    border-radius: 9px;
+}
+
+
+/* ==================================================
+   CONTENUTO BOX PRODOTTO
+================================================== */
+
+.csl-pnp-card__product-main {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* TESTI A SINISTRA */
+
+.csl-pnp-card__product-info {
+    min-width: 0;
+}
+
+.csl-pnp-card__product-label {
+    margin: 0;
+
+    color: #3f444a;
+
+    font-size: 14px;
+    line-height: 1.25;
+
+    font-weight: 600;
+}
+
+.csl-pnp-card__product-note {
+    margin: 3px 0 0;
+
+    color: #7a868d;
+
+    font-size: 12px;
+    line-height: 1.2;
+
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   PREZZI
+   Centrati verticalmente rispetto ai testi
+================================================== */
+
+.csl-pnp-card__prices {
+    display: flex;
+    align-items: baseline;
+    align-self: center;
+
+    gap: 7px;
+
+    white-space: nowrap;
+}
+
+.csl-pnp-card__old-price {
+    color: #929ca2;
+
+    font-size: 16px;
+    line-height: 1;
+
+    font-weight: 500;
+
+    text-decoration: line-through;
+}
+
+.csl-pnp-card__new-price {
+    color: #3d86c6;
+
+    font-size: 20.5px;
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   ALTERNATIVA FLASHBATTERY 5 kWh
+================================================== */
+
+.csl-pnp-card__alternative {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 14px 0 0;
+
+    text-align: center;
+
+    color: #667782;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    font-weight: 400;
+}
+
+.csl-pnp-card__alternative-link {
+    color: #3d86c6;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: opacity .2s ease;
+}
+
+.csl-pnp-card__alternative-link:hover {
+    opacity: .72;
+}
+
+
+/* SPAZIO INVISIBILE PER ALLINEAMENTO */
+
+.csl-pnp-card__alternative--empty {
+    visibility: hidden;
+}
+
+
+/* ==================================================
+   SPAZIO PER BOTTONI HOSTINGER
+================================================== */
+
+.csl-pnp-card__actions-space {
+    width: 100%;
+
+    min-height: 75px;
+
+    margin-top: auto;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 850px) {
+
+    .csl-pnp {
+        width: 94%;
+        max-width: 800px;
+    }
+
+    .csl-pnp__grid {
+        gap: 16px;
+    }
+
+    .csl-pnp-card__visual {
+        height: 185px;
+    }
+
+    .csl-pnp-card__image {
+        max-width: 220px;
+        max-height: 170px;
+    }
+
+    .csl-pnp-card__content {
+        padding: 42px 20px 15px;
+    }
+
+    .csl-pnp-card__product-main {
+        gap: 10px;
+    }
+
+    .csl-pnp-card__product-label {
+        font-size: 13.5px;
+    }
+
+    .csl-pnp-card__new-price {
+        font-size: 19.5px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .csl-pnp {
+        width: 92%;
+    }
+
+    .csl-pnp__grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .csl-pnp-card {
+        border-radius: 15px;
+    }
+
+    .csl-pnp-card__visual {
+        height: 180px;
+
+        padding: 14px 20px 0;
+    }
+
+    .csl-pnp-card__image {
+        max-width: 215px;
+        max-height: 165px;
+    }
+
+    .csl-pnp-card__content {
+        padding: 38px 20px 14px;
+    }
+
+    .csl-pnp-card__title {
+        font-size: 21.5px;
+    }
+
+    .csl-pnp-card__description {
+        min-height: auto;
+
+        margin-bottom: 14px;
+
+        font-size: 13.5px;
+    }
+
+    .csl-pnp-card__row {
+        min-height: 46px;
+
+        gap: 10px;
+    }
+
+    .csl-pnp-card__label {
+        font-size: 14px;
+    }
+
+    .csl-pnp-card__value {
+        font-size: 14px;
+    }
+
+    .csl-pnp-card__notes {
+        min-height: auto;
+
+        font-size: 12.5px;
+    }
+
+    .csl-pnp-card__product {
+        padding: 12px 14px 11px;
+    }
+
+    .csl-pnp-card__product-main {
+        grid-template-columns: minmax(0, 1fr) auto;
+
+        gap: 10px;
+    }
+
+    .csl-pnp-card__product-label {
+        font-size: 13.5px;
+    }
+
+    .csl-pnp-card__product-note {
+        margin-top: 3px;
+
+        font-size: 11.5px;
+    }
+
+    .csl-pnp-card__old-price {
+        font-size: 15px;
+    }
+
+    .csl-pnp-card__new-price {
+        font-size: 19.5px;
+    }
+
+    .csl-pnp-card__alternative {
+        min-height: auto;
+
+        margin-top: 15px;
+
+        font-size: 13.5px;
+    }
+
+    .csl-pnp-card__alternative--empty {
+        display: none;
+    }
+
+    .csl-pnp-card__actions-space {
+        min-height: 65px;
+    }
+
+}
+
+.csl-pnp-card__product + .csl-pnp-card__product {
+    margin-top: 16px;
+}
+</style>
+
+
+<section class="csl-pnp">
+
+    <div class="csl-pnp__grid">
+
+
+        <!-- ==================================================
+             OFFERTA CON FLASHPLAN
+        ================================================== -->
+
+        <article class="csl-pnp-card">
+
+
+            <!-- IMMAGINE -->
+
+            <div class="csl-pnp-card__visual">
+
+                <img
+                    class="csl-pnp-card__image"
+                    src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/connie-luce-pannelli-QbFqujX0ZT5fGPUW.png"
+                    alt="Offerta con FlashPlan"
+                >
+
+            </div>
+
+
+            <div class="csl-pnp-card__content">
+
+
+                <h3 class="csl-pnp-card__title">
+                    OFFERTA CON FLASHPLAN
+                </h3>
+
+
+                <p class="csl-pnp-card__description">
+                    Produci la tua energia direttamente a casa con una soluzione alla portata di tutti.
+                </p>
+
+
+
+                <!-- DATI -->
+
+                <div class="csl-pnp-card__details">
+
+
+                    <div class="csl-pnp-card__row csl-pnp-card__row--energy">
+
+                        <div class="csl-pnp-card__label">
+                            In abbinamento a
+                        </div>
+
+                        <div class="csl-pnp-card__value">
+                            Luce Condivisa 24M
+                        </div>
+
+                    </div>
+
+
+                    <div class="csl-pnp-card__row csl-pnp-card__row--subscription">
+
+                        <div class="csl-pnp-card__label">
+                            *Abbonamento Solare
+                        </div>
+
+                        <div class="csl-pnp-card__value">
+                            40 €/anno
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- NOTA -->
+
+                <div class="csl-pnp-card__notes">
+                    *servizi inclusi secondo il pacchetto scelto
+                </div>
+
+
+
+                <!-- BOX PREZZO -->
+
+                <div class="csl-pnp-card__product-area">
+
+                    <div class="csl-pnp-card__product">
+
+
+                        <div class="csl-pnp-card__product-main">
+
+
+                            <div class="csl-pnp-card__product-info">
+
+                                <p class="csl-pnp-card__product-label">
+                                    Kit fotovoltaico Plug &amp; Play
+                                </p>
+
+                                <p class="csl-pnp-card__product-note">
+                                    Prezzo agevolato
+                                </p>
+
+                            </div>
+
+
+                            <div class="csl-pnp-card__prices">
+
+                                <span class="csl-pnp-card__old-price">
+                                    519 €
+                                </span>
+
+                                <span class="csl-pnp-card__new-price">
+                                    340 €
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SPAZIO INVISIBILE PER ALLINEAMENTO -->
+
+                <div class="csl-pnp-card__alternative csl-pnp-card__alternative--empty">
+                    Spazio
+                </div>
+
+
+
+                <!-- SPAZIO PER BOTTONE -->
+
+                <div class="csl-pnp-card__actions-space"></div>
+
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             OFFERTA CON FLASHBATTERY
+        ================================================== -->
+
+        <article class="csl-pnp-card">
+
+
+            <!-- IMMAGINE -->
+
+            <div class="csl-pnp-card__visual">
+
+                <img
+                    class="csl-pnp-card__image"
+                    src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/connie-luce-batteria-WaLy0zDz7jqCpGUh.png"
+                    alt="Offerta con FlashBattery"
+                >
+
+            </div>
+
+
+            <div class="csl-pnp-card__content">
+
+
+                <h3 class="csl-pnp-card__title">
+                    OFFERTA CON FLASHBATTERY
+                </h3>
+
+
+                <p class="csl-pnp-card__description">
+                    Accumula l'energia e utilizzala quando serve con una soluzione Plug &amp; Play semplice e flessibile.
+                </p>
+
+
+
+                <!-- DATI -->
+
+                <div class="csl-pnp-card__details">
+
+
+                    <div class="csl-pnp-card__row csl-pnp-card__row--energy">
+
+                        <div class="csl-pnp-card__label">
+                            In abbinamento a
+                        </div>
+
+                        <div class="csl-pnp-card__value">
+                            Luce Condivisa 24M
+                        </div>
+
+                    </div>
+
+
+                    <div class="csl-pnp-card__row csl-pnp-card__row--subscription">
+
+                        <div class="csl-pnp-card__label">
+                            *Abbonamento Flex
+                        </div>
+
+                        <div class="csl-pnp-card__value">
+                            50 €/anno
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- NOTA -->
+
+                <div class="csl-pnp-card__notes">
+                    *servizi inclusi secondo il pacchetto scelto
+                </div>
+
+
+
+                <!-- BOX PREZZO -->
+
+                <div class="csl-pnp-card__product-area">
+
+                    <div class="csl-pnp-card__product">
+
+
+                        <div class="csl-pnp-card__product-main">
+
+
+                            <div class="csl-pnp-card__product-info">
+
+                                <p class="csl-pnp-card__product-label">
+                                    Batteria P&amp;P — 2,2 kWh
+                                </p>
+
+                                <p class="csl-pnp-card__product-note">
+                                    Prezzo agevolato
+                                </p>
+
+                            </div>
+
+
+                            <div class="csl-pnp-card__prices">
+
+                                <span class="csl-pnp-card__old-price">
+                                    838 €
+                                </span>
+
+                                <span class="csl-pnp-card__new-price">
+                                    649 €
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="csl-pnp-card__product">
+
+
+                        <div class="csl-pnp-card__product-main">
+
+
+                            <div class="csl-pnp-card__product-info">
+
+                                <p class="csl-pnp-card__product-label">
+                                    Batteria P&amp;P — 5 kWh
+                                </p>
+
+                                <p class="csl-pnp-card__product-note">
+                                    Prezzo agevolato
+                                </p>
+
+                            </div>
+
+
+                            <div class="csl-pnp-card__prices">
+
+                                <span class="csl-pnp-card__old-price">
+                                    1.498 €
+                                </span>
+
+                                <span class="csl-pnp-card__new-price">
+                                    1.265 €
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SPAZIO PER BOTTONE -->
+
+                <div class="csl-pnp-card__actions-space"></div>
+
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>

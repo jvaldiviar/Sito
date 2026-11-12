@@ -1,0 +1,52 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+.csl-promo-strip,
+.csl-promo-strip * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.csl-promo-strip {
+    width: 100%;
+    margin: 0;
+    padding: 28px 24px;
+    border: 1px solid rgba(61, 134, 198, 0.16);
+    border-radius: 16px;
+    background: #f1f7fc;
+    text-align: center;
+}
+
+.csl-promo-strip__title {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #3f454b;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.6;
+    font-weight: 500;
+    text-wrap: balance;
+}
+
+.csl-promo-strip__title strong {
+    color: #2f6fa8;
+    font-weight: 700;
+}
+
+.csl-promo-strip__bonus {
+    white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+    .csl-promo-strip {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+}
+</style>
+
+<div class="csl-promo-strip">
+    <p class="csl-promo-strip__title">
+        Entra in <strong>Comunità Solare Luce</strong> e ricevi subito
+        <strong class="csl-promo-strip__bonus">15 € di benvenuto.</strong>
+    </p>
+</div>

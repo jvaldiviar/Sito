@@ -1,0 +1,44 @@
+<mjml>
+  <mj-head>
+    <mj-title>Comunità Solare di Imola</mj-title>
+    <mj-attributes>
+      <mj-all font-family="Arial, Helvetica, sans-serif" />
+      <mj-text font-size="16px" line-height="25px" color="#000000" padding="0 25px" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#d0d0d0" width="600px">
+    <mj-section background-color="#ffffff" padding="20px 25px 0">
+      <mj-column>
+        <mj-text align="center" font-size="14px" line-height="20px" padding="0 0 10px"><a href="https://comunitasolare.eu" style="color:#c99d00;text-decoration:underline;font-family:Arial,Helvetica,sans-serif;">CENTRO PER LE COMUNITÀ SOLARI</a></mj-text>
+        <mj-image src="https://newsletter.comunitasolare.eu/media/images/loghi/LOGO_ccsl.png" alt="Centro per le Comunità Solari" width="80px" padding="0 0 25px" />
+        <mj-text><p style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 16px;">Car* cittadin* solare</p>
+							<p style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 16px;">Sei invitato/a all'incontro pubblico dedicato al percorso e all'evoluzione della <strong style="font-family:Arial,Helvetica,sans-serif !important;font-weight:700;">Comunità Solare di Imola,&nbsp;</strong>per scoprire le novità del Centro per le Comunità Solari, che si rinnova con nuovi strumenti e progetti</p>
+							<p style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 16px;"><strong style="font-family:Arial,Helvetica,sans-serif !important;font-weight:700;">Durante la serata approfondiremo:</strong></p>
+							<ul style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 16px;padding-left:24px;">
+							  <li style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 12px;"><strong style="font-family:Arial,Helvetica,sans-serif !important;font-weight:700;">L’evoluzione del progetto:</strong> gli obiettivi raggiunti finora e i prossimi passi per lo sviluppo sul territorio.</li>
+							  <li style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 12px;"><strong style="font-family:Arial,Helvetica,sans-serif !important;font-weight:700;">Le nuove modalità di adesione:</strong> come diventare parte attiva della Comunità Solare con procedure ancora più semplici e trasparenti.</li>
+							  <li style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 12px;"><strong style="font-family:Arial,Helvetica,sans-serif !important;font-weight:700;">La campagna <em style="font-family:Arial,Helvetica,sans-serif !important;">Energia Bene Comune</em>:</strong> per mettere al centro il risparmio, la sostenibilità e la condivisione solidale dell'energia prodotta dal sole.</li>
+							</ul>
+							<p style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 16px;">Incontriamoci per parlare insieme del nostro futuro condiviso, per dialogare e scambiarci opinioni sui prossimi passi e le prossime sfide.</p>
+							</mj-text>
+        <mj-image src="https://newsletter.comunitasolare.eu/asset/35:locandine-imolapng" href="https://newsletter.comunitasolare.eu/asset/35:locandine-imolapng" target="_blank" alt="Locandina dell'incontro pubblico della Comunità Solare di Imola" width="500px" padding="0 25px 16px" />
+        <mj-text>
+							<p style="font-family:Arial,Helvetica,sans-serif !important;font-size:16px;line-height:25px;color:#000000;margin:0 0 16px;"><strong style="font-family:Arial,Helvetica,sans-serif !important;font-weight:700;">Vi aspettiamo!</strong></p>
+						  </mj-text>
+        <mj-text font-size="14px" line-height="22px" padding="0 25px 10px">Cordiali Saluti,<br /><em>Centro per le Comunità Solari</em></mj-text>
+        <mj-image src="https://newsletter.comunitasolare.eu/media/images/loghi/LOGO_ccsl.png" alt="Centro per le Comunità Solari" width="150px" align="left" padding="0 25px 20px" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#000000" padding="20px 25px">
+      <mj-column>
+        <mj-social font-size="12px" icon-size="30px" mode="horizontal" padding="0" inner-padding="0 10px">
+          <mj-social-element name="facebook-noshare" href="https://www.facebook.com/profilo.comunita.solare/" />
+          <mj-social-element name="instagram" href="https://www.instagram.com/centroperlecomunitasolari/" />
+          <mj-social-element name="youtube" href="https://www.youtube.com/@comunitasolarelocale7250" />
+        </mj-social>
+        <mj-text align="center" color="#ffffff" font-size="12px" line-height="18px" padding="20px 0">C/O Centro Commerciale Medicì<br />Via Licurgo Fava, 421<br />40059 Medicina BO</mj-text>
+        <mj-text align="center" color="#aaaaaa" font-size="11px" line-height="17px" padding="0">Se non vuoi più ricevere nostre comunicazioni <a href="{unsubscribe_url}" style="color:#aaaaaa;">Cancellati</a></mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

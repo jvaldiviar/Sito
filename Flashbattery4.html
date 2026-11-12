@@ -1,0 +1,2526 @@
+
+<!-- =========================================================
+     MARSTEK VENUS-E 5,12 kWh - SCHEDA PRODOTTO
+
+     MODIFICHE:
+     - Font uguale alla scheda B2500-D
+     - Descrizione: 14 px, massimo 2 righe desktop
+     - Dettagli prodotto: 13 px, 7 punti compatti
+     - Titolo: fino a 32 px
+     - Tendine: 12 px
+
+     INVARIATI:
+     - 7 immagini del carosello
+     - Impostazione a due colonne
+     - Specifiche tecniche
+     - Informazioni IVA
+     - Colori e responsive
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ==================================================
+   GENERALE
+================================================== */
+
+.sic-venus-sheet,
+.sic-venus-sheet * {
+  box-sizing: border-box;
+}
+
+.sic-venus-sheet {
+  --bat-blue: #3D86C6;
+  --bat-dark: #3F454C;
+  --bat-muted: #78838C;
+
+  width: 100%;
+  padding: 23px 12px 34px;
+  background: transparent;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-venus-sheet__container {
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   DUE COLONNE
+================================================== */
+
+.sic-venus-sheet__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  align-items: start;
+}
+
+.sic-venus-sheet__gallery,
+.sic-venus-sheet__content {
+  min-width: 0;
+}
+
+/* ==================================================
+   CAROSELLO
+================================================== */
+
+.sic-venus-sheet__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 3px solid #1E4C77;
+  border-radius: 13px;
+}
+
+.sic-venus-sheet__slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+}
+
+.sic-venus-sheet__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+
+.sic-venus-sheet__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sic-venus-sheet__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #FFFFFF;
+}
+
+.sic-venus-sheet__slide img:not([src]),
+.sic-venus-sheet__slide img[src=""] {
+  display: none;
+}
+
+/* SEGNAPOSTO IMMAGINI */
+
+.sic-venus-sheet__image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  background: #F5F9FC;
+  text-align: center;
+  color: #86A3B8;
+  font-size: 14px;
+}
+
+.sic-venus-sheet__image-placeholder strong {
+  color: var(--bat-blue);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sic-venus-sheet__slide.has-image
+.sic-venus-sheet__image-placeholder {
+  display: none;
+}
+
+/* ==================================================
+   FRECCE CAROSELLO
+================================================== */
+
+.sic-venus-sheet__arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--bat-blue);
+  background: rgba(255,255,255,.96);
+  border: 1px solid #D7E4EF;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.sic-venus-sheet__arrow:hover {
+  background: #F0F7FD;
+}
+
+.sic-venus-sheet__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sic-venus-sheet__arrow--prev {
+  left: 9px;
+}
+
+.sic-venus-sheet__arrow--next {
+  right: 9px;
+}
+
+/* ==================================================
+   COLONNA DESTRA
+================================================== */
+
+.sic-venus-sheet__content {
+  display: flex;
+  flex-direction: column;
+  padding: 29px 29px 27px;
+  background: #FFFFFF;
+  border-radius: 18px;
+}
+
+/* TITOLO */
+
+.sic-venus-sheet__title {
+  margin: 0 0 13px;
+  color: var(--bat-dark);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.8px;
+}
+
+.sic-venus-sheet__title span {
+  font-weight: 500;
+}
+
+/* ==================================================
+   DESCRIZIONE - COME B2500-D: 14 PX
+================================================== */
+
+.sic-venus-sheet__intro {
+  margin: 0;
+  color: var(--bat-dark);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -.25px;
+}
+
+@media (min-width: 768px) {
+  .sic-venus-sheet__intro {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+/* ==================================================
+   DETTAGLI PRODOTTO
+================================================== */
+
+.sic-venus-sheet__spec-area {
+  width: 100%;
+  margin-top: 26px;
+  margin-bottom: 25px;
+}
+
+.sic-venus-sheet__spec-heading {
+  margin: 0 0 10px;
+  color: var(--bat-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   SETTE PUNTI - FONT 13 PX COME B2500-D
+================================================== */
+
+.sic-venus-sheet__spec-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--bat-dark);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  list-style: disc;
+}
+
+.sic-venus-sheet__spec-list li {
+  margin: 0 0 7px;
+  padding-left: 2px;
+}
+
+.sic-venus-sheet__spec-list li::marker {
+  color: var(--bat-blue);
+  font-size: 13px;
+}
+
+.sic-venus-sheet__spec-list strong {
+  font-weight: 500;
+}
+
+@media (min-width: 1025px) {
+  .sic-venus-sheet__spec-list li {
+    white-space: nowrap;
+  }
+}
+
+.sic-venus-sheet__brand {
+  margin: 11px 0 0;
+  color: var(--bat-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   DUE TENDINE
+================================================== */
+
+.sic-venus-sheet__accordions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 13px;
+  width: 100%;
+}
+
+.sic-venus-sheet__accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 52px;
+  width: 100%;
+  padding: 13px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sic-venus-sheet__accordion-trigger:hover,
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"] {
+  color: var(--bat-blue);
+  border-color: #B7D7F0;
+}
+
+.sic-venus-sheet__plus {
+  position: relative;
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.sic-venus-sheet__plus::before,
+.sic-venus-sheet__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.sic-venus-sheet__plus::before {
+  width: 11px;
+  height: 1.6px;
+}
+
+.sic-venus-sheet__plus::after {
+  width: 1.6px;
+  height: 11px;
+}
+
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"]
+.sic-venus-sheet__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* ==================================================
+   AREA ESPANDIBILE
+================================================== */
+
+.sic-venus-sheet__expand-area {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  width: 100%;
+  margin-top: 9px;
+}
+
+.sic-venus-sheet__expand-column {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.sic-venus-sheet__expand-area[hidden],
+.sic-venus-sheet__expand-panel[hidden] {
+  display: none !important;
+}
+
+.sic-venus-sheet__expand-panel {
+  width: 100%;
+  padding: 20px 22px 22px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(32,66,95,.06);
+}
+
+/* ==================================================
+   SPECIFICHE TECNICHE
+================================================== */
+
+.sic-venus-sheet__technical-group {
+  margin-bottom: 22px;
+}
+
+.sic-venus-sheet__technical-group:last-child {
+  margin-bottom: 0;
+}
+
+.sic-venus-sheet__technical-title {
+  margin: 0 0 11px;
+  color: var(--bat-dark);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sic-venus-sheet__technical-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.sic-venus-sheet__technical-table tr {
+  border-bottom: 1px solid #EAF0F4;
+}
+
+.sic-venus-sheet__technical-table tr:last-child {
+  border-bottom: none;
+}
+
+.sic-venus-sheet__technical-table th {
+  width: 45%;
+  padding: 7px 10px 7px 0;
+  color: #68737B;
+  font-weight: 500;
+  text-align: left;
+  vertical-align: top;
+}
+
+.sic-venus-sheet__technical-table td {
+  padding: 7px 0;
+  color: var(--bat-dark);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+/* ==================================================
+   INFORMAZIONI IVA
+================================================== */
+
+.sic-venus-sheet__tax-heading {
+  margin: 0 0 13px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bat-dark);
+}
+
+.sic-venus-sheet__tax-text {
+  margin: 0 0 13px;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.sic-venus-sheet__tax-note {
+  padding: 14px 16px;
+  border-left: 3px solid var(--bat-blue);
+  background: #F2F8FC;
+  border-radius: 0 8px 8px 0;
+  color: var(--bat-dark);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.sic-venus-sheet__tax-note p {
+  margin: 0 0 9px;
+}
+
+.sic-venus-sheet__tax-note p:last-child {
+  margin-bottom: 0;
+}
+
+.sic-venus-sheet__tax-bullet {
+  margin: 12px 0;
+  padding-left: 19px;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.sic-venus-sheet__tax-bullet li {
+  margin-bottom: 6px;
+}
+
+.sic-venus-sheet button:focus-visible,
+.sic-venus-sheet__carousel:focus-visible {
+  outline: 2px solid var(--bat-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1024px) {
+
+  .sic-venus-sheet__layout,
+  .sic-venus-sheet__expand-area {
+    gap: 27px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 55%);
+  }
+
+  .sic-venus-sheet__content {
+    padding: 23px 20px;
+  }
+
+  .sic-venus-sheet__title {
+    font-size: 27px;
+  }
+
+  .sic-venus-sheet__accordions {
+    gap: 10px;
+  }
+
+  .sic-venus-sheet__accordion-trigger {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 767px) {
+
+  .sic-venus-sheet {
+    padding: 20px 12px 32px;
+  }
+
+  .sic-venus-sheet__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .sic-venus-sheet__gallery {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .sic-venus-sheet__content {
+    padding: 20px 0 0;
+    border-radius: 0;
+  }
+
+  .sic-venus-sheet__title {
+    font-size: 27px;
+  }
+
+  .sic-venus-sheet__intro {
+    font-size: 16px;
+  }
+
+  .sic-venus-sheet__spec-area {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .sic-venus-sheet__spec-list {
+    font-size: 15px;
+  }
+
+  .sic-venus-sheet__spec-list li {
+    white-space: normal;
+  }
+
+  .sic-venus-sheet__accordions {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .sic-venus-sheet__expand-area {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sic-venus-sheet__expand-column {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 390px) {
+
+  .sic-venus-sheet__accordions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sic-venus-sheet__accordion-trigger {
+    font-size: 15px;
+  }
+
+  .sic-venus-sheet__expand-panel {
+    padding: 17px 16px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sic-venus-sheet__slide {
+    transition: none;
+  }
+}
+
+/* Match the B2500-D product sheet. */
+
+500;600;700&display=swap');
+.sic-venus-sheet,
+.sic-venus-sheet * {
+  box-sizing: border-box;
+}
+.sic-venus-sheet {
+  --bat-blue: #3D86C6;
+  --bat-dark: #3F454C;
+  --bat-muted: #78838C;
+  width: 100%;
+  padding: 23px 12px 34px;
+  background: transparent;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.sic-venus-sheet__container {
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+.sic-venus-sheet__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  align-items: start;
+}
+.sic-venus-sheet__gallery,
+.sic-venus-sheet__content {
+  min-width: 0;
+}
+.sic-venus-sheet__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 3px solid #1E4C77;
+  border-radius: 13px;
+}
+.sic-venus-sheet__slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+}
+.sic-venus-sheet__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+.sic-venus-sheet__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.sic-venus-sheet__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #FFFFFF;
+}
+.sic-venus-sheet__arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--bat-blue);
+  background: rgba(255,255,255,.96);
+  border: 1px solid #D7E4EF;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 3;
+}
+.sic-venus-sheet__arrow:hover {
+  background: #F0F7FD;
+}
+.sic-venus-sheet__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+.sic-venus-sheet__arrow--prev {
+  left: 9px;
+}
+.sic-venus-sheet__arrow--next {
+  right: 9px;
+}
+.sic-venus-sheet__content {
+  display: flex;
+  flex-direction: column;
+  padding: 29px 29px 27px;
+  background: #FFFFFF;
+  border-radius: 18px;
+}
+.sic-venus-sheet__title {
+  margin: 0 0 13px;
+  color: var(--bat-dark);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.8px;
+}
+.sic-venus-sheet__title span {
+  font-weight: 500;
+}
+.sic-venus-sheet__intro {
+  margin: 0;
+  color: var(--bat-dark);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -.25px;
+}
+.sic-venus-sheet__spec-area {
+  width: 100%;
+  margin-top: 26px;
+  margin-bottom: 25px;
+}
+.sic-venus-sheet__spec-heading {
+  margin: 0 0 10px;
+  color: var(--bat-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-venus-sheet__spec-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--bat-dark);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  list-style: disc;
+}
+.sic-venus-sheet__spec-list li {
+  margin: 0 0 7px;
+  padding-left: 2px;
+}
+.sic-venus-sheet__spec-list li::marker {
+  color: var(--bat-blue);
+  font-size: 13px;
+}
+.sic-venus-sheet__spec-list strong {
+  font-weight: 500;
+}
+.sic-venus-sheet__brand {
+  margin: 11px 0 0;
+  color: var(--bat-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sic-venus-sheet__accordions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 13px;
+  width: 100%;
+}
+.sic-venus-sheet__accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 52px;
+  width: 100%;
+  padding: 13px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.sic-venus-sheet__accordion-trigger:hover,
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"] {
+  color: var(--bat-blue);
+  border-color: #B7D7F0;
+}
+.sic-venus-sheet__plus {
+  position: relative;
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+.sic-venus-sheet__plus::before,
+.sic-venus-sheet__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+.sic-venus-sheet__plus::before {
+  width: 11px;
+  height: 1.6px;
+}
+.sic-venus-sheet__plus::after {
+  width: 1.6px;
+  height: 11px;
+}
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"]
+.sic-venus-sheet__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.sic-venus-sheet__expand-area {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  width: 100%;
+  margin-top: 9px;
+}
+.sic-venus-sheet__expand-column {
+  grid-column: 2;
+  min-width: 0;
+}
+.sic-venus-sheet__expand-area[hidden],
+.sic-venus-sheet__expand-panel[hidden] {
+  display: none !important;
+}
+.sic-venus-sheet__expand-panel {
+  width: 100%;
+  padding: 20px 22px 22px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(32,66,95,.06);
+}
+.sic-venus-sheet__technical-group {
+  margin-bottom: 22px;
+}
+.sic-venus-sheet__technical-group:last-child {
+  margin-bottom: 0;
+}
+.sic-venus-sheet__technical-title {
+  margin: 0 0 11px;
+  color: var(--bat-dark);
+  font-size: 15px;
+  font-weight: 600;
+}
+.sic-venus-sheet__technical-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.sic-venus-sheet__technical-table tr {
+  border-bottom: 1px solid #EAF0F4;
+}
+.sic-venus-sheet__technical-table tr:last-child {
+  border-bottom: none;
+}
+.sic-venus-sheet__technical-table th {
+  width: 45%;
+  padding: 7px 10px 7px 0;
+  color: #68737B;
+  font-weight: 500;
+  text-align: left;
+  vertical-align: top;
+}
+.sic-venus-sheet__technical-table td {
+  padding: 7px 0;
+  color: var(--bat-dark);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.sic-venus-sheet__schemes-intro {
+  margin: 0 0 15px;
+  color: var(--bat-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-venus-sheet__scheme-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #F4F8FB;
+  border: 1px solid #E5EBF1;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.sic-venus-sheet__scheme-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #FFFFFF;
+}
+.sic-venus-sheet__scheme-image img:not([src]),
+.sic-venus-sheet__scheme-image img[src=""] {
+  display: none;
+}
+.sic-venus-sheet__scheme-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  color: #87A7BE;
+  font-size: 13px;
+  text-align: center;
+}
+.sic-venus-sheet__scheme-image:has(img[src]:not([src=""]))
+.sic-venus-sheet__scheme-placeholder {
+  display: none;
+}
+.sic-venus-sheet__scheme-caption {
+  margin: 8px 0 0;
+  color: var(--bat-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.sic-venus-sheet button:focus-visible,
+.sic-venus-sheet__carousel:focus-visible {
+  outline: 2px solid var(--bat-blue);
+  outline-offset: 3px;
+}
+@media (max-width: 1024px) {
+  .sic-venus-sheet__layout,
+  .sic-venus-sheet__expand-area {
+    gap: 27px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 55%);
+  }
+  .sic-venus-sheet__content {
+    padding: 23px 20px;
+  }
+  .sic-venus-sheet__title {
+    font-size: 27px;
+  }
+  .sic-venus-sheet__accordions {
+    gap: 10px;
+  }
+  .sic-venus-sheet__accordion-trigger {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 767px) {
+  .sic-venus-sheet {
+    padding: 20px 12px 32px;
+  }
+  .sic-venus-sheet__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .sic-venus-sheet__gallery {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .sic-venus-sheet__content {
+    padding: 20px 0 0;
+    border-radius: 0;
+  }
+  .sic-venus-sheet__title {
+    font-size: 27px;
+  }
+  .sic-venus-sheet__intro {
+    font-size: 16px;
+  }
+  .sic-venus-sheet__spec-area {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .sic-venus-sheet__accordions {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sic-venus-sheet__expand-area {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .sic-venus-sheet__expand-column {
+    grid-column: 1;
+  }
+}
+@media (max-width: 390px) {
+  .sic-venus-sheet__accordions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .sic-venus-sheet__accordion-trigger {
+    font-size: 15px;
+  }
+  .sic-venus-sheet__expand-panel {
+    padding: 17px 16px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sic-venus-sheet__slide {
+    transition: none;
+  }
+}
+500;600;700&display=swap');
+.sic-venus-sheet,
+.sic-venus-sheet * {
+  box-sizing: border-box;
+}
+.sic-venus-sheet {
+  --bat-blue: #3D86C6;
+  --bat-dark: #3F454C;
+  --bat-line: #DCE4EA;
+  width: 100%;
+  padding: 0 12px 34px;
+  color: var(--bat-dark);
+  background: transparent;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.sic-venus-sheet__container {
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+.sic-venus-sheet__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  align-items: start;
+}
+.sic-venus-sheet__gallery,
+.sic-venus-sheet__content {
+  min-width: 0;
+}
+.sic-venus-sheet__gallery {
+  width: 100%;
+  max-width: none;
+}
+.sic-venus-sheet__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 3px solid #1E4C77;
+  border-radius: 13px;
+}
+.sic-venus-sheet__slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+}
+.sic-venus-sheet__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+.sic-venus-sheet__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.sic-venus-sheet__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #FFFFFF;
+}
+.sic-venus-sheet__arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: rgba(255,255,255,0.96);
+  color: var(--bat-blue);
+  border: 1px solid #D7E4EF;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 3;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.sic-venus-sheet__arrow:hover {
+  background: #F0F7FD;
+  border-color: var(--bat-blue);
+}
+.sic-venus-sheet__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+.sic-venus-sheet__arrow--prev {
+  left: 9px;
+}
+.sic-venus-sheet__arrow--next {
+  right: 9px;
+}
+.sic-venus-sheet__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 29px 27px;
+  background: #FFFFFF;
+  border-radius: 18px;
+}
+.sic-venus-sheet__heading-group {
+  width: 100%;
+}
+.sic-venus-sheet__title {
+  margin: 0 0 13px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(29px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+.sic-venus-sheet__title span {
+  color: var(--bat-dark);
+  font-weight: 500;
+}
+.sic-venus-sheet__intro {
+  margin: 0;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.25px;
+}
+.sic-venus-sheet__spec-area {
+  width: 100%;
+  margin-top: 26px;
+  margin-bottom: 25px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sic-venus-sheet__spec-heading {
+  margin: 0 0 10px;
+  color: #78838C;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-venus-sheet__spec-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.15px;
+  list-style: disc;
+}
+.sic-venus-sheet__spec-list li {
+  margin: 0 0 6px;
+  padding-left: 2px;
+}
+.sic-venus-sheet__spec-list li:last-child {
+  margin-bottom: 0;
+}
+.sic-venus-sheet__spec-list li::marker {
+  color: var(--bat-blue);
+  font-size: 13px;
+}
+.sic-venus-sheet__spec-list strong {
+  color: var(--bat-dark);
+  font-weight: 500;
+}
+.sic-venus-sheet__brand {
+  margin: 11px 0 0;
+  color: #78838C;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+}
+.sic-venus-sheet__note {
+  margin: 4px 0 0;
+  color: #78838C;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+}
+.sic-venus-sheet__accordions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 13px;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+.sic-venus-sheet__accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 52px;
+  width: 100%;
+  padding: 13px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+.sic-venus-sheet__accordion-trigger:hover,
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"] {
+  color: var(--bat-blue);
+  border-color: #B7D7F0;
+}
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"] {
+  box-shadow: 0 3px 12px rgba(61,134,198,0.045);
+}
+.sic-venus-sheet__plus {
+  position: relative;
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+.sic-venus-sheet__plus::before,
+.sic-venus-sheet__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+.sic-venus-sheet__plus::before {
+  width: 11px;
+  height: 1.6px;
+}
+.sic-venus-sheet__plus::after {
+  width: 1.6px;
+  height: 11px;
+}
+.sic-venus-sheet__accordion-trigger[aria-expanded="true"]
+.sic-venus-sheet__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.sic-venus-sheet__expand-area {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 650px);
+  gap: 38px;
+  width: 100%;
+  margin-top: 9px;
+}
+.sic-venus-sheet__expand-column {
+  grid-column: 2;
+  min-width: 0;
+}
+.sic-venus-sheet__expand-area[hidden],
+.sic-venus-sheet__expand-panel[hidden] {
+  display: none !important;
+}
+.sic-venus-sheet__expand-panel {
+  width: 100%;
+  height: auto;
+  padding: 20px 22px 22px;
+  color: var(--bat-dark);
+  background: #FFFFFF;
+  border: 1.5px solid #D4E5F3;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(32,66,95,0.06);
+  overflow: visible;
+}
+.sic-venus-sheet__feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sic-venus-sheet__feature-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.sic-venus-sheet__feature-list li::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--bat-blue);
+  font-weight: 600;
+}
+.sic-venus-sheet__feature-list em {
+  display: block;
+  margin-top: 4px;
+  color: #65717A;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.65;
+}
+.sic-venus-sheet__kit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.sic-venus-sheet__kit-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--bat-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.sic-venus-sheet__quantity {
+  flex: 0 0 20px;
+  color: var(--bat-blue);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.sic-venus-sheet__arrow:focus-visible,
+.sic-venus-sheet__accordion-trigger:focus-visible {
+  outline: 2px solid var(--bat-blue);
+  outline-offset: 3px;
+}
+@media (max-width: 1024px) {
+  .sic-venus-sheet__container {
+    max-width: 100%;
+  }
+  .sic-venus-sheet__layout,
+  .sic-venus-sheet__expand-area {
+    gap: 27px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 55%);
+  }
+  .sic-venus-sheet__gallery {
+    max-width: none;
+  }
+  .sic-venus-sheet__title {
+    font-size: 29px;
+  }
+  .sic-venus-sheet__accordions {
+    column-gap: 10px;
+  }
+  .sic-venus-sheet__accordion-trigger {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  .sic-venus-sheet__content {
+    padding: 0 20px 23px;
+  }
+}
+@media (max-width: 767px) {
+  .sic-venus-sheet {
+    padding: 0 12px 32px;
+  }
+  .sic-venus-sheet__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .sic-venus-sheet__gallery {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .sic-venus-sheet__content {
+    min-height: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+  .sic-venus-sheet__title {
+    font-size: 29px;
+  }
+  .sic-venus-sheet__intro {
+    font-size: 16px;
+  }
+  .sic-venus-sheet__spec-area {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .sic-venus-sheet__spec-list {
+    font-size: 15px;
+  }
+  .sic-venus-sheet__accordions {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+  }
+  .sic-venus-sheet__accordion-trigger {
+    font-size: 13px;
+  }
+  .sic-venus-sheet__expand-area {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .sic-venus-sheet__expand-column {
+    grid-column: 1;
+  }
+}
+@media (max-width: 390px) {
+  .sic-venus-sheet__accordions {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+  .sic-venus-sheet__accordion-trigger {
+    font-size: 15px;
+  }
+  .sic-venus-sheet__expand-panel {
+    padding: 17px 16px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sic-venus-sheet__slide,
+  .sic-venus-sheet__arrow,
+  .sic-venus-sheet__plus::after {
+    transition: none;
+  }
+}
+.sic-venus-sheet__accordion-item { min-width: 0; }
+.sic-venus-sheet__accordion-item > .sic-venus-sheet__expand-panel {
+  margin-top: 9px;
+  padding: 16px;
+}
+
+</style>
+
+
+<!-- =========================================================
+     HTML - SCHEDA MARSTEK VENUS-E
+========================================================= -->
+
+<section class="sic-venus-sheet" id="batteria-venus-e">
+
+  <div class="sic-venus-sheet__container">
+
+    <div class="sic-venus-sheet__layout">
+
+
+      <!-- ==================================================
+           SINISTRA - CAROSELLO 7 IMMAGINI
+      ================================================== -->
+
+      <div class="sic-venus-sheet__gallery">
+
+        <div
+          class="sic-venus-sheet__carousel"
+          aria-label="Galleria MARSTEK VENUS-E 5,12 kWh"
+          aria-roledescription="carosello"
+          tabindex="0"
+        >
+
+          <div class="sic-venus-sheet__slides">
+
+
+            <!-- FOTO 1 -->
+
+            <div class="sic-venus-sheet__slide is-active">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-1-qs9lMR5sQmwR4evE.png"
+                alt="MARSTEK VENUS-E - vista frontale"
+                loading="eager"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 1</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+
+            <!-- FOTO 2 -->
+
+            <div class="sic-venus-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-2-CP6j7h5J8K23xh2A.png"
+                alt="MARSTEK VENUS-E - vista laterale"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 2</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+
+            <!-- FOTO 3 -->
+
+            <div class="sic-venus-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-3.1-6RuaEYnR5rYumKz2.png"
+                alt="MARSTEK VENUS-E - design e dimensioni"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 3</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+
+            <!-- FOTO 4 -->
+
+            <div class="sic-venus-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-4.1-ZEYT4HmT879ikUQ1.png"
+                alt="MARSTEK VENUS-E - porte e connessioni"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 4</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+
+            <!-- FOTO 5 -->
+
+            <div class="sic-venus-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-5-3ltWGhDzJewSkD3o.png"
+                alt="MARSTEK VENUS-E - utilizzo domestico"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 5</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+
+            <!-- FOTO 6 -->
+
+            <div class="sic-venus-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-6-f3tqFI4xnnr5gSdm.png"
+                alt="MARSTEK VENUS-E - backup e accumulo"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 6</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+
+            <!-- FOTO 7 -->
+
+            <div class="sic-venus-sheet__slide">
+
+              <img
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/venus-7-vvNXSGLSBOqL89Qe.png"
+                alt="MARSTEK VENUS-E - controllo intelligente"
+                loading="lazy"
+              >
+
+              <div class="sic-venus-sheet__image-placeholder">
+                <strong>Foto 7</strong>
+                <span>Inserisci l'URL dell'immagine</span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FRECCIA PRECEDENTE -->
+
+          <button
+            type="button"
+            class="sic-venus-sheet__arrow sic-venus-sheet__arrow--prev"
+            aria-label="Immagine precedente"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m14 18-6-6 6-6"/>
+            </svg>
+
+          </button>
+
+
+          <!-- FRECCIA SUCCESSIVA -->
+
+          <button
+            type="button"
+            class="sic-venus-sheet__arrow sic-venus-sheet__arrow--next"
+            aria-label="Immagine successiva"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m10 18 6-6-6-6"/>
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           DESTRA - INFORMAZIONI PRODOTTO
+      ================================================== -->
+
+      <div class="sic-venus-sheet__content">
+
+        <!-- TITOLO E DESCRIZIONE -->
+
+        <div class="sic-venus-sheet__heading-group">
+
+          <h2 class="sic-venus-sheet__title">
+            MARSTEK <span>VENUS-E</span>
+          </h2>
+
+          <p class="sic-venus-sheet__intro">
+            Batteria AC da 5,12 kWh per accumulare energia
+            e utilizzarla quando serve, anche con
+            impianti fotovoltaici esistenti.
+          </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             SETTE DETTAGLI PRODOTTO
+        ================================================== -->
+
+        <div class="sic-venus-sheet__spec-area">
+
+          <h3 class="sic-venus-sheet__spec-heading">
+            Dettagli prodotto
+          </h3>
+
+          <ul class="sic-venus-sheet__spec-list">
+
+            <li>
+              <strong>Design:</strong>
+              scocca compatta in alluminio pressofuso.
+            </li>
+
+            <li>
+              <strong>Capacità:</strong>
+              5,12 kWh LiFePO₄; oltre 6.000 cicli.
+            </li>
+
+            <li>
+              <strong>Dimensioni/Peso:</strong>
+              480 × 153 × 624 mm; 60 kg.
+            </li>
+
+            <li>
+              <strong>Potenza AC:</strong>
+              fino a 2.500 W; modalità 800 W.
+            </li>
+
+            <li>
+              <strong>Backup:</strong>
+              uscita dedicata fino a 2.500 W.
+            </li>
+
+            <li>
+              <strong>Compatibilità:</strong>
+              con impianti FV esistenti.
+            </li>
+
+            <li>
+              <strong>Gestione smart:</strong>
+              AI e meter CT002/Shelly.
+            </li>
+
+          </ul>
+
+
+          <p class="sic-venus-sheet__brand">
+            Marca: MARSTEK
+          </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             DUE TENDINE
+        ================================================== -->
+
+        <div class="sic-venus-sheet__accordions">
+
+          <div class="sic-venus-sheet__accordion-item">
+<button
+            type="button"
+            class="sic-venus-sheet__accordion-trigger"
+            data-venus-panel-button="specs"
+            aria-expanded="false"
+            aria-controls="sic-venus-panel-specs"
+          >
+
+            <span>Specifiche</span>
+
+            <span
+              class="sic-venus-sheet__plus"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+<div
+          class="sic-venus-sheet__expand-panel"
+          id="sic-venus-panel-specs"
+          data-venus-panel="specs"
+          hidden
+        >
+
+
+          <!-- CARATTERISTICHE PRINCIPALI -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Caratteristiche principali
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Tecnologia</th>
+                  <td>Sistema di accumulo AC Plug-in (ESS)</td>
+                </tr>
+
+                <tr>
+                  <th>Compatibilità fotovoltaica</th>
+                  <td>Integrazione AC con impianti FV esistenti</td>
+                </tr>
+
+                <tr>
+                  <th>Anti Feed-in</th>
+                  <td>Riduzione dell'immissione in rete tramite meter compatibile; autoconsumo ottimizzato</td>
+                </tr>
+
+                <tr>
+                  <th>Gestione</th>
+                  <td>Autoconsumo, ottimizzazione AI e modalità manuale</td>
+                </tr>
+
+                <tr>
+                  <th>Smart meter</th>
+                  <td>MARSTEK CT002 / Shelly compatibile</td>
+                </tr>
+
+                <tr>
+                  <th>Backup monofase</th>
+                  <td>Fino a 3 unità compatibili in parallelo: 7,5 kW / 15,36 kWh, con configurazione prevista dal produttore</td>
+                </tr>
+
+                <tr>
+                  <th>Backup trifase</th>
+                  <td>Fino a 3 unità per fase, massimo 9: 22,5 kW / 46,08 kWh, con MARSTEK SmartBox e configurazione idonea</td>
+                </tr>
+
+                <tr>
+                  <th>EMS esterni</th>
+                  <td>Integrazione tramite API/Modbus, in base a versione e configurazione</td>
+                </tr>
+
+                <tr>
+                  <th>Interfacce</th>
+                  <td>LAN / RS485 / Wi-Fi / Bluetooth</td>
+                </tr>
+
+                <tr>
+                  <th>Connessioni</th>
+                  <td>Doppie porte RJ45 per RS485 ed Ethernet (versione prevista)</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+
+          <!-- BATTERIA -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Batteria
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Modello</th>
+                  <td>MARSTEK VENUS-E (MST-BIE5-2500)</td>
+                </tr>
+
+                <tr>
+                  <th>Tensione nominale</th>
+                  <td>51,2 V (16S)</td>
+                </tr>
+
+                <tr>
+                  <th>Capacità nominale</th>
+                  <td>5.120 Wh (5,12 kWh)</td>
+                </tr>
+
+                <tr>
+                  <th>Tecnologia celle</th>
+                  <td>LiFePO₄ (LFP)</td>
+                </tr>
+
+                <tr>
+                  <th>Vita utile</th>
+                  <td>Oltre 6.000 cicli a 25 °C</td>
+                </tr>
+
+                <tr>
+                  <th>Profondità di scarica (DoD)</th>
+                  <td>90%</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+
+          <!-- INGRESSO E USCITA AC -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Ingresso / Uscita AC (on-grid)
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Potenza nominale ingresso</th>
+                  <td>2,5 kVA</td>
+                </tr>
+
+                <tr>
+                  <th>Potenza nominale uscita</th>
+                  <td>800 VA / fino a 2,5 kVA in configurazioni abilitate</td>
+                </tr>
+
+                <tr>
+                  <th>Fase operativa</th>
+                  <td>L / N / PE (monofase)</td>
+                </tr>
+
+                <tr>
+                  <th>Tensione rete</th>
+                  <td>230 V (187–253 V)</td>
+                </tr>
+
+                <tr>
+                  <th>Frequenza</th>
+                  <td>50 Hz</td>
+                </tr>
+
+                <tr>
+                  <th>Corrente nominale</th>
+                  <td>10,9 A alla potenza nominale di 2,5 kW</td>
+                </tr>
+
+                <tr>
+                  <th>Fattore di potenza</th>
+                  <td>&gt; 0,99 predefinito; regolabile in base al modello</td>
+                </tr>
+
+                <tr>
+                  <th>THDi</th>
+                  <td>&lt; 3%</td>
+                </tr>
+
+                <tr>
+                  <th>Efficienza massima batteria-AC</th>
+                  <td>&gt; 93,5%</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+
+          <!-- BACKUP -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Backup (off-grid)
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Potenza nominale</th>
+                  <td>2,5 kVA</td>
+                </tr>
+
+                <tr>
+                  <th>Picco</th>
+                  <td>3,5 kVA per 10 secondi</td>
+                </tr>
+
+                <tr>
+                  <th>Tensione / Frequenza</th>
+                  <td>230 V / 50 Hz</td>
+                </tr>
+
+                <tr>
+                  <th>Connessione</th>
+                  <td>Presa europea tripolare dedicata al backup</td>
+                </tr>
+
+                <tr>
+                  <th>Backup domestico</th>
+                  <td>Estensione mediante SmartBox e più unità compatibili, secondo progetto elettrico</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+
+          <!-- AMBIENTE E PROTEZIONE -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Ambiente e protezione
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Temperatura operativa</th>
+                  <td>Da −20 °C a +55 °C</td>
+                </tr>
+
+                <tr>
+                  <th>Grado di protezione</th>
+                  <td>IP65</td>
+                </tr>
+
+                <tr>
+                  <th>Raffreddamento</th>
+                  <td>Convezione naturale</td>
+                </tr>
+
+                <tr>
+                  <th>Altitudine massima</th>
+                  <td>2.000 m</td>
+                </tr>
+
+                <tr>
+                  <th>Umidità relativa</th>
+                  <td>0–95%</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+
+          <!-- CONFORMITÀ -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Conformità e standard dichiarati
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Connessione alla rete</th>
+                  <td>EN 50549-1, VDE-AR-N 4105, G98, CEI 0-21, AS/NZS 4777.2, secondo variante e certificazione</td>
+                </tr>
+
+                <tr>
+                  <th>Sicurezza / EMC</th>
+                  <td>IEC 62040, IEC 62477, serie EN 61000, EN 300 328, EN 301 489, EN 50665, IEC 62619</td>
+                </tr>
+
+                <tr>
+                  <th>Avvertenza</th>
+                  <td>Verificare documentazione, certificazioni del modello fornito e requisiti di connessione applicabili in Italia.</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+
+          <!-- DIMENSIONI E COLLEGAMENTI -->
+
+          <div class="sic-venus-sheet__technical-group">
+
+            <h4 class="sic-venus-sheet__technical-title">
+              Dimensioni e collegamenti
+            </h4>
+
+            <table class="sic-venus-sheet__technical-table">
+
+              <tbody>
+
+                <tr>
+                  <th>Dimensioni</th>
+                  <td>480 × 153 × 624 mm</td>
+                </tr>
+
+                <tr>
+                  <th>Peso</th>
+                  <td>60 ± 0,5 kg</td>
+                </tr>
+
+                <tr>
+                  <th>Connessione AC on-grid</th>
+                  <td>Presa domestica a 3 fili (Euro 16 A), secondo configurazione approvata</td>
+                </tr>
+
+                <tr>
+                  <th>Display</th>
+                  <td>Indicatori LED</td>
+                </tr>
+
+                <tr>
+                  <th>Interfacce</th>
+                  <td>LAN / RS485 / Wi-Fi / Bluetooth</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+</div>
+
+
+          <div class="sic-venus-sheet__accordion-item">
+<button
+            type="button"
+            class="sic-venus-sheet__accordion-trigger"
+            data-venus-panel-button="tax"
+            aria-expanded="false"
+            aria-controls="sic-venus-panel-tax"
+          >
+
+            <span>Informazioni IVA</span>
+
+            <span
+              class="sic-venus-sheet__plus"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+<div
+          class="sic-venus-sheet__expand-panel"
+          id="sic-venus-panel-tax"
+          data-venus-panel="tax"
+          hidden
+        >
+
+          <h4 class="sic-venus-sheet__tax-heading">
+            Informazioni sull'aliquota IVA
+          </h4>
+
+          <p class="sic-venus-sheet__tax-text">
+            Il prezzo della batteria indicato nella nostra
+            offerta è calcolato applicando
+            l'<strong>IVA ordinaria del 22%</strong>.
+          </p>
+
+          <div class="sic-venus-sheet__tax-note">
+
+            <p>
+              <strong>
+                Vuoi richiedere l'IVA agevolata al 10%?
+              </strong>
+            </p>
+
+            <p>
+              Quando ne ricorrono i requisiti,
+              puoi richiederne la valutazione compilando
+              l'apposito
+              <strong>modulo di autocertificazione</strong>,
+              disponibile nella sezione
+              <strong>Domande frequenti e documenti</strong>
+              di questa pagina.
+            </p>
+
+          </div>
+
+          <ul class="sic-venus-sheet__tax-bullet">
+
+            <li>
+              L'aliquota agevolata
+              <strong>non è automatica</strong>:
+              la sua applicabilità dipende dalla tipologia
+              di intervento e dai requisiti fiscali.
+            </li>
+
+            <li>
+              Prima dell'ordine, contattaci e trasmetti
+              il modulo compilato per verificare
+              la possibilità di applicarla.
+            </li>
+
+            <li>
+              L'eventuale prezzo ricalcolato sarà comunicato
+              prima della conferma di acquisto.
+            </li>
+
+          </ul>
+
+          <p class="sic-venus-sheet__tax-text">
+            Per scaricare il modello e leggere le istruzioni,
+            consulta
+            <strong>Domande frequenti e documenti</strong>,
+            più in basso nella pagina.
+          </p>
+
+        </div>
+</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CONTENUTI DELLE TENDINE
+    ================================================== -->
+
+    
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     - Carosello 7 immagini
+     - Frecce precedenti / successive
+     - Gestione segnaposto immagini
+     - Due tendine esclusive
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll('.sic-venus-sheet')
+    .forEach(function (section) {
+
+      if (section.dataset.initialized === 'true') {
+        return;
+      }
+
+      section.dataset.initialized = 'true';
+
+      /* ==================================================
+         CAROSELLO
+      ================================================== */
+
+      const carousel = section.querySelector(
+        '.sic-venus-sheet__carousel'
+      );
+
+      const slides = Array.from(
+        section.querySelectorAll(
+          '.sic-venus-sheet__slide'
+        )
+      );
+
+      const prev = section.querySelector(
+        '.sic-venus-sheet__arrow--prev'
+      );
+
+      const next = section.querySelector(
+        '.sic-venus-sheet__arrow--next'
+      );
+
+      let currentIndex = 0;
+
+      /* ==================================================
+         CONTROLLO IMMAGINI
+      ================================================== */
+
+      slides.forEach(function (slide) {
+
+        const img = slide.querySelector('img');
+
+        if (!img) return;
+
+        function updateImage() {
+
+          const valid = Boolean(
+            img.getAttribute('src') &&
+            img.complete &&
+            img.naturalWidth > 0
+          );
+
+          slide.classList.toggle(
+            'has-image',
+            valid
+          );
+
+        }
+
+        img.addEventListener('load', updateImage);
+        img.addEventListener('error', updateImage);
+
+        updateImage();
+
+      });
+
+      /* ==================================================
+         CAMBIO IMMAGINE
+      ================================================== */
+
+      function showSlide(index) {
+
+        if (!slides.length) return;
+
+        currentIndex = (
+          index + slides.length
+        ) % slides.length;
+
+        slides.forEach(function (slide, i) {
+
+          const active = i === currentIndex;
+
+          slide.classList.toggle(
+            'is-active',
+            active
+          );
+
+          slide.setAttribute(
+            'aria-hidden',
+            String(!active)
+          );
+
+        });
+
+      }
+
+      /* ==================================================
+         FRECCIA PRECEDENTE
+      ================================================== */
+
+      if (prev) {
+
+        prev.addEventListener(
+          'click',
+          function () {
+            showSlide(currentIndex - 1);
+          }
+        );
+
+      }
+
+      /* ==================================================
+         FRECCIA SUCCESSIVA
+      ================================================== */
+
+      if (next) {
+
+        next.addEventListener(
+          'click',
+          function () {
+            showSlide(currentIndex + 1);
+          }
+        );
+
+      }
+
+      /* ==================================================
+         NAVIGAZIONE DA TASTIERA
+      ================================================== */
+
+      if (carousel) {
+
+        carousel.addEventListener(
+          'keydown',
+          function (event) {
+
+            if (event.key === 'ArrowLeft') {
+              event.preventDefault();
+              showSlide(currentIndex - 1);
+            }
+
+            if (event.key === 'ArrowRight') {
+              event.preventDefault();
+              showSlide(currentIndex + 1);
+            }
+
+          }
+        );
+
+      }
+
+      /* ==================================================
+         TENDINE
+      ================================================== */
+
+      const buttons = Array.from(
+        section.querySelectorAll(
+          '[data-venus-panel-button]'
+        )
+      );
+
+
+
+      const panels = Array.from(
+        section.querySelectorAll(
+          '[data-venus-panel]'
+        )
+      );
+
+      function closePanels() {
+
+        buttons.forEach(function (button) {
+
+          button.setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+        });
+
+        panels.forEach(function (panel) {
+          panel.hidden = true;
+        });
+
+
+
+      }
+
+      buttons.forEach(function (button) {
+
+        button.addEventListener(
+          'click',
+          function () {
+
+            const target = button.getAttribute(
+              'data-venus-panel-button'
+            );
+
+            const wasOpen =
+              button.getAttribute('aria-expanded') === 'true';
+
+            closePanels();
+
+            if (wasOpen) return;
+
+            const selected = panels.find(
+              function (panel) {
+
+                return panel.getAttribute(
+                  'data-venus-panel'
+                ) === target;
+
+              }
+            );
+
+            if (!selected) return;
+
+            selected.hidden = false;
+
+            button.setAttribute(
+              'aria-expanded',
+              'true'
+            );
+
+          }
+        );
+
+      });
+
+      /* ==================================================
+         STATO INIZIALE
+      ================================================== */
+
+      closePanels();
+      showSlide(0);
+
+    });
+
+})();
+</script>

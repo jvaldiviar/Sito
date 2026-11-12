@@ -1,0 +1,1496 @@
+
+<!-- =========================================================
+     FLASHPLAN - TESTIMONIANZE COMMUNITY
+
+     VERSIONE CON FOTOGRAFIE ABILITATE
+
+     - 10 testimonianze con link immagine modificabili
+     - Prima fotografia già inserita
+     - Placeholder automatico quando manca una foto
+     - Foto 65% / Testimonianza 35%
+     - Altezza 340px desktop
+     - Margini bianchi laterali
+     - Megafono azzurro animato
+     - Dissolvenza ogni 5 secondi
+     - Solo frecce, senza puntini
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ==================================================
+   GENERALE
+================================================== */
+
+.sic-fp-community,
+.sic-fp-community * {
+  box-sizing: border-box;
+}
+
+.sic-fp-community {
+  --fp-blue: #3D86C6;
+  --fp-yellow: #F5B52B;
+  --fp-dark: #3F454C;
+  --fp-muted: #68737B;
+  --fp-line: #DFE6ED;
+
+  width: 100%;
+  padding: 30px 0 35px;
+  color: var(--fp-dark);
+  background: #FFFFFF;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-fp-community__container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* ==================================================
+   INTESTAZIONE
+================================================== */
+
+.sic-fp-community__heading {
+  width: 100%;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.sic-fp-community__title {
+  margin: 0;
+  color: var(--fp-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(23px, 2.6vw, 30px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+}
+
+/* ==================================================
+   MEGAFONO AZZURRO ANIMATO
+================================================== */
+
+.sic-fp-community__megaphone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 8px;
+  opacity: 0.78;
+}
+
+.sic-fp-community__megaphone svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sic-fp-community__megaphone-body {
+  transform-origin: 28px 31px;
+  animation: sic-fp-megaphone-rotate 3.2s ease-in-out infinite;
+}
+
+@keyframes sic-fp-megaphone-rotate {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  50% { transform: rotate(3deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+.sic-fp-community__sound-wave {
+  opacity: 0;
+  animation: sic-fp-megaphone-sound 3.2s ease-in-out infinite;
+}
+
+.sic-fp-community__sound-wave.wave-2 {
+  animation-delay: 0.12s;
+}
+
+@keyframes sic-fp-megaphone-sound {
+  0%, 45%, 100% { opacity: 0; }
+  60%, 85% { opacity: 1; }
+  95% { opacity: 0; }
+}
+
+/* ==================================================
+   CAROSELLO CON MARGINI LATERALI
+================================================== */
+
+.sic-fp-community__carousel {
+  position: relative;
+  width: calc(100% - 80px);
+  max-width: none;
+  margin: 0 auto;
+  height: 340px;
+  border: 1px solid var(--fp-line);
+  border-radius: 19px;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+/* ==================================================
+   SLIDE
+================================================== */
+
+.sic-fp-community__slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 850ms ease-in-out,
+    visibility 850ms ease-in-out;
+}
+
+.sic-fp-community__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* ==================================================
+   FOTOGRAFIE ABILITATE
+================================================== */
+
+.sic-fp-community__visual {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  background: #EAF2F8;
+  overflow: hidden;
+}
+
+/* La foto mantiene le proporzioni originali */
+
+.sic-fp-community__photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Nasconde la foto se manca il link */
+
+.sic-fp-community__photo:not([src]),
+.sic-fp-community__photo[src=""] {
+  display: none;
+}
+
+/* Placeholder automatico */
+
+.sic-fp-community__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  color: #749CBC;
+  text-align: center;
+}
+
+.sic-fp-community__placeholder svg {
+  width: 37px;
+  height: 37px;
+  stroke: currentColor;
+}
+
+.sic-fp-community__placeholder span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Quando la fotografia viene caricata */
+
+.sic-fp-community__visual.has-photo
+.sic-fp-community__placeholder {
+  display: none;
+}
+
+/* ==================================================
+   TESTIMONIANZA
+================================================== */
+
+.sic-fp-community__review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  height: 100%;
+  padding: 26px 37px;
+  background: #FFFFFF;
+}
+
+.sic-fp-community__quote-icon {
+  margin-bottom: 11px;
+  color: var(--fp-yellow);
+  font-family: Georgia, serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 0.65;
+}
+
+.sic-fp-community__review-title {
+  margin: 0 0 10px;
+  color: var(--fp-dark);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sic-fp-community__review-text {
+  margin: 0 0 14px;
+  color: var(--fp-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.sic-fp-community__author {
+  margin-top: auto;
+}
+
+.sic-fp-community__author-name {
+  display: block;
+  color: var(--fp-dark);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.sic-fp-community__author-detail {
+  display: block;
+  margin-top: 2px;
+  color: var(--fp-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   SOLO FRECCE
+================================================== */
+
+.sic-fp-community__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  margin-top: 14px;
+}
+
+.sic-fp-community__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  color: var(--fp-blue);
+  background: #FFFFFF;
+  border: 1px solid var(--fp-line);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sic-fp-community__arrow:hover {
+  background: #F3F8FC;
+}
+
+.sic-fp-community__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ==================================================
+   ACCESSIBILITÀ
+================================================== */
+
+.sic-fp-community button:focus-visible {
+  outline: 2px solid var(--fp-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 950px) {
+  .sic-fp-community {
+    padding: 28px 0 32px;
+  }
+
+  .sic-fp-community__carousel {
+    width: calc(100% - 40px);
+    height: 320px;
+  }
+
+  .sic-fp-community__review {
+    padding: 23px 25px;
+  }
+
+  .sic-fp-community__review-title {
+    font-size: 17px;
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+  .sic-fp-community {
+    padding: 24px 0 30px;
+  }
+
+  .sic-fp-community__heading {
+    margin-bottom: 21px;
+  }
+
+  .sic-fp-community__title {
+    font-size: 23px;
+    padding: 0 14px;
+  }
+
+  .sic-fp-community__megaphone {
+    width: 37px;
+    height: 37px;
+    margin-bottom: 7px;
+  }
+
+  .sic-fp-community__carousel {
+    width: calc(100% - 24px);
+    height: 470px;
+    border-radius: 16px;
+  }
+
+  .sic-fp-community__slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: 245px minmax(0, 1fr);
+  }
+
+  .sic-fp-community__visual {
+    height: 245px;
+  }
+
+  .sic-fp-community__review {
+    padding: 19px 23px 23px;
+  }
+
+  .sic-fp-community__quote-icon {
+    font-size: 44px;
+    margin-bottom: 7px;
+  }
+
+  .sic-fp-community__review-title {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .sic-fp-community__review-text {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .sic-fp-community__controls {
+    margin-top: 12px;
+  }
+}
+
+/* ==================================================
+   RIDUZIONE ANIMAZIONI
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .sic-fp-community__slide,
+  .sic-fp-community__arrow {
+    transition: none;
+  }
+
+  .sic-fp-community__megaphone-body,
+  .sic-fp-community__sound-wave {
+    animation: none;
+  }
+
+  .sic-fp-community__sound-wave {
+    opacity: 0.7;
+  }
+}
+
+.sic-fp-community__case-button { display: block; margin-top: 10px; padding: 5px 0; border: 0; background: transparent; color: #667782; font: 600 13px/1.4 Montserrat, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.sic-fp-community__case-button:hover { color: #3F454C; }
+.sic-fp-case { position: fixed; inset: 0; margin: auto; width: min(1000px, 94vw); max-width: 94vw; max-height: 90vh; max-height: 90dvh; padding: 48px 24px 24px; border: 0; border-radius: 16px; color: #3F454C; font-family: Montserrat, sans-serif; overflow: auto; }
+.sic-fp-case::backdrop { background: #14252fcc; }
+.sic-fp-case__close { position: absolute; top: 8px; right: 12px; width: 36px; height: 36px; border: 1px solid #DCE4EA; border-radius: 50%; background: white; color: #3D86C6; font-size: 28px; cursor: pointer; }
+.sic-fp-case__image { display: block; width: 100%; max-height: 55vh; object-fit: contain; margin-bottom: 20px; }
+.sic-fp-case h2 { font-size: 22px; line-height: 1.4; margin: 0 0 16px; }
+.sic-fp-case p { font-size: 15px; line-height: 1.7; }
+.sic-fp-case__author { margin-top: 18px; font-size: 14px; line-height: 1.6; }
+
+/* Reserve a visible footer for the case action, including long stories. */
+.sic-fp-community__review {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+  justify-content: stretch;
+  justify-items: stretch;
+  text-align: left;
+  align-content: stretch;
+  overflow: hidden;
+}
+.sic-fp-community__review > .sic-fp-community__quote-icon { grid-row: 1; }
+.sic-fp-community__review > .sic-fp-community__review-title {
+  grid-row: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.sic-fp-community__review > .sic-fp-community__review-text {
+  grid-row: 3;
+  min-height: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.sic-fp-community__review > .sic-fp-community__author { grid-row: 4; margin-top: 0; }
+.sic-fp-community__review > .sic-fp-community__case-button { grid-row: 5; justify-self: start; margin-top: 6px; }
+@media (max-width: 650px) {
+  .sic-fp-community__review > .sic-fp-community__quote-icon { font-size: 30px; margin-bottom: 5px; }
+}
+</style>
+
+
+<section class="sic-fp-community" id="community-flashplan">
+
+  <div class="sic-fp-community__container">
+
+    <!-- ======================================
+         TITOLO E MEGAFONO
+    ======================================= -->
+
+    <div class="sic-fp-community__heading">
+
+      <div
+        class="sic-fp-community__megaphone"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <g class="sic-fp-community__megaphone-body">
+            <path
+              d="M12 27H23L44 16V46L23 35H12C9.8 35 8 33.2 8 31V31C8 28.8 9.8 27 12 27Z"
+              fill="#8CB9DC"
+              stroke="#8CB9DC"
+              stroke-width="2.3"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M19 35L24 49H31L26 35"
+              stroke="#8CB9DC"
+              stroke-width="3.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M44 25C48 25 50 27.5 50 31S48 37 44 37"
+              stroke="#8CB9DC"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </g>
+
+          <path
+            class="sic-fp-community__sound-wave wave-1"
+            d="M52 24C55 27 55 35 52 38"
+            stroke="#8CB9DC"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          />
+
+          <path
+            class="sic-fp-community__sound-wave wave-2"
+            d="M57 18C63 25 63 37 57 44"
+            stroke="#8CB9DC"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <h2 class="sic-fp-community__title">
+        FlashBattery, l'esperienza di chi l'ha scelta
+      </h2>
+
+    </div>
+
+
+    <!-- ======================================
+         CAROSELLO - 10 TESTIMONIANZE
+    ======================================= -->
+
+    <div
+      class="sic-fp-community__carousel"
+      data-fp-carousel
+      aria-label="Testimonianze dei clienti FlashPlan"
+      aria-roledescription="carosello"
+    >
+
+      <!-- ====================================
+           TESTIMONIANZA 1
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide is-active"
+        data-fp-slide
+        aria-label="Testimonianza 1 di 10"
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 1 - GIÀ COLLEGATA -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-utente-ryJl3a7zAhnxTIRY.jpeg"
+            alt="Installazione FlashPlan 1"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 1</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Grazie all'energia che produco con FlashPlan, ricarico la mia auto elettrica direttamente da casa. 
+          </h3>
+
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Fabrizio P. 
+            </span>
+            <span class="sic-fp-community__author-detail">
+              Bologna 
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 2
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 2 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 2 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-flashplan-ivano-v.-jkCQsXfeRoVFBJMZ.jpeg"
+            alt="Installazione FlashPlan 2"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 2</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            52 kWh prodotti nel mese di giugno e 48 nel mese di luglio. Installati a fine maggio i pannelli fanno il loro dovere. 
+          </h3>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Ivano C.
+            </span>
+            <span class="sic-fp-community__author-detail">
+              Bologna
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 3
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 3 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 3 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-michele-c.-VTq4NkfwRMH4YtkW.png"
+            alt="Installazione FlashPlan 3"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 3</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Bello, bello, bello!
+          </h3>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Michele C. 
+            </span>
+            <span class="sic-fp-community__author-detail">
+              Medicina
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 4
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 4 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 4 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/fausto-c.-z097LTx88dCljD63.png"
+            alt="Installazione FlashPlan 4"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 4</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            In soli due mesi i pannelli hanno prodotto ben 123.9 kWh
+          </h3>
+
+          <p class="sic-fp-community__review-text">
+            Ho conosciuto i pannelli plug-and-play tramite il passaparola di un amico. Mi ha subito incuriosito perché rispondeva alle mie esigenze. Volevo infatti, risparmiare sulla bolletta ed iniziare a produrre energia pulita e sostenibile ma non potevo installare il fotovoltaico tradizionale sul tetto poiché avevo alcuni dissidi con il vicinato. 
+          </p>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Fausto C. 
+            </span>
+            <span class="sic-fp-community__author-detail">
+              Medicina
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 5
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 5 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 5 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/mirko-c.-iCcCbg1FKx6EVRhQ.png"
+            alt="Installazione FlashPlan 5"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 5</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Qualche settimana ho montato questi pannelli e li ho collegati alla rete tramite una presa esterna. 
+          </h3>
+
+          <p class="sic-fp-community__review-text">
+           Credo che i pannelli P&P per chi non si può permettere cifre importanti, siano veramente rivoluzionari per l'ambiente, il portafoglio e mi permetto di scrivere anche un gesto rivoluzionario per mandare a quel paese che per risorse fossili scatena (o tace) su guerre e atti beceri e criminali. 
+          </p>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Mirko C.
+            </span>
+            <span class="sic-fp-community__author-detail">
+              Cesena
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 6
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 6 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 6 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-mira-g.-EltL6e2YDEWQOOTL.jpg"
+            alt="Installazione FlashPlan 6"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 6</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Ora 300 watt di picco vanno a ridurre i costi in bolletta del condizionatore. 
+          </h3>
+
+          <p class="sic-fp-community__review-text">
+            Utilizzando l'apposito kit da muto fornito da Comunità Solare ho creato un bel tettino fotovoltaico collegato direttamente alla presa in garage. Oggi un piccolo prosumer in più per sperare di avere un pò di caldo in meno in futuro!
+          </p>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Mira G.
+            </span>
+            <span class="sic-fp-community__author-detail">
+              Medicina
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 7
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 7 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 7 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-pannelli-vincenzo-g9ssguZYOj0XBepi.jpeg"
+            alt="Installazione FlashPlan 7"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 7</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Da Crevalcore. 
+          </h3>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Vincenzo B.
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 8
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 8 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 8 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/gianni-v2-w6U8pkrRKyWzmxpQ.jpg"
+            alt="Installazione FlashPlan 8"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 8</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Da Castel Del Rio. 
+          </h3>
+
+          <p class="sic-fp-community__review-text">
+            Inserisci qui il testo dell'ottava testimonianza
+            reale del cliente FlashPlan.
+          </p>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Gianni V.
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 9
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 9 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 9 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-silvia-l-Wo7UxfzzVWIWeQle.jpeg"
+            alt="Installazione FlashPlan 9"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 9</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Da Bologna. 
+          </h3>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Silvia L. 
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- ====================================
+           TESTIMONIANZA 10
+      ===================================== -->
+
+      <article
+        class="sic-fp-community__slide"
+        data-fp-slide
+        aria-label="Testimonianza 10 di 10"
+        aria-hidden="true"
+        inert
+      >
+
+        <div class="sic-fp-community__visual">
+
+          <!-- FOTO 10 - INSERISCI LINK IN src="" -->
+
+          <img
+            class="sic-fp-community__photo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/foto-marco-c-9d6AvF3xKwvFchvX.JPG"
+            alt="Installazione FlashPlan 10"
+          >
+
+          <div class="sic-fp-community__placeholder">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+            <span>Fotografia installazione FlashPlan 10</span>
+          </div>
+
+        </div>
+
+        <div class="sic-fp-community__review">
+          <div class="sic-fp-community__quote-icon"
+               aria-hidden="true">“</div>
+
+          <h3 class="sic-fp-community__review-title">
+            Da Medicina. 
+          </h3>
+
+          <div class="sic-fp-community__author">
+            <span class="sic-fp-community__author-name">
+              Marco C.
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- ======================================
+         SOLO FRECCE - SENZA PUNTINI
+    ======================================= -->
+
+    <div class="sic-fp-community__controls">
+
+      <button
+        type="button"
+        class="sic-fp-community__arrow"
+        data-fp-prev
+        aria-label="Testimonianza precedente"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <button type="button" class="sic-fp-community__arrow"
+        data-fp-toggle aria-label="Metti in pausa il carosello" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7 5h3v14H7zM14 5h3v14h-3z"/>
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        class="sic-fp-community__arrow"
+        data-fp-next
+        aria-label="Testimonianza successiva"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT - FOTO E DISSOLVENZA AUTOMATICA
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll('.sic-fp-community')
+    .forEach(function (section) {
+
+      if (section.dataset.carouselInitialized === 'true') {
+        return;
+      }
+
+      section.dataset.carouselInitialized = 'true';
+
+      const carousel = section.querySelector(
+        '[data-fp-carousel]'
+      );
+
+      const slides = Array.from(
+        section.querySelectorAll('[data-fp-slide]')
+      );
+
+      const prev = section.querySelector('[data-fp-prev]');
+      const next = section.querySelector('[data-fp-next]');
+
+      if (!carousel || slides.length === 0) return;
+
+      /* ==========================================
+         GESTIONE AUTOMATICA DELLE FOTOGRAFIE
+      ========================================== */
+
+      section.querySelectorAll('.sic-fp-community__visual')
+        .forEach(function (visual) {
+
+          const photo = visual.querySelector(
+            '.sic-fp-community__photo'
+          );
+
+          if (!photo) return;
+
+          function updatePhoto() {
+            const hasSource = Boolean(
+              photo.getAttribute('src') &&
+              photo.getAttribute('src').trim()
+            );
+
+            const isLoaded = hasSource &&
+              photo.complete &&
+              photo.naturalWidth > 0;
+
+            visual.classList.toggle(
+              'has-photo',
+              isLoaded
+            );
+
+            photo.style.display = isLoaded
+              ? 'block'
+              : 'none';
+          }
+
+          photo.addEventListener('load', updatePhoto);
+          photo.addEventListener('error', updatePhoto);
+
+          const source = photo.getAttribute('src');
+
+          if (source && source.trim()) {
+            photo.style.display = 'block';
+          }
+
+          updatePhoto();
+
+        });
+
+      /* ==========================================
+         CAROSELLO
+      ========================================== */
+
+      let current = 0;
+      let timer = null;
+      const toggle = section.querySelector('[data-fp-toggle]');
+      let paused = false;
+      let explicitlyPlaying = false;
+
+      function updatePlaybackButton() {
+        toggle.setAttribute('aria-pressed', String(paused));
+        toggle.setAttribute('aria-label', paused ? 'Riprendi il carosello' : 'Metti in pausa il carosello');
+        toggle.querySelector('path').setAttribute('d', paused
+          ? 'M8 5v14l11-7z'
+          : 'M7 5h3v14H7zM14 5h3v14h-3z');
+      }
+
+      // Use the highest accessible page so the modal escapes the embed box.
+      let popupDocument = document;
+      let popupWindow = window;
+      try {
+        while (popupWindow.parent !== popupWindow) {
+          const parentDocument = popupWindow.parent.document;
+          if (!parentDocument.body) break;
+          popupWindow = popupWindow.parent;
+          popupDocument = parentDocument;
+        }
+      } catch (error) {
+        // Cross-origin embeds cannot access their parent document.
+      }
+      if (popupDocument !== document) {
+        let styles = popupDocument.getElementById('sic-fp-case-host-styles');
+        if (!styles) {
+          styles = popupDocument.createElement('style');
+          styles.id = 'sic-fp-case-host-styles';
+          popupDocument.head.appendChild(styles);
+        }
+        // Only popup rules belong in the parent page, never embed-wide styles.
+        styles.textContent = ".sic-fp-case { position: fixed; inset: 0; margin: auto; width: min(1000px, 94vw); max-width: 94vw; max-height: 90vh; max-height: 90dvh; padding: 48px 24px 24px; border: 0; border-radius: 16px; color: #3F454C; font-family: Montserrat, sans-serif; overflow: auto; }\n.sic-fp-case::backdrop { background: #14252fcc; }\n.sic-fp-case__close { position: absolute; top: 8px; right: 12px; width: 36px; height: 36px; border: 1px solid #DCE4EA; border-radius: 50%; background: white; color: #3D86C6; font-size: 28px; cursor: pointer; }\n.sic-fp-case__image { display: block; width: 100%; max-height: 55vh; object-fit: contain; margin-bottom: 20px; }\n.sic-fp-case h2 { font-size: 22px; line-height: 1.4; margin: 0 0 16px; }\n.sic-fp-case p { font-size: 15px; line-height: 1.7; }\n.sic-fp-case__author { margin-top: 18px; font-size: 14px; line-height: 1.6; }\n.sic-fp-case, .sic-fp-case * { box-sizing: border-box; }\n.sic-fp-case__author span { display: block; }\ndialog.sic-fp-case { position: fixed !important; inset: 0 !important; margin: auto !important; transform: none !important; }";
+      }
+      const caseDialog = popupDocument.createElement('dialog');
+      caseDialog.className = 'sic-fp-case';
+      const caseTitleId = 'fp-case-title-' + Math.random().toString(36).slice(2);
+      caseDialog.setAttribute('aria-labelledby', caseTitleId);
+      const closeCase = document.createElement('button');
+      closeCase.type = 'button';
+      closeCase.className = 'sic-fp-case__close';
+      closeCase.setAttribute('aria-label', 'Chiudi il caso');
+      closeCase.textContent = '×';
+      const caseContent = document.createElement('div');
+      caseDialog.append(closeCase, caseContent);
+      popupDocument.body.appendChild(caseDialog);
+      let caseTrigger;
+      closeCase.addEventListener('click', () => caseDialog.close());
+      caseDialog.addEventListener('click', event => {
+        if (event.target !== caseDialog) return;
+        const rect = caseDialog.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) caseDialog.close();
+      });
+      caseDialog.addEventListener('close', () => {
+        if (caseTrigger && caseTrigger.isConnected) caseTrigger.focus({ preventScroll: true });
+        startAuto();
+      });
+      slides.forEach(slide => {
+        const review = slide.querySelector('.sic-fp-community__review');
+        if (!review) return;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'sic-fp-community__case-button';
+        button.textContent = 'Visualizza';
+        button.setAttribute('aria-haspopup', 'dialog');
+        review.appendChild(button);
+        button.addEventListener('click', () => {
+          caseTrigger = button;
+          caseContent.replaceChildren();
+          const photo = slide.querySelector('.sic-fp-community__photo');
+          if (photo && photo.getAttribute('src') && photo.naturalWidth > 0) {
+            const image = document.createElement('img');
+            image.src = photo.currentSrc || photo.src;
+            image.alt = photo.alt;
+            image.className = 'sic-fp-case__image';
+            caseContent.appendChild(image);
+          }
+          const title = document.createElement('h2');
+          title.id = caseTitleId;
+          title.textContent = review.querySelector('.sic-fp-community__review-title').textContent.trim();
+          caseContent.appendChild(title);
+          review.querySelectorAll('.sic-fp-community__review-text').forEach(text => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = text.textContent.trim();
+            caseContent.appendChild(paragraph);
+          });
+          const author = review.querySelector('.sic-fp-community__author');
+          if (author) {
+            const copy = author.cloneNode(true);
+            copy.className = 'sic-fp-case__author';
+            caseContent.appendChild(copy);
+          }
+          stopAuto();
+          caseDialog.showModal();
+        });
+      });
+
+      window.addEventListener('pagehide', () => {
+        stopAuto();
+        if (caseDialog.open) caseDialog.close();
+        caseDialog.remove();
+      }, { once: true });
+
+      const interval = 5000;
+
+      const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      );
+
+      function showSlide(index) {
+
+        current = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+
+          const active = i === current;
+
+          slide.classList.toggle('is-active', active);
+
+          slide.setAttribute(
+            'aria-hidden',
+            String(!active)
+          );
+
+          if (active) {
+            slide.removeAttribute('inert');
+          } else {
+            slide.setAttribute('inert', '');
+          }
+
+        });
+
+      }
+
+      function stopAuto() {
+
+        if (timer !== null) {
+          clearInterval(timer);
+          timer = null;
+        }
+
+      }
+
+      function startAuto() {
+
+        stopAuto();
+
+        if (caseDialog.open) return;
+        if (slides.length < 2) return;
+        if (paused) return;
+        if (reducedMotion.matches && !explicitlyPlaying) return;
+        if (document.hidden) return;
+
+        if (carousel.matches(':hover')) return;
+        if (section.matches(':focus-within') && document.activeElement !== toggle) return;
+
+        timer = setInterval(function () {
+          showSlide(current + 1);
+        }, interval);
+
+      }
+
+      function goTo(index) {
+
+        showSlide(index);
+        startAuto();
+
+      }
+
+      if (prev) {
+        prev.addEventListener('click', function () {
+          goTo(current - 1);
+        });
+      }
+
+      if (next) {
+        next.addEventListener('click', function () {
+          goTo(current + 1);
+        });
+      }
+
+      toggle.addEventListener('click', function () {
+        paused = !paused;
+        explicitlyPlaying = !paused;
+        updatePlaybackButton();
+        startAuto();
+      });
+      paused = reducedMotion.matches;
+      updatePlaybackButton();
+
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+
+      section.addEventListener('focusin', stopAuto);
+
+      section.addEventListener('focusout', function () {
+        requestAnimationFrame(startAuto);
+      });
+
+      document.addEventListener('visibilitychange', startAuto);
+
+      if (reducedMotion.addEventListener) {
+        reducedMotion.addEventListener('change', startAuto);
+      }
+
+      showSlide(0);
+      startAuto();
+
+    });
+
+})();
+</script>

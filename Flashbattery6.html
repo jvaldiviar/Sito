@@ -1,0 +1,1747 @@
+
+<!-- =========================================================
+     MARSTEK VENUS-E GEN 3.0 - MODALITÀ DI ACQUISTO
+
+     BATTERIA DA 5,12 kWh
+
+     CON ABBONAMENTO:
+     Batteria: 1.265 €
+     Smart Meter Chain2: 139 €
+     Abbonamento: 50 €/anno
+     Costo iniziale: 1.454 € IVA inclusa
+
+     SENZA ABBONAMENTO:
+     Batteria: 1.498 € IVA inclusa
+     Smart Meter Chain2: barrato
+     Abbonamento: barrato
+
+     STRUTTURA IDENTICA ALLA BATTERIA DA 2,24 kWh
+
+     - Due card indipendenti
+     - Tabelle con tre voci
+     - Due vantaggi sotto la tabella
+     - Tendine esclusive
+     - Note finali
+     - Pulsanti preordine configurabili
+     - Font Montserrat
+
+     Classi dedicate alla VENUS-E per evitare
+     interferenze con la sezione B2500-D.
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.sic-venus-offer,
+.sic-venus-offer * {
+  box-sizing: border-box;
+}
+
+.sic-venus-offer {
+  --so-blue: #3D86C6;
+  --so-dark-blue: #1E5F82;
+  --so-blue-light: #F1F8FC;
+  --so-yellow: #F5B52B;
+  --so-dark: #3F454C;
+  --so-muted: #78838C;
+  --so-border: #E2E5E8;
+
+  width: 100%;
+  padding: 30px 14px 38px;
+  background: transparent;
+  color: var(--so-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-venus-offer__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   INTESTAZIONE
+================================================== */
+
+.sic-venus-offer__heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.sic-venus-offer__eyebrow {
+  margin-bottom: 10px;
+  color: var(--so-blue);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .7px;
+}
+
+.sic-venus-offer__title {
+  margin: 0;
+  color: var(--so-dark);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.5px;
+}
+
+/* ==================================================
+   DUE CARD
+================================================== */
+
+.sic-venus-offer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 27px;
+  align-items: start;
+}
+
+.sic-venus-offer__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 25px 26px 24px;
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.sic-venus-offer__card--plus {
+  border: 2px solid var(--so-blue);
+  transform: scale(1.025);
+  transform-origin: center center;
+}
+
+.sic-venus-offer__card--base {
+  border: 1.5px solid #C9DDEB;
+}
+
+.sic-venus-offer__tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  padding: 7px 17px;
+  border-radius: 20px;
+  background: var(--so-blue);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+
+/* ==================================================
+   TITOLO E PREZZO
+================================================== */
+
+.sic-venus-offer__card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.sic-venus-offer__card-info {
+  min-width: 0;
+}
+
+.sic-venus-offer__card-title {
+  margin: 0 0 10px;
+  color: var(--so-dark);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.sic-venus-offer__description {
+  margin: 0;
+  color: #69747D;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.sic-venus-offer__price {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.sic-venus-offer__price strong {
+  display: block;
+  color: var(--so-blue);
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.sic-venus-offer__price span {
+  display: block;
+  margin-top: 7px;
+  color: var(--so-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   TABELLE COSTI
+================================================== */
+
+.sic-venus-offer__costs {
+  margin-top: 27px;
+  padding: 7px 15px;
+  background: var(--so-blue-light);
+  border-radius: 9px;
+}
+
+.sic-venus-offer__card--base
+.sic-venus-offer__costs {
+  background: #F8FAFC;
+}
+
+.sic-venus-offer__cost-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.sic-venus-offer__cost-row +
+.sic-venus-offer__cost-row {
+  border-top: 1px solid #DCEAF3;
+}
+
+.sic-venus-offer__cost-row span {
+  color: var(--so-dark);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.sic-venus-offer__cost-row strong {
+  flex-shrink: 0;
+  color: var(--so-dark);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.sic-venus-offer__cost-row--excluded span,
+.sic-venus-offer__cost-row--excluded strong {
+  color: #A1AAB2;
+  text-decoration: line-through;
+  text-decoration-color: #A1AAB2;
+  text-decoration-thickness: 1px;
+}
+
+.sic-venus-offer__cost-row--excluded strong {
+  font-weight: 400;
+}
+
+/* ==================================================
+   PUNTI INCLUSI / ESCLUSI
+================================================== */
+
+.sic-venus-offer__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin: 27px 0;
+}
+
+.sic-venus-offer__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sic-venus-offer__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sic-venus-offer__mark--yes {
+  color: var(--so-blue);
+}
+
+.sic-venus-offer__mark--no {
+  color: #A5ADB4;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.sic-venus-offer__highlight > div {
+  min-width: 0;
+}
+
+.sic-venus-offer__highlight strong {
+  display: block;
+  margin: 0 0 4px;
+  color: var(--so-dark);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.sic-venus-offer__highlight p {
+  margin: 0;
+  color: #6E7880;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* ==================================================
+   TENDINE
+================================================== */
+
+.sic-venus-offer__details {
+  margin-top: 4px;
+  border-top: 1px solid var(--so-border);
+  border-bottom: 1px solid var(--so-border);
+}
+
+.sic-venus-offer__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 51px;
+  padding: 14px 3px;
+  color: var(--so-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .3px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sic-venus-offer__summary::-webkit-details-marker {
+  display: none;
+}
+
+.sic-venus-offer__summary::marker {
+  content: "";
+}
+
+.sic-venus-offer__summary:hover,
+.sic-venus-offer__details[open] .sic-venus-offer__summary {
+  color: var(--so-blue);
+}
+
+.sic-venus-offer__plus {
+  position: relative;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.sic-venus-offer__plus::before,
+.sic-venus-offer__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.sic-venus-offer__plus::before {
+  width: 12px;
+  height: 1.6px;
+}
+
+.sic-venus-offer__plus::after {
+  width: 1.6px;
+  height: 12px;
+}
+
+.sic-venus-offer__details[open] .sic-venus-offer__plus::after {
+  display: none;
+}
+
+/* ==================================================
+   TESTI INTERNI TENDINE
+================================================== */
+
+.sic-venus-offer__details-body {
+  padding: 14px 4px 21px;
+  color: #68737B;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.sic-venus-offer__details-body > p {
+  margin: 0 0 15px;
+  line-height: 1.7;
+}
+
+.sic-venus-offer__details-body > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================================================
+   PASSAGGI NUMERATI
+================================================== */
+
+.sic-venus-offer__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 19px;
+}
+
+.sic-venus-offer__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  color: var(--so-blue);
+  background: var(--so-blue-light);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sic-venus-offer__step > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Titolo del passaggio su una riga separata */
+
+.sic-venus-offer__step > div > strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--so-dark);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   CORREZIONE PRINCIPALE
+
+   I grassetti dentro i paragrafi restano
+   nella stessa frase: display inline.
+   Non vengono più mandati a capo
+   automaticamente dalla regola dei titoli.
+================================================== */
+
+.sic-venus-offer__step p strong {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+}
+
+.sic-venus-offer__step p {
+  margin: 0;
+  color: #68737B;
+  font-size: 12px;
+  line-height: 1.7;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* PARAGRAFI INFORMATIVI */
+
+.sic-venus-offer__details-body > p > strong {
+  color: var(--so-dark);
+  font-weight: 600;
+}
+
+.sic-venus-offer__details a {
+  color: var(--so-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sic-venus-offer__details a:hover {
+  color: var(--so-dark-blue);
+}
+
+/* ==================================================
+   PARTE FINALE CARD
+================================================== */
+
+.sic-venus-offer__bottom {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.sic-venus-offer__ready {
+  margin: 0 0 15px;
+  color: #68737B;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.sic-venus-offer__ready strong {
+  display: block;
+  color: var(--so-dark);
+  font-weight: 600;
+}
+
+.sic-venus-offer__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 45px;
+  padding: 13px 17px;
+  border-radius: 9px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sic-venus-offer__button--blue {
+  color: #FFFFFF;
+  background: var(--so-blue);
+  border: 1.5px solid var(--so-blue);
+}
+
+.sic-venus-offer__button--outline {
+  color: var(--so-blue);
+  background: #FFFFFF;
+  border: 1.5px solid var(--so-blue);
+}
+
+.sic-venus-offer__button:hover {
+  opacity: .9;
+}
+
+/* ==================================================
+   NOTE FINALI
+================================================== */
+
+.sic-venus-offer__extra-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1000px;
+  margin-top: 27px;
+  padding: 0 4px;
+}
+
+.sic-venus-offer__note {
+  margin: 0 0 5px;
+  color: #858F98;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.sic-venus-offer__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sic-venus-offer__info-icon {
+  flex: 0 0 20px;
+  color: var(--so-blue);
+}
+
+.sic-venus-offer__info-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sic-venus-offer__info-item p {
+  margin: 0;
+  color: var(--so-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.sic-venus-offer__info-item strong {
+  font-weight: 500;
+}
+
+.sic-venus-offer [hidden] {
+  display: none !important;
+}
+
+.sic-venus-offer a:focus-visible,
+.sic-venus-offer summary:focus-visible {
+  outline: 2px solid var(--so-blue);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+  .sic-venus-offer__description {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sic-venus-offer__grid {
+    gap: 21px;
+  }
+
+  .sic-venus-offer__card {
+    padding: 21px 19px;
+  }
+
+  .sic-venus-offer__card-title {
+    font-size: 20px;
+  }
+
+  .sic-venus-offer__price strong {
+    font-size: 29px;
+  }
+
+  .sic-venus-offer__card--plus {
+    transform: scale(1.018);
+  }
+}
+
+@media (max-width: 767px) {
+  .sic-venus-offer {
+    padding: 27px 13px 34px;
+  }
+
+  .sic-venus-offer__heading {
+    margin-bottom: 34px;
+  }
+
+  .sic-venus-offer__title {
+    font-size: 26px;
+  }
+
+  .sic-venus-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sic-venus-offer__card {
+    padding: 23px 19px;
+  }
+
+  .sic-venus-offer__card--plus {
+    transform: scale(1.008);
+  }
+
+  .sic-venus-offer__description {
+    white-space: normal;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .sic-venus-offer__card-head {
+    flex-wrap: wrap;
+  }
+
+  .sic-venus-offer__price {
+    text-align: left;
+  }
+}
+
+/* Match FlashPlan purchase cards, retaining battery blue accents. */
+
+500;600;700&display=swap');
+.sic-venus-offer,
+.sic-venus-offer * {
+  box-sizing: border-box;
+}
+.sic-venus-offer {
+  --sic-yellow: #3D86C6;
+  --sic-yellow-soft: #F1F8FC;
+  --sic-yellow-pale: #C9DDEB;
+  --sic-blue: #3D86C6;
+  --sic-text: #3F454C;
+  --sic-muted: #78838C;
+  --sic-border: #E2E5E8;
+  width: 100%;
+  padding: 30px 14px 38px;
+  background: transparent;
+  color: var(--sic-text);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.sic-venus-offer__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sic-venus-offer__heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+.sic-venus-offer__eyebrow {
+  margin-bottom: 10px;
+  color: var(--sic-blue);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+}
+.sic-venus-offer__title {
+  margin: 0;
+  color: var(--sic-text);
+  font-size: clamp(25px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+.sic-venus-offer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 27px;
+  align-items: start;
+}
+.sic-venus-offer__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 25px 26px 24px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  align-self: start;
+  height: auto;
+}
+.sic-venus-offer__card--plus {
+  z-index: 2;
+  border: 2px solid var(--sic-yellow);
+  transform: none;
+  transform-origin: center center;
+  box-shadow: none;
+}
+.sic-venus-offer__tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  padding: 7px 17px;
+  color: #FFFFFF;
+  background: var(--sic-yellow);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  z-index: 3;
+}
+.sic-venus-offer__card--base {
+  z-index: 1;
+  border: 1.5px solid var(--sic-yellow-pale);
+  background: #FFFFFF;
+  transform: scale(1);
+}
+.sic-venus-offer__card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.sic-venus-offer__card-info {
+  min-width: 0;
+}
+.sic-venus-offer__card-title {
+  margin: 0 0 10px;
+  color: var(--sic-text);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.sic-venus-offer__description {
+  margin: 0;
+  color: #69747D;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.sic-venus-offer__price {
+  flex-shrink: 0;
+  text-align: right;
+}
+.sic-venus-offer__price strong {
+  display: block;
+  color: var(--sic-yellow);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.sic-venus-offer__price span {
+  display: block;
+  margin-top: 7px;
+  color: var(--sic-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sic-venus-offer__costs {
+  margin-top: 27px;
+  padding: 7px 15px;
+  background: var(--sic-yellow-soft);
+  border-radius: 9px;
+}
+.sic-venus-offer__card--base
+.sic-venus-offer__costs {
+  background: #F7FAFC;
+}
+.sic-venus-offer__cost-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+}
+.sic-venus-offer__cost-row +
+.sic-venus-offer__cost-row {
+  border-top: 1px solid #DCEAF4;
+}
+.sic-venus-offer__cost-row span {
+  color: var(--sic-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.sic-venus-offer__cost-row strong {
+  flex-shrink: 0;
+  color: var(--sic-text);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+.sic-venus-offer__cost-row--excluded span,
+.sic-venus-offer__cost-row--excluded strong {
+  color: #9BA4AC;
+  text-decoration: line-through;
+  text-decoration-color: #AAB2B9;
+}
+.sic-venus-offer__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 29px 0;
+}
+.sic-venus-offer__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.sic-venus-offer__mark {
+  flex: 0 0 20px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.sic-venus-offer__mark--yes {
+  color: var(--sic-yellow);
+}
+.sic-venus-offer__mark--no {
+  color: #9EA7AE;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1;
+}
+.sic-venus-offer__highlight > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sic-venus-offer__highlight strong {
+  color: var(--sic-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.sic-venus-offer__highlight div span {
+  color: #6E7880;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-venus-offer__details {
+  margin-top: 4px;
+  border-top: 1px solid var(--sic-border);
+  border-bottom: 1px solid var(--sic-border);
+}
+.sic-venus-offer__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 51px;
+  padding: 14px 3px;
+  color: var(--sic-text);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  list-style: none;
+}
+.sic-venus-offer__summary::-webkit-details-marker {
+  display: none;
+}
+.sic-venus-offer__summary::marker {
+  content: "";
+}
+.sic-venus-offer__summary:hover,
+.sic-venus-offer__details[open]
+.sic-venus-offer__summary {
+  color: var(--sic-yellow);
+}
+.sic-venus-offer__plus {
+  position: relative;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+.sic-venus-offer__plus::before,
+.sic-venus-offer__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+.sic-venus-offer__plus::before {
+  width: 12px;
+  height: 1.6px;
+}
+.sic-venus-offer__plus::after {
+  width: 1.6px;
+  height: 12px;
+}
+.sic-venus-offer__details[open]
+.sic-venus-offer__plus::after {
+  display: none;
+}
+.sic-venus-offer__details-body {
+  padding: 10px 4px 20px;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.sic-venus-offer__details-body > p {
+  margin: 0 0 14px;
+}
+.sic-venus-offer__details-body > p:last-child {
+  margin-bottom: 0;
+}
+.sic-venus-offer__details-intro {
+  margin-bottom: 19px !important;
+}
+.sic-venus-offer__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.sic-venus-offer__step:last-child {
+  margin-bottom: 0;
+}
+.sic-venus-offer__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  color: var(--sic-yellow);
+  background: var(--sic-yellow-soft);
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+}
+.sic-venus-offer__step > div {
+  min-width: 0;
+}
+.sic-venus-offer__step strong {
+  display: block;
+  color: var(--sic-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.sic-venus-offer__step p {
+  margin: 5px 0 0;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-venus-offer__bottom {
+  margin-top: auto;
+  padding-top: 24px;
+}
+.sic-venus-offer__ready {
+  margin: 0 0 15px;
+  color: #68737B;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.sic-venus-offer__ready strong {
+  display: block;
+  color: var(--sic-text);
+  font-weight: 600;
+}
+.sic-venus-offer__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 45px;
+  padding: 13px 17px;
+  gap: 10px;
+  border-radius: 9px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sic-venus-offer__button--blue {
+  color: #FFFFFF;
+  background: var(--sic-yellow);
+  border: 1.5px solid var(--sic-yellow);
+}
+.sic-venus-offer__button--blue:hover {
+  background: var(--sic-yellow);
+  border-color: var(--sic-yellow);
+  color: #FFFFFF;
+}
+.sic-venus-offer__button--outline {
+  color: var(--sic-yellow);
+  background: #FFFFFF;
+  border: 1.5px solid var(--sic-yellow);
+}
+.sic-venus-offer__button--outline:hover {
+  color: var(--sic-yellow);
+  background: var(--sic-yellow-soft);
+}
+.sic-venus-offer__extra-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 900px;
+  margin-top: 23px;
+  padding: 0 4px;
+}
+.sic-venus-offer__vat-note {
+  margin: 0;
+  color: #8A9298;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-venus-offer__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.sic-venus-offer__info-icon {
+  flex: 0 0 20px;
+  color: var(--sic-yellow);
+}
+.sic-venus-offer__info-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.sic-venus-offer__info-item p {
+  margin: 0;
+  color: var(--sic-muted);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.sic-venus-offer__info-item p strong {
+  color: var(--sic-muted);
+  font-weight: 400;
+}
+.sic-venus-offer__final-note {
+  margin: 4px 0 0;
+  color: #8A9298;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sic-venus-offer [hidden] {
+  display: none !important;
+}
+@media (max-width: 1000px) {
+  .sic-venus-offer__grid {
+    gap: 21px;
+  }
+  .sic-venus-offer__card {
+    padding: 21px 19px;
+  }
+  .sic-venus-offer__card-title {
+    font-size: 20px;
+  }
+  .sic-venus-offer__price strong {
+    font-size: 30px;
+  }
+  .sic-venus-offer__card--plus {
+    transform: none;
+  }
+}
+@media (max-width: 767px) {
+  .sic-venus-offer {
+    padding: 27px 13px 34px;
+  }
+  .sic-venus-offer__heading {
+    margin-bottom: 34px;
+  }
+  .sic-venus-offer__title {
+    font-size: 26px;
+  }
+  .sic-venus-offer__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .sic-venus-offer__card {
+    padding: 23px 19px;
+  }
+  .sic-venus-offer__card--plus {
+    transform: none;
+  }
+}
+@media (max-width: 390px) {
+  .sic-venus-offer__card-head {
+    flex-wrap: wrap;
+  }
+  .sic-venus-offer__price {
+    text-align: left;
+  }
+}
+.sic-venus-offer a:focus-visible,
+.sic-venus-offer summary:focus-visible {
+  outline: 2px solid var(--sic-yellow);
+  outline-offset: 3px;
+}
+.sic-venus-offer__grid { align-items: stretch; row-gap: 0; }
+.sic-venus-offer__card {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-self: stretch;
+}
+.sic-venus-offer__card--base { border-width: 2px; }
+.sic-venus-offer__costs {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+.sic-venus-offer__highlights {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+@media (max-width: 767px) {
+  .sic-venus-offer__grid { row-gap: 30px; }
+  .sic-venus-offer__card { grid-row: auto; grid-template-rows: auto; }
+}
+.sic-venus-offer__details-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 12px;
+  color: var(--sic-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.sic-venus-offer__details-link[href] { cursor: pointer; }
+.sic-venus-offer__details-link[aria-disabled="true"] { cursor: default; }
+
+.sic-venus-offer__card--plus,
+.sic-venus-offer__card--base { transform: none; }
+.sic-venus-offer__note { font-size: 13px; line-height: 1.6; }
+
+</style>
+
+
+<!-- =========================================================
+     HTML - MODALITÀ DI ACQUISTO VENUS-E
+========================================================= -->
+
+<section
+  class="sic-venus-offer"
+  id="venus-e-offerte"
+>
+
+  <div class="sic-venus-offer__container">
+
+
+    <!-- ==================================================
+         INTESTAZIONE
+    ================================================== -->
+
+    <header class="sic-venus-offer__heading">
+
+      <div class="sic-venus-offer__eyebrow">
+        MODALITÀ DI ACQUISTO
+      </div>
+
+      <h2 class="sic-venus-offer__title">
+        Con o senza abbonamento?
+      </h2>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         DUE CARD
+    ================================================== -->
+
+    <div class="sic-venus-offer__grid">
+
+
+      <!-- ==================================================
+           CARD 1 - CON ABBONAMENTO
+      ================================================== -->
+
+      <article
+        class="sic-venus-offer__card sic-venus-offer__card--plus"
+      >
+
+        <!-- ETICHETTA -->
+
+        <div class="sic-venus-offer__tag">
+          CON ABBONAMENTO
+        </div>
+
+
+        <!-- ======================================
+             TITOLO E PREZZO
+        ======================================= -->
+
+        <div class="sic-venus-offer__card-head">
+
+          <div class="sic-venus-offer__card-info">
+
+            <h3 class="sic-venus-offer__card-title">
+              Batteria Solare
+            </h3>
+
+            <p class="sic-venus-offer__description">
+              Batteria 5,12 kWh con servizi Comunità Solare.
+            </p>
+
+          </div>
+
+          <div class="sic-venus-offer__price">
+
+            <strong>1.454 €</strong>
+
+            <span>Costo iniziale</span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             TABELLA COSTI - TRE VOCI
+        ======================================= -->
+
+        <div class="sic-venus-offer__costs">
+
+          <div class="sic-venus-offer__cost-row">
+
+            <span>
+              Batteria MARSTEK VENUS-E
+            </span>
+
+            <strong>1.265 €</strong>
+
+          </div>
+
+
+          <div class="sic-venus-offer__cost-row">
+
+            <span>
+              Smart Meter Chain2 attivo
+            </span>
+
+            <strong>139 €</strong>
+
+          </div>
+
+
+          <div class="sic-venus-offer__cost-row">
+
+            <span>
+              Abbonamento Comunità Solare
+            </span>
+
+            <strong>50 €/anno*</strong>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             SERVIZI INCLUSI
+        ======================================= -->
+
+        <div class="sic-venus-offer__highlights">
+
+
+          <!-- ASSISTENZA -->
+
+          <div class="sic-venus-offer__highlight">
+
+            <span
+              class="sic-venus-offer__mark sic-venus-offer__mark--yes"
+            >
+              ✓
+            </span>
+
+            <div>
+
+              <strong>
+                Assistenza inclusa
+              </strong>
+
+              
+
+            </div>
+
+          </div>
+
+
+          <!-- ECOSISTEMA -->
+
+          <div class="sic-venus-offer__highlight">
+
+            <span
+              class="sic-venus-offer__mark sic-venus-offer__mark--yes"
+            >
+              ✓
+            </span>
+
+            <div>
+
+              <strong>
+                Ecosistema Comunità Solare
+              </strong>
+
+              
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             TENDINA CON ABBONAMENTO
+        ================================================== -->
+
+        
+
+
+
+        <!-- ======================================
+             PREORDINE CON ABBONAMENTO
+        ======================================= -->
+
+        <div class="sic-venus-offer__bottom">
+          <a class="sic-venus-offer__details-link"
+            data-venus-order="dettagliPdf"
+            role="link" aria-disabled="true" title="PDF in preparazione"
+            target="_blank" rel="noopener noreferrer">Vai ai dettagli</a>
+
+
+          
+
+          <a
+            href="#"
+            class="sic-venus-offer__button sic-venus-offer__button--blue"
+            data-venus-order="solare"
+            hidden
+          >
+
+            Procedi al preordine
+
+            <span aria-hidden="true">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ==================================================
+           CARD 2 - SENZA ABBONAMENTO
+      ================================================== -->
+
+      <article
+        class="sic-venus-offer__card sic-venus-offer__card--base"
+      >
+
+
+        <!-- ======================================
+             TITOLO E PREZZO
+        ======================================= -->
+
+        <div class="sic-venus-offer__card-head">
+
+          <div class="sic-venus-offer__card-info">
+
+            <h3 class="sic-venus-offer__card-title">
+              Batteria Standard
+            </h3>
+
+            <p class="sic-venus-offer__description">
+              Batteria 5,12 kWh senza abbonamento.
+            </p>
+
+          </div>
+
+          <div class="sic-venus-offer__price">
+
+            <strong>1.498 €</strong>
+
+            <span>Prezzo batteria</span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             TABELLA COSTI - TRE VOCI
+
+             SMART METER CHAIN2 E ABBONAMENTO
+             PRESENTI MA BARRATI.
+        ======================================= -->
+
+        <div class="sic-venus-offer__costs">
+
+
+          <!-- BATTERIA -->
+
+          <div class="sic-venus-offer__cost-row sic-venus-offer__cost-row--excluded">
+
+            <span>
+              Batteria MARSTEK VENUS-E agevolata
+            </span>
+
+            <strong>1.265 €</strong>
+
+          </div>
+
+
+
+          <!-- SMART METER NON INCLUSO -->
+
+          <div
+            class="sic-venus-offer__cost-row sic-venus-offer__cost-row--excluded"
+          >
+
+            <span>
+              Smart Meter Chain2 attivo
+            </span>
+
+            <strong>139 €</strong>
+
+          </div>
+
+
+
+          <!-- ABBONAMENTO NON INCLUSO -->
+
+          <div
+            class="sic-venus-offer__cost-row sic-venus-offer__cost-row--excluded"
+          >
+
+            <span>
+              Abbonamento Comunità Solare
+            </span>
+
+            <strong>50 €/anno*</strong>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             SERVIZI NON INCLUSI
+        ======================================= -->
+
+        <div class="sic-venus-offer__highlights">
+
+
+          <!-- ASSISTENZA -->
+
+          <div class="sic-venus-offer__highlight">
+
+            <span
+              class="sic-venus-offer__mark sic-venus-offer__mark--no"
+            >
+              ×
+            </span>
+
+            <div>
+
+              <strong>
+                Assistenza non inclusa
+              </strong>
+
+              
+
+            </div>
+
+          </div>
+
+
+
+          <!-- SERVIZI COMUNITÀ SOLARE -->
+
+          <div class="sic-venus-offer__highlight">
+
+            <span
+              class="sic-venus-offer__mark sic-venus-offer__mark--no"
+            >
+              ×
+            </span>
+
+            <div>
+
+              <strong>
+                Servizi Comunità Solare non inclusi
+              </strong>
+
+              
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             TENDINA SENZA ABBONAMENTO
+        ================================================== -->
+
+        
+
+
+
+        <!-- ======================================
+             PREORDINE SENZA ABBONAMENTO
+        ======================================= -->
+
+        <div class="sic-venus-offer__bottom">
+          <a class="sic-venus-offer__details-link"
+            data-venus-order="dettagliPdf"
+            role="link" aria-disabled="true" title="PDF in preparazione"
+            target="_blank" rel="noopener noreferrer">Vai ai dettagli</a>
+
+
+          
+
+          <a
+            href="#"
+            class="sic-venus-offer__button sic-venus-offer__button--outline"
+            data-venus-order="standard"
+            hidden
+          >
+
+            Preordina la batteria
+
+            <span aria-hidden="true">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         NOTE FINALI
+
+         STESSA STRUTTURA B2500-D
+
+         - IVA
+         - SPEDIZIONE
+         - PAGAMENTO
+         - SPECIFICHE E MANUALI
+    ================================================== -->
+
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+
+     - LINK PREORDINE CONFIGURABILI
+     - UNA SOLA TENDINA APERTA ALLA VOLTA
+     - FUNZIONAMENTO INDIPENDENTE DALLA B2500-D
+
+     INSERIRE GLI URL DEI PREORDINI
+     NEI CAMPI QUI SOTTO.
+========================================================= -->
+
+<script>
+(function () {
+
+  var links = {
+
+    // PREORDINE VENUS-E CON ABBONAMENTO
+    solare: "",
+
+    // PREORDINE VENUS-E SENZA ABBONAMENTO
+    standard: "",
+
+    // Inserisci il collegamento al PDF quando disponibile
+    dettagliPdf: ""
+
+  };
+
+
+  document.querySelectorAll(".sic-venus-offer")
+    .forEach(function (section) {
+
+
+      /* ======================================
+         LINK PULSANTI PREORDINE
+      ======================================= */
+
+      Object.keys(links).forEach(function (key) {
+
+        var url = links[key];
+
+        if (!url || !url.trim()) {
+          return;
+        }
+
+        section.querySelectorAll(
+          '[data-venus-order="' + key + '"]'
+        ).forEach(function (element) {
+
+          element.setAttribute("href", url);
+
+          element.hidden = false;
+          element.removeAttribute("aria-disabled");
+          element.removeAttribute("title");
+
+        });
+
+      });
+
+
+
+      /* ======================================
+         TENDINE ESCLUSIVE
+
+         QUANDO SI APRE UNA TENDINA
+         L'ALTRA SI CHIUDE AUTOMATICAMENTE.
+
+         LE DUE CARD RESTANO INDIPENDENTI
+         NELL'ALTEZZA.
+      ======================================= */
+
+      var tendine = Array.from(
+        section.querySelectorAll(
+          ".sic-venus-offer__details"
+        )
+      );
+
+
+      tendine.forEach(function (tendina) {
+
+        tendina.addEventListener(
+          "toggle",
+          function () {
+
+            if (!tendina.open) {
+              return;
+            }
+
+            tendine.forEach(function (altraTendina) {
+
+              if (altraTendina !== tendina) {
+
+                altraTendina.open = false;
+
+              }
+
+            });
+
+          }
+        );
+
+      });
+
+    });
+
+})();
+</script>

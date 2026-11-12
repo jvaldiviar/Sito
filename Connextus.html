@@ -1,0 +1,1448 @@
+
+<!-- =========================================================
+     SPORTELLO ENERGIA - INFOGRAFICA INTERATTIVA
+
+     MODIFICHE:
+     - Immagine centrale con angoli dritti
+     - Frase sotto: "L'energia a portata di tasca!"
+
+     INVARIATI:
+     - Logo Connextus
+     - Sei icone originali
+     - Testi e parole colorate
+     - Numerazione e titoli curvati
+     - Animazioni e interazioni
+     - Font Montserrat
+     - Struttura responsive
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.sic-sportello-mini,
+.sic-sportello-mini * {
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-sportello-mini {
+  --sic-grey: #3F454C;
+  --sic-muted: #68737B;
+
+  width: 100%;
+  padding: 32px 20px 45px;
+  background: transparent;
+  color: var(--sic-grey);
+  overflow: visible;
+}
+
+.sic-sportello-mini__container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   LOGO CONNEXTUS
+================================================== */
+
+.sic-sportello-mini__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 18px;
+}
+
+.sic-sportello-mini__brand-logo {
+  display: block;
+  width: 145px;
+  max-width: 100%;
+  max-height: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.sic-sportello-mini__brand-logo[src=""],
+.sic-sportello-mini__brand-logo:not([src]) {
+  display: none;
+}
+
+/* ==================================================
+   LAYOUT TRE COLONNE
+================================================== */
+
+.sic-sportello-mini__layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 240px)
+    minmax(0, 330px)
+    minmax(0, 240px);
+
+  justify-content: center;
+  align-items: center;
+  column-gap: 14px;
+  width: 100%;
+}
+
+/* ==================================================
+   COLONNE LATERALI
+================================================== */
+
+.sic-sportello-mini__side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 17px;
+  height: 490px;
+  min-width: 0;
+}
+
+.sic-sportello-mini__side--left {
+  align-items: flex-end;
+}
+
+.sic-sportello-mini__side--right {
+  align-items: flex-start;
+}
+
+/* ==================================================
+   FUNZIONI E COLORI
+================================================== */
+
+.sic-sportello-mini__item {
+  position: relative;
+  width: 150px;
+  flex-shrink: 0;
+
+  --item-color: #3D86C6;
+  --item-soft: #EDF6FC;
+}
+
+.sic-sportello-mini__item--1 {
+  --item-color: #F19B27;
+  --item-soft: #FFF7EA;
+}
+
+.sic-sportello-mini__item--2 {
+  --item-color: #80BB42;
+  --item-soft: #F3F9EA;
+}
+
+.sic-sportello-mini__item--3 {
+  --item-color: #249CE1;
+  --item-soft: #ECF7FE;
+}
+
+.sic-sportello-mini__item--4 {
+  --item-color: #28AA76;
+  --item-soft: #EAF8F1;
+}
+
+.sic-sportello-mini__item--5 {
+  --item-color: #F5B52B;
+  --item-soft: #FFF8E6;
+}
+
+.sic-sportello-mini__item--6 {
+  --item-color: #C95132;
+  --item-soft: #FFF0EA;
+}
+
+.sic-sportello-mini__item.is-active,
+.sic-sportello-mini__item:focus-within {
+  z-index: 20;
+}
+
+/* ==================================================
+   PULSANTI
+================================================== */
+
+.sic-sportello-mini__trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 150px;
+  height: 137px;
+  padding: 0;
+  margin: 0 auto;
+
+  border: 0;
+  background: transparent;
+  color: var(--item-color);
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==================================================
+   TITOLI CURVATI
+================================================== */
+
+.sic-sportello-mini__curved-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 150px;
+  height: 65px;
+
+  transform: translateX(-50%);
+  overflow: visible;
+  pointer-events: none;
+  fill: var(--item-color);
+}
+
+.sic-sportello-mini__curved-title text {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+/* ==================================================
+   CERCHI
+================================================== */
+
+.sic-sportello-mini__circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 100px;
+  margin-top: 24px;
+
+  border-radius: 50%;
+}
+
+.sic-sportello-mini__core {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 69px;
+  height: 69px;
+
+  border: 1.5px solid var(--item-color);
+  border-radius: 50%;
+
+  background: var(--item-soft);
+  color: var(--item-color);
+
+  transition:
+    transform 1s cubic-bezier(.22,1,.36,1),
+    background .7s ease,
+    box-shadow .7s ease;
+}
+
+.sic-sportello-mini__item.is-active
+.sic-sportello-mini__core {
+  transform: scale(1.055);
+  background: #FFFFFF;
+  box-shadow: 0 6px 17px rgba(43,65,80,.09);
+}
+
+/* ==================================================
+   ICONE ORIGINALI
+================================================== */
+
+.sic-sportello-mini__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+}
+
+.sic-sportello-mini__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==================================================
+   ARCHI COLORATI
+================================================== */
+
+.sic-sportello-mini__ring {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+  pointer-events: none;
+
+  transform: rotate(-55deg);
+
+  transition:
+    transform 1.2s cubic-bezier(.22,1,.36,1);
+}
+
+.sic-sportello-mini__arc-main {
+  fill: none;
+  stroke: var(--item-color);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+
+  stroke-dasharray: 90 252;
+  stroke-dashoffset: 0;
+}
+
+.sic-sportello-mini__arc-small {
+  fill: none;
+  stroke: var(--item-color);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+
+  stroke-dasharray: 22 252;
+  stroke-dashoffset: -165;
+  opacity: .5;
+}
+
+.sic-sportello-mini__item.is-active
+.sic-sportello-mini__ring {
+  transform: rotate(0deg);
+}
+
+/* ==================================================
+   NUMERAZIONE
+================================================== */
+
+.sic-sportello-mini__number {
+  position: absolute;
+  top: 17px;
+  right: -10px;
+
+  color: var(--item-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+
+  background: transparent;
+  border: none;
+}
+
+/* ==================================================
+   DESCRIZIONI LATERALI
+================================================== */
+
+.sic-sportello-mini__description {
+  position: absolute;
+  top: 50%;
+
+  width: 220px;
+  padding: 15px 16px;
+
+  background: #FFFFFF;
+  border: 1px solid #E5EAF0;
+  border-top: 3px solid var(--item-color);
+  border-radius: 11px;
+
+  color: #4E5962;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.62;
+
+  box-shadow: 0 12px 28px rgba(36,56,75,.10);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-44%) scale(.97);
+
+  transition:
+    opacity .6s ease,
+    transform .8s cubic-bezier(.22,1,.36,1),
+    visibility .6s ease;
+
+  pointer-events: none;
+}
+
+.sic-sportello-mini__description[hidden] {
+  display: none !important;
+}
+
+.sic-sportello-mini__description p {
+  margin: 0;
+}
+
+.sic-sportello-mini__accent {
+  color: var(--item-color);
+  font-weight: 700;
+}
+
+.sic-sportello-mini__item.is-active
+.sic-sportello-mini__description {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+  pointer-events: auto;
+}
+
+/* DISTANZE DESCRIZIONI */
+
+.sic-sportello-mini__side--left
+.sic-sportello-mini__description {
+  right: calc(100% + 18px);
+}
+
+.sic-sportello-mini__side--right
+.sic-sportello-mini__description {
+  left: calc(100% + 18px);
+}
+
+/* ==================================================
+   IMMAGINE CENTRALE
+
+   MODIFICA:
+   - ANGOLI DRITTI
+   - FRASE SOTTO L'IMMAGINE
+================================================== */
+
+.sic-sportello-mini__center {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+}
+
+.sic-sportello-mini__image-area {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  aspect-ratio: 2 / 3;
+
+  margin: 0 auto;
+  transform: translateX(12px);
+
+  /* ANGOLI DRITTI */
+  border-radius: 0;
+
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.sic-sportello-mini__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center center;
+
+  /* ANGOLI DRITTI */
+  border-radius: 0;
+
+  background: transparent;
+}
+
+.sic-sportello-mini__image:not([src]),
+.sic-sportello-mini__image[src=""] {
+  display: none;
+}
+
+/* ==================================================
+   FRASE SOTTO L'IMMAGINE
+================================================== */
+
+.sic-sportello-mini__image-caption {
+  width: 100%;
+  margin: 12px 0 0;
+
+  transform: translateX(12px);
+
+  color: #B2B8BE;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .sic-sportello-mini__layout {
+    grid-template-columns:
+      minmax(0, 170px)
+      minmax(0, 300px)
+      minmax(0, 170px);
+
+    column-gap: 4px;
+  }
+
+  .sic-sportello-mini__side {
+    height: 450px;
+  }
+
+  .sic-sportello-mini__item {
+    width: 150px;
+  }
+
+  .sic-sportello-mini__image-area {
+    max-width: 300px;
+  }
+
+  .sic-sportello-mini__side--left
+  .sic-sportello-mini__description {
+    right: auto;
+    left: calc(100% + 12px);
+  }
+
+  .sic-sportello-mini__side--right
+  .sic-sportello-mini__description {
+    left: auto;
+    right: calc(100% + 12px);
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+  .sic-sportello-mini {
+    padding: 20px 12px 30px;
+  }
+
+  .sic-sportello-mini__layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+    align-items: start;
+  }
+
+  .sic-sportello-mini__center {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-bottom: 5px;
+  }
+
+  .sic-sportello-mini__image-area {
+    width: min(100%, 290px);
+  }
+
+  .sic-sportello-mini__image-caption {
+    font-size: 12px;
+  }
+
+  .sic-sportello-mini__side {
+    display: contents;
+  }
+
+  .sic-sportello-mini__item {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sic-sportello-mini__item--1 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .sic-sportello-mini__item--2 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .sic-sportello-mini__item--3 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .sic-sportello-mini__item--4 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .sic-sportello-mini__item--5 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .sic-sportello-mini__item--6 {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .sic-sportello-mini__description,
+  .sic-sportello-mini__side--left
+  .sic-sportello-mini__description,
+  .sic-sportello-mini__side--right
+  .sic-sportello-mini__description {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+
+    font-size: 12px;
+    line-height: 1.58;
+    transform: translateY(-5px);
+  }
+
+  .sic-sportello-mini__item.is-active
+  .sic-sportello-mini__description {
+    transform: translateY(0);
+  }
+}
+
+/* ==================================================
+   MOBILE PICCOLO
+================================================== */
+
+@media (max-width: 390px) {
+
+  .sic-sportello-mini__layout {
+    column-gap: 8px;
+  }
+
+  .sic-sportello-mini__trigger {
+    width: 140px;
+  }
+
+  .sic-sportello-mini__curved-title {
+    width: 145px;
+  }
+
+  .sic-sportello-mini__description {
+    font-size: 11px;
+    padding: 10px;
+  }
+}
+
+/* ==================================================
+   ACCESSIBILITÀ
+================================================== */
+
+.sic-sportello-mini__trigger:focus-visible {
+  outline: 2px solid #3D86C6;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-sportello-mini__ring,
+  .sic-sportello-mini__core,
+  .sic-sportello-mini__description {
+    transition: none;
+  }
+}
+
+</style>
+
+
+<!-- =========================================================
+     HTML
+========================================================= -->
+
+<section
+  class="sic-sportello-mini"
+  id="sportello-energia-funzioni"
+>
+
+  <div class="sic-sportello-mini__container">
+
+    <!-- ======================================
+         LAYOUT INFOGRAFICA
+    ======================================= -->
+
+    <div class="sic-sportello-mini__layout">
+
+      <!-- ======================================
+           SINISTRA: 1 / 6 / 5
+      ======================================= -->
+
+      <div class="sic-sportello-mini__side sic-sportello-mini__side--left">
+
+        <!-- 1 - APRI -->
+
+        <div class="sic-sportello-mini__item sic-sportello-mini__item--1">
+
+          <button
+            class="sic-sportello-mini__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sic-mini-description-1"
+            aria-label="Apri Connextus"
+          >
+
+            <svg
+              class="sic-sportello-mini__curved-title"
+              viewBox="0 0 150 65"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-mini-arc-title-1"
+                  d="M 11 55 Q 75 -15 139 55"
+                />
+              </defs>
+
+              <text text-anchor="middle">
+                <textPath
+                  href="#sic-mini-arc-title-1"
+                  startOffset="50%"
+                >
+                  APRI
+                </textPath>
+              </text>
+            </svg>
+
+            <span class="sic-sportello-mini__circle">
+
+              <svg
+                class="sic-sportello-mini__ring"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle
+                  class="sic-sportello-mini__arc-main"
+                  cx="50" cy="50" r="40"
+                />
+                <circle
+                  class="sic-sportello-mini__arc-small"
+                  cx="50" cy="50" r="40"
+                />
+              </svg>
+
+              <span class="sic-sportello-mini__core">
+
+                <span
+                  class="sic-sportello-mini__icon"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <rect x="6" y="2.5" width="12" height="19" rx="2"/>
+                    <path d="M9 6h6"/>
+                    <path d="M9 10h4"/>
+                    <path d="m9 16 2 2 4-4"/>
+                  </svg>
+                </span>
+
+              </span>
+
+              <span class="sic-sportello-mini__number">1</span>
+
+            </span>
+
+          </button>
+
+          <div
+            class="sic-sportello-mini__description"
+            id="sic-mini-description-1"
+            hidden
+          >
+            <p>
+              Scopri i prezzi di
+              <span class="sic-sportello-mini__accent">luce e gas</span>
+              aggiornati ogni
+              <span class="sic-sportello-mini__accent">settimana</span>
+              e verifica se sono
+              <span class="sic-sportello-mini__accent">in linea</span>
+              con il mercato.
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- 6 - CONDIVIDERE -->
+
+        <div class="sic-sportello-mini__item sic-sportello-mini__item--6">
+
+          <button
+            class="sic-sportello-mini__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sic-mini-description-6"
+            aria-label="Condividere"
+          >
+
+            <svg
+              class="sic-sportello-mini__curved-title"
+              viewBox="0 0 150 65"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-mini-arc-title-6"
+                  d="M 11 55 Q 75 -15 139 55"
+                />
+              </defs>
+
+              <text text-anchor="middle">
+                <textPath
+                  href="#sic-mini-arc-title-6"
+                  startOffset="50%"
+                >
+                  CONDIVIDERE
+                </textPath>
+              </text>
+            </svg>
+
+            <span class="sic-sportello-mini__circle">
+
+              <svg
+                class="sic-sportello-mini__ring"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle
+                  class="sic-sportello-mini__arc-main"
+                  cx="50" cy="50" r="40"
+                />
+                <circle
+                  class="sic-sportello-mini__arc-small"
+                  cx="50" cy="50" r="40"
+                />
+              </svg>
+
+              <span class="sic-sportello-mini__core">
+
+                <span
+                  class="sic-sportello-mini__icon"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="6" cy="12" r="2.5"/>
+                    <circle cx="18" cy="6" r="2.5"/>
+                    <circle cx="18" cy="18" r="2.5"/>
+                    <path d="m8.3 10.8 7.3-3.6"/>
+                    <path d="m8.3 13.2 7.3 3.6"/>
+                  </svg>
+                </span>
+
+              </span>
+
+              <span class="sic-sportello-mini__number">6</span>
+
+            </span>
+
+          </button>
+
+          <div
+            class="sic-sportello-mini__description"
+            id="sic-mini-description-6"
+            hidden
+          >
+            <p>
+              Monitora il prezzo dell'energia e scopri quando
+              <span class="sic-sportello-mini__accent">consumare</span>
+              e
+              <span class="sic-sportello-mini__accent">condividere energia</span>
+              con la tua comunità.
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- 5 - COSTRUIRE -->
+
+        <div class="sic-sportello-mini__item sic-sportello-mini__item--5">
+
+          <button
+            class="sic-sportello-mini__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sic-mini-description-5"
+            aria-label="Costruire"
+          >
+
+            <svg
+              class="sic-sportello-mini__curved-title"
+              viewBox="0 0 150 65"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-mini-arc-title-5"
+                  d="M 11 55 Q 75 -15 139 55"
+                />
+              </defs>
+
+              <text text-anchor="middle">
+                <textPath
+                  href="#sic-mini-arc-title-5"
+                  startOffset="50%"
+                >
+                  COSTRUIRE
+                </textPath>
+              </text>
+            </svg>
+
+            <span class="sic-sportello-mini__circle">
+
+              <svg
+                class="sic-sportello-mini__ring"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle
+                  class="sic-sportello-mini__arc-main"
+                  cx="50" cy="50" r="40"
+                />
+                <circle
+                  class="sic-sportello-mini__arc-small"
+                  cx="50" cy="50" r="40"
+                />
+              </svg>
+
+              <span class="sic-sportello-mini__core">
+
+                <span
+                  class="sic-sportello-mini__icon"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <path d="m14 14 6 6-2 2-6-6"/>
+                    <path d="m10 10-5-5-3 1 1-3 3-1 6 6"/>
+                    <path d="m3 19 6-6 2 2-6 6a1.4 1.4 0 0 1-2-2Z"/>
+                    <path d="m13 11 2-2a4 4 0 0 1 5-6l-3 3 1 2 2 1 3-3a4 4 0 0 1-6 5l-2 2"/>
+                  </svg>
+                </span>
+
+              </span>
+
+              <span class="sic-sportello-mini__number">5</span>
+
+            </span>
+
+          </button>
+
+          <div
+            class="sic-sportello-mini__description"
+            id="sic-mini-description-5"
+            hidden
+          >
+            <p>
+              Scopri i
+              <span class="sic-sportello-mini__accent">Costruttori</span>:
+              professionisti e aziende che ti aiutano a trovare
+              <span class="sic-sportello-mini__accent">soluzioni</span>
+              su misura per te.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ======================================
+           IMMAGINE CENTRALE
+           ANGOLI DRITTI + FRASE SOTTO
+      ======================================= -->
+
+      <div class="sic-sportello-mini__center">
+
+        <div class="sic-sportello-mini__image-area">
+
+          <img
+            class="sic-sportello-mini__image"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/1-hXzpdfDlKoa2UaJ4.png"
+            alt="Sportello Energia Connextus"
+            loading="lazy"
+          >
+
+        </div>
+
+        <!-- NUOVA FRASE SOTTO L'IMMAGINE -->
+
+        <p class="sic-sportello-mini__image-caption">
+          L'energia a portata di tasca!
+        </p>
+
+      </div>
+
+
+      <!-- ======================================
+           DESTRA: 2 / 3 / 4
+      ======================================= -->
+
+      <div class="sic-sportello-mini__side sic-sportello-mini__side--right">
+
+        <!-- 2 - INIZIA -->
+
+        <div class="sic-sportello-mini__item sic-sportello-mini__item--2">
+
+          <button
+            class="sic-sportello-mini__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sic-mini-description-2"
+            aria-label="Inizia il percorso"
+          >
+
+            <svg
+              class="sic-sportello-mini__curved-title"
+              viewBox="0 0 150 65"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-mini-arc-title-2"
+                  d="M 11 55 Q 75 -15 139 55"
+                />
+              </defs>
+
+              <text text-anchor="middle">
+                <textPath
+                  href="#sic-mini-arc-title-2"
+                  startOffset="50%"
+                >
+                  INIZIA
+                </textPath>
+              </text>
+            </svg>
+
+            <span class="sic-sportello-mini__circle">
+
+              <svg
+                class="sic-sportello-mini__ring"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle
+                  class="sic-sportello-mini__arc-main"
+                  cx="50" cy="50" r="40"
+                />
+                <circle
+                  class="sic-sportello-mini__arc-small"
+                  cx="50" cy="50" r="40"
+                />
+              </svg>
+
+              <span class="sic-sportello-mini__core">
+
+                <span
+                  class="sic-sportello-mini__icon"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 12h16"/>
+                    <path d="m13 5 7 7-7 7"/>
+                  </svg>
+                </span>
+
+              </span>
+
+              <span class="sic-sportello-mini__number">2</span>
+
+            </span>
+
+          </button>
+
+          <div
+            class="sic-sportello-mini__description"
+            id="sic-mini-description-2"
+            hidden
+          >
+            <p>
+              Chi sei? Un
+              <span class="sic-sportello-mini__accent">cittadino</span>,
+              un'<span class="sic-sportello-mini__accent">impresa</span>
+              o un
+              <span class="sic-sportello-mini__accent">e-driver</span>?
+              Scopri i
+              <span class="sic-sportello-mini__accent">servizi</span>
+              giusti per te!
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- 3 - VEDERE -->
+
+        <div class="sic-sportello-mini__item sic-sportello-mini__item--3">
+
+          <button
+            class="sic-sportello-mini__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sic-mini-description-3"
+            aria-label="Vedere"
+          >
+
+            <svg
+              class="sic-sportello-mini__curved-title"
+              viewBox="0 0 150 65"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-mini-arc-title-3"
+                  d="M 11 55 Q 75 -15 139 55"
+                />
+              </defs>
+
+              <text text-anchor="middle">
+                <textPath
+                  href="#sic-mini-arc-title-3"
+                  startOffset="50%"
+                >
+                  VEDERE
+                </textPath>
+              </text>
+            </svg>
+
+            <span class="sic-sportello-mini__circle">
+
+              <svg
+                class="sic-sportello-mini__ring"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle
+                  class="sic-sportello-mini__arc-main"
+                  cx="50" cy="50" r="40"
+                />
+                <circle
+                  class="sic-sportello-mini__arc-small"
+                  cx="50" cy="50" r="40"
+                />
+              </svg>
+
+              <span class="sic-sportello-mini__core">
+
+                <span
+                  class="sic-sportello-mini__icon"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 1 0-13 0C5.5 15.4 12 21 12 21z"/>
+                    <circle cx="12" cy="10" r="2.5"/>
+                  </svg>
+                </span>
+
+              </span>
+
+              <span class="sic-sportello-mini__number">3</span>
+
+            </span>
+
+          </button>
+
+          <div
+            class="sic-sportello-mini__description"
+            id="sic-mini-description-3"
+            hidden
+          >
+            <p>
+              Esplora le
+              <span class="sic-sportello-mini__accent">mappe</span>
+              e scopri l'
+              <span class="sic-sportello-mini__accent">ecosistema</span>
+              Comunità Solare.
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- 4 - CONNETTERE -->
+
+        <div class="sic-sportello-mini__item sic-sportello-mini__item--4">
+
+          <button
+            class="sic-sportello-mini__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sic-mini-description-4"
+            aria-label="Connettere"
+          >
+
+            <svg
+              class="sic-sportello-mini__curved-title"
+              viewBox="0 0 150 65"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-mini-arc-title-4"
+                  d="M 11 55 Q 75 -15 139 55"
+                />
+              </defs>
+
+              <text text-anchor="middle">
+                <textPath
+                  href="#sic-mini-arc-title-4"
+                  startOffset="50%"
+                >
+                  CONNETTERE
+                </textPath>
+              </text>
+            </svg>
+
+            <span class="sic-sportello-mini__circle">
+
+              <svg
+                class="sic-sportello-mini__ring"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle
+                  class="sic-sportello-mini__arc-main"
+                  cx="50" cy="50" r="40"
+                />
+                <circle
+                  class="sic-sportello-mini__arc-small"
+                  cx="50" cy="50" r="40"
+                />
+              </svg>
+
+              <span class="sic-sportello-mini__core">
+
+                <span
+                  class="sic-sportello-mini__icon"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="8" r="3"/>
+                    <path d="M3 20v-2a6 6 0 0 1 12 0v2"/>
+                    <path d="M17 5a3 3 0 0 1 0 6"/>
+                    <path d="M18 15a5 5 0 0 1 3 5"/>
+                  </svg>
+                </span>
+
+              </span>
+
+              <span class="sic-sportello-mini__number">4</span>
+
+            </span>
+
+          </button>
+
+          <div
+            class="sic-sportello-mini__description"
+            id="sic-mini-description-4"
+            hidden
+          >
+            <p>
+              Dallo
+              <span class="sic-sportello-mini__accent">sportello energia</span>
+              vedi l'
+              <span class="sic-sportello-mini__accent">energia condivisa</span>
+              della comunità in tempo reale.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+
+     DESKTOP:
+     - Hover apre la descrizione
+     - Uscita chiude la descrizione
+
+     MOBILE:
+     - Tocco apre e chiude
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll(".sic-sportello-mini")
+    .forEach(function (section) {
+
+      var items = Array.from(
+        section.querySelectorAll(
+          ".sic-sportello-mini__item"
+        )
+      );
+
+      function closeAll() {
+
+        items.forEach(function (item) {
+
+          item.classList.remove("is-active");
+
+          var trigger = item.querySelector(
+            ".sic-sportello-mini__trigger"
+          );
+
+          var description = item.querySelector(
+            ".sic-sportello-mini__description"
+          );
+
+          if (trigger) {
+            trigger.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+          }
+
+          if (description) {
+            description.hidden = true;
+          }
+
+        });
+
+      }
+
+      function openItem(item) {
+
+        if (item.classList.contains("is-active")) {
+          return;
+        }
+
+        closeAll();
+
+        var trigger = item.querySelector(
+          ".sic-sportello-mini__trigger"
+        );
+
+        var description = item.querySelector(
+          ".sic-sportello-mini__description"
+        );
+
+        if (!trigger || !description) return;
+
+        item.classList.add("is-active");
+
+        trigger.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        description.hidden = false;
+
+      }
+
+      items.forEach(function (item) {
+
+        var trigger = item.querySelector(
+          ".sic-sportello-mini__trigger"
+        );
+
+        if (!trigger) return;
+
+        /* HOVER DESKTOP */
+
+        item.addEventListener(
+          "pointerenter",
+          function (event) {
+
+            if (event.pointerType === "mouse") {
+              openItem(item);
+            }
+
+          }
+        );
+
+        item.addEventListener(
+          "pointerleave",
+          function (event) {
+
+            if (event.pointerType === "mouse") {
+              closeAll();
+            }
+
+          }
+        );
+
+        /* TOCCO MOBILE E TASTIERA */
+
+        trigger.addEventListener(
+          "click",
+          function (event) {
+
+            var isTouch =
+              window.matchMedia("(hover: none)").matches;
+
+            var isKeyboard = event.detail === 0;
+
+            if (!isTouch && !isKeyboard) {
+              return;
+            }
+
+            var wasOpen =
+              item.classList.contains("is-active");
+
+            if (wasOpen) {
+              closeAll();
+            } else {
+              openItem(item);
+            }
+
+          }
+        );
+
+      });
+
+      /* ESC PER CHIUDERE */
+
+      section.addEventListener(
+        "keydown",
+        function (event) {
+
+          if (event.key === "Escape") {
+            closeAll();
+          }
+
+        }
+      );
+
+      /* CLICK ESTERNO */
+
+      document.addEventListener(
+        "click",
+        function (event) {
+
+          if (!section.contains(event.target)) {
+            closeAll();
+          }
+
+        }
+      );
+
+    });
+
+})();
+</script>

@@ -1,0 +1,1246 @@
+
+<!-- =========================================================
+     CONNEXTUS - SPORTELLO ENERGIA FISICO
+
+     AGGIORNAMENTO:
+     - Voci COMUNI e IMPRESE con condivisione di energia
+
+     INVARIATI:
+     - Bandierina animata con colori pastello
+     - Titolo su una riga desktop
+     - Voci COMUNI e IMPRESE
+     - Spazio sotto per il bottone
+     - Carosello con didascalie sovrapposte
+     - Fotografia di Fisciano già inserita
+     - Solo frecce di navigazione
+     - Font Montserrat e colori Comunità Solare
+========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   GENERALE
+========================================================= */
+
+.sic-connextus-install,
+.sic-connextus-install * {
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.sic-connextus-install {
+  --sic-blue: #3D86C6;
+  --sic-text: #3F454B;
+  --sic-muted: #606870;
+
+  width: 100%;
+  padding: 43px 24px;
+  background: #FFFFFF;
+  color: var(--sic-text);
+}
+
+.sic-connextus-install__container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   BANDIERINA ANIMATA - COLORI PASTELLO
+========================================================= */
+
+.sic-connextus-install__flag-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 88px;
+
+  margin: 0 auto 6px;
+  overflow: visible;
+}
+
+.sic-connextus-install__flag-animation svg {
+  display: block;
+  width: 150px;
+  height: 100px;
+  overflow: visible;
+}
+
+.sic-connextus-install__flag {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+
+  animation:
+    sic-connextus-flag-plant 6s ease-in-out infinite;
+}
+
+.sic-connextus-install__flag-shadow {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation:
+    sic-connextus-flag-shadow 6s ease-in-out infinite;
+}
+
+.sic-connextus-install__flag-ripples {
+  animation:
+    sic-connextus-flag-ripples 6s ease-in-out infinite;
+}
+
+/* BANDIERINA CHE SI PIANTA */
+
+@keyframes sic-connextus-flag-plant {
+
+  0%, 8% {
+    transform: translateY(-27px);
+    opacity: 0;
+  }
+
+  18% {
+    transform: translateY(-27px);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
+
+  42% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+
+  49%, 88% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+/* OMBRA */
+
+@keyframes sic-connextus-flag-shadow {
+
+  0%, 25% {
+    transform: scaleX(.65);
+    opacity: .35;
+  }
+
+  43%, 88% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .35;
+  }
+}
+
+/* PICCOLE LINEE DI IMPATTO */
+
+@keyframes sic-connextus-flag-ripples {
+
+  0%, 31% {
+    opacity: 0;
+  }
+
+  37%, 46% {
+    opacity: 1;
+  }
+
+  56%, 100% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   TITOLO CENTRATO
+========================================================= */
+
+.sic-connextus-install__title {
+  margin: 0 0 38px;
+
+  color: #3F454B;
+
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+
+  text-align: center;
+
+  /* UNA SOLA RIGA SU DESKTOP */
+  white-space: nowrap;
+}
+
+/* =========================================================
+   STRUTTURA A DUE COLONNE
+========================================================= */
+
+.sic-connextus-install__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 55px;
+}
+
+/* =========================================================
+   COLONNA SINISTRA
+
+   PUNTI PIÙ IN ALTO PER LASCIARE
+   SPAZIO AL BOTTONE SOTTOSTANTE
+========================================================= */
+
+.sic-connextus-install__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 32px;
+  min-width: 0;
+
+  align-self: start;
+  padding-top: 12px;
+}
+
+/* =========================================================
+   SINGOLO PUNTO
+========================================================= */
+
+.sic-connextus-install__feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+/* =========================================================
+   ICONE CON SCRITTE AD ARCO
+========================================================= */
+
+.sic-connextus-install__icon-wrap {
+  position: relative;
+  flex: 0 0 95px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 95px;
+  height: 95px;
+}
+
+.sic-connextus-install__round-label {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sic-connextus-install__round-label text {
+  fill: #3D86C6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+}
+
+/* CERCHIO CENTRALE */
+
+.sic-connextus-install__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  background: #EDF6FC;
+  color: #3D86C6;
+
+  border-radius: 50%;
+}
+
+.sic-connextus-install__icon svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================================
+   TESTI
+========================================================= */
+
+.sic-connextus-install__description {
+  margin: 0;
+
+  color: var(--sic-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+/* =========================================================
+   COLONNA DESTRA
+========================================================= */
+
+.sic-connextus-install__visual {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================================
+   CAROSELLO
+========================================================= */
+
+.sic-connextus-install__carousel {
+  position: relative;
+  width: 100%;
+
+  aspect-ratio: 1.72 / 1;
+
+  overflow: hidden;
+  background: #F1F6FA;
+  border-radius: 18px;
+}
+
+.sic-connextus-install__slides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   SINGOLA SLIDE
+========================================================= */
+
+.sic-connextus-install__slide {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .55s ease,
+    visibility .55s ease;
+}
+
+.sic-connextus-install__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================================
+   FOTOGRAFIE
+========================================================= */
+
+.sic-connextus-install__photo {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
+}
+
+.sic-connextus-install__photo:not([src]),
+.sic-connextus-install__photo[src=""] {
+  display: none;
+}
+
+/* =========================================================
+   SEGNAPOSTO DIETRO ALLA FOTO
+========================================================= */
+
+.sic-connextus-install__placeholder {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+  padding: 24px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    #EDF7FD,
+    #D8EAF6
+  );
+
+  color: #3D86C6;
+}
+
+.sic-connextus-install__placeholder svg {
+  width: 52px;
+  height: 52px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sic-connextus-install__placeholder span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   DIDASCALIA SOVRAPPOSTA ALLA FOTOGRAFIA
+========================================================= */
+
+.sic-connextus-install__location {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-height: 47px;
+  padding: 12px 18px;
+
+  background: rgba(255,255,255,.88);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  color: #3F454B;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.sic-connextus-install__location svg {
+  flex: 0 0 16px;
+
+  width: 16px;
+  height: 16px;
+
+  fill: none;
+  stroke: #3D86C6;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================================
+   NAVIGAZIONE - SOLO FRECCE
+========================================================= */
+
+.sic-connextus-install__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.sic-connextus-install__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  padding: 0;
+
+  border: 1px solid #D5E4EF;
+  border-radius: 50%;
+
+  background: #FFFFFF;
+  color: #3D86C6;
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease;
+}
+
+.sic-connextus-install__arrow:hover {
+  background: #3D86C6;
+  border-color: #3D86C6;
+  color: #FFFFFF;
+}
+
+.sic-connextus-install__arrow svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sic-connextus-install__arrow:focus-visible {
+  outline: 2px solid #3D86C6;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .sic-connextus-install {
+    padding: 40px 20px;
+  }
+
+  .sic-connextus-install__title {
+    font-size: clamp(21px, 2.6vw, 28px);
+    margin-bottom: 32px;
+  }
+
+  .sic-connextus-install__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .sic-connextus-install__content {
+    gap: 24px;
+  }
+
+  .sic-connextus-install__icon-wrap {
+    flex-basis: 82px;
+    width: 82px;
+    height: 82px;
+  }
+
+  .sic-connextus-install__icon {
+    width: 51px;
+    height: 51px;
+  }
+
+  .sic-connextus-install__icon svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .sic-connextus-install__description {
+    font-size: 13px;
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .sic-connextus-install {
+    padding: 35px 18px;
+  }
+
+  .sic-connextus-install__flag-animation {
+    height: 78px;
+    margin-bottom: 7px;
+  }
+
+  .sic-connextus-install__flag-animation svg {
+    width: 135px;
+    height: 90px;
+  }
+
+  .sic-connextus-install__title {
+    font-size: 29px;
+    margin-bottom: 28px;
+
+    white-space: normal;
+  }
+
+  .sic-connextus-install__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sic-connextus-install__content {
+    gap: 22px;
+  }
+
+  .sic-connextus-install__feature {
+    gap: 12px;
+  }
+
+  .sic-connextus-install__icon-wrap {
+    flex-basis: 82px;
+    width: 82px;
+    height: 82px;
+  }
+
+  .sic-connextus-install__round-label text {
+    font-size: 12px;
+  }
+
+  .sic-connextus-install__description {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .sic-connextus-install__carousel {
+    aspect-ratio: 1.5 / 1;
+    border-radius: 15px;
+  }
+
+  .sic-connextus-install__location {
+    min-height: 43px;
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+
+}
+
+/* =========================================================
+   SCHERMI PICCOLI
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .sic-connextus-install__title {
+    font-size: 26px;
+  }
+
+  .sic-connextus-install__icon-wrap {
+    flex-basis: 76px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .sic-connextus-install__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .sic-connextus-install__description {
+    font-size: 12px;
+  }
+
+}
+
+/* =========================================================
+   ACCESSIBILITÀ
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sic-connextus-install__slide,
+  .sic-connextus-install__arrow {
+    transition: none;
+  }
+
+  .sic-connextus-install__flag,
+  .sic-connextus-install__flag-shadow,
+  .sic-connextus-install__flag-ripples {
+    animation: none;
+  }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     HTML
+========================================================= -->
+
+<section
+  class="sic-connextus-install"
+  id="connextus-imprese-comuni"
+>
+
+  <div class="sic-connextus-install__container">
+
+    <!-- ======================================
+         BANDIERINA ANIMATA
+         AZZURRO E GIALLO PASTELLO
+    ======================================= -->
+
+    <div
+      class="sic-connextus-install__flag-animation"
+      aria-hidden="true"
+    >
+
+      <svg
+        viewBox="0 0 200 120"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+        <!-- TERRENO AZZURRO CHIARO -->
+
+        <path
+          d="M43 104 H157"
+          fill="none"
+          stroke="#C9E2F2"
+          stroke-width="2.6"
+          stroke-linecap="round"
+        />
+
+        <!-- OMBRA CHIARA -->
+
+        <ellipse
+          class="sic-connextus-install__flag-shadow"
+          cx="100"
+          cy="103"
+          rx="15"
+          ry="4"
+          fill="#E7F3FA"
+        />
+
+        <!-- BANDIERINA ANIMATA -->
+
+        <g class="sic-connextus-install__flag">
+
+          <!-- ASTA GRIGIO-AZZURRA -->
+
+          <rect
+            x="98"
+            y="23"
+            width="4"
+            height="80"
+            rx="2"
+            fill="#8FAFC3"
+          />
+
+          <!-- PUNTA INFERIORE -->
+
+          <path
+            d="M98 101h4l-2 8Z"
+            fill="#8FAFC3"
+          />
+
+          <!-- BANDIERA AZZURRO PASTELLO -->
+
+          <path
+            d="M102 27
+               H148
+               Q153 27 153 32
+               V60
+               Q153 65 148 65
+               H102
+               Z"
+            fill="#83BFE8"
+          />
+
+          <!-- RIFLESSO CHIARO -->
+
+          <path
+            d="M105 31H145"
+            stroke="#C8E6F8"
+            stroke-width="2"
+            stroke-linecap="round"
+            opacity=".8"
+          />
+
+          <!-- SAETTA GIALLO TENUE -->
+
+          <path
+            d="M130 33
+               L122 47
+               H130
+               L126 58
+               L140 42
+               H132
+               L136 33
+               Z"
+            fill="#FFD56A"
+          />
+
+        </g>
+
+        <!-- LINEE DI IMPATTO -->
+
+        <g
+          class="sic-connextus-install__flag-ripples"
+          fill="none"
+          stroke="#83BFE8"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <path d="M83 103H69"/>
+          <path d="M117 103H131"/>
+        </g>
+
+      </svg>
+
+    </div>
+
+
+    <!-- ======================================
+         TITOLO
+    ======================================= -->
+
+    <h2 class="sic-connextus-install__title">
+      Installa uno sportello energia fisico nel tuo territorio
+    </h2>
+
+
+    <div class="sic-connextus-install__grid">
+
+      <!-- ======================================
+           COLONNA SINISTRA
+      ======================================= -->
+
+      <div class="sic-connextus-install__content">
+
+        <!-- ==================================
+             COMUNI
+        =================================== -->
+
+        <div class="sic-connextus-install__feature">
+
+          <div class="sic-connextus-install__icon-wrap">
+
+            <svg
+              class="sic-connextus-install__round-label"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-cn-install-path-comuni"
+                  d="M 12,50 A 38,38 0 0,1 88,50"
+                />
+              </defs>
+
+              <text>
+                <textPath
+                  href="#sic-cn-install-path-comuni"
+                  startOffset="50%"
+                  text-anchor="middle"
+                >
+                  COMUNI
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- ICONA COMUNE -->
+
+            <div class="sic-connextus-install__icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 10h18"/>
+                <path d="M5 10V20"/>
+                <path d="M10 10V20"/>
+                <path d="M14 10V20"/>
+                <path d="M19 10V20"/>
+                <path d="M2 20h20"/>
+                <path d="M12 3 2 8h20L12 3Z"/>
+              </svg>
+
+            </div>
+
+          </div>
+
+          <p class="sic-connextus-install__description">
+            Porta Connextus nel tuo Comune e rendi
+            visibile l'energia condivisa
+            alla comunità. Coinvolgi i cittadini,
+            promuovi la consapevolezza energetica
+            e rafforza la governance del territorio.
+          </p>
+
+        </div>
+
+
+        <!-- ==================================
+             IMPRESE
+        =================================== -->
+
+        <div class="sic-connextus-install__feature">
+
+          <div class="sic-connextus-install__icon-wrap">
+
+            <svg
+              class="sic-connextus-install__round-label"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="sic-cn-install-path-imprese"
+                  d="M 12,50 A 38,38 0 0,1 88,50"
+                />
+              </defs>
+
+              <text>
+                <textPath
+                  href="#sic-cn-install-path-imprese"
+                  startOffset="50%"
+                  text-anchor="middle"
+                >
+                  IMPRESE
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- ICONA IMPRESA -->
+
+            <div class="sic-connextus-install__icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="14" rx="1"/>
+                <path d="M7 7V3h10v4"/>
+                <path d="M8 11h2"/>
+                <path d="M14 11h2"/>
+                <path d="M8 15h2"/>
+                <path d="M14 15h2"/>
+                <path d="M10 21v-3h4v3"/>
+              </svg>
+
+            </div>
+
+          </div>
+
+          <p class="sic-connextus-install__description">
+            Installa Connextus nella tua impresa
+            e coinvolgi dipendenti e collaboratori
+            nell'ecosistema Comunità Solare per condividere energia.
+            Promuovi il welfare aziendale
+            e rendi tangibile il tuo contributo
+            alla transizione energetica.
+          </p>
+
+        </div>
+
+
+        <!-- ======================================
+             SPAZIO PER IL TUO BOTTONE
+
+             INSERISCI QUI IL BOTTONE CONTATTACI
+             DIRETTAMENTE DAL SITO
+        ======================================= -->
+
+      </div>
+
+
+      <!-- ======================================
+           COLONNA DESTRA - CAROSELLO
+      ======================================= -->
+
+      <div class="sic-connextus-install__visual">
+
+        <div
+          class="sic-connextus-install__carousel"
+          aria-roledescription="carosello"
+          aria-label="Installazioni dello Sportello Energia Connextus"
+        >
+
+          <div class="sic-connextus-install__slides">
+
+            <!-- ==================================
+                 INSTALLAZIONE 1 - FISCIANO
+            =================================== -->
+
+            <div
+              class="sic-connextus-install__slide is-active"
+              aria-hidden="false"
+            >
+
+              <div class="sic-connextus-install__placeholder">
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="12" y="9" width="40" height="46" rx="4"/>
+                  <rect x="19" y="16" width="26" height="23" rx="2"/>
+                  <path d="M23 45h18"/>
+                </svg>
+
+                <span>Inserisci fotografia 01</span>
+
+              </div>
+
+              <!-- FOTO 1: LINK GIÀ INSERITO -->
+
+              <img
+                class="sic-connextus-install__photo"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/fisciano-connextus-P0b7yF17d2mSd9bJ.JPG"
+                alt="Installazione Connextus 1"
+                loading="lazy"
+              >
+
+              <!-- DIDASCALIA SOPRA LA FOTO -->
+
+              <div class="sic-connextus-install__location">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+
+                <span>Sportello Energia Fisciano (SA)</span>
+
+              </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 INSTALLAZIONE 2
+            =================================== -->
+
+            <div
+              class="sic-connextus-install__slide"
+              aria-hidden="true"
+            >
+
+              <div class="sic-connextus-install__placeholder">
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="12" y="9" width="40" height="46" rx="4"/>
+                  <rect x="19" y="16" width="26" height="23" rx="2"/>
+                  <path d="M23 45h18"/>
+                </svg>
+
+                <span>Inserisci fotografia 02</span>
+
+              </div>
+
+              <!-- FOTO 2: INCOLLA IL LINK -->
+
+              <img
+                class="sic-connextus-install__photo"
+                src=""
+                alt="Installazione Connextus 2"
+                loading="lazy"
+              >
+
+              <div class="sic-connextus-install__location">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+
+                <span>Nome installazione 02</span>
+
+              </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 INSTALLAZIONE 3
+            =================================== -->
+
+            <div
+              class="sic-connextus-install__slide"
+              aria-hidden="true"
+            >
+
+              <div class="sic-connextus-install__placeholder">
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="12" y="9" width="40" height="46" rx="4"/>
+                  <rect x="19" y="16" width="26" height="23" rx="2"/>
+                  <path d="M23 45h18"/>
+                </svg>
+
+                <span>Inserisci fotografia 03</span>
+
+              </div>
+
+              <!-- FOTO 3: INCOLLA IL LINK -->
+
+              <img
+                class="sic-connextus-install__photo"
+                src=""
+                alt="Installazione Connextus 3"
+                loading="lazy"
+              >
+
+              <div class="sic-connextus-install__location">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+
+                <span>Nome installazione 03</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ======================================
+             SOLO FRECCE DI NAVIGAZIONE
+        ======================================= -->
+
+        <div class="sic-connextus-install__controls">
+
+          <!-- FRECCIA SINISTRA -->
+
+          <button
+            class="sic-connextus-install__arrow sic-connextus-install__prev"
+            type="button"
+            aria-label="Fotografia precedente"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 12H5"/>
+              <path d="m11 18-6-6 6-6"/>
+            </svg>
+          </button>
+
+          <!-- FRECCIA DESTRA -->
+
+          <button
+            class="sic-connextus-install__arrow sic-connextus-install__next"
+            type="button"
+            aria-label="Fotografia successiva"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m13 6 6 6-6 6"/>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT CAROSELLO
+
+     - Navigazione con frecce
+     - Nessun pallino
+     - Nessun cambio automatico
+     - Dissolvenza tra le fotografie
+========================================================= -->
+
+<script>
+(function () {
+
+  document.querySelectorAll(
+    ".sic-connextus-install"
+  ).forEach(function (section) {
+
+    if (section.dataset.carouselReady === "true") {
+      return;
+    }
+
+    var slides = Array.from(
+      section.querySelectorAll(
+        ".sic-connextus-install__slide"
+      )
+    );
+
+    var previous = section.querySelector(
+      ".sic-connextus-install__prev"
+    );
+
+    var next = section.querySelector(
+      ".sic-connextus-install__next"
+    );
+
+    if (!slides.length) return;
+
+    section.dataset.carouselReady = "true";
+
+    var current = 0;
+
+    function showSlide(index) {
+
+      current = (
+        index + slides.length
+      ) % slides.length;
+
+      slides.forEach(function (slide, i) {
+
+        var active = i === current;
+
+        slide.classList.toggle(
+          "is-active",
+          active
+        );
+
+        slide.setAttribute(
+          "aria-hidden",
+          String(!active)
+        );
+
+      });
+
+    }
+
+    if (previous) {
+      previous.addEventListener(
+        "click",
+        function () {
+          showSlide(current - 1);
+        }
+      );
+    }
+
+    if (next) {
+      next.addEventListener(
+        "click",
+        function () {
+          showSlide(current + 1);
+        }
+      );
+    }
+
+    showSlide(0);
+
+  });
+
+})();
+</script>
