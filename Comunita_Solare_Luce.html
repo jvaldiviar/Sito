@@ -1,0 +1,294 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.connextus-mini,
+.connextus-mini * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ==================================================
+   MINI BOX
+================================================== */
+
+.connextus-mini {
+    width: min(820px, 90%);
+    margin: 0 auto;
+
+    min-height: 76px;
+
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(61, 134, 198, 0.14);
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 14px rgba(40, 80, 110, 0.05);
+}
+
+
+/* ==================================================
+   LOGO CONNEXTUS
+================================================== */
+
+.connextus-mini__brand {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+.connextus-mini__logo {
+    display: block;
+
+    width: 150px;
+    height: auto;
+
+    max-height: 48px;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   SEPARATORE
+================================================== */
+
+.connextus-mini__divider {
+    width: 1px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    background: rgba(61, 134, 198, 0.18);
+}
+
+
+/* ==================================================
+   TESTO
+================================================== */
+
+.connextus-mini__text {
+    margin: 0;
+
+    color: #3d86c6;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   STORE
+================================================== */
+
+.connextus-mini__stores {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+}
+
+
+.connextus-mini__store-link {
+    display: block;
+
+    line-height: 0;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+
+.connextus-mini__store-link:hover {
+    transform: translateY(-2px);
+
+    opacity: .88;
+}
+
+
+.connextus-mini__badge {
+    display: block;
+
+    width: auto;
+    height: 40px;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 850px) {
+
+    .connextus-mini {
+        width: min(720px, 92%);
+
+        gap: 18px;
+
+        padding: 10px 16px;
+    }
+
+
+    .connextus-mini__logo {
+        width: 135px;
+    }
+
+
+    .connextus-mini__badge {
+        height: 36px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .connextus-mini {
+        width: 90%;
+        min-height: auto;
+
+        margin: 0 auto;
+
+        padding: 16px;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .connextus-mini__logo {
+        width: 145px;
+    }
+
+
+    .connextus-mini__divider {
+        display: none;
+    }
+
+
+    .connextus-mini__text {
+        font-size: 13px;
+
+        white-space: normal;
+
+        text-align: center;
+    }
+
+
+    .connextus-mini__stores {
+        gap: 8px;
+    }
+
+
+    .connextus-mini__badge {
+        height: 37px;
+    }
+
+}
+
+</style>
+
+
+<div class="connextus-mini">
+
+
+    <!-- ==================================================
+         LOGO CONNEXTUS
+    =================================================== -->
+
+    <div class="connextus-mini__brand">
+
+        <img
+            class="connextus-mini__logo"
+            src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/connextus-msCRCUcJEeLxEj1u.png"
+            alt="Connextus"
+        >
+
+    </div>
+
+
+    <!-- SEPARATORE -->
+
+    <div class="connextus-mini__divider"></div>
+
+
+    <!-- TESTO -->
+
+    <p class="connextus-mini__text">
+        Scarica l'app
+    </p>
+
+
+    <!-- ==================================================
+         STORE
+    =================================================== -->
+
+    <div class="connextus-mini__stores">
+
+
+        <!-- APP STORE -->
+
+        <a
+            class="connextus-mini__store-link"
+            href="INSERISCI-LINK-APP-STORE"
+            target="_blank"
+            rel="noopener"
+            aria-label="Scarica Connextus su App Store"
+        >
+
+            <img
+                class="connextus-mini__badge"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/app-store-BW6fpCUjDJKkiyZ3.png"
+                alt="Disponibile su App Store"
+            >
+
+        </a>
+
+
+        <!-- GOOGLE PLAY -->
+
+        <a
+            class="connextus-mini__store-link"
+            href="INSERISCI-LINK-GOOGLE-PLAY"
+            target="_blank"
+            rel="noopener"
+            aria-label="Scarica Connextus su Google Play"
+        >
+
+            <img
+                class="connextus-mini__badge"
+                src="https://assets.zyrosite.com/KAOL3lZnFqGTdVeo/play-store-KKzbjxGW1KrDYBnK.png"
+                alt="Disponibile su Google Play"
+            >
+
+        </a>
+
+
+    </div>
+
+</div>
